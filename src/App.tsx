@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   BookOpen,
   Check,
   ChevronDown,
+  Circle,
   CircleHelp,
   Clock3,
   Code2,
@@ -900,15 +902,157 @@ function Variable({ label, value, color }: { label: string; value: string | numb
 
 function GenericStage({ activeStep }: { activeStep: AnimationStep }) {
   const variables = Object.entries(activeStep.customVariables ?? {})
-  return <div className={`generic-stage ${activeStep.visualKind ?? ''}`}>
-    <div className="array-label-row"><span>{activeStep.visualHeading ?? 'Algorithm state'}</span><span className="target-chip">{activeStep.visualCaption ?? 'working memory'}</span></div>
-    {activeStep.visualRows && <div className={`visual-rows ${activeStep.visualKind === 'sudoku' ? 'sudoku-grid' : ''}`}>{activeStep.visualRows.map((row) => <div className="visual-row" key={row.label}><span className="visual-row-label">{row.label}</span><div className="generic-items">{row.items.map((item, index) => <motion.div layout key={`${row.label}-${index}`} className={`generic-cell ${activeStep.activeIndex === index ? 'active' : ''} ${activeStep.found && activeStep.activeIndex === index ? 'answer' : ''}`}><span>{item}</span></motion.div>)}</div></div>)}</div>}
-    {activeStep.visualItems && <div className="generic-items">{activeStep.visualItems.map((item, index) => <motion.div layout key={`${item}-${index}`} className={`generic-cell ${activeStep.activeIndex === index ? 'active' : ''} ${activeStep.found && activeStep.activeIndex === index ? 'answer' : ''}`}><small>{index}</small><span>{item}</span></motion.div>)}</div>}
-    {activeStep.visualGroups && <div className="generic-groups">{activeStep.visualGroups.map((group) => <motion.div layout className={`generic-group ${group.tone ?? ''}`} key={group.label}><span>{group.label}</span><ArrowRight size={12} /><strong>{group.value}</strong></motion.div>)}</div>}
-    <div className="generic-operation operation-card"><div className="operation-top"><span className="operation-label">Current operation</span><span className={`operation-state ${activeStep.found ? 'found' : ''}`}>{activeStep.found ? 'Result found' : activeStep.label}</span></div><div className="operation-equation"><span className="operation-placeholder">{activeStep.detail || activeStep.resultText}</span></div><p>{activeStep.description}</p></div>
-    {!activeStep.visualGroups && Object.keys(activeStep.map).length > 0 && <div className="map-card"><div className="map-heading"><span><Hash size={14} /> Working map</span><small>{Object.keys(activeStep.map).length} entries</small></div><div className="map-values">{Object.entries(activeStep.map).map(([key, value]) => <motion.div layout className="map-entry" key={key}><span>{key}</span><ArrowRight size={12} /><span className="map-index">{value}</span></motion.div>)}</div></div>}
-    {variables.length > 0 && <div className="variables-card"><div className="variables-heading"><span>Live variables</span><span className="sync-label"><span /> synced to line {activeStep.currentLine + 1}</span></div><div className="variables-grid generic-variable-grid">{variables.map(([label, value], index) => <Variable key={label} label={label} value={value} color={['purple', 'yellow', 'green', 'blue'][index % 4]} />)}</div></div>}
-  </div>
+  const flowIndex = activeStep.found ? 3 : Object.keys(activeStep.map).length > 0 ? 2 : activeStep.activeIndex !== null ? 1 : 0
+
+  return (
+    <div className={`generic-stage ${activeStep.visualKind ?? ''}`}>
+      <div className="array-label-row">
+        <span>{activeStep.visualHeading ?? 'Algorithm state'}</span>
+        <span className="target-chip">{activeStep.visualCaption ?? 'working memory'}</span>
+      </div>
+
+      {/* Program Execution Flow Pipeline with Glowing Arrows */}
+      <div className="flow-pipeline-container">
+        <div className={`flow-step-box ${flowIndex === 0 ? 'active' : ''}`}>
+          <Circle size={8} fill={flowIndex === 0 ? '#ff2d55' : 'transparent'} />
+          <span>1. READ INPUT</span>
+        </div>
+        <ArrowRight size={12} className="flow-arrow-icon" />
+        <div className={`flow-step-box ${flowIndex === 1 ? 'active' : ''}`}>
+          <Circle size={8} fill={flowIndex === 1 ? '#ff2d55' : 'transparent'} />
+          <span>2. PATTERN SCAN</span>
+        </div>
+        <ArrowRight size={12} className="flow-arrow-icon" />
+        <div className={`flow-step-box ${flowIndex === 2 ? 'active' : ''}`}>
+          <Circle size={8} fill={flowIndex === 2 ? '#ff2d55' : 'transparent'} />
+          <span>3. MEMORY STATE</span>
+        </div>
+        <ArrowRight size={12} className="flow-arrow-icon" />
+        <div className={`flow-step-box ${flowIndex === 3 ? 'active' : ''}`}>
+          <Sparkles size={10} />
+          <span>4. RETURN RESULT</span>
+        </div>
+      </div>
+
+      {/* Visual Rows */}
+      {activeStep.visualRows && (
+        <div className={`visual-rows ${activeStep.visualKind === 'sudoku' ? 'sudoku-grid' : ''}`}>
+          {activeStep.visualRows.map((row) => (
+            <div className="visual-row" key={row.label}>
+              <span className="visual-row-label">{row.label}</span>
+              <div className="generic-items">
+                {row.items.map((item, index) => (
+                  <motion.div
+                    layout
+                    key={`${row.label}-${index}`}
+                    className={`generic-cell ${activeStep.activeIndex === index ? 'active' : ''} ${activeStep.found && activeStep.activeIndex === index ? 'answer' : ''}`}
+                  >
+                    <span>{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Visual Array Items with Colorful Pointers & Directional Arrows */}
+      {activeStep.visualItems && (
+        <div className="generic-items">
+          {activeStep.visualItems.map((item, index) => {
+            const isActive = activeStep.activeIndex === index
+            const isAnswer = activeStep.answer?.includes(index) || (activeStep.found && isActive)
+            const pointerColor = isAnswer ? 'red' : index === 0 ? 'cyan' : index === activeStep.visualItems!.length - 1 ? 'purple' : 'yellow'
+            const pointerLabel = isAnswer ? 'MATCH' : index === 0 ? 'LEFT' : index === activeStep.visualItems!.length - 1 ? 'RIGHT' : 'PTR'
+
+            return (
+              <motion.div
+                layout
+                key={`${item}-${index}`}
+                className={`generic-cell ${isActive ? 'active' : ''} ${isAnswer ? 'answer' : ''}`}
+                animate={isAnswer ? { scale: [1, 1.08, 1] } : { scale: 1 }}
+                transition={{ duration: 0.35 }}
+              >
+                <small>{index}</small>
+                <span>{item}</span>
+                {isActive && (
+                  <motion.span
+                    className={`pointer-tag ${pointerColor}`}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    <ArrowDown size={9} />
+                    {pointerLabel}
+                  </motion.span>
+                )}
+              </motion.div>
+            )
+          })}
+        </div>
+      )}
+
+      {/* Visual Groups / Buckets */}
+      {activeStep.visualGroups && (
+        <div className="generic-groups">
+          {activeStep.visualGroups.map((group) => (
+            <motion.div layout className={`generic-group ${group.tone ?? ''}`} key={group.label}>
+              <span>{group.label}</span>
+              <ArrowRight size={12} className="flow-arrow-icon" />
+              <strong>{group.value}</strong>
+            </motion.div>
+          ))}
+        </div>
+      )}
+
+      {/* Current Operation Card */}
+      <div className="generic-operation operation-card">
+        <div className="operation-top">
+          <span className="operation-label">Current operation</span>
+          <span className={`operation-state ${activeStep.found ? 'found' : ''}`}>
+            {activeStep.found ? 'Result found' : activeStep.label}
+          </span>
+        </div>
+        <div className="operation-equation">
+          <span className="operation-placeholder">{activeStep.detail || activeStep.resultText}</span>
+        </div>
+        <p>{activeStep.description}</p>
+      </div>
+
+      {/* Working Map with Flow Arrows */}
+      {!activeStep.visualGroups && Object.keys(activeStep.map).length > 0 && (
+        <div className="map-card">
+          <div className="map-heading">
+            <span><Hash size={14} /> Working map / state</span>
+            <small>{Object.keys(activeStep.map).length} entries</small>
+          </div>
+          <div className="map-values">
+            {Object.entries(activeStep.map).map(([key, value]) => (
+              <motion.div layout className="map-entry" key={key}>
+                <span>{key}</span>
+                <ArrowRight size={12} className="flow-arrow-icon" />
+                <span className="map-index">{value}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Live Synced Variables */}
+      {variables.length > 0 && (
+        <div className="variables-card">
+          <div className="variables-heading">
+            <span>Live variables</span>
+            <span className="sync-label"><span /> synced to line {activeStep.currentLine + 1}</span>
+          </div>
+          <div className="variables-grid generic-variable-grid">
+            {variables.map(([label, value], index) => (
+              <Variable key={label} label={label} value={value} color={['purple', 'yellow', 'green', 'blue'][index % 4]} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
 }
 
 function ProblemRow({ problem, active, onSelect }: { problem: Problem; active: boolean; onSelect: (number: number) => void }) {

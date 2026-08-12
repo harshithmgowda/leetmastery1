@@ -17,22 +17,25 @@ button, a { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 
 .app {
-  --bg: #101418;
-  --surface: #161b20;
-  --surface-raised: #1b2127;
-  --surface-soft: #20272e;
-  --border: #2b333b;
-  --border-light: #34404a;
-  --text: #eef0f2;
-  --muted: #94a0aa;
-  --subtle: #68747e;
-  --accent: #c6f36b;
-  --accent-deep: #a5d94c;
-  --accent-ink: #13200c;
-  --purple: #bd9aff;
-  --blue: #8bc7ff;
-  --yellow: #f4c76b;
-  --green: #99e39c;
+  --bg: #090a0d;
+  --surface: #111319;
+  --surface-raised: #171a22;
+  --surface-soft: #1f232e;
+  --border: #282d3b;
+  --border-light: #383f52;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --subtle: #6b7280;
+  --accent: #ff2d55;
+  --accent-deep: #e11d48;
+  --accent-ink: #ffffff;
+  --red-glow: rgba(255, 45, 85, 0.35);
+  --cyan: #00f0ff;
+  --purple: #c084fc;
+  --blue: #60a5fa;
+  --yellow: #facc15;
+  --green: #4ade80;
+  --crimson: #ff2d55;
   min-height: 100vh;
   color: var(--text);
   background: var(--bg);
@@ -381,39 +384,86 @@ body { overflow: auto; }
 .problem-item { text-decoration: none; }
 
 .generic-stage { padding: 13px 0 0; }
-.generic-items { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.generic-items { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; margin-bottom: 24px; }
 .generic-cell {
-  min-width: 48px;
-  min-height: 48px;
+  min-width: 52px;
+  min-height: 52px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 9px;
   color: var(--text);
   background: var(--surface-raised);
-  font: 13px/1 'DM Mono', monospace;
+  font: 14px/1 'DM Mono', monospace;
   transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-.generic-cell small { position: absolute; top: 5px; left: 6px; color: var(--subtle); font-size: 8px; }
+.generic-cell small { position: absolute; top: 5px; left: 7px; color: var(--subtle); font-size: 8px; }
 .generic-cell.active {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: rgba(198, 243, 107, 0.12);
-  box-shadow: 0 0 16px rgba(198, 243, 107, 0.25);
-  transform: translateY(-2px);
+  color: #ff2d55;
+  border-color: #ff2d55;
+  background: rgba(255, 45, 85, 0.16);
+  box-shadow: 0 0 20px rgba(255, 45, 85, 0.35);
+  transform: translateY(-3px);
 }
 .generic-cell.answer {
-  color: var(--accent-ink);
-  background: var(--accent);
-  border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(198, 243, 107, 0.4);
+  color: #ffffff;
+  background: #ff2d55;
+  border-color: #ff2d55;
+  box-shadow: 0 0 26px rgba(255, 45, 85, 0.55);
   font-weight: 700;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
-.generic-operation { margin-top: 12px; }
+
+.pointer-tag {
+  position: absolute;
+  bottom: -26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 7px;
+  border-radius: 6px;
+  font: 9px/1 'DM Mono', monospace;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  text-transform: uppercase;
+}
+.pointer-tag.cyan { color: #00f0ff; background: rgba(0, 240, 255, 0.18); border: 1px solid rgba(0, 240, 255, 0.5); }
+.pointer-tag.purple { color: #c084fc; background: rgba(192, 132, 252, 0.18); border: 1px solid rgba(192, 132, 252, 0.5); }
+.pointer-tag.yellow { color: #facc15; background: rgba(250, 204, 21, 0.18); border: 1px solid rgba(250, 204, 21, 0.5); }
+.pointer-tag.red { color: #ff2d55; background: rgba(255, 45, 85, 0.18); border: 1px solid rgba(255, 45, 85, 0.5); }
+
+.flow-pipeline-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 12px 0 10px;
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 45, 85, 0.25);
+  border-radius: 9px;
+  background: rgba(255, 45, 85, 0.05);
+}
+.flow-step-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--subtle);
+  font: 10px 'DM Mono', monospace;
+}
+.flow-step-box.active {
+  color: #ff2d55;
+  font-weight: 700;
+}
+.flow-arrow-icon {
+  color: #ff2d55;
+  opacity: 0.85;
+}
+
+.generic-operation { margin-top: 14px; }
 .generic-groups { display: grid; gap: 8px; margin-top: 10px; }
 .generic-group {
   display: flex;

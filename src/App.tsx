@@ -676,11 +676,6 @@ function App() {
   const [toast, setToast] = useState('')
   const [selectedProblemNumber, setSelectedProblemNumber] = useState(1)
   const [copied, setCopied] = useState(false)
-<<<<<<< HEAD
-
-  const currentLesson = lessonLibrary[selectedProblemNumber] ?? lessonLibrary[1]
-
-=======
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({})
 
   const currentLesson = lessonLibrary[selectedProblemNumber] ?? lessonLibrary[1]
@@ -695,8 +690,6 @@ function App() {
   const toggleCategory = (cat: string) => {
     setExpandedCategories((prev) => ({ ...prev, [cat]: !prev[cat] }))
   }
-
->>>>>>> 8153961 (feat: complete LeetCode solutions, interactive algorithm visualizer lab, and elegant UI)
   const copySolution = () => {
     const codeLines = codeMode === 'optimized' ? currentLesson.optimizedCode : currentLesson.bruteCode
     navigator.clipboard.writeText(codeLines.join('\n'))
@@ -776,10 +769,6 @@ function App() {
           <button className="icon-button quiet" aria-label="Toggle theme" onClick={() => setTheme((current) => current === 'dark' ? 'light' : 'dark')}>
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-<<<<<<< HEAD
-          <div className="avatar">HM</div>
-=======
->>>>>>> 8153961 (feat: complete LeetCode solutions, interactive algorithm visualizer lab, and elegant UI)
         </div>
       </header>
 
@@ -797,9 +786,6 @@ function App() {
           </div>
           <div className="topic-select-wrap"><Filter size={13} /><select aria-label="Filter by topic" value={topic} onChange={(event) => setTopic(event.target.value)}><option>All topics</option><option>Arrays</option><option>Hashing</option><option>Strings</option><option>Two Pointer</option><option>Sliding Window</option><option>Binary Search</option><option>Stack</option><option>Linked List</option><option>Trees</option><option>Graphs</option></select><ChevronDown size={14} /></div>
           <div className="library-list">
-<<<<<<< HEAD
-            {groupedProblems.map(([category, categoryProblems]) => <div className="library-section" key={category}><div className="list-label">{category} <span>{categoryProblems.length} lessons</span></div>{categoryProblems.map((problem) => <ProblemRow key={problem.number} problem={problem} active={selectedProblemNumber === problem.number} onSelect={selectProblem} />)}</div>)}
-=======
             {groupedProblems.map(([category, categoryProblems]) => {
               const isOpen = query.trim() !== '' || expandedCategories[category]
               return (
@@ -821,7 +807,6 @@ function App() {
                 </div>
               )
             })}
->>>>>>> 8153961 (feat: complete LeetCode solutions, interactive algorithm visualizer lab, and elegant UI)
             {!filteredProblems.length && <div className="empty-list">No matching lessons yet.</div>}
           </div>
           <div className="sidebar-footer">

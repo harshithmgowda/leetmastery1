@@ -767,6 +767,7 @@ function App() {
           </div>
         </div>
         <div className="topbar-actions">
+          <CodingPet isPlaying={isPlaying} />
           <button className="icon-button quiet" aria-label="Help" onClick={() => setToast('Tip: use the step controls to watch every lookup.') }><CircleHelp size={18} /></button>
           <button className="icon-button quiet" aria-label="Toggle theme" onClick={() => setTheme((current) => current === 'dark' ? 'light' : 'dark')}>
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
@@ -892,6 +893,64 @@ function App() {
         </main>
       </div>
       <AnimatePresence>{toast && <motion.div className="toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}><Sparkles size={14} />{toast}<button onClick={() => setToast('')}><X size={13} /></button></motion.div>}</AnimatePresence>
+    </div>
+  )
+}
+
+function CodingPet({ isPlaying }: { isPlaying: boolean }) {
+  const [petMood, setPetMood] = useState<'idle' | 'happy' | 'coding'>('idle')
+  const [petMessage, setPetMessage] = useState('')
+
+  useEffect(() => {
+    if (isPlaying) setPetMood('coding')
+    else setPetMood('idle')
+  }, [isPlaying])
+
+  const handleClick = () => {
+    setPetMood('happy')
+    const quotes = [
+      'Byte says: You got this! 🚀',
+      'Byte says: O(n) time is life! ⚡',
+      'Byte says: Keep grinding LeetCode! 💻',
+      'Byte says: Ready to AC! ✨',
+      'Byte says: Pattern recognized! 🧠',
+    ]
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+    setPetMessage(randomQuote)
+    setTimeout(() => {
+      setPetMessage('')
+      setPetMood('idle')
+    }, 2800)
+  }
+
+  return (
+    <div className="coding-pet-container" onClick={handleClick} title="Click your Coding Pet!">
+      <motion.div
+        className="coding-pet-avatar"
+        animate={petMood === 'coding' ? { y: [0, -3, 0], rotate: [-2, 2, -2] } : { y: [0, -2, 0] }}
+        transition={{ repeat: Infinity, duration: petMood === 'coding' ? 0.6 : 2.5 }}
+      >
+        <span className="pet-face">
+          {petMood === 'happy' ? '(◕‿◕✿)' : petMood === 'coding' ? '(⚡_⚡)' : '(•‿•)'}
+        </span>
+        <span className="pet-status-dot" />
+      </motion.div>
+      <div className="pet-tag">
+        <TerminalSquare size={11} />
+        <span>BYTE</span>
+      </div>
+      <AnimatePresence>
+        {petMessage && (
+          <motion.div
+            className="pet-speech-bubble"
+            initial={{ opacity: 0, y: 8, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 4, scale: 0.9 }}
+          >
+            <span>{petMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

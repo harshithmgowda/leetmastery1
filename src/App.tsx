@@ -826,8 +826,9 @@ function App() {
               <div className="eyebrow"><span className="status-dot" /> Lesson {String(allProblems.findIndex((problem) => problem.number === currentLesson.number) + 1).padStart(2, '0')} <span className="eyebrow-divider" /> {currentLesson.minutes} min read</div>
               <h1>{currentLesson.title}</h1>
               <p className="intro-copy">{currentLesson.introCopy}</p>
+              <a className="leetcode-link" href={currentLesson.url} target="_blank" rel="noreferrer" style={{ marginTop: '12px', display: 'inline-flex' }}>Open on LeetCode <ExternalLink size={14} /></a>
             </div>
-            <a className="leetcode-link" href={currentLesson.url} target="_blank" rel="noreferrer">Open on LeetCode <ExternalLink size={14} /></a>
+            <BigMascotPet isPlaying={isPlaying} />
           </section>
 
           <section className="problem-summary panel">
@@ -893,6 +894,50 @@ function App() {
         </main>
       </div>
       <AnimatePresence>{toast && <motion.div className="toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}><Sparkles size={14} />{toast}<button onClick={() => setToast('')}><X size={13} /></button></motion.div>}</AnimatePresence>
+    </div>
+  )
+}
+
+function BigMascotPet({ isPlaying }: { isPlaying: boolean }) {
+  const [speech, setSpeech] = useState('')
+
+  const handleMascotClick = () => {
+    const quotes = [
+      'Byte says: Pattern recognized! 🧠',
+      'Byte says: O(n) lookup active! ⚡',
+      'Byte says: Let\'s conquer LeetCode! 🚀',
+      'Byte says: 100% Accepted code ready! ✨',
+      'Byte says: Smooth algorithms ahead! 💻',
+    ]
+    const random = quotes[Math.floor(Math.random() * quotes.length)]
+    setSpeech(random)
+    setTimeout(() => setSpeech(''), 3000)
+  }
+
+  return (
+    <div className="big-mascot-container" onClick={handleMascotClick} title="Byte - Your Coding Pet!">
+      <motion.div
+        className="big-mascot-wrapper"
+        animate={isPlaying ? { y: [0, -8, 0], scale: [1, 1.05, 1] } : { y: [0, -5, 0] }}
+        transition={{ repeat: Infinity, duration: isPlaying ? 0.7 : 3.2, ease: 'easeInOut' }}
+      >
+        <img src="/mascot.jpg" alt="Byte Mascot" className="big-mascot-image" />
+        <div className="mascot-screen-overlay">
+          <span>{isPlaying ? '>_ RUNNING' : '>_ READY'}</span>
+        </div>
+      </motion.div>
+      <AnimatePresence>
+        {speech && (
+          <motion.div
+            className="big-mascot-speech"
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 6, scale: 0.9 }}
+          >
+            <span>{speech}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

@@ -281,7 +281,27 @@ const allProblemsSeed: Problem[] = [
   { number: 190, title: 'Reverse Bits', difficulty: 'Easy', topics: ['Bit Manipulation'], pattern: '32-bit shift and assemble', url: 'https://leetcode.com/problems/reverse-bits/', category: 'Bit Manipulation' },
   { number: 268, title: 'Missing Number', difficulty: 'Easy', topics: ['Bit Manipulation'], pattern: 'XOR index vs value', url: 'https://leetcode.com/problems/missing-number/', category: 'Bit Manipulation' },
   { number: 371, title: 'Sum of Two Integers', difficulty: 'Medium', topics: ['Bit Manipulation'], pattern: 'Bitwise XOR & Carry shift', url: 'https://leetcode.com/problems/sum-of-two-integers/', category: 'Bit Manipulation' },
-  { number: 7, title: 'Reverse Integer', difficulty: 'Medium', topics: ['Bit Manipulation', 'Math'], pattern: 'Modulo pop and overflow check', url: 'https://leetcode.com/problems/reverse-integer/', category: 'Bit Manipulation' },
+]
+
+const TOPICS_LIST = [
+  'All topics',
+  'Arrays',
+  'Hashing',
+  'Two Pointers',
+  'Sliding Window',
+  'Stack',
+  'Binary Search',
+  'Linked List',
+  'Trees',
+  'Trie',
+  'Heap',
+  'Backtracking',
+  'Graphs',
+  'Dynamic Programming',
+  'Greedy',
+  'Intervals',
+  'Bit Manipulation',
+  'Math',
 ]
 
 function App() {
@@ -289,6 +309,7 @@ function App() {
   const [query, setQuery] = useState('')
   const [difficulty, setDifficulty] = useState<Difficulty | 'All'>('All')
   const [topic, setTopic] = useState('All topics')
+  const [isTopicDropdownOpen, setIsTopicDropdownOpen] = useState(false)
   const [selectedProblemNumber, setSelectedProblemNumber] = useState(1)
   const [approachMode, setApproachMode] = useState<'optimal' | 'brute' | 'alternative'>('optimal')
   const [language, setLanguage] = useState<Language>('python')
@@ -546,29 +567,45 @@ ${code}`
             ))}
           </div>
 
-          {/* Topic Selector */}
-          <div className="topic-select-wrap">
-            <Filter size={12} />
-            <select aria-label="Filter by topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
-              <option>All topics</option>
-              <option>Arrays</option>
-              <option>Hashing</option>
-              <option>Two Pointers</option>
-              <option>Sliding Window</option>
-              <option>Stack</option>
-              <option>Binary Search</option>
-              <option>Linked List</option>
-              <option>Trees</option>
-              <option>Trie</option>
-              <option>Heap</option>
-              <option>Backtracking</option>
-              <option>Graphs</option>
-              <option>Dynamic Programming</option>
-              <option>Greedy</option>
-              <option>Intervals</option>
-              <option>Bit Manipulation</option>
-            </select>
-            <ChevronDown size={13} />
+          {/* Custom Topic Selector Dropdown */}
+          <div className="custom-topic-dropdown-container">
+            <button
+              type="button"
+              className={`topic-dropdown-trigger ${isTopicDropdownOpen ? 'open' : ''}`}
+              onClick={() => setIsTopicDropdownOpen((prev) => !prev)}
+              aria-expanded={isTopicDropdownOpen}
+              aria-label="Filter problems by topic"
+            >
+              <div className="trigger-left">
+                <Filter size={12} className="filter-icon" />
+                <span className="selected-topic-text">{topic}</span>
+              </div>
+              <ChevronDown size={13} className={`trigger-chevron ${isTopicDropdownOpen ? 'open' : ''}`} />
+            </button>
+
+            {isTopicDropdownOpen && (
+              <>
+                <div className="dropdown-backdrop" onClick={() => setIsTopicDropdownOpen(false)} />
+                <div className="topic-dropdown-menu" role="listbox">
+                  {TOPICS_LIST.map((t) => (
+                    <button
+                      key={t}
+                      type="button"
+                      className={`topic-option ${topic === t ? 'selected' : ''}`}
+                      onClick={() => {
+                        setTopic(t)
+                        setIsTopicDropdownOpen(false)
+                      }}
+                      role="option"
+                      aria-selected={topic === t}
+                    >
+                      <span>{t}</span>
+                      {topic === t && <Check size={12} className="option-check" />}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
           {/* Problem List by Category */}

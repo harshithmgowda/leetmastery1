@@ -1989,68 +1989,52 @@ export function getLeetCodeSolution(problemTitle: string, category: string = '')
   }
 }
 
-// Build self-contained, 100% executable Python 3 code for Python Tutor (includes typing & drivers)
+// Build clean, minimal, self-contained Python 3 code for Python Tutor
 export function buildPythonTutorExecutableCode(
   pythonLines: string[],
   problemNumber: number,
   problemTitle: string,
   exampleInput: string = ''
 ): string {
-  const rawCode = pythonLines.join('\n')
+  const rawCode = pythonLines.join('\n').trim()
 
-  // Header imports and helper data structures (ListNode with from_list, TreeNode with from_list)
-  const headerLines = [
-    'from __future__ import annotations',
-    'from typing import List, Dict, Set, Tuple, Optional, Any, Union',
-    'import collections',
-    'import heapq',
-    'import math',
-    'import bisect',
-    'import itertools',
-    '',
-    '# Definition for singly-linked list node',
-    'class ListNode:',
-    '    def __init__(self, val=0, next=None):',
-    '        self.val = val',
-    '        self.next = next',
-    '    @classmethod',
-    '    def from_list(cls, arr):',
-    '        dummy = cls(0)',
-    '        cur = dummy',
-    '        for x in arr:',
-    '            cur.next = cls(x)',
-    '            cur = cur.next',
-    '        return dummy.next',
-    '    def __repr__(self):',
-    '        vals = []',
-    '        cur = self',
-    '        while cur:',
-    '            vals.append(str(cur.val))',
-    '            cur = cur.next',
-    '        return " -> ".join(vals)',
-    '',
-    '# Definition for binary tree node',
-    'class TreeNode:',
-    '    def __init__(self, val=0, left=None, right=None):',
-    '        self.val = val',
-    '        self.left = left',
-    '        self.right = right',
-    '    def __repr__(self):',
-    '        return f"TreeNode({self.val})"',
-    '',
-  ]
+  const headerParts: string[] = []
 
-  // Remove existing redundant imports from snippet
-  const cleanedCode = rawCode
-    .replace(/^from __future__ import [^\n]+\n?/gm, '')
-    .replace(/^from typing import [^\n]+\n?/gm, '')
-    .replace(/^import collections\s*\n?/gm, '')
-    .replace(/^import heapq\s*\n?/gm, '')
-    .replace(/^import math\s*\n?/gm, '')
-    .trim()
+  // 1. Typing import only if type hints are present
+  if (/\b(List|Dict|Set|Tuple|Optional|Union|Any)\b/.test(rawCode)) {
+    headerParts.push('from typing import List, Dict, Set, Tuple, Optional, Any')
+  }
 
-  // Match method definitions inside Solution
-  const methodMatch = cleanedCode.match(/def\s+([a-zA-Z0-9_]+)\s*\(\s*self\s*,?\s*([^)]*)\)/)
+  // 2. Standard libraries only if used
+  if (/\bcollections\b|\bdefaultdict\b|\bCounter\b|\bdeque\b/.test(rawCode) && !rawCode.includes('import collections')) {
+    headerParts.push('import collections')
+  }
+  if (/\bheapq\b/.test(rawCode) && !rawCode.includes('import heapq')) {
+    headerParts.push('import heapq')
+  }
+  if (/\bmath\b/.test(rawCode) && !rawCode.includes('import math')) {
+    headerParts.push('import math')
+  }
+
+  // 3. ListNode definition only if problem uses it
+  if (/\bListNode\b/.test(rawCode) && !rawCode.includes('class ListNode')) {
+    headerParts.push(`class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next`)
+  }
+
+  // 4. TreeNode definition only if problem uses it
+  if (/\bTreeNode\b/.test(rawCode) && !rawCode.includes('class TreeNode')) {
+    headerParts.push(`class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right`)
+  }
+
+  // Match method definition inside Solution
+  const methodMatch = rawCode.match(/def\s+([a-zA-Z0-9_]+)\s*\(\s*self\s*,?\s*([^)]*)\)/)
 
   let driver = ''
   if (methodMatch) {
@@ -2061,64 +2045,40 @@ export function buildPythonTutorExecutableCode(
       .map((p) => p.split(':')[0].trim())
       .filter((p) => p.length > 0 && p !== 'self')
 
-    // Determine arguments to pass based on parameter names and problem title
     const args = generatePythonArgsForParams(paramNames, problemTitle, exampleInput)
-    driver = [
-      '',
-      '# --- Python Tutor Interactive Execution ---',
-      `# Problem #${problemNumber}: ${problemTitle}`,
-      'sol = Solution()',
-      `result = sol.${methodName}(${args})`,
-      'print("Execution Result:", result)',
-    ].join('\n')
-  } else if (cleanedCode.includes('class MinStack')) {
-    driver = [
-      '',
-      '# --- Python Tutor Interactive Execution ---',
-      'obj = MinStack()',
-      'obj.push(-2)',
-      'obj.push(0)',
-      'obj.push(-3)',
-      'print("Min:", obj.getMin())',
-      'obj.pop()',
-      'print("Top:", obj.top())',
-      'print("Min:", obj.getMin())',
-    ].join('\n')
-  } else if (cleanedCode.includes('class LRUCache')) {
-    driver = [
-      '',
-      '# --- Python Tutor Interactive Execution ---',
-      'cache = LRUCache(2)',
-      'cache.put(1, 1)',
-      'cache.put(2, 2)',
-      'print("Get 1:", cache.get(1))',
-      'cache.put(3, 3)',
-      'print("Get 2 (evicted):", cache.get(2))',
-    ].join('\n')
-  } else if (cleanedCode.includes('class Trie')) {
-    driver = [
-      '',
-      '# --- Python Tutor Interactive Execution ---',
-      'trie = Trie()',
-      'trie.insert("apple")',
-      'print("Search apple:", trie.search("apple"))',
-      'print("Search app:", trie.search("app"))',
-      'print("StartsWith app:", trie.startsWith("app"))',
-    ].join('\n')
+    driver = `\n# --- Test Execution ---
+sol = Solution()
+result = sol.${methodName}(${args})
+print("Result:", result)`
+  } else if (rawCode.includes('class MinStack')) {
+    driver = `\n# --- Test Execution ---
+obj = MinStack()
+obj.push(-2)
+obj.push(0)
+obj.push(-3)
+print("Min:", obj.getMin())`
+  } else if (rawCode.includes('class LRUCache')) {
+    driver = `\n# --- Test Execution ---
+cache = LRUCache(2)
+cache.put(1, 1)
+cache.put(2, 2)
+print("Get 1:", cache.get(1))`
+  } else if (rawCode.includes('class Trie')) {
+    driver = `\n# --- Test Execution ---
+trie = Trie()
+trie.insert("apple")
+print("Search apple:", trie.search("apple"))`
   } else {
-    driver = [
-      '',
-      '# --- Python Tutor Interactive Execution ---',
-      `# Problem #${problemNumber}: ${problemTitle}`,
-      'sol = Solution()',
-    ].join('\n')
+    driver = `\n# --- Test Execution ---
+sol = Solution()`
   }
 
-  return `${headerLines.join('\n')}\n${cleanedCode}\n${driver}`
+  const prefix = headerParts.length > 0 ? headerParts.join('\n') + '\n\n' : ''
+  return `${prefix}${rawCode}\n${driver}`
 }
 
 function generatePythonArgsForParams(paramNames: string[], problemTitle: string, exampleInput: string): string {
-  // If user has structured example input like "nums = [2, 7], target = 9", parse it
+  // If example input is structured like "nums = [2, 7], target = 9", parse it
   if (exampleInput && exampleInput.includes('=')) {
     const parts = exampleInput.split(/,\s*(?=[a-zA-Z0-9_]+\s*=)/).map((p) => {
       const idx = p.indexOf('=')
@@ -2129,17 +2089,17 @@ function generatePythonArgsForParams(paramNames: string[], problemTitle: string,
     }
   }
 
-  // Parameter-name based intelligent arg synthesis
+  // Clean, minimal parameter-matching defaults
   const mappedArgs = paramNames.map((p) => {
     const lower = p.toLowerCase()
     if (lower.includes('head') || lower.includes('list1') || lower.includes('l1')) {
-      return 'ListNode.from_list([1, 2, 3, 4, 5])'
+      return 'ListNode(1, ListNode(2, ListNode(3)))'
     }
     if (lower.includes('list2') || lower.includes('l2')) {
-      return 'ListNode.from_list([1, 3, 4])'
+      return 'ListNode(1, ListNode(4))'
     }
     if (lower.includes('root') || lower.includes('p') || lower.includes('q') || lower.includes('node')) {
-      return 'TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))'
+      return 'TreeNode(3, TreeNode(9), TreeNode(20))'
     }
     if (lower === 'strs' || lower.includes('words') || lower.includes('tokens')) {
       return '["eat", "tea", "tan", "ate", "nat", "bat"]'

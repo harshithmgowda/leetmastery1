@@ -415,9 +415,9 @@ ${code}`
     setToast('🚀 Opened ChatGPT with custom ELI5 interview prompt!')
   }
 
-  // Generate Python Tutor visualizer URL with complete self-contained driver code
+  // Generate Python Tutor visualizer URL from the current active approach (Optimal, Brute Force, or Alternative)
   const openPythonTutor = () => {
-    const pythonLines = problemData.optimal.code.python || currentCodeLines
+    const pythonLines = currentApproach.code.python || currentCodeLines || []
     const fullScript = buildPythonTutorExecutableCode(
       pythonLines,
       currentProblem.number,
@@ -426,7 +426,7 @@ ${code}`
     )
     const tutorUrl = `https://pythontutor.com/visualize.html#code=${encodeURIComponent(fullScript)}&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false`
     window.open(tutorUrl, '_blank', 'noopener,noreferrer')
-    setToast('🔬 Opened Python Tutor with runnable code & test arguments pre-loaded!')
+    setToast(`🔬 Opened Python Tutor with ${currentApproach.title} code!`)
   }
 
   const runTestSimulation = () => {

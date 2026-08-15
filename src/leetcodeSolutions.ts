@@ -1585,3 +1585,120 @@ export function getLeetCodeSolution(problemTitle: string, category: string = '')
     bruteExplanation: detailed.bruteForce.explanation,
   }
 }
+
+// Build self-contained, 100% executable Python 3 code for Python Tutor (includes typing & drivers)
+export function buildPythonTutorExecutableCode(
+  pythonLines: string[],
+  problemNumber: number,
+  problemTitle: string,
+  exampleInput: string = ''
+): string {
+  const rawCode = pythonLines.join('\n')
+
+  // Extract function name
+  const match = rawCode.match(/def\s+([a-zA-Z0-9_]+)\s*\(\s*self/)
+  const methodName = match ? match[1] : ''
+
+  // Always prepend typing imports & node definitions so Python Tutor never throws NameError
+  const headerLines = [
+    'from typing import List, Dict, Set, Tuple, Optional, Any',
+    'import collections',
+    'import heapq',
+    'import math',
+    '',
+    '# Definition for singly-linked list node',
+    'class ListNode:',
+    '    def __init__(self, val=0, next=None):',
+    '        self.val = val',
+    '        self.next = next',
+    '',
+    '# Definition for binary tree node',
+    'class TreeNode:',
+    '    def __init__(self, val=0, left=None, right=None):',
+    '        self.val = val',
+    '        self.left = left',
+    '        self.right = right',
+    '',
+  ]
+
+  // Remove existing redundant imports from snippet to prevent duplicate lines
+  const cleanedCode = rawCode
+    .replace(/^import collections\s*\n?/m, '')
+    .replace(/^from typing import [^\n]+\n?/m, '')
+    .trim()
+
+  // Generate test argument
+  let testArgs = ''
+  if (exampleInput && exampleInput.includes('=')) {
+    // Parse "nums = [2, 7, 11, 15], target = 9" -> "[2, 7, 11, 15], 9"
+    const parts = exampleInput.split(/,\s*(?=[a-zA-Z0-9_]+\s*=)/).map((p) => {
+      const idx = p.indexOf('=')
+      return idx !== -1 ? p.slice(idx + 1).trim() : p.trim()
+    })
+    testArgs = parts.join(', ')
+  } else {
+    // Handcrafted defaults for popular questions
+    switch (problemTitle) {
+      case 'Group Anagrams':
+        testArgs = '["eat", "tea", "tan", "ate", "nat", "bat"]'
+        break
+      case 'Two Sum':
+        testArgs = '[2, 7, 11, 15], 9'
+        break
+      case 'Valid Anagram':
+        testArgs = '"anagram", "nagaram"'
+        break
+      case 'Contains Duplicate':
+        testArgs = '[1, 2, 3, 1]'
+        break
+      case 'Product of Array Except Self':
+        testArgs = '[1, 2, 3, 4]'
+        break
+      case '3Sum':
+        testArgs = '[-1, 0, 1, 2, -1, -4]'
+        break
+      case 'Valid Palindrome':
+        testArgs = '"A man, a plan, a canal: Panama"'
+        break
+      case 'Best Time to Buy and Sell Stock':
+        testArgs = '[7, 1, 5, 3, 6, 4]'
+        break
+      case 'Valid Parentheses':
+        testArgs = '"()[]{}"'
+        break
+      case 'Binary Search':
+        testArgs = '[-1, 0, 3, 5, 9, 12], 9'
+        break
+      case 'Top K Frequent Elements':
+        testArgs = '[1, 1, 1, 2, 2, 3], 2'
+        break
+      case 'Longest Consecutive Sequence':
+        testArgs = '[100, 4, 200, 1, 3, 2]'
+        break
+      default:
+        testArgs = '[1, 2, 3, 4]'
+    }
+  }
+
+  let driver = ''
+  if (methodName) {
+    driver = [
+      '',
+      '# --- Python Tutor Interactive Execution ---',
+      `# Problem #${problemNumber}: ${problemTitle}`,
+      'sol = Solution()',
+      `result = sol.${methodName}(${testArgs})`,
+      'print("Execution Result:", result)',
+    ].join('\n')
+  } else {
+    driver = [
+      '',
+      '# --- Python Tutor Interactive Execution ---',
+      `# Problem #${problemNumber}: ${problemTitle}`,
+      'sol = Solution()',
+    ].join('\n')
+  }
+
+  return `${headerLines.join('\n')}\n${cleanedCode}\n${driver}`
+}
+

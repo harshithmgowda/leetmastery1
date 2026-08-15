@@ -37,6 +37,7 @@ import {
 import {
   getDetailedProblemData,
   DetailedProblemData,
+  buildPythonTutorExecutableCode,
 } from './leetcodeSolutions'
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard'
@@ -414,15 +415,18 @@ ${code}`
     setToast('🚀 Opened ChatGPT with custom ELI5 interview prompt!')
   }
 
-  // Generate Python Tutor visualizer URL with complete driver code
+  // Generate Python Tutor visualizer URL with complete self-contained driver code
   const openPythonTutor = () => {
-    const pythonCode = (problemData.optimal.code.python || currentCodeLines).join('\n')
-    const exampleVal = problemData.examples[0]?.input || 'test'
-    const driver = `\n\n# --- Python Tutor Interactive Execution ---\n# Test Driver for LeetCode #${currentProblem.number}: ${currentProblem.title}\n# Example: ${exampleVal}\nsol = Solution()\n# Execute and step through variables:\nprint("Optimal Solution Loaded.")\n`
-    const fullScript = pythonCode + driver
+    const pythonLines = problemData.optimal.code.python || currentCodeLines
+    const fullScript = buildPythonTutorExecutableCode(
+      pythonLines,
+      currentProblem.number,
+      currentProblem.title,
+      problemData.examples[0]?.input || ''
+    )
     const tutorUrl = `https://pythontutor.com/visualize.html#code=${encodeURIComponent(fullScript)}&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false`
     window.open(tutorUrl, '_blank', 'noopener,noreferrer')
-    setToast('🔬 Opened Python Tutor with code pre-loaded for visual execution!')
+    setToast('🔬 Opened Python Tutor with runnable code & test arguments pre-loaded!')
   }
 
   const runTestSimulation = () => {

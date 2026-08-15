@@ -54,7 +54,6 @@ type Problem = {
   solved?: boolean
 }
 
-// 100+ Curated LeetCode Core Roadmap Problems
 const allProblemsSeed: Problem[] = [
   // Arrays & Hashing
   { number: 1, title: 'Two Sum', difficulty: 'Easy', topics: ['Arrays', 'Hashing'], pattern: 'Complement lookup', url: 'https://leetcode.com/problems/two-sum/', category: 'Arrays & Hashing', solved: true },
@@ -66,16 +65,29 @@ const allProblemsSeed: Problem[] = [
   { number: 128, title: 'Longest Consecutive Sequence', difficulty: 'Medium', topics: ['Arrays', 'Hashing'], pattern: 'Set sequence starts', url: 'https://leetcode.com/problems/longest-consecutive-sequence/', category: 'Arrays & Hashing' },
   { number: 36, title: 'Valid Sudoku', difficulty: 'Medium', topics: ['Arrays', 'Hashing'], pattern: 'Constraint sets', url: 'https://leetcode.com/problems/valid-sudoku/', category: 'Arrays & Hashing' },
   { number: 271, title: 'Encode and Decode Strings', difficulty: 'Medium', topics: ['Arrays', 'Strings'], pattern: 'Chunked transfer prefix', url: 'https://leetcode.com/problems/encode-and-decode-strings/', category: 'Arrays & Hashing' },
+  { number: 560, title: 'Subarray Sum Equals K', difficulty: 'Medium', topics: ['Arrays', 'Prefix Sum'], pattern: 'Prefix sum hash map', url: 'https://leetcode.com/problems/subarray-sum-equals-k/', category: 'Arrays & Hashing' },
+  { number: 169, title: 'Majority Element', difficulty: 'Easy', topics: ['Arrays'], pattern: 'Boyer-Moore voting', url: 'https://leetcode.com/problems/majority-element/', category: 'Arrays & Hashing' },
+  { number: 75, title: 'Sort Colors', difficulty: 'Medium', topics: ['Arrays', 'Two Pointers'], pattern: 'Dutch National Flag (3 pointers)', url: 'https://leetcode.com/problems/sort-colors/', category: 'Arrays & Hashing' },
+  { number: 31, title: 'Next Permutation', difficulty: 'Medium', topics: ['Arrays'], pattern: 'Pivot swap and suffix reverse', url: 'https://leetcode.com/problems/next-permutation/', category: 'Arrays & Hashing' },
+  { number: 41, title: 'First Missing Positive', difficulty: 'Hard', topics: ['Arrays'], pattern: 'Index as hash key placement', url: 'https://leetcode.com/problems/first-missing-positive/', category: 'Arrays & Hashing' },
+  { number: 118, title: "Pascal's Triangle", difficulty: 'Easy', topics: ['Arrays'], pattern: 'Row addition DP', url: 'https://leetcode.com/problems/pascals-triangle/', category: 'Arrays & Hashing' },
+  { number: 88, title: 'Merge Sorted Array', difficulty: 'Easy', topics: ['Arrays', 'Two Pointers'], pattern: 'Back-to-front merge', url: 'https://leetcode.com/problems/merge-sorted-array/', category: 'Arrays & Hashing' },
 
   // Two Pointers
   { number: 125, title: 'Valid Palindrome', difficulty: 'Easy', topics: ['Two Pointers', 'Strings'], pattern: 'Two pointers inward', url: 'https://leetcode.com/problems/valid-palindrome/', category: 'Two Pointers' },
   { number: 167, title: 'Two Sum II - Input Array Is Sorted', difficulty: 'Medium', topics: ['Two Pointers'], pattern: 'Inward search', url: 'https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/', category: 'Two Pointers' },
   { number: 15, title: '3Sum', difficulty: 'Medium', topics: ['Two Pointers', 'Sorting'], pattern: 'Sort + two pointers', url: 'https://leetcode.com/problems/3sum/', category: 'Two Pointers' },
+  { number: 16, title: '3Sum Closest', difficulty: 'Medium', topics: ['Two Pointers'], pattern: 'Sort + closest distance track', url: 'https://leetcode.com/problems/3sum-closest/', category: 'Two Pointers' },
   { number: 11, title: 'Container With Most Water', difficulty: 'Medium', topics: ['Two Pointers', 'Greedy'], pattern: 'Shrink shorter side', url: 'https://leetcode.com/problems/container-with-most-water/', category: 'Two Pointers' },
   { number: 42, title: 'Trapping Rain Water', difficulty: 'Hard', topics: ['Two Pointers', 'Stack'], pattern: 'Left/right maxima bounds', url: 'https://leetcode.com/problems/trapping-rain-water/', category: 'Two Pointers' },
   { number: 26, title: 'Remove Duplicates from Sorted Array', difficulty: 'Easy', topics: ['Two Pointers'], pattern: 'Slow & fast write pointer', url: 'https://leetcode.com/problems/remove-duplicates-from-sorted-array/', category: 'Two Pointers' },
+  { number: 80, title: 'Remove Duplicates from Sorted Array II', difficulty: 'Medium', topics: ['Two Pointers'], pattern: 'At most twice write pointer', url: 'https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/', category: 'Two Pointers' },
   { number: 283, title: 'Move Zeroes', difficulty: 'Easy', topics: ['Two Pointers'], pattern: 'In-place compaction', url: 'https://leetcode.com/problems/move-zeroes/', category: 'Two Pointers' },
   { number: 18, title: '4Sum', difficulty: 'Medium', topics: ['Two Pointers'], pattern: 'k-Sum reduction', url: 'https://leetcode.com/problems/4sum/', category: 'Two Pointers' },
+  { number: 881, title: 'Boats to Save People', difficulty: 'Medium', topics: ['Two Pointers', 'Greedy'], pattern: 'Greedy pair heaviest with lightest', url: 'https://leetcode.com/problems/boats-to-save-people/', category: 'Two Pointers' },
+  { number: 680, title: 'Valid Palindrome II', difficulty: 'Easy', topics: ['Two Pointers'], pattern: 'One deletion skip check', url: 'https://leetcode.com/problems/valid-palindrome-ii/', category: 'Two Pointers' },
+  { number: 844, title: 'Backspace String Compare', difficulty: 'Easy', topics: ['Two Pointers', 'Stack'], pattern: 'Reverse iteration with skip count', url: 'https://leetcode.com/problems/backspace-string-compare/', category: 'Two Pointers' },
+  { number: 977, title: 'Squares of a Sorted Array', difficulty: 'Easy', topics: ['Two Pointers'], pattern: 'Inward comparison filling backwards', url: 'https://leetcode.com/problems/squares-of-a-sorted-array/', category: 'Two Pointers' },
 
   // Sliding Window
   { number: 121, title: 'Best Time to Buy and Sell Stock', difficulty: 'Easy', topics: ['Sliding Window', 'Arrays'], pattern: 'Running minimum', url: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/', category: 'Sliding Window' },
@@ -85,27 +97,44 @@ const allProblemsSeed: Problem[] = [
   { number: 438, title: 'Find All Anagrams in a String', difficulty: 'Medium', topics: ['Sliding Window'], pattern: 'Fixed frequency window', url: 'https://leetcode.com/problems/find-all-anagrams-in-a-string/', category: 'Sliding Window' },
   { number: 76, title: 'Minimum Window Substring', difficulty: 'Hard', topics: ['Sliding Window'], pattern: 'Expand and contract window', url: 'https://leetcode.com/problems/minimum-window-substring/', category: 'Sliding Window' },
   { number: 239, title: 'Sliding Window Maximum', difficulty: 'Hard', topics: ['Sliding Window', 'Monotonic Queue'], pattern: 'Monotonic decreasing deque', url: 'https://leetcode.com/problems/sliding-window-maximum/', category: 'Sliding Window' },
+  { number: 209, title: 'Minimum Size Subarray Sum', difficulty: 'Medium', topics: ['Sliding Window'], pattern: 'Sum shrink window', url: 'https://leetcode.com/problems/minimum-size-subarray-sum/', category: 'Sliding Window' },
+  { number: 1004, title: 'Max Consecutive Ones III', difficulty: 'Medium', topics: ['Sliding Window'], pattern: 'Zero-budget sliding window', url: 'https://leetcode.com/problems/max-consecutive-ones-iii/', category: 'Sliding Window' },
+  { number: 904, title: 'Fruit Into Baskets', difficulty: 'Medium', topics: ['Sliding Window'], pattern: 'At most 2 distinct types window', url: 'https://leetcode.com/problems/fruit-into-baskets/', category: 'Sliding Window' },
+  { number: 643, title: 'Maximum Average Subarray I', difficulty: 'Easy', topics: ['Sliding Window'], pattern: 'Fixed size k average window', url: 'https://leetcode.com/problems/maximum-average-subarray-i/', category: 'Sliding Window' },
 
   // Stack & Monotonic Stack
   { number: 20, title: 'Valid Parentheses', difficulty: 'Easy', topics: ['Stack'], pattern: 'Bracket stack matching', url: 'https://leetcode.com/problems/valid-parentheses/', category: 'Stack' },
   { number: 155, title: 'Min Stack', difficulty: 'Medium', topics: ['Stack'], pattern: 'Auxiliary min tracking', url: 'https://leetcode.com/problems/min-stack/', category: 'Stack' },
   { number: 150, title: 'Evaluate Reverse Polish Notation', difficulty: 'Medium', topics: ['Stack'], pattern: 'Operand evaluation stack', url: 'https://leetcode.com/problems/evaluate-reverse-polish-notation/', category: 'Stack' },
+  { number: 22, title: 'Generate Parentheses', difficulty: 'Medium', topics: ['Stack', 'Backtracking'], pattern: 'Open/close balance count', url: 'https://leetcode.com/problems/generate-parentheses/', category: 'Stack' },
   { number: 739, title: 'Daily Temperatures', difficulty: 'Medium', topics: ['Monotonic Stack'], pattern: 'Decreasing index stack', url: 'https://leetcode.com/problems/daily-temperatures/', category: 'Stack' },
   { number: 496, title: 'Next Greater Element I', difficulty: 'Easy', topics: ['Monotonic Stack'], pattern: 'Next greater element map', url: 'https://leetcode.com/problems/next-greater-element-i/', category: 'Stack' },
+  { number: 503, title: 'Next Greater Element II', difficulty: 'Medium', topics: ['Monotonic Stack'], pattern: 'Circular array (2N iteration)', url: 'https://leetcode.com/problems/next-greater-element-ii/', category: 'Stack' },
+  { number: 901, title: 'Online Stock Span', difficulty: 'Medium', topics: ['Monotonic Stack'], pattern: 'Price and weight pair stack', url: 'https://leetcode.com/problems/online-stock-span/', category: 'Stack' },
   { number: 853, title: 'Car Fleet', difficulty: 'Medium', topics: ['Stack'], pattern: 'Time to destination stack', url: 'https://leetcode.com/problems/car-fleet/', category: 'Stack' },
   { number: 84, title: 'Largest Rectangle in Histogram', difficulty: 'Hard', topics: ['Monotonic Stack'], pattern: 'Increasing bar stack', url: 'https://leetcode.com/problems/largest-rectangle-in-histogram/', category: 'Stack' },
+  { number: 85, title: 'Maximal Rectangle', difficulty: 'Hard', topics: ['Monotonic Stack', 'DP'], pattern: 'Row histogram conversion', url: 'https://leetcode.com/problems/maximal-rectangle/', category: 'Stack' },
+  { number: 735, title: 'Asteroid Collision', difficulty: 'Medium', topics: ['Stack'], pattern: 'Right-moving vs left-moving collision', url: 'https://leetcode.com/problems/asteroid-collision/', category: 'Stack' },
+  { number: 71, title: 'Simplify Path', difficulty: 'Medium', topics: ['Stack'], pattern: 'Unix directory path token stack', url: 'https://leetcode.com/problems/simplify-path/', category: 'Stack' },
+  { number: 394, title: 'Decode String', difficulty: 'Medium', topics: ['Stack'], pattern: 'Multiplier and string stack', url: 'https://leetcode.com/problems/decode-string/', category: 'Stack' },
 
   // Binary Search
   { number: 704, title: 'Binary Search', difficulty: 'Easy', topics: ['Binary Search'], pattern: 'Divide and conquer', url: 'https://leetcode.com/problems/binary-search/', category: 'Binary Search' },
   { number: 74, title: 'Search a 2D Matrix', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Virtual 1D binary search', url: 'https://leetcode.com/problems/search-a-2d-matrix/', category: 'Binary Search' },
+  { number: 240, title: 'Search a 2D Matrix II', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Top-right corner search', url: 'https://leetcode.com/problems/search-a-2d-matrix-ii/', category: 'Binary Search' },
   { number: 875, title: 'Koko Eating Bananas', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Binary search on answer space', url: 'https://leetcode.com/problems/koko-eating-bananas/', category: 'Binary Search' },
   { number: 33, title: 'Search in Rotated Sorted Array', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Identify sorted half', url: 'https://leetcode.com/problems/search-in-rotated-sorted-array/', category: 'Binary Search' },
+  { number: 81, title: 'Search in Rotated Sorted Array II', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Duplicate boundary skip', url: 'https://leetcode.com/problems/search-in-rotated-sorted-array-ii/', category: 'Binary Search' },
   { number: 153, title: 'Find Minimum in Rotated Sorted Array', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Pivot detection', url: 'https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/', category: 'Binary Search' },
   { number: 981, title: 'Time Based Key-Value Store', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Timestamp binary search', url: 'https://leetcode.com/problems/time-based-key-value-store/', category: 'Binary Search' },
   { number: 4, title: 'Median of Two Sorted Arrays', difficulty: 'Hard', topics: ['Binary Search'], pattern: 'Partition binary search', url: 'https://leetcode.com/problems/median-of-two-sorted-arrays/', category: 'Binary Search' },
+  { number: 35, title: 'Search Insert Position', difficulty: 'Easy', topics: ['Binary Search'], pattern: 'Lower bound binary search', url: 'https://leetcode.com/problems/search-insert-position/', category: 'Binary Search' },
+  { number: 162, title: 'Find Peak Element', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Gradient ascent binary search', url: 'https://leetcode.com/problems/find-peak-element/', category: 'Binary Search' },
+  { number: 1011, title: 'Capacity To Ship Packages Within D Days', difficulty: 'Medium', topics: ['Binary Search'], pattern: 'Capacity binary search', url: 'https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/', category: 'Binary Search' },
 
   // Linked List
   { number: 206, title: 'Reverse Linked List', difficulty: 'Easy', topics: ['Linked List'], pattern: 'Pointer reversal (prev/cur/next)', url: 'https://leetcode.com/problems/reverse-linked-list/', category: 'Linked List' },
+  { number: 92, title: 'Reverse Linked List II', difficulty: 'Medium', topics: ['Linked List'], pattern: 'Sublist pointer reversal', url: 'https://leetcode.com/problems/reverse-linked-list-ii/', category: 'Linked List' },
   { number: 21, title: 'Merge Two Sorted Lists', difficulty: 'Easy', topics: ['Linked List'], pattern: 'Dummy node merge', url: 'https://leetcode.com/problems/merge-two-sorted-lists/', category: 'Linked List' },
   { number: 141, title: 'Linked List Cycle', difficulty: 'Easy', topics: ['Linked List'], pattern: 'Fast and slow pointers (Floyd)', url: 'https://leetcode.com/problems/linked-list-cycle/', category: 'Linked List' },
   { number: 142, title: 'Linked List Cycle II', difficulty: 'Medium', topics: ['Linked List'], pattern: 'Cycle entry point', url: 'https://leetcode.com/problems/linked-list-cycle-ii/', category: 'Linked List' },
@@ -115,23 +144,34 @@ const allProblemsSeed: Problem[] = [
   { number: 2, title: 'Add Two Numbers', difficulty: 'Medium', topics: ['Linked List'], pattern: 'Digit addition with carry', url: 'https://leetcode.com/problems/add-two-numbers/', category: 'Linked List' },
   { number: 287, title: 'Find the Duplicate Number', difficulty: 'Medium', topics: ['Linked List'], pattern: "Floyd's cycle detection on array", url: 'https://leetcode.com/problems/find-the-duplicate-number/', category: 'Linked List' },
   { number: 146, title: 'LRU Cache', difficulty: 'Medium', topics: ['Linked List', 'Hash Table'], pattern: 'Doubly Linked List + Hash Map', url: 'https://leetcode.com/problems/lru-cache/', category: 'Linked List' },
+  { number: 460, title: 'LFU Cache', difficulty: 'Hard', topics: ['Linked List', 'Hash Table'], pattern: 'Frequency map + DLLs', url: 'https://leetcode.com/problems/lfu-cache/', category: 'Linked List' },
   { number: 23, title: 'Merge k Sorted Lists', difficulty: 'Hard', topics: ['Linked List', 'Heap'], pattern: 'Min heap / Divide & conquer', url: 'https://leetcode.com/problems/merge-k-sorted-lists/', category: 'Linked List' },
+  { number: 25, title: 'Reverse Nodes in k-Group', difficulty: 'Hard', topics: ['Linked List'], pattern: 'Count k nodes and reverse recursively', url: 'https://leetcode.com/problems/reverse-nodes-in-k-group/', category: 'Linked List' },
+  { number: 234, title: 'Palindrome Linked List', difficulty: 'Easy', topics: ['Linked List'], pattern: 'Find middle and reverse half', url: 'https://leetcode.com/problems/palindrome-linked-list/', category: 'Linked List' },
+  { number: 160, title: 'Intersection of Two Linked Lists', difficulty: 'Easy', topics: ['Linked List'], pattern: 'Switch head traversal equalizing paths', url: 'https://leetcode.com/problems/intersection-of-two-linked-lists/', category: 'Linked List' },
+  { number: 876, title: 'Middle of the Linked List', difficulty: 'Easy', topics: ['Linked List'], pattern: 'Fast & slow pointer', url: 'https://leetcode.com/problems/middle-of-the-linked-list/', category: 'Linked List' },
 
   // Trees & BST
   { number: 226, title: 'Invert Binary Tree', difficulty: 'Easy', topics: ['Trees'], pattern: 'Recursive child swap', url: 'https://leetcode.com/problems/invert-binary-tree/', category: 'Trees' },
   { number: 104, title: 'Maximum Depth of Binary Tree', difficulty: 'Easy', topics: ['Trees'], pattern: 'Recursive DFS height', url: 'https://leetcode.com/problems/maximum-depth-of-binary-tree/', category: 'Trees' },
+  { number: 111, title: 'Minimum Depth of Binary Tree', difficulty: 'Easy', topics: ['Trees'], pattern: 'BFS leaf detection', url: 'https://leetcode.com/problems/minimum-depth-of-binary-tree/', category: 'Trees' },
   { number: 543, title: 'Diameter of Binary Tree', difficulty: 'Easy', topics: ['Trees'], pattern: 'Post-order depth calculation', url: 'https://leetcode.com/problems/diameter-of-binary-tree/', category: 'Trees' },
   { number: 110, title: 'Balanced Binary Tree', difficulty: 'Easy', topics: ['Trees'], pattern: 'Bottom-up height check', url: 'https://leetcode.com/problems/balanced-binary-tree/', category: 'Trees' },
   { number: 100, title: 'Same Tree', difficulty: 'Easy', topics: ['Trees'], pattern: 'Simultaneous DFS', url: 'https://leetcode.com/problems/same-tree/', category: 'Trees' },
+  { number: 101, title: 'Symmetric Tree', difficulty: 'Easy', topics: ['Trees'], pattern: 'Mirror node DFS', url: 'https://leetcode.com/problems/symmetric-tree/', category: 'Trees' },
   { number: 572, title: 'Subtree of Another Tree', difficulty: 'Easy', topics: ['Trees'], pattern: 'Tree isomorphism DFS', url: 'https://leetcode.com/problems/subtree-of-another-tree/', category: 'Trees' },
   { number: 235, title: 'Lowest Common Ancestor of a BST', difficulty: 'Medium', topics: ['Trees'], pattern: 'BST split property', url: 'https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/', category: 'Trees' },
+  { number: 236, title: 'Lowest Common Ancestor of a Binary Tree', difficulty: 'Medium', topics: ['Trees'], pattern: 'Post-order DFS node search', url: 'https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/', category: 'Trees' },
   { number: 102, title: 'Binary Tree Level Order Traversal', difficulty: 'Medium', topics: ['Trees', 'BFS'], pattern: 'Queue level-by-level BFS', url: 'https://leetcode.com/problems/binary-tree-level-order-traversal/', category: 'Trees' },
+  { number: 103, title: 'Binary Tree Zigzag Level Order Traversal', difficulty: 'Medium', topics: ['Trees', 'BFS'], pattern: 'Deque alternate direction BFS', url: 'https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/', category: 'Trees' },
   { number: 199, title: 'Binary Tree Right Side View', difficulty: 'Medium', topics: ['Trees'], pattern: 'BFS last node per level', url: 'https://leetcode.com/problems/binary-tree-right-side-view/', category: 'Trees' },
   { number: 1448, title: 'Count Good Nodes in Binary Tree', difficulty: 'Medium', topics: ['Trees'], pattern: 'DFS path max tracking', url: 'https://leetcode.com/problems/count-good-nodes-in-binary-tree/', category: 'Trees' },
   { number: 98, title: 'Validate Binary Search Tree', difficulty: 'Medium', topics: ['Trees'], pattern: 'Min/max boundary propagation', url: 'https://leetcode.com/problems/validate-binary-search-tree/', category: 'Trees' },
   { number: 230, title: 'Kth Smallest Element in a BST', difficulty: 'Medium', topics: ['Trees'], pattern: 'In-order traversal count', url: 'https://leetcode.com/problems/kth-smallest-element-in-a-bst/', category: 'Trees' },
   { number: 105, title: 'Construct Binary Tree from Preorder and Inorder Traversal', difficulty: 'Medium', topics: ['Trees'], pattern: 'Recursive root split', url: 'https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/', category: 'Trees' },
   { number: 124, title: 'Binary Tree Maximum Path Sum', difficulty: 'Hard', topics: ['Trees'], pattern: 'Max gain through node DFS', url: 'https://leetcode.com/problems/binary-tree-maximum-path-sum/', category: 'Trees' },
+  { number: 297, title: 'Serialize and Deserialize Binary Tree', difficulty: 'Hard', topics: ['Trees'], pattern: 'Preorder string serialization', url: 'https://leetcode.com/problems/serialize-and-deserialize-binary-tree/', category: 'Trees' },
+  { number: 112, title: 'Path Sum', difficulty: 'Easy', topics: ['Trees'], pattern: 'Target subtraction DFS', url: 'https://leetcode.com/problems/path-sum/', category: 'Trees' },
 
   // Tries
   { number: 208, title: 'Implement Trie (Prefix Tree)', difficulty: 'Medium', topics: ['Trie'], pattern: 'Character tree nodes', url: 'https://leetcode.com/problems/implement-trie-prefix-tree/', category: 'Tries' },
@@ -145,17 +185,21 @@ const allProblemsSeed: Problem[] = [
   { number: 215, title: 'Kth Largest Element in an Array', difficulty: 'Medium', topics: ['Heap', 'Quickselect'], pattern: 'Min heap / Quickselect', url: 'https://leetcode.com/problems/kth-largest-element-in-an-array/', category: 'Heap / Priority Queue' },
   { number: 621, title: 'Task Scheduler', difficulty: 'Medium', topics: ['Heap', 'Greedy'], pattern: 'Max frequency greedy / Math', url: 'https://leetcode.com/problems/task-scheduler/', category: 'Heap / Priority Queue' },
   { number: 295, title: 'Find Median from Data Stream', difficulty: 'Hard', topics: ['Heap'], pattern: 'Two heaps (min & max)', url: 'https://leetcode.com/problems/find-median-from-data-stream/', category: 'Heap / Priority Queue' },
+  { number: 767, title: 'Reorganize String', difficulty: 'Medium', topics: ['Heap', 'Greedy'], pattern: 'Max frequency pair placement', url: 'https://leetcode.com/problems/reorganize-string/', category: 'Heap / Priority Queue' },
 
   // Backtracking
   { number: 78, title: 'Subsets', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Include / exclude choice', url: 'https://leetcode.com/problems/subsets/', category: 'Backtracking' },
   { number: 90, title: 'Subsets II', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Sort + skip duplicate choices', url: 'https://leetcode.com/problems/subsets-ii/', category: 'Backtracking' },
   { number: 39, title: 'Combination Sum', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Reusable elements backtrack', url: 'https://leetcode.com/problems/combination-sum/', category: 'Backtracking' },
   { number: 40, title: 'Combination Sum II', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Single-use sorted backtrack', url: 'https://leetcode.com/problems/combination-sum-ii/', category: 'Backtracking' },
+  { number: 216, title: 'Combination Sum III', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'k-sized combinations to sum n', url: 'https://leetcode.com/problems/combination-sum-iii/', category: 'Backtracking' },
   { number: 46, title: 'Permutations', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Array permutations tree', url: 'https://leetcode.com/problems/permutations/', category: 'Backtracking' },
+  { number: 47, title: 'Permutations II', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Sorted duplicate tracking permutations', url: 'https://leetcode.com/problems/permutations-ii/', category: 'Backtracking' },
   { number: 79, title: 'Word Search', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Grid DFS with visited rollback', url: 'https://leetcode.com/problems/word-search/', category: 'Backtracking' },
   { number: 131, title: 'Palindrome Partitioning', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Substring palindrome backtrack', url: 'https://leetcode.com/problems/palindrome-partitioning/', category: 'Backtracking' },
   { number: 17, title: 'Letter Combinations of a Phone Number', difficulty: 'Medium', topics: ['Backtracking'], pattern: 'Digit map choice tree', url: 'https://leetcode.com/problems/letter-combinations-of-a-phone-number/', category: 'Backtracking' },
   { number: 51, title: 'N-Queens', difficulty: 'Hard', topics: ['Backtracking'], pattern: 'Column and diagonal bitsets', url: 'https://leetcode.com/problems/n-queens/', category: 'Backtracking' },
+  { number: 37, title: 'Sudoku Solver', difficulty: 'Hard', topics: ['Backtracking'], pattern: 'Constraint validation solver', url: 'https://leetcode.com/problems/sudoku-solver/', category: 'Backtracking' },
 
   // Graphs
   { number: 200, title: 'Number of Islands', difficulty: 'Medium', topics: ['Graphs'], pattern: 'Grid DFS/BFS connected components', url: 'https://leetcode.com/problems/number-of-islands/', category: 'Graphs' },
@@ -168,6 +212,14 @@ const allProblemsSeed: Problem[] = [
   { number: 210, title: 'Course Schedule II', difficulty: 'Medium', topics: ['Graphs', 'Topological Sort'], pattern: 'Topological order BFS', url: 'https://leetcode.com/problems/course-schedule-ii/', category: 'Graphs' },
   { number: 684, title: 'Redundant Connection', difficulty: 'Medium', topics: ['Graphs', 'Union-Find'], pattern: 'Disjoint set cycle finder', url: 'https://leetcode.com/problems/redundant-connection/', category: 'Graphs' },
   { number: 127, title: 'Word Ladder', difficulty: 'Hard', topics: ['Graphs', 'BFS'], pattern: 'Shortest word transformation BFS', url: 'https://leetcode.com/problems/word-ladder/', category: 'Graphs' },
+  { number: 547, title: 'Number of Provinces', difficulty: 'Medium', topics: ['Graphs', 'Union-Find'], pattern: 'Connected component count', url: 'https://leetcode.com/problems/number-of-provinces/', category: 'Graphs' },
+  { number: 785, title: 'Is Graph Bipartite?', difficulty: 'Medium', topics: ['Graphs'], pattern: '2-Coloring BFS/DFS', url: 'https://leetcode.com/problems/is-graph-bipartite/', category: 'Graphs' },
+  { number: 1091, title: 'Shortest Path in Binary Matrix', difficulty: 'Medium', topics: ['Graphs', 'BFS'], pattern: '8-directional BFS', url: 'https://leetcode.com/problems/shortest-path-in-binary-matrix/', category: 'Graphs' },
+
+  // Advanced Graphs
+  { number: 743, title: 'Network Delay Time', difficulty: 'Medium', topics: ['Graphs'], pattern: "Dijkstra's shortest path", url: 'https://leetcode.com/problems/network-delay-time/', category: 'Advanced Graphs' },
+  { number: 1584, title: 'Min Cost to Connect All Points', difficulty: 'Medium', topics: ['Graphs'], pattern: "Prim's / Kruskal's MST", url: 'https://leetcode.com/problems/min-cost-to-connect-all-points/', category: 'Advanced Graphs' },
+  { number: 787, title: 'Cheapest Flights Within K Stops', difficulty: 'Medium', topics: ['Graphs'], pattern: 'Bellman-Ford / BFS relaxation', url: 'https://leetcode.com/problems/cheapest-flights-within-k-stops/', category: 'Advanced Graphs' },
 
   // 1-D Dynamic Programming
   { number: 70, title: 'Climbing Stairs', difficulty: 'Easy', topics: ['Dynamic Programming'], pattern: 'Fibonacci state recurrence', url: 'https://leetcode.com/problems/climbing-stairs/', category: '1-D Dynamic Programming' },
@@ -182,26 +234,45 @@ const allProblemsSeed: Problem[] = [
   { number: 139, title: 'Word Break', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'Reachable prefix DP', url: 'https://leetcode.com/problems/word-break/', category: '1-D Dynamic Programming' },
   { number: 300, title: 'Longest Increasing Subsequence', difficulty: 'Medium', topics: ['Dynamic Programming', 'Binary Search'], pattern: 'Patience sort / DP', url: 'https://leetcode.com/problems/longest-increasing-subsequence/', category: '1-D Dynamic Programming' },
   { number: 416, title: 'Partition Equal Subset Sum', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: '0/1 Knapsack subset target', url: 'https://leetcode.com/problems/partition-equal-subset-sum/', category: '1-D Dynamic Programming' },
+  { number: 279, title: 'Perfect Squares', difficulty: 'Medium', topics: ['Dynamic Programming', 'BFS'], pattern: 'Min squares transition', url: 'https://leetcode.com/problems/perfect-squares/', category: '1-D Dynamic Programming' },
+  { number: 377, title: 'Combination Sum IV', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'Order-sensitive combination DP', url: 'https://leetcode.com/problems/combination-sum-iv/', category: '1-D Dynamic Programming' },
 
   // 2-D Dynamic Programming
   { number: 62, title: 'Unique Paths', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'Grid path combination', url: 'https://leetcode.com/problems/unique-paths/', category: '2-D Dynamic Programming' },
+  { number: 63, title: 'Unique Paths II', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'Grid obstacle DP', url: 'https://leetcode.com/problems/unique-paths-ii/', category: '2-D Dynamic Programming' },
+  { number: 64, title: 'Minimum Path Sum', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'Min path grid transition', url: 'https://leetcode.com/problems/minimum-path-sum/', category: '2-D Dynamic Programming' },
   { number: 1143, title: 'Longest Common Subsequence', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: '2D match/skip recurrence', url: 'https://leetcode.com/problems/longest-common-subsequence/', category: '2-D Dynamic Programming' },
   { number: 309, title: 'Best Time to Buy and Sell Stock with Cooldown', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'State machine (Buy/Sell/Rest)', url: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/', category: '2-D Dynamic Programming' },
   { number: 518, title: 'Coin Change II', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'Unbounded knapsack combinations', url: 'https://leetcode.com/problems/coin-change-ii/', category: '2-D Dynamic Programming' },
   { number: 494, title: 'Target Sum', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'Subset sum transformation', url: 'https://leetcode.com/problems/target-sum/', category: '2-D Dynamic Programming' },
+  { number: 97, title: 'Interleaving String', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: '2D prefix match grid', url: 'https://leetcode.com/problems/interleaving-string/', category: '2-D Dynamic Programming' },
   { number: 72, title: 'Edit Distance', difficulty: 'Medium', topics: ['Dynamic Programming'], pattern: 'Insert/Delete/Replace matrix', url: 'https://leetcode.com/problems/edit-distance/', category: '2-D Dynamic Programming' },
+  { number: 312, title: 'Burst Balloons', difficulty: 'Hard', topics: ['Dynamic Programming'], pattern: 'Interval DP (last balloon)', url: 'https://leetcode.com/problems/burst-balloons/', category: '2-D Dynamic Programming' },
 
   // Greedy
   { number: 53, title: 'Maximum Subarray', difficulty: 'Medium', topics: ['Greedy', 'Arrays'], pattern: "Kadane's algorithm", url: 'https://leetcode.com/problems/maximum-subarray/', category: 'Greedy' },
   { number: 55, title: 'Jump Game', difficulty: 'Medium', topics: ['Greedy'], pattern: 'Farthest reachable index', url: 'https://leetcode.com/problems/jump-game/', category: 'Greedy' },
   { number: 45, title: 'Jump Game II', difficulty: 'Medium', topics: ['Greedy'], pattern: 'Layered BFS / Greedy reach', url: 'https://leetcode.com/problems/jump-game-ii/', category: 'Greedy' },
   { number: 134, title: 'Gas Station', difficulty: 'Medium', topics: ['Greedy'], pattern: 'Running tank reset', url: 'https://leetcode.com/problems/gas-station/', category: 'Greedy' },
+  { number: 846, title: 'Hand of Straights', difficulty: 'Medium', topics: ['Greedy'], pattern: 'Min element consecutive check', url: 'https://leetcode.com/problems/hand-of-straights/', category: 'Greedy' },
   { number: 763, title: 'Partition Labels', difficulty: 'Medium', topics: ['Greedy'], pattern: 'Last occurrence boundary', url: 'https://leetcode.com/problems/partition-labels/', category: 'Greedy' },
+  { number: 678, title: 'Valid Parenthesis String', difficulty: 'Medium', topics: ['Greedy'], pattern: 'Open bracket range tracking', url: 'https://leetcode.com/problems/valid-parenthesis-string/', category: 'Greedy' },
+  { number: 135, title: 'Candy', difficulty: 'Hard', topics: ['Greedy'], pattern: 'Left-to-right & right-to-left passes', url: 'https://leetcode.com/problems/candy/', category: 'Greedy' },
 
   // Intervals
   { number: 57, title: 'Insert Interval', difficulty: 'Medium', topics: ['Intervals'], pattern: 'Non-overlapping insertion', url: 'https://leetcode.com/problems/insert-interval/', category: 'Intervals' },
   { number: 56, title: 'Merge Intervals', difficulty: 'Medium', topics: ['Intervals'], pattern: 'Sort endpoints and merge', url: 'https://leetcode.com/problems/merge-intervals/', category: 'Intervals' },
   { number: 435, title: 'Non-overlapping Intervals', difficulty: 'Medium', topics: ['Intervals', 'Greedy'], pattern: 'Earliest finish time greedy', url: 'https://leetcode.com/problems/non-overlapping-intervals/', category: 'Intervals' },
+  { number: 452, title: 'Minimum Number of Arrows to Burst Balloons', difficulty: 'Medium', topics: ['Intervals', 'Greedy'], pattern: 'Greedy end position sort', url: 'https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/', category: 'Intervals' },
+  { number: 986, title: 'Interval List Intersections', difficulty: 'Medium', topics: ['Intervals'], pattern: 'Two pointers interval overlap', url: 'https://leetcode.com/problems/interval-list-intersections/', category: 'Intervals' },
+
+  // Math & Geometry
+  { number: 48, title: 'Rotate Image', difficulty: 'Medium', topics: ['Math', 'Matrix'], pattern: 'Transpose and reverse rows', url: 'https://leetcode.com/problems/rotate-image/', category: 'Math & Geometry' },
+  { number: 54, title: 'Spiral Matrix', difficulty: 'Medium', topics: ['Math', 'Matrix'], pattern: 'Four boundary simulation', url: 'https://leetcode.com/problems/spiral-matrix/', category: 'Math & Geometry' },
+  { number: 73, title: 'Set Matrix Zeroes', difficulty: 'Medium', topics: ['Math', 'Matrix'], pattern: 'First row and col marker', url: 'https://leetcode.com/problems/set-matrix-zeroes/', category: 'Math & Geometry' },
+  { number: 202, title: 'Happy Number', difficulty: 'Easy', topics: ['Math'], pattern: 'Cycle detection with set/Floyd', url: 'https://leetcode.com/problems/happy-number/', category: 'Math & Geometry' },
+  { number: 66, title: 'Plus One', difficulty: 'Easy', topics: ['Math'], pattern: 'Right-to-left carry handling', url: 'https://leetcode.com/problems/plus-one/', category: 'Math & Geometry' },
+  { number: 50, title: 'Pow(x, n)', difficulty: 'Medium', topics: ['Math'], pattern: 'Binary exponentiation', url: 'https://leetcode.com/problems/powx-n/', category: 'Math & Geometry' },
 
   // Bit Manipulation
   { number: 136, title: 'Single Number', difficulty: 'Easy', topics: ['Bit Manipulation'], pattern: 'XOR self-cancellation', url: 'https://leetcode.com/problems/single-number/', category: 'Bit Manipulation' },
@@ -210,6 +281,7 @@ const allProblemsSeed: Problem[] = [
   { number: 190, title: 'Reverse Bits', difficulty: 'Easy', topics: ['Bit Manipulation'], pattern: '32-bit shift and assemble', url: 'https://leetcode.com/problems/reverse-bits/', category: 'Bit Manipulation' },
   { number: 268, title: 'Missing Number', difficulty: 'Easy', topics: ['Bit Manipulation'], pattern: 'XOR index vs value', url: 'https://leetcode.com/problems/missing-number/', category: 'Bit Manipulation' },
   { number: 371, title: 'Sum of Two Integers', difficulty: 'Medium', topics: ['Bit Manipulation'], pattern: 'Bitwise XOR & Carry shift', url: 'https://leetcode.com/problems/sum-of-two-integers/', category: 'Bit Manipulation' },
+  { number: 7, title: 'Reverse Integer', difficulty: 'Medium', topics: ['Bit Manipulation', 'Math'], pattern: 'Modulo pop and overflow check', url: 'https://leetcode.com/problems/reverse-integer/', category: 'Bit Manipulation' },
 ]
 
 function App() {

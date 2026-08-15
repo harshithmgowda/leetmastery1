@@ -59,17 +59,490 @@ export function generateMultiLangCode(title: string, pattern: string, isOptimal:
     .map((w, i) => (i === 0 ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()))
     .join('')
 
+  const pLower = pattern.toLowerCase()
+  const tLower = title.toLowerCase()
+
+  // 1. Two Pointers / Strings / Palindrome
+  if (pLower.includes('two pointers') || tLower.includes('palindrome')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'isPalindrome'}(self, s: str) -> bool:`,
+          '        # Two Pointers Inward Scan - O(n) Time | O(1) Space',
+          '        l, r = 0, len(s) - 1',
+          '        while l < r:',
+          '            while l < r and not s[l].isalnum(): l += 1',
+          '            while l < r and not s[r].isalnum(): r -= 1',
+          '            if s[l].lower() != s[r].lower():',
+          '                return False',
+          '            l += 1; r -= 1',
+          '        return True',
+        ],
+        cpp: [
+          '#include <string>',
+          '#include <cctype>',
+          'using namespace std;',
+          '',
+          'class Solution {',
+          'public:',
+          `    bool ${cleanTitle || 'isPalindrome'}(string s) {`,
+          '        int l = 0, r = s.size() - 1;',
+          '        while (l < r) {',
+          '            while (l < r && !isalnum(s[l])) l++;',
+          '            while (l < r && !isalnum(s[r])) r--;',
+          '            if (tolower(s[l]) != tolower(s[r])) return false;',
+          '            l++; r--;',
+          '        }',
+          '        return true;',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'isPalindrome'}(self, s: str) -> bool:`,
+          '        # Brute Force Filter and Reverse - O(n) Time | O(n) Space',
+          '        filtered = [c.lower() for c in s if c.isalnum()]',
+          '        return filtered == filtered[::-1]',
+        ],
+        cpp: [
+          '#include <string>',
+          '#include <algorithm>',
+          'using namespace std;',
+          'class Solution {',
+          'public:',
+          `    bool ${cleanTitle || 'isPalindrome'}(string s) {`,
+          '        string f = "";',
+          '        for (char c : s) if (isalnum(c)) f += tolower(c);',
+          '        string rev = f;',
+          '        reverse(rev.begin(), rev.end());',
+          '        return f == rev;',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
+  // 2. Sliding Window
+  if (pLower.includes('sliding window') || pLower.includes('window')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'lengthOfLongestSubstring'}(self, s: str) -> int:`,
+          '        # Sliding Window with Set - O(n) Time | O(n) Space',
+          '        char_set = set()',
+          '        l = 0',
+          '        max_len = 0',
+          '        for r in range(len(s)):',
+          '            while s[r] in char_set:',
+          '                char_set.remove(s[l])',
+          '                l += 1',
+          '            char_set.add(s[r])',
+          '            max_len = max(max_len, r - l + 1)',
+          '        return max_len',
+        ],
+        cpp: [
+          '#include <string>',
+          '#include <unordered_set>',
+          '#include <algorithm>',
+          'using namespace std;',
+          'class Solution {',
+          'public:',
+          `    int ${cleanTitle || 'lengthOfLongestSubstring'}(string s) {`,
+          '        unordered_set<char> set;',
+          '        int l = 0, ans = 0;',
+          '        for (int r = 0; r < s.size(); ++r) {',
+          '            while (set.count(s[r])) { set.erase(s[l]); l++; }',
+          '            set.insert(s[r]);',
+          '            ans = max(ans, r - l + 1);',
+          '        }',
+          '        return ans;',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'lengthOfLongestSubstring'}(self, s: str) -> int:`,
+          '        # Brute Force Checking All Substrings - O(n³) Time | O(n) Space',
+          '        n = len(s)',
+          '        ans = 0',
+          '        for i in range(n):',
+          '            for j in range(i, n):',
+          '                sub = s[i:j+1]',
+          '                if len(set(sub)) == len(sub):',
+          '                    ans = max(ans, len(sub))',
+          '        return ans',
+        ],
+        cpp: [
+          '// O(n^3) Brute Force approach',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
+  // 3. Binary Search
+  if (pLower.includes('binary search') || tLower.includes('search')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'search'}(self, nums: List[int], target: int) -> int:`,
+          '        # Binary Search - O(log n) Time | O(1) Space',
+          '        l, r = 0, len(nums) - 1',
+          '        while l <= r:',
+          '            mid = (l + r) // 2',
+          '            if nums[mid] == target:',
+          '                return mid',
+          '            elif nums[mid] < target:',
+          '                l = mid + 1',
+          '            else:',
+          '                r = mid - 1',
+          '        return -1',
+        ],
+        cpp: [
+          '#include <vector>',
+          'using namespace std;',
+          'class Solution {',
+          'public:',
+          `    int ${cleanTitle || 'search'}(vector<int>& nums, int target) {`,
+          '        int l = 0, r = nums.size() - 1;',
+          '        while (l <= r) {',
+          '            int mid = l + (r - l) / 2;',
+          '            if (nums[mid] == target) return mid;',
+          '            if (nums[mid] < target) l = mid + 1;',
+          '            else r = mid - 1;',
+          '        }',
+          '        return -1;',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'search'}(self, nums: List[int], target: int) -> int:`,
+          '        # Linear Scan - O(n) Time | O(1) Space',
+          '        for i, val in enumerate(nums):',
+          '            if val == target:',
+          '                return i',
+          '        return -1',
+        ],
+        cpp: [
+          '#include <vector>',
+          'using namespace std;',
+          'class Solution {',
+          'public:',
+          `    int ${cleanTitle || 'search'}(vector<int>& nums, int target) {`,
+          '        for (int i = 0; i < nums.size(); ++i) if (nums[i] == target) return i;',
+          '        return -1;',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
+  // 4. Linked List
+  if (pLower.includes('linked list') || tLower.includes('list')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'reverseList'}(self, head: Optional[ListNode]) -> Optional[ListNode]:`,
+          '        # Iterative Pointer Reversal - O(n) Time | O(1) Space',
+          '        prev = None',
+          '        curr = head',
+          '        while curr:',
+          '            nxt = curr.next',
+          '            curr.next = prev',
+          '            prev = curr',
+          '            curr = nxt',
+          '        return prev',
+        ],
+        cpp: [
+          'class Solution {',
+          'public:',
+          `    ListNode* ${cleanTitle || 'reverseList'}(ListNode* head) {`,
+          '        ListNode *prev = nullptr, *curr = head;',
+          '        while (curr) {',
+          '            ListNode* nxt = curr->next;',
+          '            curr->next = prev;',
+          '            prev = curr;',
+          '            curr = nxt;',
+          '        }',
+          '        return prev;',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'reverseList'}(self, head: Optional[ListNode]) -> Optional[ListNode]:`,
+          '        # Store in Array and Rebuild - O(n) Time | O(n) Space',
+          '        nodes = []',
+          '        curr = head',
+          '        while curr: nodes.append(curr.val); curr = curr.next',
+          '        dummy = ListNode(0)',
+          '        curr = dummy',
+          '        for val in reversed(nodes):',
+          '            curr.next = ListNode(val)',
+          '            curr = curr.next',
+          '        return dummy.next',
+        ],
+        cpp: [
+          '// O(n) Extra memory rebuild',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
+  // 5. Trees & BST
+  if (pLower.includes('tree') || pLower.includes('bst') || tLower.includes('tree')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'maxDepth'}(self, root: Optional[TreeNode]) -> int:`,
+          '        # Recursive Depth First Search - O(n) Time | O(h) Space',
+          '        if not root:',
+          '            return 0',
+          '        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))',
+        ],
+        cpp: [
+          '#include <algorithm>',
+          'using namespace std;',
+          'class Solution {',
+          'public:',
+          `    int ${cleanTitle || 'maxDepth'}(TreeNode* root) {`,
+          '        if (!root) return 0;',
+          '        return 1 + max(maxDepth(root->left), maxDepth(root->right));',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'maxDepth'}(self, root: Optional[TreeNode]) -> int:`,
+          '        # Queue Level-Order BFS - O(n) Time | O(n) Space',
+          '        if not root: return 0',
+          '        queue = [root]',
+          '        depth = 0',
+          '        while queue:',
+          '            depth += 1',
+          '            for _ in range(len(queue)):',
+          '                node = queue.pop(0)',
+          '                if node.left: queue.append(node.left)',
+          '                if node.right: queue.append(node.right)',
+          '        return depth',
+        ],
+        cpp: [
+          '// BFS level-by-level traversal',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
+  // 6. Stack / Parentheses
+  if (pLower.includes('stack') || tLower.includes('parenthes')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'isValid'}(self, s: str) -> bool:`,
+          '        # Stack Bracket Matching - O(n) Time | O(n) Space',
+          '        stack = []',
+          '        close_to_open = {")": "(", "}": "{", "]": "["}',
+          '        for c in s:',
+          '            if c in close_to_open:',
+          '                if stack and stack[-1] == close_to_open[c]:',
+          '                    stack.pop()',
+          '                else:',
+          '                    return False',
+          '            else:',
+          '                stack.append(c)',
+          '        return not stack',
+        ],
+        cpp: [
+          '#include <string>',
+          '#include <stack>',
+          '#include <unordered_map>',
+          'using namespace std;',
+          'class Solution {',
+          'public:',
+          `    bool ${cleanTitle || 'isValid'}(string s) {`,
+          '        stack<char> st;',
+          '        unordered_map<char, char> map = {{\')\', \'(\'}, {\'}\', \'{\'}, {\']\', \'[\'}};\n',
+          '        for (char c : s) {',
+          '            if (map.count(c)) {',
+          '                if (!st.empty() && st.top() == map[c]) st.pop();',
+          '                else return false;',
+          '            } else st.push(c);',
+          '        }',
+          '        return st.empty();',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'isValid'}(self, s: str) -> bool:`,
+          '        # Substring Replacement - O(n²) Time | O(n) Space',
+          '        while "()" in s or "{}" in s or "[]" in s:',
+          '            s = s.replace("()", "").replace("{}", "").replace("[]", "")',
+          '        return len(s) == 0',
+        ],
+        cpp: [
+          '// Repeated string replacement approach',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
+  // 7. Dynamic Programming
+  if (pLower.includes('dynamic programming') || pLower.includes('dp')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'climbStairs'}(self, n: int) -> int:`,
+          '        # Space-Optimized Dynamic Programming - O(n) Time | O(1) Space',
+          '        if n <= 2: return n',
+          '        one, two = 1, 2',
+          '        for _ in range(3, n + 1):',
+          '            one, two = two, one + two',
+          '        return two',
+        ],
+        cpp: [
+          'class Solution {',
+          'public:',
+          `    int ${cleanTitle || 'climbStairs'}(int n) {`,
+          '        if (n <= 2) return n;',
+          '        int one = 1, two = 2;',
+          '        for (int i = 3; i <= n; ++i) {',
+          '            int temp = one + two;',
+          '            one = two; two = temp;',
+          '        }',
+          '        return two;',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'climbStairs'}(self, n: int) -> int:`,
+          '        # Naive Recursion - O(2ⁿ) Time (TLE)',
+          '        if n <= 2: return n',
+          '        return self.climbStairs(n - 1) + self.climbStairs(n - 2)',
+        ],
+        cpp: [
+          '// Exponential O(2^n) recursion',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
+  // 8. Bit Manipulation
+  if (pLower.includes('bit')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'singleNumber'}(self, nums: List[int]) -> int:`,
+          '        # XOR Bit Manipulation - O(n) Time | O(1) Space',
+          '        res = 0',
+          '        for n in nums:',
+          '            res ^= n',
+          '        return res',
+        ],
+        cpp: [
+          '#include <vector>',
+          'using namespace std;',
+          'class Solution {',
+          'public:',
+          `    int ${cleanTitle || 'singleNumber'}(vector<int>& nums) {`,
+          '        int res = 0;',
+          '        for (int n : nums) res ^= n;',
+          '        return res;',
+          '    }',
+          '};',
+        ],
+        java: [],
+        typescript: [],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'singleNumber'}(self, nums: List[int]) -> int:`,
+          '        # Hash Set Membership - O(n) Time | O(n) Space',
+          '        return 2 * sum(set(nums)) - sum(nums)',
+        ],
+        cpp: [
+          '// Set storage approach',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
+  // Default: Arrays & Hash Map Lookup
   if (isOptimal) {
     return {
       python: [
         'class Solution:',
-        `    def ${cleanTitle || 'solve'}(self, nums: List[int], target: int = 0) -> Any:`,
-        `        # Optimal ${pattern} Solution - O(n) Time | O(n) Space`,
+        `    def ${cleanTitle || 'twoSum'}(self, nums: List[int], target: int = 9) -> List[int]:`,
+        '        # Optimal Hash Map Complement Lookup - O(n) Time | O(n) Space',
         '        seen = {}',
         '        for i, val in enumerate(nums):',
-        '            complement = target - val',
-        '            if complement in seen:',
-        '                return [seen[complement], i]',
+        '            diff = target - val',
+        '            if diff in seen:',
+        '                return [seen[diff], i]',
         '            seen[val] = i',
         '        return []',
       ],
@@ -77,63 +550,28 @@ export function generateMultiLangCode(title: string, pattern: string, isOptimal:
         '#include <vector>',
         '#include <unordered_map>',
         'using namespace std;',
-        '',
         'class Solution {',
         'public:',
-        `    vector<int> ${cleanTitle || 'solve'}(vector<int>& nums, int target = 0) {`,
-        '        // Optimal approach using Hash Map lookup: O(n) Time, O(n) Space',
+        `    vector<int> ${cleanTitle || 'twoSum'}(vector<int>& nums, int target = 9) {`,
         '        unordered_map<int, int> seen;',
         '        for (int i = 0; i < nums.size(); ++i) {',
-        '            int complement = target - nums[i];',
-        '            if (seen.count(complement)) {',
-        '                return {seen[complement], i};',
-        '            }',
+        '            int diff = target - nums[i];',
+        '            if (seen.count(diff)) return {seen[diff], i};',
         '            seen[nums[i]] = i;',
         '        }',
         '        return {};',
         '    }',
         '};',
       ],
-      java: [
-        'import java.util.HashMap;',
-        'import java.util.Map;',
-        '',
-        'class Solution {',
-        `    public int[] ${cleanTitle || 'solve'}(int[] nums, int target) {`,
-        '        // One-pass Hash Table for constant-time complement verification',
-        '        Map<Integer, Integer> seen = new HashMap<>();',
-        '        for (int i = 0; i < nums.length; i++) {',
-        '            int complement = target - nums[i];',
-        '            if (seen.containsKey(complement)) {',
-        '                return new int[] { seen.get(complement), i };',
-        '            }',
-        '            seen.put(nums[i], i);',
-        '        }',
-        '        return new int[0];',
-        '    }',
-        '}',
-      ],
-      typescript: [
-        `function ${cleanTitle || 'solve'}(nums: number[], target: number = 0): number[] {`,
-        '  // Optimal solution: O(n) time and O(n) auxiliary space',
-        '  const seen = new Map<number, number>();',
-        '  for (let i = 0; i < nums.length; i++) {',
-        '    const complement = target - nums[i];',
-        '    if (seen.has(complement)) {',
-        '      return [seen.get(complement)!, i];',
-        '    }',
-        '    seen.set(nums[i], i);',
-        '  }',
-        '  return [];',
-        '}',
-      ],
+      java: [],
+      typescript: [],
     }
   } else {
     return {
       python: [
         'class Solution:',
-        `    def ${cleanTitle || 'solve'}(self, nums: List[int], target: int = 0) -> Any:`,
-        `        # Brute Force Solution - O(n²) Time | O(1) Space`,
+        `    def ${cleanTitle || 'twoSum'}(self, nums: List[int], target: int = 9) -> List[int]:`,
+        '        # Brute Force Nested Loop - O(n²) Time | O(1) Space',
         '        n = len(nums)',
         '        for i in range(n):',
         '            for j in range(i + 1, n):',
@@ -144,53 +582,18 @@ export function generateMultiLangCode(title: string, pattern: string, isOptimal:
       cpp: [
         '#include <vector>',
         'using namespace std;',
-        '',
         'class Solution {',
         'public:',
-        `    vector<int> ${cleanTitle || 'solve'}(vector<int>& nums, int target = 0) {`,
-        '        // Brute force checking all pairs: O(n²) Time, O(1) Space',
-        '        int n = nums.size();',
-        '        for (int i = 0; i < n; ++i) {',
-        '            for (int j = i + 1; j < n; ++j) {',
-        '                if (nums[i] + nums[j] == target) {',
-        '                    return {i, j};',
-        '                }',
-        '            }',
-        '        }',
+        `    vector<int> ${cleanTitle || 'twoSum'}(vector<int>& nums, int target = 9) {`,
+        '        for (int i = 0; i < nums.size(); ++i)',
+        '            for (int j = i + 1; j < nums.size(); ++j)',
+        '                if (nums[i] + nums[j] == target) return {i, j};',
         '        return {};',
         '    }',
         '};',
       ],
-      java: [
-        'class Solution {',
-        `    public int[] ${cleanTitle || 'solve'}(int[] nums, int target) {`,
-        '        // Nested loops checking every possible combination',
-        '        int n = nums.length;',
-        '        for (int i = 0; i < n; i++) {',
-        '            for (int j = i + 1; j < n; j++) {',
-        '                if (nums[i] + nums[j] == target) {',
-        '                    return new int[] { i, j };',
-        '                }',
-        '            }',
-        '        }',
-        '        return new int[0];',
-        '    }',
-        '}',
-      ],
-      typescript: [
-        `function ${cleanTitle || 'solve'}(nums: number[], target: number = 0): number[] {`,
-        '  // Brute force: quadratic search through all pairs',
-        '  const n = nums.length;',
-        '  for (let i = 0; i < n; i++) {',
-        '    for (let j = i + 1; j < n; j++) {',
-        '      if (nums[i] + nums[j] === target) {',
-        '        return [i, j];',
-        '      }',
-        '    }',
-        '  }',
-        '  return [];',
-        '}',
-      ],
+      java: [],
+      typescript: [],
     }
   }
 }
@@ -1595,22 +1998,36 @@ export function buildPythonTutorExecutableCode(
 ): string {
   const rawCode = pythonLines.join('\n')
 
-  // Extract function name
-  const match = rawCode.match(/def\s+([a-zA-Z0-9_]+)\s*\(\s*self/)
-  const methodName = match ? match[1] : ''
-
-  // Always prepend typing imports & node definitions so Python Tutor never throws NameError
+  // Header imports and helper data structures (ListNode with from_list, TreeNode with from_list)
   const headerLines = [
-    'from typing import List, Dict, Set, Tuple, Optional, Any',
+    'from __future__ import annotations',
+    'from typing import List, Dict, Set, Tuple, Optional, Any, Union',
     'import collections',
     'import heapq',
     'import math',
+    'import bisect',
+    'import itertools',
     '',
     '# Definition for singly-linked list node',
     'class ListNode:',
     '    def __init__(self, val=0, next=None):',
     '        self.val = val',
     '        self.next = next',
+    '    @classmethod',
+    '    def from_list(cls, arr):',
+    '        dummy = cls(0)',
+    '        cur = dummy',
+    '        for x in arr:',
+    '            cur.next = cls(x)',
+    '            cur = cur.next',
+    '        return dummy.next',
+    '    def __repr__(self):',
+    '        vals = []',
+    '        cur = self',
+    '        while cur:',
+    '            vals.append(str(cur.val))',
+    '            cur = cur.next',
+    '        return " -> ".join(vals)',
     '',
     '# Definition for binary tree node',
     'class TreeNode:',
@@ -1618,77 +2035,75 @@ export function buildPythonTutorExecutableCode(
     '        self.val = val',
     '        self.left = left',
     '        self.right = right',
+    '    def __repr__(self):',
+    '        return f"TreeNode({self.val})"',
     '',
   ]
 
-  // Remove existing redundant imports from snippet to prevent duplicate lines
+  // Remove existing redundant imports from snippet
   const cleanedCode = rawCode
-    .replace(/^import collections\s*\n?/m, '')
-    .replace(/^from typing import [^\n]+\n?/m, '')
+    .replace(/^from __future__ import [^\n]+\n?/gm, '')
+    .replace(/^from typing import [^\n]+\n?/gm, '')
+    .replace(/^import collections\s*\n?/gm, '')
+    .replace(/^import heapq\s*\n?/gm, '')
+    .replace(/^import math\s*\n?/gm, '')
     .trim()
 
-  // Generate test argument
-  let testArgs = ''
-  if (exampleInput && exampleInput.includes('=')) {
-    // Parse "nums = [2, 7, 11, 15], target = 9" -> "[2, 7, 11, 15], 9"
-    const parts = exampleInput.split(/,\s*(?=[a-zA-Z0-9_]+\s*=)/).map((p) => {
-      const idx = p.indexOf('=')
-      return idx !== -1 ? p.slice(idx + 1).trim() : p.trim()
-    })
-    testArgs = parts.join(', ')
-  } else {
-    // Handcrafted defaults for popular questions
-    switch (problemTitle) {
-      case 'Group Anagrams':
-        testArgs = '["eat", "tea", "tan", "ate", "nat", "bat"]'
-        break
-      case 'Two Sum':
-        testArgs = '[2, 7, 11, 15], 9'
-        break
-      case 'Valid Anagram':
-        testArgs = '"anagram", "nagaram"'
-        break
-      case 'Contains Duplicate':
-        testArgs = '[1, 2, 3, 1]'
-        break
-      case 'Product of Array Except Self':
-        testArgs = '[1, 2, 3, 4]'
-        break
-      case '3Sum':
-        testArgs = '[-1, 0, 1, 2, -1, -4]'
-        break
-      case 'Valid Palindrome':
-        testArgs = '"A man, a plan, a canal: Panama"'
-        break
-      case 'Best Time to Buy and Sell Stock':
-        testArgs = '[7, 1, 5, 3, 6, 4]'
-        break
-      case 'Valid Parentheses':
-        testArgs = '"()[]{}"'
-        break
-      case 'Binary Search':
-        testArgs = '[-1, 0, 3, 5, 9, 12], 9'
-        break
-      case 'Top K Frequent Elements':
-        testArgs = '[1, 1, 1, 2, 2, 3], 2'
-        break
-      case 'Longest Consecutive Sequence':
-        testArgs = '[100, 4, 200, 1, 3, 2]'
-        break
-      default:
-        testArgs = '[1, 2, 3, 4]'
-    }
-  }
+  // Match method definitions inside Solution
+  const methodMatch = cleanedCode.match(/def\s+([a-zA-Z0-9_]+)\s*\(\s*self\s*,?\s*([^)]*)\)/)
 
   let driver = ''
-  if (methodName) {
+  if (methodMatch) {
+    const methodName = methodMatch[1]
+    const paramsStr = methodMatch[2] || ''
+    const paramNames = paramsStr
+      .split(',')
+      .map((p) => p.split(':')[0].trim())
+      .filter((p) => p.length > 0 && p !== 'self')
+
+    // Determine arguments to pass based on parameter names and problem title
+    const args = generatePythonArgsForParams(paramNames, problemTitle, exampleInput)
     driver = [
       '',
       '# --- Python Tutor Interactive Execution ---',
       `# Problem #${problemNumber}: ${problemTitle}`,
       'sol = Solution()',
-      `result = sol.${methodName}(${testArgs})`,
+      `result = sol.${methodName}(${args})`,
       'print("Execution Result:", result)',
+    ].join('\n')
+  } else if (cleanedCode.includes('class MinStack')) {
+    driver = [
+      '',
+      '# --- Python Tutor Interactive Execution ---',
+      'obj = MinStack()',
+      'obj.push(-2)',
+      'obj.push(0)',
+      'obj.push(-3)',
+      'print("Min:", obj.getMin())',
+      'obj.pop()',
+      'print("Top:", obj.top())',
+      'print("Min:", obj.getMin())',
+    ].join('\n')
+  } else if (cleanedCode.includes('class LRUCache')) {
+    driver = [
+      '',
+      '# --- Python Tutor Interactive Execution ---',
+      'cache = LRUCache(2)',
+      'cache.put(1, 1)',
+      'cache.put(2, 2)',
+      'print("Get 1:", cache.get(1))',
+      'cache.put(3, 3)',
+      'print("Get 2 (evicted):", cache.get(2))',
+    ].join('\n')
+  } else if (cleanedCode.includes('class Trie')) {
+    driver = [
+      '',
+      '# --- Python Tutor Interactive Execution ---',
+      'trie = Trie()',
+      'trie.insert("apple")',
+      'print("Search apple:", trie.search("apple"))',
+      'print("Search app:", trie.search("app"))',
+      'print("StartsWith app:", trie.startsWith("app"))',
     ].join('\n')
   } else {
     driver = [
@@ -1700,5 +2115,80 @@ export function buildPythonTutorExecutableCode(
   }
 
   return `${headerLines.join('\n')}\n${cleanedCode}\n${driver}`
+}
+
+function generatePythonArgsForParams(paramNames: string[], problemTitle: string, exampleInput: string): string {
+  // If user has structured example input like "nums = [2, 7], target = 9", parse it
+  if (exampleInput && exampleInput.includes('=')) {
+    const parts = exampleInput.split(/,\s*(?=[a-zA-Z0-9_]+\s*=)/).map((p) => {
+      const idx = p.indexOf('=')
+      return idx !== -1 ? p.slice(idx + 1).trim() : p.trim()
+    })
+    if (parts.length === paramNames.length) {
+      return parts.join(', ')
+    }
+  }
+
+  // Parameter-name based intelligent arg synthesis
+  const mappedArgs = paramNames.map((p) => {
+    const lower = p.toLowerCase()
+    if (lower.includes('head') || lower.includes('list1') || lower.includes('l1')) {
+      return 'ListNode.from_list([1, 2, 3, 4, 5])'
+    }
+    if (lower.includes('list2') || lower.includes('l2')) {
+      return 'ListNode.from_list([1, 3, 4])'
+    }
+    if (lower.includes('root') || lower.includes('p') || lower.includes('q') || lower.includes('node')) {
+      return 'TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))'
+    }
+    if (lower === 'strs' || lower.includes('words') || lower.includes('tokens')) {
+      return '["eat", "tea", "tan", "ate", "nat", "bat"]'
+    }
+    if (lower === 'grid' || lower === 'matrix' || lower === 'board') {
+      return '[["1","1","0"],["1","1","0"],["0","0","1"]]'
+    }
+    if (lower === 's' || lower === 'str' || lower === 's1') {
+      if (problemTitle.includes('Parentheses')) return '"()[]{}"'
+      if (problemTitle.includes('Palindrome')) return '"racecar"'
+      return '"abcabcbb"'
+    }
+    if (lower === 't' || lower === 's2' || lower === 'p') {
+      return '"abc"'
+    }
+    if (lower === 'prices') {
+      return '[7, 1, 5, 3, 6, 4]'
+    }
+    if (lower === 'nums' || lower === 'arr' || lower === 'nums1') {
+      if (problemTitle === 'Two Sum') return '[2, 7, 11, 15]'
+      if (problemTitle === '3Sum') return '[-1, 0, 1, 2, -1, -4]'
+      if (problemTitle === 'Contains Duplicate') return '[1, 2, 3, 1]'
+      if (problemTitle === 'Top K Frequent Elements') return '[1, 1, 1, 2, 2, 3]'
+      if (problemTitle === 'Longest Consecutive Sequence') return '[100, 4, 200, 1, 3, 2]'
+      return '[2, 7, 11, 15]'
+    }
+    if (lower === 'nums2') {
+      return '[1, 2, 3]'
+    }
+    if (lower === 'coins') {
+      return '[1, 2, 5]'
+    }
+    if (lower === 'target' || lower === 'amount' || lower === 'sum') {
+      if (problemTitle === 'Two Sum') return '9'
+      if (problemTitle === 'Coin Change') return '11'
+      return '9'
+    }
+    if (lower === 'k' || lower === 'val') {
+      return '2'
+    }
+    if (lower === 'n') {
+      return '5'
+    }
+    if (lower === 'intervals') {
+      return '[[1, 3], [2, 6], [8, 10], [15, 18]]'
+    }
+    return '[1, 2, 3]'
+  })
+
+  return mappedArgs.join(', ')
 }
 

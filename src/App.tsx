@@ -15,6 +15,7 @@ import {
   Eye,
   Filter,
   Flame,
+  Github,
   Hash,
   Layers,
   Lightbulb,
@@ -609,6 +610,17 @@ ${code}`
         </div>
 
         <div className="topbar-actions">
+          <a
+            className="github-profile-pill"
+            href="https://github.com/harshithmgowda?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+            title="Developed by Harshith Gowda M on GitHub"
+          >
+            <Github size={14} />
+            <span className="github-name">Harshith Gowda M</span>
+          </a>
+
           <div className="solved-counter-pill" title="Tracked completed problems in this section">
             <CheckCircle2 size={14} className="solved-icon" />
             <span>
@@ -772,6 +784,22 @@ ${code}`
                 <small>{activeSection === 'core' ? 'Best & Worst algorithmic patterns' : '78 Curated Striver & FAANG questions'}</small>
               </div>
             </div>
+
+            {/* Author Attribution Card */}
+            <a
+              className="author-footer-card"
+              href="https://github.com/harshithmgowda?tab=repositories"
+              target="_blank"
+              rel="noreferrer"
+              title="Developed by Harshith Gowda M on GitHub"
+            >
+              <div className="author-avatar">⚡</div>
+              <div className="author-meta">
+                <span className="author-label">Developed by</span>
+                <strong className="author-name">Harshith Gowda M</strong>
+              </div>
+              <ExternalLink size={12} className="author-ext-icon" />
+            </a>
           </div>
         </aside>
 

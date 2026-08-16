@@ -304,6 +304,29 @@ kbd {
   color: var(--lc-easy);
 }
 
+.github-profile-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--lc-border);
+  color: var(--lc-text-primary);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.github-profile-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--lc-orange);
+  color: #ffa116;
+  box-shadow: 0 0 10px rgba(255, 161, 22, 0.25);
+  transform: translateY(-1px);
+}
+
 .icon-button {
   width: 34px;
   height: 34px;
@@ -789,6 +812,79 @@ kbd {
 .streak-info small {
   font-size: 9px;
   color: var(--lc-text-muted);
+}
+
+/* Author Footer Attribution Card */
+.author-footer-card {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--lc-border);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.author-footer-card:hover {
+  background: rgba(255, 161, 22, 0.09);
+  border-color: rgba(255, 161, 22, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.author-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #ffa116 0%, #ff5722 100%);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  color: #1a1a1a;
+  font-weight: 800;
+  box-shadow: 0 1px 4px rgba(255, 161, 22, 0.4);
+  flex-shrink: 0;
+}
+
+.author-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.author-label {
+  font-size: 9px;
+  color: var(--lc-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.author-name {
+  font-size: 11px;
+  color: var(--lc-text-primary);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.author-footer-card:hover .author-name {
+  color: #ffa116;
+}
+
+.author-ext-icon {
+  color: var(--lc-text-muted);
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.author-footer-card:hover .author-ext-icon {
+  color: #ffa116;
 }
 
 /* ============================================================

@@ -445,21 +445,26 @@ function App() {
   // Generate Ask ChatGPT link with beginner-friendly prompt
   const openChatGPT = () => {
     const code = currentCodeLines.join('\n')
+    const approachLabel = approachMode === 'optimal' ? 'Best (Optimal)' : (approachMode === 'brute' ? 'Worst (Brute Force)' : 'Alternative')
     const prompt = `Explain Problem #${currentProblem.number}: ${currentProblem.title} (${currentProblem.pattern} pattern) step-by-step from absolute scratch.
+
+Current Active Approach: ${approachLabel} - ${currentApproach.title}
+Time Complexity: ${currentApproach.timeComplexity} (${currentApproach.timeComplexityDetail})
+Space Complexity: ${currentApproach.spaceComplexity} (${currentApproach.spaceComplexityDetail})
 
 Assume I am a beginner with zero algorithmic experience:
 1. Explain the problem simply using an everyday intuitive analogy.
-2. Explain the intuition and why the brute force / naive approach is slow.
-3. Explain the optimal ${currentProblem.pattern} solution line-by-line in plain English.
-4. Walk through a detailed step-by-step dry run on example: "${problemData.examples[0]?.input || 'standard example'}" tracking variable values in memory.
-5. Explain the Time Complexity O(...) and Space Complexity O(...) with clear derivations.
+2. Explain the intuition and why the brute force / naive approach is slow (${problemData.bottleneck}).
+3. Explain the ${approachLabel} solution line-by-line in plain English.
+4. Walk through a detailed step-by-step dry run on example: "${problemData.examples[0]?.input || 'standard example'}" tracking variable and pointer states in memory.
+5. Explain the Time Complexity ${currentApproach.timeComplexity} and Space Complexity ${currentApproach.spaceComplexity} with clear derivations.
 
 Here is the solution code (${language.toUpperCase()}):
 ${code}`
 
     const url = `https://chatgpt.com/?q=${encodeURIComponent(prompt)}`
     window.open(url, '_blank', 'noopener,noreferrer')
-    setToast('🚀 Opened ChatGPT with custom ELI5 interview prompt!')
+    setToast(`🚀 Opened ChatGPT for ${approachLabel}!`)
   }
 
   // Generate Python Tutor visualizer URL from the current active approach (Optimal, Brute Force, or Alternative)

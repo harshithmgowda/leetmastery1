@@ -2051,7 +2051,9 @@ export function buildPythonTutorExecutableCode(
   const methodMatch = rawCode.match(/def\s+([a-zA-Z0-9_]+)\s*\(\s*self\s*,?\s*([^)]*)\)/)
 
   let driver = ''
-  if (methodMatch) {
+  if (rawCode.includes('sol = Solution()') || rawCode.includes('# Test execution') || rawCode.includes('obj = Solution()')) {
+    driver = ''
+  } else if (methodMatch) {
     const methodName = methodMatch[1]
     const paramsStr = methodMatch[2] || ''
     const paramNames = paramsStr
@@ -2088,7 +2090,7 @@ sol = Solution()`
   }
 
   const prefix = headerParts.length > 0 ? headerParts.join('\n') + '\n\n' : ''
-  return `${prefix}${rawCode}\n${driver}`
+  return `${prefix}${rawCode}${driver ? `\n${driver}` : ''}`
 }
 
 function generatePythonArgsForParams(paramNames: string[], problemTitle: string, exampleInput: string): string {

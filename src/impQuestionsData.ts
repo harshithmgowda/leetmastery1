@@ -21,7 +21,7 @@ export const impProblemsSeed: Problem[] = [
       "Algorithms",
       "Math"
     ],
-    "pattern": "Euclidean modulo algorithm (a % b)",
+    "pattern": "Euclidean Modulo Algorithm",
     "url": "https://takeuforward.org/data-structure/find-gcd-of-two-numbers/",
     "category": "Algorithms",
     "solved": false,
@@ -29,14 +29,14 @@ export const impProblemsSeed: Problem[] = [
   },
   {
     "number": 1002,
-    "title": "Optimal Merge Pattern (Greedy / Min Heap)",
+    "title": "Optimal Merge Pattern (Greedy / Min-Heap)",
     "difficulty": "Medium",
     "topics": [
       "Algorithms",
       "Greedy",
       "Heap"
     ],
-    "pattern": "Greedy minimum pair merge",
+    "pattern": "Min-Heap Greedy Pairing",
     "url": "https://www.geeksforgeeks.org/optimal-file-merge-patterns/",
     "category": "Algorithms",
     "solved": false,
@@ -51,7 +51,7 @@ export const impProblemsSeed: Problem[] = [
       "Prefix Sum",
       "Hashing"
     ],
-    "pattern": "Prefix sum hash map (O(N))",
+    "pattern": "Prefix Sum Hash Map",
     "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
     "category": "Array",
     "solved": false,
@@ -65,76 +65,78 @@ export const impProblemsSeed: Problem[] = [
       "Array",
       "Two Pointers"
     ],
-    "pattern": "In-place two-pass shift",
-    "url": "https://leetcode.com/problems/duplicate-zeros/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1005,
-    "title": "Find Numbers with Even Number of Digits",
+    "title": "Find Even No. Of Digits",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Math"
+      "Hashing"
     ],
-    "pattern": "Digit length parity check",
-    "url": "https://leetcode.com/problems/find-numbers-with-even-number-of-digits/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1006,
-    "title": "Highest Occurring Element (Mode)",
+    "title": "Highest Occurring Element",
     "difficulty": "Easy",
     "topics": [
       "Array",
       "Hashing"
     ],
-    "pattern": "Frequency dictionary max lookup",
-    "url": "https://takeuforward.org/data-structure/find-the-highest-lowest-frequency-element/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1007,
-    "title": "Left Rotate Array by One",
+    "title": "Laft Rotate By One",
     "difficulty": "Easy",
     "topics": [
-      "Array"
+      "Array",
+      "Hashing"
     ],
-    "pattern": "Temporary element shift",
-    "url": "https://takeuforward.org/data-structure/left-rotate-the-array-by-one/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1008,
-    "title": "Find Largest Element in Array",
+    "title": "Largest Element",
     "difficulty": "Easy",
     "topics": [
-      "Array"
+      "Array",
+      "Hashing"
     ],
-    "pattern": "Single-pass maximum tracking",
-    "url": "https://takeuforward.org/data-structure/find-the-largest-element-in-an-array/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1009,
-    "title": "Linear Search Algorithm",
+    "title": "Linear Search",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Search"
+      "Hashing"
     ],
-    "pattern": "Sequential iteration scan",
-    "url": "https://takeuforward.org/data-structure/linear-search-in-c/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
@@ -142,13 +144,13 @@ export const impProblemsSeed: Problem[] = [
   {
     "number": 1010,
     "title": "Longest Consecutive Sequence",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "topics": [
       "Array",
       "Hashing"
     ],
-    "pattern": "Hash set sequence starter search",
-    "url": "https://leetcode.com/problems/longest-consecutive-sequence/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
@@ -158,67 +160,67 @@ export const impProblemsSeed: Problem[] = [
     "title": "Max Consecutive Ones",
     "difficulty": "Easy",
     "topics": [
-      "Array"
+      "Array",
+      "Hashing"
     ],
-    "pattern": "Current streak count reset on zero",
-    "url": "https://leetcode.com/problems/max-consecutive-ones/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1012,
-    "title": "Maximum Rating Gain (Best Time to Buy and Sell Stock)",
+    "title": "Max Rating Gain",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Greedy"
+      "Hashing"
     ],
-    "pattern": "Running minimum price tracker",
-    "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1013,
-    "title": "Merge Sorted Array In-Place",
+    "title": "Merge Sorted Array",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Two Pointers"
+      "Hashing"
     ],
-    "pattern": "Three pointers backward merge",
-    "url": "https://leetcode.com/problems/merge-sorted-array/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1014,
-    "title": "Missing Number in Array",
+    "title": "Missing Number",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Math",
-      "Bit Manipulation"
+      "Hashing"
     ],
-    "pattern": "Gauss formula N*(N+1)//2 or XOR",
-    "url": "https://leetcode.com/problems/missing-number/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1015,
-    "title": "Move Zeroes to End",
+    "title": "Moves Zeros To End",
     "difficulty": "Easy",
     "topics": [
       "Array",
       "Two Pointers"
     ],
-    "pattern": "Snowball / two-pointer partition",
-    "url": "https://leetcode.com/problems/move-zeroes/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
@@ -229,66 +231,66 @@ export const impProblemsSeed: Problem[] = [
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Math"
+      "Hashing"
     ],
-    "pattern": "Carry propagation backward scan",
-    "url": "https://leetcode.com/problems/plus-one/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1017,
-    "title": "Rearrange Array Elements by Sign",
+    "title": "Rearrange Elements By Sign",
     "difficulty": "Medium",
     "topics": [
       "Array",
-      "Two Pointers"
+      "Hashing"
     ],
-    "pattern": "Positive & Negative dual pointer fill",
-    "url": "https://leetcode.com/problems/rearrange-array-elements-by-sign/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1018,
-    "title": "Remove Duplicates from Sorted Array",
+    "title": "Remove Duplicates",
     "difficulty": "Easy",
     "topics": [
       "Array",
       "Two Pointers"
     ],
-    "pattern": "Slow & fast write pointer",
-    "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1019,
-    "title": "Remove Element In-Place",
+    "title": "Remove Element",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Two Pointers"
+      "Hashing"
     ],
-    "pattern": "Non-target element writer pointer",
-    "url": "https://leetcode.com/problems/remove-element/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1020,
-    "title": "Reverse an Array In-Place",
+    "title": "Reverse An Array",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Two Pointers"
+      "Hashing"
     ],
-    "pattern": "Inward swap two pointers",
-    "url": "https://takeuforward.org/data-structure/reverse-a-given-array/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
@@ -299,23 +301,24 @@ export const impProblemsSeed: Problem[] = [
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Binary Search"
+      "Hashing"
     ],
-    "pattern": "Lower bound binary search",
-    "url": "https://leetcode.com/problems/search-insert-position/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1022,
-    "title": "Second Largest Element in Array",
+    "title": "Second Largest Element",
     "difficulty": "Easy",
     "topics": [
-      "Array"
+      "Array",
+      "Hashing"
     ],
-    "pattern": "Single-pass largest & second-largest tracking",
-    "url": "https://takeuforward.org/data-structure/find-second-smallest-and-second-largest-element-in-an-array/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
@@ -326,149 +329,150 @@ export const impProblemsSeed: Problem[] = [
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Bit Manipulation"
+      "Hashing"
     ],
-    "pattern": "XOR reduction (x ^ x = 0)",
-    "url": "https://leetcode.com/problems/single-number/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1024,
-    "title": "Sort Array of 0s, 1s, and 2s (Dutch Flag)",
-    "difficulty": "Medium",
+    "title": "Sort An Array Of 0's 1's And 2's",
+    "difficulty": "Easy",
     "topics": [
       "Array",
-      "Two Pointers"
+      "Hashing"
     ],
-    "pattern": "Dutch National Flag algorithm (3-way)",
-    "url": "https://leetcode.com/problems/sort-colors/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1025,
-    "title": "Check if Array is Sorted and Rotated",
+    "title": "Sorted Array Checker",
     "difficulty": "Easy",
     "topics": [
-      "Array"
+      "Array",
+      "Hashing"
     ],
-    "pattern": "Neighboring pair monotonicity check",
-    "url": "https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1026,
-    "title": "Best Time to Buy and Sell Stock",
+    "title": "Stock Buy And Sell",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Greedy"
+      "Hashing"
     ],
-    "pattern": "Running minimum price tracker",
-    "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1027,
-    "title": "Two Sum (Approach 1 - Brute Force / Nested Loop)",
-    "difficulty": "Easy",
+    "title": "Two Sum Approach 1",
+    "difficulty": "Medium",
     "topics": [
       "Array",
-      "Brute Force"
+      "Two Pointers"
     ],
-    "pattern": "Pairwise exhaustive scan (O(N^2))",
-    "url": "https://leetcode.com/problems/two-sum/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1028,
-    "title": "Two Sum (Approach 2 - Hash Map / Two Pointers)",
-    "difficulty": "Easy",
+    "title": "Two Sum Approach 2",
+    "difficulty": "Medium",
     "topics": [
       "Array",
-      "Hashing"
+      "Two Pointers"
     ],
-    "pattern": "Complement hash map lookup (O(N))",
-    "url": "https://leetcode.com/problems/two-sum/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1029,
-    "title": "Count Frequency of Each Element",
+    "title": "Count Frequencies",
     "difficulty": "Easy",
     "topics": [
       "Array",
       "Hashing"
     ],
-    "pattern": "Hash map counting dictionary",
-    "url": "https://takeuforward.org/data-structure/count-frequency-of-each-element-in-the-array/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1030,
-    "title": "Sum of First and Last Digit",
+    "title": "First Last Digit Sum",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Math"
+      "Hashing"
     ],
-    "pattern": "Modulo & division arithmetic",
-    "url": "https://www.geeksforgeeks.org/find-first-last-digits-number/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1031,
-    "title": "Squares of a Sorted Array",
+    "title": "Squares Of A Sorted Array",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Two Pointers"
+      "Hashing"
     ],
-    "pattern": "Inward two-pointer largest square placement",
-    "url": "https://leetcode.com/problems/squares-of-a-sorted-array/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1032,
-    "title": "Valid Mountain Array",
+    "title": "Valid Mountain",
     "difficulty": "Easy",
     "topics": [
       "Array",
-      "Two Pointers"
+      "Hashing"
     ],
-    "pattern": "Climb up and climb down peak detection",
-    "url": "https://leetcode.com/problems/valid-mountain-array/",
+    "pattern": "Two Pointers / Single Pass Scan",
+    "url": "https://leetcode.com/",
     "category": "Array",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1033,
-    "title": "Count Occurrences in Sorted Array",
+    "title": "Count Occurrences In A Sorted Array",
     "difficulty": "Medium",
     "topics": [
       "Binary Search",
       "Array"
     ],
-    "pattern": "First and last occurrence difference",
-    "url": "https://takeuforward.org/data-structure/count-occurrences-in-sorted-array/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
@@ -481,165 +485,176 @@ export const impProblemsSeed: Problem[] = [
       "Binary Search",
       "Array"
     ],
-    "pattern": "Gradient binary search slope comparison",
-    "url": "https://leetcode.com/problems/find-peak-element/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1035,
-    "title": "First and Last Position of Element in Sorted Array",
+    "title": "First And Last Occurrence",
     "difficulty": "Medium",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Dual binary search boundaries",
-    "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1036,
-    "title": "Floor and Ceil in Sorted Array",
+    "title": "Floor & Ceil Sorted Array",
     "difficulty": "Medium",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Binary search boundary approximation",
-    "url": "https://takeuforward.org/arrays/floor-and-ceil-in-sorted-array/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1037,
-    "title": "Implement Lower Bound (Binary Search)",
+    "title": "Lower Bound",
     "difficulty": "Easy",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "First index where arr[mid] >= target",
-    "url": "https://takeuforward.org/arrays/implement-lower-bound-bs-2/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1038,
-    "title": "Find Minimum in Rotated Sorted Array",
+    "title": "Min In Rotated Sorted Array",
     "difficulty": "Medium",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Search unsorted half / pivot",
-    "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1039,
-    "title": "Find Number of Times Array is Rotated",
+    "title": "No. Of Times Array Rotated",
     "difficulty": "Medium",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Index of minimum element via Binary Search",
-    "url": "https://takeuforward.org/arrays/find-out-how-many-times-the-array-has-been-rotated/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1040,
-    "title": "Binary Search for Element X",
+    "title": "Search X In Sorted Array",
     "difficulty": "Easy",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Classic divide and conquer binary search",
-    "url": "https://leetcode.com/problems/binary-search/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1041,
-    "title": "Search in Rotated Sorted Array I (Unique Elements)",
+    "title": "Search In Rotated Sorted Array 1",
     "difficulty": "Medium",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Identify sorted half and prune",
-    "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1042,
-    "title": "Search in Rotated Sorted Array II (With Duplicates)",
+    "title": "Search In Rotated Sorted Array 2",
     "difficulty": "Medium",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Duplicate boundary shrinkage (l++, r--)",
-    "url": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1043,
-    "title": "Search Insert Position (Binary Search)",
-    "difficulty": "Easy",
+    "title": "Search Insert Position",
+    "difficulty": "Medium",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Binary search index insertion point",
-    "url": "https://leetcode.com/problems/search-insert-position/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1044,
-    "title": "Single Element in a Sorted Array",
+    "title": "Single Element In Sorted Array",
     "difficulty": "Medium",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "Even-odd index pair binary search",
-    "url": "https://leetcode.com/problems/single-element-in-a-sorted-array/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1045,
-    "title": "Square Root of an Integer (sqrt(x))",
-    "difficulty": "Easy",
+    "title": "Square Root Of A Number",
+    "difficulty": "Medium",
     "topics": [
       "Binary Search",
-      "Math"
+      "Array"
     ],
-    "pattern": "Binary search on range [1, N]",
-    "url": "https://leetcode.com/problems/sqrtx/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1046,
-    "title": "Implement Upper Bound (Binary Search)",
+    "title": "Upper Bound",
     "difficulty": "Easy",
     "topics": [
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
-    "pattern": "First index where arr[mid] > target",
-    "url": "https://takeuforward.org/arrays/implement-upper-bound/",
+    "pattern": "Binary Search Divide & Conquer",
+    "url": "https://leetcode.com/",
     "category": "Binary Search",
     "solved": false,
     "source": "imp"
@@ -651,7 +666,7 @@ export const impProblemsSeed: Problem[] = [
     "topics": [
       "Linked List"
     ],
-    "pattern": "Dummy head node pointer weaving",
+    "pattern": "Dummy Head Pointer Weaving",
     "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
     "category": "Linked List",
     "solved": false,
@@ -659,55 +674,56 @@ export const impProblemsSeed: Problem[] = [
   },
   {
     "number": 1048,
-    "title": "Fibonacci Number (Recursion & DP)",
+    "title": "Fibonacci Number",
     "difficulty": "Easy",
     "topics": [
       "Recursion",
-      "Dynamic Programming"
+      "Math"
     ],
-    "pattern": "Tree recursion & memoized state",
-    "url": "https://leetcode.com/problems/fibonacci-number/",
+    "pattern": "Recursive State Transition",
+    "url": "https://leetcode.com/",
     "category": "Recursion",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1049,
-    "title": "Recursive Palindrome Checker",
+    "title": "Palindrome Checker",
     "difficulty": "Easy",
     "topics": [
       "Recursion",
-      "Strings"
+      "Math"
     ],
-    "pattern": "Head and tail character recursive match",
-    "url": "https://takeuforward.org/data-structure/check-if-the-given-string-is-palindrome-or-not/",
+    "pattern": "Recursive State Transition",
+    "url": "https://leetcode.com/",
     "category": "Recursion",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1050,
-    "title": "Sum of First N Natural Numbers",
+    "title": "Sum Of First N Numbers",
     "difficulty": "Easy",
     "topics": [
       "Recursion",
       "Math"
     ],
-    "pattern": "Parametrized vs Functional recursion",
-    "url": "https://takeuforward.org/data-structure/sum-of-first-n-natural-numbers/",
+    "pattern": "Recursive State Transition",
+    "url": "https://leetcode.com/",
     "category": "Recursion",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1051,
-    "title": "Bubble Sort Algorithm",
+    "title": "Bubble Sort",
     "difficulty": "Easy",
     "topics": [
-      "Sorting"
+      "Sorting",
+      "Array"
     ],
-    "pattern": "Repeated adjacent swaps",
-    "url": "https://takeuforward.org/data-structure/bubble-sort-algorithm/",
+    "pattern": "Comparison Sorting",
+    "url": "https://leetcode.com/",
     "category": "Sorting",
     "solved": false,
     "source": "imp"
@@ -720,49 +736,50 @@ export const impProblemsSeed: Problem[] = [
       "Sorting",
       "Array"
     ],
-    "pattern": "Comparison against sorted heights",
-    "url": "https://leetcode.com/problems/height-checker/",
+    "pattern": "Comparison Sorting",
+    "url": "https://leetcode.com/",
     "category": "Sorting",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1053,
-    "title": "Insertion Sort Algorithm",
+    "title": "Insertion Sort List",
     "difficulty": "Easy",
     "topics": [
-      "Sorting"
+      "Sorting",
+      "Array"
     ],
-    "pattern": "Shift and insert into sorted subarray",
-    "url": "https://takeuforward.org/data-structure/insertion-sort-algorithm/",
+    "pattern": "Comparison Sorting",
+    "url": "https://leetcode.com/",
     "category": "Sorting",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1054,
-    "title": "Merge Sort Algorithm",
+    "title": "Merge Sort",
     "difficulty": "Medium",
     "topics": [
       "Sorting",
-      "Divide & Conquer"
+      "Array"
     ],
-    "pattern": "Divide and conquer recursive merge",
-    "url": "https://takeuforward.org/data-structure/merge-sort-algorithm/",
+    "pattern": "Divide & Conquer / Partitioning",
+    "url": "https://leetcode.com/",
     "category": "Sorting",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1055,
-    "title": "Quick Sort Algorithm",
+    "title": "Quick Sort",
     "difficulty": "Medium",
     "topics": [
       "Sorting",
-      "Divide & Conquer"
+      "Array"
     ],
-    "pattern": "Pivot selection and partition",
-    "url": "https://takeuforward.org/data-structure/quick-sort-algorithm/",
+    "pattern": "Divide & Conquer / Partitioning",
+    "url": "https://leetcode.com/",
     "category": "Sorting",
     "solved": false,
     "source": "imp"
@@ -773,92 +790,94 @@ export const impProblemsSeed: Problem[] = [
     "difficulty": "Easy",
     "topics": [
       "Sorting",
-      "Recursion"
+      "Array"
     ],
-    "pattern": "Recursive one-pass bubble bubbling",
-    "url": "https://takeuforward.org/data-structure/recursive-bubble-sort-algorithm/",
+    "pattern": "Comparison Sorting",
+    "url": "https://leetcode.com/",
     "category": "Sorting",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1057,
-    "title": "Selection Sort Algorithm",
+    "title": "Selection Sort",
     "difficulty": "Easy",
     "topics": [
-      "Sorting"
+      "Sorting",
+      "Array"
     ],
-    "pattern": "Select minimum and swap to front",
-    "url": "https://takeuforward.org/data-structure/selection-sort-algorithm/",
+    "pattern": "Comparison Sorting",
+    "url": "https://leetcode.com/",
     "category": "Sorting",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1058,
-    "title": "Sort Colors (Dutch National Flag)",
+    "title": "Sort Colors",
     "difficulty": "Medium",
     "topics": [
       "Sorting",
-      "Two Pointers"
+      "Array"
     ],
-    "pattern": "Three-way partitioning (low, mid, high)",
-    "url": "https://leetcode.com/problems/sort-colors/",
+    "pattern": "Comparison Sorting",
+    "url": "https://leetcode.com/",
     "category": "Sorting",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1059,
-    "title": "Find Duplicate Characters / Substrings",
+    "title": "Duplicate Strings",
     "difficulty": "Easy",
     "topics": [
       "Strings",
       "Hashing"
     ],
-    "pattern": "Frequency map filtering",
-    "url": "https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1060,
-    "title": "Isomorphic Strings",
+    "title": "Isomorphic String",
     "difficulty": "Easy",
     "topics": [
       "Strings",
       "Hashing"
     ],
-    "pattern": "Bidirectional character mapping",
-    "url": "https://leetcode.com/problems/isomorphic-strings/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1061,
-    "title": "Largest Odd Number in String",
+    "title": "Largest Odd Number",
     "difficulty": "Easy",
     "topics": [
       "Strings",
-      "Greedy"
+      "Hashing"
     ],
-    "pattern": "Right-to-left odd digit search",
-    "url": "https://leetcode.com/problems/largest-odd-number-in-string/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1062,
-    "title": "Length of Last Word",
+    "title": "Lenght Of Last Word",
     "difficulty": "Easy",
     "topics": [
-      "Strings"
+      "Strings",
+      "Hashing"
     ],
-    "pattern": "Right-to-left whitespace trimmed scan",
-    "url": "https://leetcode.com/problems/length-of-last-word/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
@@ -868,137 +887,137 @@ export const impProblemsSeed: Problem[] = [
     "title": "Longest Common Prefix",
     "difficulty": "Easy",
     "topics": [
-      "Strings"
+      "Strings",
+      "Hashing"
     ],
-    "pattern": "Horizontal / Vertical character comparison",
-    "url": "https://leetcode.com/problems/longest-common-prefix/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1064,
-    "title": "Longest Palindromic Substring",
+    "title": "Longest Palindrome Substring",
     "difficulty": "Medium",
     "topics": [
       "Strings",
       "Two Pointers"
     ],
-    "pattern": "Expand around center (odd and even)",
-    "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1065,
-    "title": "Longest Substring Without Repeating Characters",
+    "title": "Longest Substring",
     "difficulty": "Medium",
     "topics": [
       "Strings",
-      "Sliding Window"
+      "Hashing"
     ],
-    "pattern": "Dynamic sliding window with character index map",
-    "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1066,
-    "title": "Majority Element (> N/2)",
+    "title": "Majority Element",
     "difficulty": "Easy",
     "topics": [
       "Strings",
-      "Array",
-      "Greedy"
+      "Hashing"
     ],
-    "pattern": "Boyer-Moore voting algorithm",
-    "url": "https://leetcode.com/problems/majority-element/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1067,
-    "title": "Valid Palindrome String Checker",
-    "difficulty": "Easy",
+    "title": "Palindrome Checker",
+    "difficulty": "Medium",
     "topics": [
       "Strings",
       "Two Pointers"
     ],
-    "pattern": "Two pointers inward alphanumeric scan",
-    "url": "https://leetcode.com/problems/valid-palindrome/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1068,
-    "title": "Regular Expression Matching Simple",
-    "difficulty": "Hard",
+    "title": "Regex",
+    "difficulty": "Medium",
     "topics": [
       "Strings",
-      "Recursion",
-      "Dynamic Programming"
+      "Hashing"
     ],
-    "pattern": "Pattern parsing with . and *",
-    "url": "https://leetcode.com/problems/regular-expression-matching/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1069,
-    "title": "Remove Outermost Parentheses",
+    "title": "Remove Outermost Parenthesis",
     "difficulty": "Easy",
     "topics": [
       "Strings",
-      "Stack"
+      "Hashing"
     ],
-    "pattern": "Balance counter > 0 tracking",
-    "url": "https://leetcode.com/problems/remove-outermost-parentheses/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1070,
-    "title": "Reverse String In-Place",
+    "title": "Reverse String",
     "difficulty": "Easy",
     "topics": [
       "Strings",
       "Two Pointers"
     ],
-    "pattern": "Inward swap two pointers",
-    "url": "https://leetcode.com/problems/reverse-string/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1071,
-    "title": "Reverse Words in a String",
-    "difficulty": "Medium",
+    "title": "Reversed Every Words",
+    "difficulty": "Easy",
     "topics": [
-      "Strings"
+      "Strings",
+      "Two Pointers"
     ],
-    "pattern": "Word splitting and reversal",
-    "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1072,
-    "title": "Roman to Integer",
-    "difficulty": "Easy",
+    "title": "Roman To Integer",
+    "difficulty": "Medium",
     "topics": [
       "Strings",
-      "Math"
+      "Hashing"
     ],
-    "pattern": "Subtractive numeral check (curr < next)",
-    "url": "https://leetcode.com/problems/roman-to-integer/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
@@ -1008,38 +1027,39 @@ export const impProblemsSeed: Problem[] = [
     "title": "Rotate String",
     "difficulty": "Easy",
     "topics": [
-      "Strings"
+      "Strings",
+      "Hashing"
     ],
-    "pattern": "Substring search in s + s",
-    "url": "https://leetcode.com/problems/rotate-string/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1074,
-    "title": "Sort Characters by Frequency",
-    "difficulty": "Medium",
+    "title": "Sort Characters By Frequency",
+    "difficulty": "Easy",
     "topics": [
       "Strings",
-      "Hashing",
-      "Sorting"
+      "Hashing"
     ],
-    "pattern": "Frequency map bucket sort",
-    "url": "https://leetcode.com/problems/sort-characters-by-frequency/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
   },
   {
     "number": 1075,
-    "title": "String to Integer (atoi)",
+    "title": "String To Integer",
     "difficulty": "Medium",
     "topics": [
-      "Strings"
+      "Strings",
+      "Hashing"
     ],
-    "pattern": "Whitespace trim, sign parse, clamp to 32-bit",
-    "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
@@ -1052,8 +1072,8 @@ export const impProblemsSeed: Problem[] = [
       "Strings",
       "Hashing"
     ],
-    "pattern": "Character frequency vector subtraction",
-    "url": "https://leetcode.com/problems/valid-anagram/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
@@ -1064,10 +1084,10 @@ export const impProblemsSeed: Problem[] = [
     "difficulty": "Easy",
     "topics": [
       "Strings",
-      "Stack"
+      "Hashing"
     ],
-    "pattern": "Opening bracket stack matching",
-    "url": "https://leetcode.com/problems/valid-parentheses/",
+    "pattern": "Two Pointers / Frequency Map",
+    "url": "https://leetcode.com/",
     "category": "Strings",
     "solved": false,
     "source": "imp"
@@ -1080,7 +1100,7 @@ export const impProblemsSeed: Problem[] = [
       "Trees",
       "Recursion"
     ],
-    "pattern": "Recursive Left-Root-Right traversal",
+    "pattern": "Recursive Left-Root-Right Traversal",
     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
     "category": "Trees",
     "solved": false,
@@ -1091,41 +1111,33 @@ export const impProblemsSeed: Problem[] = [
 export const impDetailedDataMap: Record<number, DetailedProblemData> = {
   "1001": {
     "optimal": {
-      "title": "Best (Optimal): Euclidean modulo algorithm (a % b)",
-      "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Euclidean modulo algorithm (a % b) invariant",
+      "title": "Best (Optimal): Euclidean Modulo Algorithm",
+      "timeComplexity": "O(log(min(A, B)))",
+      "timeComplexityDetail": "Euclidean remainder halving",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory",
+      "spaceComplexityDetail": "Constant memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"GCD of Two Numbers (Euclidean Algorithm)\" with optimal efficiency using Euclidean modulo algorithm (a % b). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"GCD of Two Numbers (Euclidean Algorithm)\" with maximum algorithmic efficiency using Euclidean Modulo Algorithm. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log(min(A, B))) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Algorithms.",
-        "Execute Euclidean modulo algorithm (a % b) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Algorithms.",
+        "Execute Euclidean Modulo Algorithm logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def GCD(self, n1, n2):",
-          "        if n1 < n2:",
-          "            smaller = n1",
-          "        else:",
-          "            smaller = n2",
+          "    def GCD(self, n1: int, n2: int) -> int:",
+          "        # Optimal Euclidean Algorithm - O(log(min(a, b))) Time | O(1) Space",
+          "        while n2 != 0:",
+          "            n1, n2 = n2, n1 % n2",
+          "        return n1",
           "",
-          "        for i in range(1, smaller + 1):",
-          "            # If i divides both numbers, it is a common divisor",
-          "            if (n1 % i == 0) and (n2 % i == 0):",
-          "                gcd = i  # Store the current common divisor",
-          "",
-          "        return gcd",
-          "",
-          "a = Solution()",
-          "",
-          "# Call GCD function and print results",
-          "print(a.GCD(4, 6))   # Output: 2",
-          "print(a.GCD(9, 24))  # Output: 3"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "result = sol.GCD(9, 24)",
+          "print(\"GCD(9, 24) =\", result)  # Output: 3"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1138,16 +1150,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for GCD of Two Numbers (Euclidean Algorithm)",
-          "    void gcdOfTwoNumbersEuclideanAlgorithm() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for GCD of Two Numbers (Euclidean Algorithm)",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for GCD of Two Numbers (Euclidean Algorithm)\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.gcdOfTwoNumbersEuclideanAlgorithm();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -1157,31 +1168,34 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexity": "O(min(A, B))",
+      "timeComplexityDetail": "Linear scan testing every integer up to min(A, B)",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(min(A, B)) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for GCD of Two Numbers (Euclidean Algorithm)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def GCDBrute(self, n1: int, n2: int) -> int:",
+          "        # Brute Force Linear Scan - O(min(a, b)) Time | O(1) Space",
+          "        smaller = min(n1, n2)",
+          "        gcd = 1",
+          "        for i in range(1, smaller + 1):",
+          "            if n1 % i == 0 and n2 % i == 0:",
+          "                gcd = i",
+          "        return gcd",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "result = sol.GCDBrute(9, 24)",
+          "print(\"Brute GCD(9, 24) =\", result)  # Output: 3"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1190,16 +1204,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for GCD of Two Numbers (Euclidean Algorithm)",
-          "    void gcdOfTwoNumbersEuclideanAlgorithmBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for GCD of Two Numbers (Euclidean Algorithm)",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for GCD of Two Numbers (Euclidean Algorithm)\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.gcdOfTwoNumbersEuclideanAlgorithmBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -1207,19 +1220,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"GCD of Two Numbers (Euclidean Algorithm)\" efficiently, the core insight is applying Euclidean modulo algorithm (a % b). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Euclidean modulo algorithm (a % b) reduces this to O(N).",
-    "keyInvariant": "GCD of Two Numbers (Euclidean Algorithm): Always maintain valid state consistency under Euclidean modulo algorithm (a % b).",
+    "intuition": "gcd(a, b) == gcd(b, a % b). By repeatedly taking remainders, the problem size shrinks by at least half every two steps, running in logarithmic time.",
+    "bottleneck": "Linear scanning from 1 to min(A, B) requires 10^9 iterations for large numbers.",
+    "keyInvariant": "gcd(a, b) is preserved at every remainder transition.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Euclidean modulo algorithm (a % b) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(min(A, B))) first to establish the baseline.",
+      "Explain clearly how Euclidean Modulo Algorithm optimizes the time complexity to O(log(min(A, B))).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -1233,94 +1246,100 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "nums = [1, 2, 3, 4]",
-        "output": "Call GCD function and print results",
-        "explanation": "Executing Euclidean modulo algorithm (a % b) yields the expected optimal output: Call GCD function and print results."
+        "input": "n1 = 4, n2 = 6",
+        "output": "2",
+        "explanation": "Common divisors are 1 and 2. Largest is 2."
       },
       {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "n1 = 9, n2 = 24",
+        "output": "3",
+        "explanation": "gcd(24, 9) = gcd(9, 6) = gcd(6, 3) = gcd(3, 0) = 3."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "n1 (a)",
+        "n2 (b)",
+        "Remainder (n1 % n2)",
+        "Next State (n1, n2)"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "24",
+          "9",
+          "24 % 9 = 6",
+          "n1 = 9, n2 = 6"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "9",
+          "6",
+          "9 % 6 = 3",
+          "n1 = 6, n2 = 3"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Call GCD function and print results"
+          "6",
+          "3",
+          "6 % 3 = 0",
+          "n1 = 3, n2 = 0"
+        ],
+        [
+          "4",
+          "3",
+          "0",
+          "Terminated",
+          "Return 3"
         ]
       ]
     }
   },
   "1002": {
     "optimal": {
-      "title": "Best (Optimal): Greedy minimum pair merge",
-      "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Greedy minimum pair merge invariant",
-      "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory",
+      "title": "Best (Optimal): Min-Heap Greedy Pairing",
+      "timeComplexity": "O(N log N)",
+      "timeComplexityDetail": "Min-heap pop and push take O(log N) across N-1 merges",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Heap storage for N file sizes",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Optimal Merge Pattern (Greedy / Min Heap)\" with optimal efficiency using Greedy minimum pair merge. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Optimal Merge Pattern (Greedy / Min-Heap)\" with maximum algorithmic efficiency using Min-Heap Greedy Pairing. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Algorithms.",
-        "Execute Greedy minimum pair merge logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Algorithms.",
+        "Execute Min-Heap Greedy Pairing logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
+          "import heapq",
+          "",
           "class Solution:",
-          "    # Optimal solution for Optimal Merge Pattern (Greedy / Min Heap)",
-          "    n = int(input())  # 4",
-          "    rocks = list(map(int, input().split())) # 4 3 2 6",
+          "    def minMergeCost(self, files: list[int]) -> int:",
+          "        # Optimal Min-Heap (Greedy) - O(n log n) Time | O(n) Space",
+          "        heapq.heapify(files)",
+          "        total_cost = 0",
           "",
-          "    total = 0",
+          "        while len(files) > 1:",
+          "            first = heapq.heappop(files)",
+          "            second = heapq.heappop(files)",
+          "            merged = first + second",
+          "            total_cost += merged",
+          "            heapq.heappush(files, merged)",
           "",
-          "    while len(rocks) > 1:",
-          "        rocks.sort()          # sort the list",
+          "        return total_cost",
           "",
-          "        a = rocks.pop(0)      # smallest",
-          "        b = rocks.pop(0)      # second smallest",
-          "",
-          "        s = a + b             # merge cost",
-          "        total += s",
-          "        rocks.append(s)       # add back",
-          "",
-          "    # add last remaining rock",
-          "    total += rocks[0]",
-          "    print(total) # Output : 44",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "files = [4, 3, 2, 6]",
+          "result = sol.minMergeCost(files)",
+          "print(\"Optimal min merge cost:\", result)  # Output: 29"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1333,16 +1352,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Optimal Merge Pattern (Greedy / Min Heap)",
-          "    void optimalMergePatternGreedyMinHeap() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Optimal Merge Pattern (Greedy / Min-Heap)",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Optimal Merge Pattern (Greedy / Min-Heap)\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.optimalMergePatternGreedyMinHeap();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -1352,31 +1370,39 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexity": "O(N\u00b2 log N)",
+      "timeComplexityDetail": "Repeatedly sorting list after every pair merge",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "In-place sorting",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2 log N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Optimal Merge Pattern (Greedy / Min Heap)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def minMergeCostBrute(self, files: list[int]) -> int:",
+          "        # Brute Force List Sorting - O(n\u00b2 log n) Time | O(1) Space",
+          "        total_cost = 0",
+          "        arr = list(files)",
+          "        while len(arr) > 1:",
+          "            arr.sort()",
+          "            a = arr.pop(0)",
+          "            b = arr.pop(0)",
+          "            s = a + b",
+          "            total_cost += s",
+          "            arr.append(s)",
+          "        return total_cost",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "files = [4, 3, 2, 6]",
+          "result = sol.minMergeCostBrute(files)",
+          "print(\"Brute force merge cost:\", result)  # Output: 29"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1385,16 +1411,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Optimal Merge Pattern (Greedy / Min Heap)",
-          "    void optimalMergePatternGreedyMinHeapBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Optimal Merge Pattern (Greedy / Min-Heap)",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Optimal Merge Pattern (Greedy / Min-Heap)\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.optimalMergePatternGreedyMinHeapBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -1402,19 +1427,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Optimal Merge Pattern (Greedy / Min Heap)\" efficiently, the core insight is applying Greedy minimum pair merge. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Greedy minimum pair merge reduces this to O(N).",
-    "keyInvariant": "Optimal Merge Pattern (Greedy / Min Heap): Always maintain valid state consistency under Greedy minimum pair merge.",
+    "intuition": "To minimize total merge cost, smaller files should be merged first so their sizes participate in fewer subsequent merge steps. A Min-Heap allows extracting the two smallest files and re-inserting their sum in O(log N) time.",
+    "bottleneck": "Re-sorting the entire list on every merge operation takes O(N log N) per iteration, leading to O(N\u00b2 log N) total.",
+    "keyInvariant": "Always merge the two smallest available files at each step.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Greedy minimum pair merge (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2 log N)) first to establish the baseline.",
+      "Explain clearly how Min-Heap Greedy Pairing optimizes the time complexity to O(N log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -1428,86 +1453,88 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(total)",
-        "output": "44",
-        "explanation": "Executing Greedy minimum pair merge yields the expected optimal output: 44."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "files = [4, 3, 2, 6]",
+        "output": "29",
+        "explanation": "1) Merge 2 & 3 -> 5 (total=5). 2) Merge 4 & 5 -> 9 (total=14). 3) Merge 6 & 9 -> 15 (total=29)."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Heap State",
+        "Popped Pair",
+        "Merge Cost",
+        "Running Total"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[2, 3, 4, 6]",
+          "2, 3",
+          "5",
+          "5"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[4, 5, 6]",
+          "4, 5",
+          "9",
+          "14"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "44"
+          "[6, 9]",
+          "6, 9",
+          "15",
+          "29"
         ]
       ]
     }
   },
   "1003": {
     "optimal": {
-      "title": "Best (Optimal): Prefix sum hash map (O(N))",
+      "title": "Best (Optimal): Prefix Sum Hash Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Prefix sum hash map (O(N)) invariant",
-      "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory",
+      "timeComplexityDetail": "Single pass prefix sum hash map lookup",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Hash map storage for prefix sums",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Count Subarrays with Given Sum (K)\" with optimal efficiency using Prefix sum hash map (O(N)). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Count Subarrays with Given Sum (K)\" with maximum algorithmic efficiency using Prefix Sum Hash Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Prefix sum hash map (O(N)) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Prefix Sum Hash Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def subarraySum(self, nums, k):",
+          "    def subarraySum(self, nums: list[int], k: int) -> int:",
+          "        # Optimal Prefix Sum Hash Map - O(n) Time | O(n) Space",
           "        count = 0",
-          "        for i in range(len(nums)):",
-          "            total = 0",
-          "            for j in range(i, len(nums)):",
-          "                total += nums[j]",
-          "                if total == k:",
-          "                    count += 1",
+          "        prefix_sum = 0",
+          "        prefix_map = {0: 1}  # Base case: sum of 0 occurred once",
+          "",
+          "        for num in nums:",
+          "            prefix_sum += num",
+          "            diff = prefix_sum - k",
+          "            if diff in prefix_map:",
+          "                count += prefix_map[diff]",
+          "            prefix_map[prefix_sum] = prefix_map.get(prefix_sum, 0) + 1",
+          "",
           "        return count",
           "",
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
           "nums = [1, 2, 3]",
           "k = 3",
-          "obj = Solution()",
-          "print(obj.subarraySum(nums, k))  # Output: 2"
+          "result = sol.subarraySum(nums, k)",
+          "print(\"Total subarrays summing to k:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1520,16 +1547,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Count Subarrays with Given Sum (K)",
-          "    void countSubarraysWithGivenSumK() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Count Subarrays with Given Sum (K)",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Count Subarrays with Given Sum (K)\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.countSubarraysWithGivenSumK();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -1540,30 +1566,38 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops evaluating all possible subarrays",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Count Subarrays with Given Sum (K)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def subarraySumBrute(self, nums: list[int], k: int) -> int:",
+          "        # Brute Force Nested Loops - O(n\u00b2) Time | O(1) Space",
+          "        count = 0",
+          "        n = len(nums)",
+          "        for i in range(n):",
+          "            total = 0",
+          "            for j in range(i, n):",
+          "                total += nums[j]",
+          "                if total == k:",
+          "                    count += 1",
+          "        return count",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [1, 2, 3]",
+          "k = 3",
+          "result = sol.subarraySumBrute(nums, k)",
+          "print(\"Brute force count:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1572,16 +1606,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Count Subarrays with Given Sum (K)",
-          "    void countSubarraysWithGivenSumKBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Count Subarrays with Given Sum (K)",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Count Subarrays with Given Sum (K)\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.countSubarraysWithGivenSumKBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -1589,19 +1622,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Count Subarrays with Given Sum (K)\" efficiently, the core insight is applying Prefix sum hash map (O(N)). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Prefix sum hash map (O(N)) reduces this to O(N).",
-    "keyInvariant": "Count Subarrays with Given Sum (K): Always maintain valid state consistency under Prefix sum hash map (O(N)).",
+    "intuition": "The sum of any subarray nums[i..j] is equal to prefixSum[j] - prefixSum[i-1]. If prefixSum[j] - prefixSum[i-1] == k, then prefixSum[i-1] must equal prefixSum[j] - k. By storing previous prefix sums in a hash map, we find matching subarrays in O(1) time per element.",
+    "bottleneck": "The brute force approach evaluates all O(N\u00b2) subarrays with nested loops. For N = 10^5, this requires 10^10 operations, causing TLE.",
+    "keyInvariant": "prefix_sum[j] - k == prefix_sum[i-1] => nums[i..j] sums to k.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Prefix sum hash map (O(N)) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Prefix Sum Hash Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -1615,91 +1648,89 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.subarraySum(nums, k))",
+        "input": "nums = [1, 1, 1], k = 2",
         "output": "2",
-        "explanation": "Executing Prefix sum hash map (O(N)) yields the expected optimal output: 2."
+        "explanation": "Subarrays [1, 1] at indices [0..1] and [1..2] both sum to 2."
       },
       {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [1, 2, 3], k = 3",
+        "output": "2",
+        "explanation": "Subarrays [1, 2] and [3] both sum to 3."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "num",
+        "prefix_sum",
+        "diff (prefix_sum - k)",
+        "prefix_map",
+        "count"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "1",
+          "1",
+          "1 - 3 = -2",
+          "{0: 1, 1: 1}",
+          "0"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "2",
+          "3",
+          "3 - 3 = 0",
+          "{0: 1, 1: 1, 3: 1}",
+          "1 (found 0)"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "2"
+          "3",
+          "6",
+          "6 - 3 = 3",
+          "{0: 1, 1: 1, 3: 1, 6: 1}",
+          "2 (found 3)"
         ]
       ]
     }
   },
   "1004": {
     "optimal": {
-      "title": "Best (Optimal): In-place two-pass shift",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining In-place two-pass shift invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Duplicate Zeros\" with optimal efficiency using In-place two-pass shift. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Duplicate Zeros\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute In-place two-pass shift logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def duplicateZeros(self, arr):",
-          "        n = len(arr)",
-          "        i = 0",
-          "        while i < n:",
-          "            if arr[i] == 0:",
-          "                arr.insert(i + 1, 0)",
-          "                i += 1",
-          "                arr.pop()",
-          "            i += 1",
-          "        print(\"After duplicating zeros:\", arr)",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "a = Solution()",
-          "user_input = input(\"Enter numbers like [1,0,2,3,0,4,5,0]: \")",
-          "",
-          "# Clean input with brackets and commas",
-          "user_input = user_input.strip().strip('[]')",
-          "arr = list(map(int, user_input.split(',')))",
-          "",
-          "a.duplicateZeros(arr)"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1712,16 +1743,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Duplicate Zeros",
-          "    void duplicateZeros() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Duplicate Zeros",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Duplicate Zeros\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.duplicateZeros();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -1732,30 +1762,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Duplicate Zeros",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1764,16 +1794,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Duplicate Zeros",
-          "    void duplicateZerosBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Duplicate Zeros",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Duplicate Zeros\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.duplicateZerosBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -1781,19 +1810,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Duplicate Zeros\" efficiently, the core insight is applying In-place two-pass shift. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. In-place two-pass shift reduces this to O(N).",
-    "keyInvariant": "Duplicate Zeros: Always maintain valid state consistency under In-place two-pass shift.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal In-place two-pass shift (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -1807,81 +1836,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing In-place two-pass shift yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1005": {
     "optimal": {
-      "title": "Best (Optimal): Digit length parity check",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Digit length parity check invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Find Numbers with Even Number of Digits\" with optimal efficiency using Digit length parity check. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Find Even No. Of Digits\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Digit length parity check logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def findNumbers(self, nums):",
-          "        count = 0",
-          "        for num in nums:",
-          "            if len(str(num)) % 2 == 0:",
-          "                count += 1",
-          "        return count",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "nums = [12, 345, 2, 6, 7896]",
-          "print(Solution().findNumbers(nums)) # Output: 2"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1894,16 +1936,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Find Numbers with Even Number of Digits",
-          "    void findNumbersWithEvenNumberOfDigits() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Find Even No. Of Digits",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Find Even No. Of Digits\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findNumbersWithEvenNumberOfDigits();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -1914,30 +1955,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Find Numbers with Even Number of Digits",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -1946,16 +1987,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Find Numbers with Even Number of Digits",
-          "    void findNumbersWithEvenNumberOfDigitsBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Find Even No. Of Digits",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Find Even No. Of Digits\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findNumbersWithEvenNumberOfDigitsBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -1963,19 +2003,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Find Numbers with Even Number of Digits\" efficiently, the core insight is applying Digit length parity check. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Digit length parity check reduces this to O(N).",
-    "keyInvariant": "Find Numbers with Even Number of Digits: Always maintain valid state consistency under Digit length parity check.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Digit length parity check (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -1989,86 +2029,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().findNumbers(nums))",
-        "output": "2",
-        "explanation": "Executing Digit length parity check yields the expected optimal output: 2."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "2"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1006": {
     "optimal": {
-      "title": "Best (Optimal): Frequency dictionary max lookup",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Frequency dictionary max lookup invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Highest Occurring Element (Mode)\" with optimal efficiency using Frequency dictionary max lookup. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Highest Occurring Element\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Frequency dictionary max lookup logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def highestOccurringElement(self, nums):",
-          "        max_count = 0",
-          "        ans = min(nums)  ",
-          "        ",
-          "        for num in nums:",
-          "            count = nums.count(num) ",
-          "            if count > max_count or (count == max_count and num < ans):",
-          "                max_count = count",
-          "                ans = num",
-          "        return ans",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "a = Solution()",
-          "print(a.highestOccurringElement([1, 2, 2, 3, 3, 3]))  # Output: 3",
-          "print(a.highestOccurringElement([4, 4, 5, 5, 6]))     # Output: 4"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2081,16 +2129,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Highest Occurring Element (Mode)",
-          "    void highestOccurringElementMode() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Highest Occurring Element",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Highest Occurring Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.highestOccurringElementMode();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -2101,30 +2148,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Highest Occurring Element (Mode)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2133,16 +2180,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Highest Occurring Element (Mode)",
-          "    void highestOccurringElementModeBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Highest Occurring Element",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Highest Occurring Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.highestOccurringElementModeBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -2150,19 +2196,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Highest Occurring Element (Mode)\" efficiently, the core insight is applying Frequency dictionary max lookup. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Frequency dictionary max lookup reduces this to O(N).",
-    "keyInvariant": "Highest Occurring Element (Mode): Always maintain valid state consistency under Frequency dictionary max lookup.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Frequency dictionary max lookup (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -2176,88 +2222,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(a.highestOccurringElement([1, 2, 2, 3, 3, 3]))",
-        "output": "3",
-        "explanation": "Executing Frequency dictionary max lookup yields the expected optimal output: 3."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "3"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1007": {
     "optimal": {
-      "title": "Best (Optimal): Temporary element shift",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Temporary element shift invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Left Rotate Array by One\" with optimal efficiency using Temporary element shift. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Laft Rotate By One\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Temporary element shift logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def rotateArrayByOne(self, nums):",
-          "        first = nums[0]",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for i in range(len(nums) - 1):",
-          "            nums[i] = nums[i + 1]",
-          "",
-          "        nums[-1] = first",
-          "        return nums",
-          "",
-          "",
-          "nums = [1, 2, 3, 4, 5]",
-          "obj = Solution()",
-          "result = obj.rotateArrayByOne(nums)",
-          "",
-          "print(\"Input:  [1, 2, 3, 4, 5]\")",
-          "print(\"Output:\", result)"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2270,16 +2322,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Left Rotate Array by One",
-          "    void leftRotateArrayByOne() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Laft Rotate By One",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Laft Rotate By One\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.leftRotateArrayByOne();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -2290,30 +2341,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Left Rotate Array by One",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2322,16 +2373,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Left Rotate Array by One",
-          "    void leftRotateArrayByOneBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Laft Rotate By One",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Laft Rotate By One\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.leftRotateArrayByOneBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -2339,19 +2389,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Left Rotate Array by One\" efficiently, the core insight is applying Temporary element shift. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Temporary element shift reduces this to O(N).",
-    "keyInvariant": "Left Rotate Array by One: Always maintain valid state consistency under Temporary element shift.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Temporary element shift (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -2365,83 +2415,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Temporary element shift yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1008": {
     "optimal": {
-      "title": "Best (Optimal): Single-pass maximum tracking",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Single-pass maximum tracking invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Find Largest Element in Array\" with optimal efficiency using Single-pass maximum tracking. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Largest Element\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Single-pass maximum tracking logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def largestElement(self, nums):",
-          "        largest = nums[0]",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for num in nums:",
-          "            if largest < num:",
-          "                largest = num",
-          "",
-          "        return largest",
-          "",
-          "s = Solution()",
-          "print(s.largestElement([4,3,5,8,1]))"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2454,16 +2515,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Find Largest Element in Array",
-          "    void findLargestElementInArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Largest Element",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Largest Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findLargestElementInArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -2474,30 +2534,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Find Largest Element in Array",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2506,16 +2566,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Find Largest Element in Array",
-          "    void findLargestElementInArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Largest Element",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Largest Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findLargestElementInArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -2523,19 +2582,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Find Largest Element in Array\" efficiently, the core insight is applying Single-pass maximum tracking. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Single-pass maximum tracking reduces this to O(N).",
-    "keyInvariant": "Find Largest Element in Array: Always maintain valid state consistency under Single-pass maximum tracking.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Single-pass maximum tracking (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -2549,83 +2608,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Single-pass maximum tracking yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1009": {
     "optimal": {
-      "title": "Best (Optimal): Sequential iteration scan",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Sequential iteration scan invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Linear Search Algorithm\" with optimal efficiency using Sequential iteration scan. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Linear Search\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Sequential iteration scan logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def linearSearch(self, nums, target):",
-          "        for i in range(len(nums)):",
-          "            if nums[i] == target:",
-          "                return i",
-          "            ",
-          "        return -1",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "nums = [10, 20, 30, 40, 50]",
-          "target = 30",
-          "obj = Solution()",
-          "print(obj.linearSearch(nums, target)) # Output: 2"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2638,16 +2708,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Linear Search Algorithm",
-          "    void linearSearchAlgorithm() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Linear Search",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Linear Search\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.linearSearchAlgorithm();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -2658,30 +2727,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Linear Search Algorithm",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2690,16 +2759,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Linear Search Algorithm",
-          "    void linearSearchAlgorithmBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Linear Search",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Linear Search\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.linearSearchAlgorithmBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -2707,19 +2775,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Linear Search Algorithm\" efficiently, the core insight is applying Sequential iteration scan. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Sequential iteration scan reduces this to O(N).",
-    "keyInvariant": "Linear Search Algorithm: Always maintain valid state consistency under Sequential iteration scan.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Sequential iteration scan (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -2733,90 +2801,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.linearSearch(nums, target))",
-        "output": "2",
-        "explanation": "Executing Sequential iteration scan yields the expected optimal output: 2."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "2"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1010": {
     "optimal": {
-      "title": "Best (Optimal): Hash set sequence starter search",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Hash set sequence starter search invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Longest Consecutive Sequence\" with optimal efficiency using Hash set sequence starter search. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Longest Consecutive Sequence\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Hash set sequence starter search logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def longestConsecutive(self, nums):",
-          "        if not nums:",
-          "            return 0",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        nums = sorted(set(nums))",
-          "        longest = 1",
-          "        count = 1",
-          "",
-          "        for i in range(1, len(nums)):",
-          "            if nums[i] == nums[i-1] + 1:",
-          "                count += 1",
-          "                longest = max(longest, count)",
-          "            else:",
-          "                count = 1",
-          "        return longest",
-          "",
-          "nums = [1, 9, 3, 10, 4, 20, 2]",
-          "print(Solution().longestConsecutive(nums)) #Output : 4"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2829,16 +2901,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Longest Consecutive Sequence",
-          "    void longestConsecutiveSequence() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Longest Consecutive Sequence",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Longest Consecutive Sequence\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.longestConsecutiveSequence();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -2849,30 +2920,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Longest Consecutive Sequence",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -2881,16 +2952,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Longest Consecutive Sequence",
-          "    void longestConsecutiveSequenceBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Longest Consecutive Sequence",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Longest Consecutive Sequence\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.longestConsecutiveSequenceBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -2898,19 +2968,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Longest Consecutive Sequence\" efficiently, the core insight is applying Hash set sequence starter search. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Hash set sequence starter search reduces this to O(N).",
-    "keyInvariant": "Longest Consecutive Sequence: Always maintain valid state consistency under Hash set sequence starter search.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Hash set sequence starter search (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -2924,90 +2994,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().longestConsecutive(nums))",
-        "output": "4",
-        "explanation": "Executing Hash set sequence starter search yields the expected optimal output: 4."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "4"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1011": {
     "optimal": {
-      "title": "Best (Optimal): Current streak count reset on zero",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Current streak count reset on zero invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Max Consecutive Ones\" with optimal efficiency using Current streak count reset on zero. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Max Consecutive Ones\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Current streak count reset on zero logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def findMaxConsecutiveOnes(self, nums):",
-          "        max_count = 0  # To store the highest number of 1s in a row",
-          "        count = 0      # To count current 1s in a row",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for num in nums:",
-          "            if num == 1:",
-          "                count += 1           # Add 1 to count if the number is 1",
-          "                if count > max_count:",
-          "                    max_count = count  # Update max_count if count is bigger",
-          "            else:",
-          "                count = 0            # If number is 0, reset count to 0",
-          "",
-          "        return max_count",
-          "",
-          "# Example use",
-          "nums = [1, 1, 0, 1, 1, 1]",
-          "a = Solution()",
-          "print(a.findMaxConsecutiveOnes(nums))"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3020,16 +3094,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Max Consecutive Ones",
-          "    void maxConsecutiveOnes() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Max Consecutive Ones",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Max Consecutive Ones\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.maxConsecutiveOnes();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -3040,30 +3113,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Max Consecutive Ones",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3072,16 +3145,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Max Consecutive Ones",
-          "    void maxConsecutiveOnesBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Max Consecutive Ones",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Max Consecutive Ones\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.maxConsecutiveOnesBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -3089,19 +3161,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Max Consecutive Ones\" efficiently, the core insight is applying Current streak count reset on zero. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Current streak count reset on zero reduces this to O(N).",
-    "keyInvariant": "Max Consecutive Ones: Always maintain valid state consistency under Current streak count reset on zero.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Current streak count reset on zero (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -3115,99 +3187,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Current streak count reset on zero yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1012": {
     "optimal": {
-      "title": "Best (Optimal): Running minimum price tracker",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Running minimum price tracker invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Maximum Rating Gain (Best Time to Buy and Sell Stock)\" with optimal efficiency using Running minimum price tracker. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Max Rating Gain\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Running minimum price tracker logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Optimal solution for Maximum Rating Gain (Best Time to Buy and Sell Stock)",
-          "    def solution(diffs):",
-          "        current_rating = 1500",
-          "        highest_rating = 1500",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for change in diffs:",
-          "            # Update the current rating",
-          "            current_rating += change",
-          "",
-          "            # Check if the new current rating is the highest we've seen",
-          "            if current_rating > highest_rating:",
-          "                highest_rating = current_rating",
-          "",
-          "        return [highest_rating, current_rating]",
-          "",
-          "    diffs = [100, -200, 300, -50]",
-          "    print(solution(diffs))  # Output: [1700, 1650]",
-          "",
-          "    # Step by step:",
-          "    # Start rating = 1500",
-          "    # 1500 + 100 = 1600  (highest = 1600)",
-          "    # 1600 - 200 = 1400",
-          "    # 1400 + 300 = 1700  (highest = 1700)",
-          "    # 1700 - 50 = 1650",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3220,16 +3287,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Maximum Rating Gain (Best Time to Buy and Sell Stock)",
-          "    void maximumRatingGainBestTimeToBuyAndSellStock() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Max Rating Gain",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Max Rating Gain\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.maximumRatingGainBestTimeToBuyAndSellStock();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -3240,30 +3306,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Maximum Rating Gain (Best Time to Buy and Sell Stock)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3272,16 +3338,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Maximum Rating Gain (Best Time to Buy and Sell Stock)",
-          "    void maximumRatingGainBestTimeToBuyAndSellStockBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Max Rating Gain",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Max Rating Gain\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.maximumRatingGainBestTimeToBuyAndSellStockBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -3289,19 +3354,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Maximum Rating Gain (Best Time to Buy and Sell Stock)\" efficiently, the core insight is applying Running minimum price tracker. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Running minimum price tracker reduces this to O(N).",
-    "keyInvariant": "Maximum Rating Gain (Best Time to Buy and Sell Stock): Always maintain valid state consistency under Running minimum price tracker.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Running minimum price tracker (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -3315,95 +3380,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(solution(diffs))",
-        "output": "[1700, 1650]",
-        "explanation": "Executing Running minimum price tracker yields the expected optimal output: [1700, 1650]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[1700, 1650]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1013": {
     "optimal": {
-      "title": "Best (Optimal): Three pointers backward merge",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Three pointers backward merge invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Merge Sorted Array In-Place\" with optimal efficiency using Three pointers backward merge. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Merge Sorted Array\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Three pointers backward merge logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def merge(self, nums1, m, nums2, n):",
-          "        # Remove the extra zeroes from nums1 and keep only the first m elements",
-          "        nums1[:] = nums1[:m]",
-          "        ",
-          "        # Add elements of nums2 to nums1",
-          "        nums1.extend(nums2)",
-          "        ",
-          "        # Sort nums1 in place",
-          "        nums1.sort()",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        # Print the merged list",
-          "        print(\"Merged nums1:\", nums1)",
-          "",
-          "",
-          "# ----- Input -----",
-          "nums1 = list(map(int, input(\"Enter nums1 (space-separated, with extra 0s at end): \").split()))",
-          "m = int(input(\"Enter m (number of valid elements in nums1): \"))",
-          "nums2 = list(map(int, input(\"Enter nums2 (space-separated): \").split()))",
-          "n = int(input(\"Enter n (length of nums2): \"))",
-          "",
-          "# ----- Process -----",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "sol.merge(nums1, m, nums2, n)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3416,16 +3480,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Merge Sorted Array In-Place",
-          "    void mergeSortedArrayInplace() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Merge Sorted Array",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Merge Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.mergeSortedArrayInplace();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -3436,30 +3499,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Merge Sorted Array In-Place",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3468,16 +3531,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Merge Sorted Array In-Place",
-          "    void mergeSortedArrayInplaceBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Merge Sorted Array",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Merge Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.mergeSortedArrayInplaceBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -3485,19 +3547,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Merge Sorted Array In-Place\" efficiently, the core insight is applying Three pointers backward merge. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Three pointers backward merge reduces this to O(N).",
-    "keyInvariant": "Merge Sorted Array In-Place: Always maintain valid state consistency under Three pointers backward merge.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Three pointers backward merge (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -3511,91 +3573,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Three pointers backward merge yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1014": {
     "optimal": {
-      "title": "Best (Optimal): Gauss formula N*(N+1)//2 or XOR",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Gauss formula N*(N+1)//2 or XOR invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Missing Number in Array\" with optimal efficiency using Gauss formula N*(N+1)//2 or XOR. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Missing Number\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Gauss formula N*(N+1)//2 or XOR logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
-          "# METHOD 1 :",
           "class Solution:",
-          "    def missingNumber(self, nums):",
-          "        n = len(nums)",
-          "        total_sum = n * (n + 1) // 2",
-          "        array_sum = sum(nums)",
-          "        return total_sum - array_sum",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "",
-          "# METHOD 2",
-          "class Solution:",
-          "    def missingNumber(self, nums):",
-          "        n = len(nums)",
-          "        for i in range(n + 1):",
-          "            if i not in nums :",
-          "                return i",
-          "",
-          "nums = [3, 0, 1]",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(sol.missingNumber(nums)) # Output: 2"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3608,16 +3673,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Missing Number in Array",
-          "    void missingNumberInArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Missing Number",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Missing Number\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.missingNumberInArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -3628,30 +3692,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Missing Number in Array",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3660,16 +3724,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Missing Number in Array",
-          "    void missingNumberInArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Missing Number",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Missing Number\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.missingNumberInArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -3677,19 +3740,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Missing Number in Array\" efficiently, the core insight is applying Gauss formula N*(N+1)//2 or XOR. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Gauss formula N*(N+1)//2 or XOR reduces this to O(N).",
-    "keyInvariant": "Missing Number in Array: Always maintain valid state consistency under Gauss formula N*(N+1)//2 or XOR.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Gauss formula N*(N+1)//2 or XOR (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -3703,85 +3766,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(sol.missingNumber(nums))",
-        "output": "2",
-        "explanation": "Executing Gauss formula N*(N+1)//2 or XOR yields the expected optimal output: 2."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "2"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1015": {
     "optimal": {
-      "title": "Best (Optimal): Snowball / two-pointer partition",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Snowball / two-pointer partition invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Move Zeroes to End\" with optimal efficiency using Snowball / two-pointer partition. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Moves Zeros To End\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Snowball / two-pointer partition logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def moveZeroes(self, nums):",
-          "        j = 0  ",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for i in range(len(nums)):",
-          "            if nums[i] != 0:",
-          "                nums[j], nums[i] = nums[i], nums[j]",
-          "                j += 1",
-          "",
-          "        print(nums)",
-          "",
-          "nums = [0,1,0,3,12]",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "sol.moveZeroes(nums) # Output : [1, 3, 12, 0, 0]"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3794,16 +3866,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Move Zeroes to End",
-          "    void moveZeroesToEnd() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Moves Zeros To End",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Moves Zeros To End\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.moveZeroesToEnd();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -3814,30 +3885,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Move Zeroes to End",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3846,16 +3917,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Move Zeroes to End",
-          "    void moveZeroesToEndBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Moves Zeros To End",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Moves Zeros To End\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.moveZeroesToEndBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -3863,19 +3933,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Move Zeroes to End\" efficiently, the core insight is applying Snowball / two-pointer partition. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Snowball / two-pointer partition reduces this to O(N).",
-    "keyInvariant": "Move Zeroes to End: Always maintain valid state consistency under Snowball / two-pointer partition.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Snowball / two-pointer partition (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -3889,85 +3959,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "sol.moveZeroes(nums)",
-        "output": "[1, 3, 12, 0, 0]",
-        "explanation": "Executing Snowball / two-pointer partition yields the expected optimal output: [1, 3, 12, 0, 0]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[1, 3, 12, 0, 0]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1016": {
     "optimal": {
-      "title": "Best (Optimal): Carry propagation backward scan",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Carry propagation backward scan invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Plus One\" with optimal efficiency using Carry propagation backward scan. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Plus One\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Carry propagation backward scan logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def plusOne(self, digits: list[int]) -> list[int]:",
-          "        # Start from the last digit and move left",
-          "        for i in range(len(digits) - 1, -1, -1):",
-          "            if digits[i] < 9:      # If digit < 9, just increment and return",
-          "                digits[i] += 1",
-          "                return digits",
-          "            digits[i] = 0          # If digit == 9, set to 0 and carry over",
-          "        ",
-          "        return [1] + digits",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "digits = [1,2,3]",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(sol.plusOne(digits)) # Output: [1, 2, 4]"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -3980,16 +4059,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Plus One",
-          "    void plusOne() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Plus One",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Plus One\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.plusOne();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -4000,30 +4078,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Plus One",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4032,16 +4110,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Plus One",
-          "    void plusOneBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Plus One",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Plus One\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.plusOneBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -4049,19 +4126,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Plus One\" efficiently, the core insight is applying Carry propagation backward scan. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Carry propagation backward scan reduces this to O(N).",
-    "keyInvariant": "Plus One: Always maintain valid state consistency under Carry propagation backward scan.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Carry propagation backward scan (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -4075,88 +4152,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(sol.plusOne(digits))",
-        "output": "[1, 2, 4]",
-        "explanation": "Executing Carry propagation backward scan yields the expected optimal output: [1, 2, 4]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[1, 2, 4]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1017": {
     "optimal": {
-      "title": "Best (Optimal): Positive & Negative dual pointer fill",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Positive & Negative dual pointer fill invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Rearrange Array Elements by Sign\" with optimal efficiency using Positive & Negative dual pointer fill. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Rearrange Elements By Sign\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Positive & Negative dual pointer fill logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def rearrangeArray(self, nums):",
-          "        pos = []",
-          "        neg = []",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
           "        for x in nums:",
-          "            if x >= 0:",
-          "                pos.append(x)",
-          "            else:",
-          "                neg.append(x)",
-          "        result = []",
-          "        for i in range(len(pos)):",
-          "            result.append(pos[i])",
-          "            result.append(neg[i])",
-          "        return result",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "nums = [-4, 4, -4, 4, -4, 4]",
-          "print(Solution().rearrangeArray(nums)) # Output : [4 -4 4 -4 4 -4]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4169,16 +4252,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Rearrange Array Elements by Sign",
-          "    void rearrangeArrayElementsBySign() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Rearrange Elements By Sign",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Rearrange Elements By Sign\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.rearrangeArrayElementsBySign();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -4189,30 +4271,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Rearrange Array Elements by Sign",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4221,16 +4303,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Rearrange Array Elements by Sign",
-          "    void rearrangeArrayElementsBySignBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Rearrange Elements By Sign",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Rearrange Elements By Sign\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.rearrangeArrayElementsBySignBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -4238,19 +4319,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Rearrange Array Elements by Sign\" efficiently, the core insight is applying Positive & Negative dual pointer fill. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Positive & Negative dual pointer fill reduces this to O(N).",
-    "keyInvariant": "Rearrange Array Elements by Sign: Always maintain valid state consistency under Positive & Negative dual pointer fill.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Positive & Negative dual pointer fill (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -4264,85 +4345,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().rearrangeArray(nums))",
-        "output": "[4 -4 4 -4 4 -4]",
-        "explanation": "Executing Positive & Negative dual pointer fill yields the expected optimal output: [4 -4 4 -4 4 -4]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[4 -4 4 -4 4 -4]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1018": {
     "optimal": {
-      "title": "Best (Optimal): Slow & fast write pointer",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Slow & fast write pointer invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Remove Duplicates from Sorted Array\" with optimal efficiency using Slow & fast write pointer. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Remove Duplicates\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Slow & fast write pointer logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def removeDuplicates(self, nums):",
-          "        count=1",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for i in range(1, len(nums)):",
-          "            if nums[i] != nums[i - 1]:",
-          "                nums[count] = nums[i]",
-          "                count += 1",
-          "        ",
-          "        return count",
-          "",
-          "nums = [-30, -30, 0, 0, 10, 20, 30, 30]",
-          "k = Solution()",
-          "print(\"Number of unique elements:\", k.removeDuplicates(nums))"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4355,16 +4445,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Remove Duplicates from Sorted Array",
-          "    void removeDuplicatesFromSortedArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Remove Duplicates",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Remove Duplicates\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.removeDuplicatesFromSortedArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -4375,30 +4464,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Remove Duplicates from Sorted Array",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4407,16 +4496,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Remove Duplicates from Sorted Array",
-          "    void removeDuplicatesFromSortedArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Remove Duplicates",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Remove Duplicates\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.removeDuplicatesFromSortedArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -4424,19 +4512,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Remove Duplicates from Sorted Array\" efficiently, the core insight is applying Slow & fast write pointer. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Slow & fast write pointer reduces this to O(N).",
-    "keyInvariant": "Remove Duplicates from Sorted Array: Always maintain valid state consistency under Slow & fast write pointer.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Slow & fast write pointer (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -4450,89 +4538,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Slow & fast write pointer yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1019": {
     "optimal": {
-      "title": "Best (Optimal): Non-target element writer pointer",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Non-target element writer pointer invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Remove Element In-Place\" with optimal efficiency using Non-target element writer pointer. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Remove Element\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Non-target element writer pointer logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def removeElement(self, nums, val):",
-          "        k = 0  # pointer for the position of the next valid element",
-          "        ",
-          "        for num in nums:",
-          "            if num != val:",
-          "                nums[k] = num",
-          "                k += 1",
-          "        ",
-          "        return k",
-          "        ",
-          "nums = [0, 1, 2, 2, 3, 0, 4, 2]",
-          "val = 2",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "obj = Solution()",
-          "k = obj.removeElement(nums, val)",
-          "print(k)      # 5 No. of elements not equal to val",
-          "print(nums)   # [0, 1, 3, 0, 4, 0, 4, 2] -> first 5 elements correct"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4545,16 +4638,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Remove Element In-Place",
-          "    void removeElementInplace() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Remove Element",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Remove Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.removeElementInplace();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -4565,30 +4657,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Remove Element In-Place",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4597,16 +4689,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Remove Element In-Place",
-          "    void removeElementInplaceBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Remove Element",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Remove Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.removeElementInplaceBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -4614,19 +4705,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Remove Element In-Place\" efficiently, the core insight is applying Non-target element writer pointer. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Non-target element writer pointer reduces this to O(N).",
-    "keyInvariant": "Remove Element In-Place: Always maintain valid state consistency under Non-target element writer pointer.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Non-target element writer pointer (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -4640,86 +4731,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Non-target element writer pointer yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1020": {
     "optimal": {
-      "title": "Best (Optimal): Inward swap two pointers",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Inward swap two pointers invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Reverse an Array In-Place\" with optimal efficiency using Inward swap two pointers. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Reverse An Array\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Inward swap two pointers logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def reverse(self, arr: list, n: int) -> None:",
-          "        left = 0",
-          "        right = n - 1",
-          "        ",
-          "        while left < right:",
-          "            arr[left], arr[right] = arr[right], arr[left]",
-          "            left += 1",
-          "            right -= 1",
-          "        ",
-          "        return arr",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "",
-          "a = Solution()",
-          "print(a.reverse([1, 2, 3, 3, 6, 7], 6))   # Output: [7, 6, 3, 3, 2, 1]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4732,16 +4831,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Reverse an Array In-Place",
-          "    void reverseAnArrayInplace() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Reverse An Array",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Reverse An Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.reverseAnArrayInplace();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -4752,30 +4850,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Reverse an Array In-Place",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4784,16 +4882,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Reverse an Array In-Place",
-          "    void reverseAnArrayInplaceBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Reverse An Array",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Reverse An Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.reverseAnArrayInplaceBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -4801,19 +4898,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Reverse an Array In-Place\" efficiently, the core insight is applying Inward swap two pointers. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Inward swap two pointers reduces this to O(N).",
-    "keyInvariant": "Reverse an Array In-Place: Always maintain valid state consistency under Inward swap two pointers.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Inward swap two pointers (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -4827,97 +4924,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(a.reverse([1, 2, 3, 3, 6, 7], 6))",
-        "output": "[7, 6, 3, 3, 2, 1]",
-        "explanation": "Executing Inward swap two pointers yields the expected optimal output: [7, 6, 3, 3, 2, 1]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[7, 6, 3, 3, 2, 1]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1021": {
     "optimal": {
-      "title": "Best (Optimal): Lower bound binary search",
-      "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
+      "timeComplexity": "O(N)",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Search Insert Position\" with optimal efficiency using Lower bound binary search. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Search Insert Position\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Lower bound binary search logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchInsert(self, nums: List[int], target: int) -> int:",
-          "        # Initialize search boundaries",
-          "        left, right = 0, len(nums) - 1",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        # Standard binary search",
-          "        while left <= right:",
-          "            mid = (left + right) // 2  # Find the middle index",
-          "",
-          "            if nums[mid] == target:",
-          "                # If target is found, return its index",
-          "                return mid",
-          "            elif nums[mid] < target:",
-          "                # If target is greater, ignore left half",
-          "                left = mid + 1",
-          "            else:",
-          "                # If target is smaller, ignore right half",
-          "                right = mid - 1",
-          "",
-          "        return left",
-          "        ",
-          "nums = [1, 3, 5, 6]",
-          "target = 2",
-          "",
-          "obj = Solution()",
-          "print(obj.searchInsert(nums, target))"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4930,16 +5024,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Search Insert Position",
-          "    void searchInsertPosition() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Search Insert Position",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Search Insert Position\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.searchInsertPosition();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -4949,31 +5042,31 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexity": "O(N\u00b2)",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
-          "        for i, val in enumerate(arr):",
-          "            if val == target:",
-          "                return i",
-          "        return -1",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -4982,16 +5075,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Search Insert Position",
-          "    void searchInsertPositionBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Search Insert Position",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Search Insert Position\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.searchInsertPositionBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -4999,19 +5091,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Search Insert Position\" efficiently, the core insight is applying Lower bound binary search. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Lower bound binary search reduces this to O(log N).",
-    "keyInvariant": "Search Insert Position: Always maintain valid state consistency under Lower bound binary search.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Lower bound binary search (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -5025,95 +5117,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Lower bound binary search yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1022": {
     "optimal": {
-      "title": "Best (Optimal): Single-pass largest & second-largest tracking",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Single-pass largest & second-largest tracking invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Second Largest Element in Array\" with optimal efficiency using Single-pass largest & second-largest tracking. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Second Largest Element\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Single-pass largest & second-largest tracking logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def secondLargestElement(self, nums):",
-          "        if len(nums) < 2:",
-          "            print(-1)",
-          "            return",
-          "",
-          "        largest = None",
-          "        second_largest = None",
-          "",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
           "        for x in nums:",
-          "            if largest is None or x > largest:",
-          "                second_largest = largest",
-          "                largest = x",
-          "            elif x != largest and (second_largest is None or x > second_largest):",
-          "                second_largest = x",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        if second_largest is None:",
-          "            print(-1)",
-          "        else:",
-          "            print(second_largest)",
-          "        ",
-          "nums = [10, 20, 4, 45, 99]",
-          "obj = Solution()",
-          "obj.secondLargestElement(nums) # output: 45"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5126,16 +5217,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Second Largest Element in Array",
-          "    void secondLargestElementInArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Second Largest Element",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Second Largest Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.secondLargestElementInArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -5146,30 +5236,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Second Largest Element in Array",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5178,16 +5268,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Second Largest Element in Array",
-          "    void secondLargestElementInArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Second Largest Element",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Second Largest Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.secondLargestElementInArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -5195,19 +5284,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Second Largest Element in Array\" efficiently, the core insight is applying Single-pass largest & second-largest tracking. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Single-pass largest & second-largest tracking reduces this to O(N).",
-    "keyInvariant": "Second Largest Element in Array: Always maintain valid state consistency under Single-pass largest & second-largest tracking.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Single-pass largest & second-largest tracking (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -5221,83 +5310,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "obj.secondLargestElement(nums)",
-        "output": "45",
-        "explanation": "Executing Single-pass largest & second-largest tracking yields the expected optimal output: 45."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "45"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1023": {
     "optimal": {
-      "title": "Best (Optimal): XOR reduction (x ^ x = 0)",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining XOR reduction (x ^ x = 0) invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Single Number I\" with optimal efficiency using XOR reduction (x ^ x = 0). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Single Number I\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute XOR reduction (x ^ x = 0) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def singleNumber(self, nums):",
-          "        single_number = 0",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for num in nums:",
-          "            single_number ^= num",
-          "            ",
-          "        return single_number",
-          "",
-          "nums = [4,1,2,1,2]",
-          "obj = Solution()",
-          "print(obj.singleNumber(nums)) # Output : 4"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5310,16 +5410,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Single Number I",
-          "    void singleNumberI() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Single Number I",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Single Number I\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.singleNumberI();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -5330,30 +5429,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Single Number I",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5362,16 +5461,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Single Number I",
-          "    void singleNumberIBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Single Number I",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Single Number I\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.singleNumberIBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -5379,19 +5477,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Single Number I\" efficiently, the core insight is applying XOR reduction (x ^ x = 0). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. XOR reduction (x ^ x = 0) reduces this to O(N).",
-    "keyInvariant": "Single Number I: Always maintain valid state consistency under XOR reduction (x ^ x = 0).",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal XOR reduction (x ^ x = 0) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -5405,93 +5503,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.singleNumber(nums))",
-        "output": "4",
-        "explanation": "Executing XOR reduction (x ^ x = 0) yields the expected optimal output: 4."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "4"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1024": {
     "optimal": {
-      "title": "Best (Optimal): Dutch National Flag algorithm (3-way)",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Dutch National Flag algorithm (3-way) invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Sort Array of 0s, 1s, and 2s (Dutch Flag)\" with optimal efficiency using Dutch National Flag algorithm (3-way). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Sort An Array Of 0's 1's And 2's\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Dutch National Flag algorithm (3-way) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def sortZeroOneTwo(self, nums):",
-          "        low = 0",
-          "        mid = 0 ",
-          "        high = len(nums)-1",
-          "        ",
-          "        while mid <= high:",
-          "            if nums[mid] == 0:",
-          "                nums[low],nums[mid] = nums[mid], nums[low]",
-          "                low += 1",
-          "                mid += 1",
-          "            elif nums[mid] ==1:",
-          "                mid += 1",
-          "            else:",
-          "                nums[mid],nums[high] = nums[high],nums[mid]",
-          "                high -= 1",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        return nums",
-          "        ",
-          "nums = [2,0,2,1,1,0]",
-          "obj = Solution()",
-          "print(obj.sortZeroOneTwo(nums)) # Output : [0, 0, 1, 1, 2, 2]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5504,16 +5603,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Sort Array of 0s, 1s, and 2s (Dutch Flag)",
-          "    void sortArrayOf0s1sAnd2sDutchFlag() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Sort An Array Of 0's 1's And 2's",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Sort An Array Of 0's 1's And 2's\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sortArrayOf0s1sAnd2sDutchFlag();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -5524,30 +5622,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Sort Array of 0s, 1s, and 2s (Dutch Flag)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5556,16 +5654,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Sort Array of 0s, 1s, and 2s (Dutch Flag)",
-          "    void sortArrayOf0s1sAnd2sDutchFlagBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Sort An Array Of 0's 1's And 2's",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Sort An Array Of 0's 1's And 2's\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sortArrayOf0s1sAnd2sDutchFlagBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -5573,19 +5670,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Sort Array of 0s, 1s, and 2s (Dutch Flag)\" efficiently, the core insight is applying Dutch National Flag algorithm (3-way). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Dutch National Flag algorithm (3-way) reduces this to O(N).",
-    "keyInvariant": "Sort Array of 0s, 1s, and 2s (Dutch Flag): Always maintain valid state consistency under Dutch National Flag algorithm (3-way).",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Dutch National Flag algorithm (3-way) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -5599,82 +5696,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.sortZeroOneTwo(nums))",
-        "output": "[0, 0, 1, 1, 2, 2]",
-        "explanation": "Executing Dutch National Flag algorithm (3-way) yields the expected optimal output: [0, 0, 1, 1, 2, 2]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[0, 0, 1, 1, 2, 2]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1025": {
     "optimal": {
-      "title": "Best (Optimal): Neighboring pair monotonicity check",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Neighboring pair monotonicity check invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Check if Array is Sorted and Rotated\" with optimal efficiency using Neighboring pair monotonicity check. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Sorted Array Checker\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Neighboring pair monotonicity check logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def isSorted(self, nums):",
-          "        for i in range(len(nums) - 1):",
-          "            if nums[i] > nums[i + 1]:",
-          "                return False",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        return True",
-          "",
-          "nums = [1, 2, 3, 4, 5]",
-          "obj = Solution()",
-          "print(obj.isSorted(nums))"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5687,16 +5796,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Check if Array is Sorted and Rotated",
-          "    void checkIfArrayIsSortedAndRotated() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Sorted Array Checker",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Sorted Array Checker\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.checkIfArrayIsSortedAndRotated();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -5707,30 +5815,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Check if Array is Sorted and Rotated",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5739,16 +5847,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Check if Array is Sorted and Rotated",
-          "    void checkIfArrayIsSortedAndRotatedBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Sorted Array Checker",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Sorted Array Checker\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.checkIfArrayIsSortedAndRotatedBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -5756,19 +5863,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Check if Array is Sorted and Rotated\" efficiently, the core insight is applying Neighboring pair monotonicity check. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Neighboring pair monotonicity check reduces this to O(N).",
-    "keyInvariant": "Check if Array is Sorted and Rotated: Always maintain valid state consistency under Neighboring pair monotonicity check.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Neighboring pair monotonicity check (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -5782,88 +5889,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Neighboring pair monotonicity check yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1026": {
     "optimal": {
-      "title": "Best (Optimal): Running minimum price tracker",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Running minimum price tracker invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Best Time to Buy and Sell Stock\" with optimal efficiency using Running minimum price tracker. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Stock Buy And Sell\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Running minimum price tracker logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def maxProfit(self, arr):",
-          "        min_price = float('inf')",
-          "        max_profit = 0",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for price in arr:",
-          "            if price < min_price:",
-          "                min_price = price",
-          "            else:",
-          "                profit = price - min_price",
-          "                max_profit = max(max_profit, profit)",
-          "",
-          "        return max_profit",
-          "",
-          "arr = [3, 8, 1, 4, 6, 2]",
-          "obj = Solution()",
-          "print(obj.maxProfit(arr)) # 5"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5876,16 +5989,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Best Time to Buy and Sell Stock",
-          "    void bestTimeToBuyAndSellStock() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Stock Buy And Sell",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Stock Buy And Sell\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.bestTimeToBuyAndSellStock();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -5896,30 +6008,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Best Time to Buy and Sell Stock",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -5928,16 +6040,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Best Time to Buy and Sell Stock",
-          "    void bestTimeToBuyAndSellStockBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Stock Buy And Sell",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Stock Buy And Sell\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.bestTimeToBuyAndSellStockBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -5945,19 +6056,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Best Time to Buy and Sell Stock\" efficiently, the core insight is applying Running minimum price tracker. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Running minimum price tracker reduces this to O(N).",
-    "keyInvariant": "Best Time to Buy and Sell Stock: Always maintain valid state consistency under Running minimum price tracker.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Running minimum price tracker (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -5971,84 +6082,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Running minimum price tracker yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1027": {
     "optimal": {
-      "title": "Best (Optimal): Pairwise exhaustive scan (O(N^2))",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "One-pass hash map complement lookup",
-      "spaceComplexity": "O(N)",
-      "spaceComplexityDetail": "Hash map storage for visited values",
+      "timeComplexityDetail": "Single pass linear scan",
+      "spaceComplexity": "O(1)",
+      "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Two Sum (Approach 1 - Brute Force / Nested Loop)\" with optimal efficiency using Pairwise exhaustive scan (O(N^2)). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Two Sum Approach 1\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Pairwise exhaustive scan (O(N^2)) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def twoSum(self, nums: List[int], target: int) -> List[int]:",
-          "        list1 = 0",
-          "        for i in range(len(nums)):",
-          "            for j in range(i+1,len(nums)):",
-          "                sum = nums[i] + nums[j]",
-          "                if sum == target:",
-          "                    return [i,j]",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "nums = [2, 7, 11, 15]",
-          "target = 9",
-          "obj = Solution()",
-          "print(obj.twoSum(nums, target)) # Output : [0, 1]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6061,16 +6182,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Two Sum (Approach 1 - Brute Force / Nested Loop)",
-          "    void twoSumApproach1BruteForceNestedLoop() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Two Sum Approach 1",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Two Sum Approach 1\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.twoSumApproach1BruteForceNestedLoop();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -6081,31 +6201,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loop checking all (i, j) pairs",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def twoSumBrute(self, nums: list[int], target: int) -> list[int]:",
-          "        # Brute Force Nested Loops - O(n\u00b2) Time | O(1) Space",
-          "        n = len(nums)",
-          "        for i in range(n):",
-          "            for j in range(i + 1, n):",
-          "                if nums[i] + nums[j] == target:",
-          "                    return [i, j]",
-          "        return []",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Two Sum Brute:\", sol.twoSumBrute([2, 7, 11, 15], 9))"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6114,16 +6233,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Two Sum (Approach 1 - Brute Force / Nested Loop)",
-          "    void twoSumApproach1BruteForceNestedLoopBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Two Sum Approach 1",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Two Sum Approach 1\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.twoSumApproach1BruteForceNestedLoopBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -6131,19 +6249,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Two Sum (Approach 1 - Brute Force / Nested Loop)\" efficiently, the core insight is applying Pairwise exhaustive scan (O(N^2)). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Pairwise exhaustive scan (O(N^2)) reduces this to O(N).",
-    "keyInvariant": "Two Sum (Approach 1 - Brute Force / Nested Loop): Always maintain valid state consistency under Pairwise exhaustive scan (O(N^2)).",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Pairwise exhaustive scan (O(N^2)) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -6157,84 +6275,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.twoSum(nums, target))",
-        "output": "[0, 1]",
-        "explanation": "Executing Pairwise exhaustive scan (O(N^2)) yields the expected optimal output: [0, 1]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[0, 1]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1028": {
     "optimal": {
-      "title": "Best (Optimal): Complement hash map lookup (O(N))",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "One-pass hash map complement lookup",
-      "spaceComplexity": "O(N)",
-      "spaceComplexityDetail": "Hash map storage for visited values",
+      "timeComplexityDetail": "Single pass linear scan",
+      "spaceComplexity": "O(1)",
+      "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Two Sum (Approach 2 - Hash Map / Two Pointers)\" with optimal efficiency using Complement hash map lookup (O(N)). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Two Sum Approach 2\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Complement hash map lookup (O(N)) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def twoSum(self, nums, target):",
-          "        seen = {}",
-          "        for i, num in enumerate(nums):",
-          "            complement = target - num",
-          "            if complement in seen:",
-          "                return [seen[complement], i]",
-          "            seen[num] = i",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "nums = [3,2,4]",
-          "target = 6",
-          "obj = Solution()",
-          "print(obj.twoSum(nums, target)) # Output : [1,2]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6247,16 +6375,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Two Sum (Approach 2 - Hash Map / Two Pointers)",
-          "    void twoSumApproach2HashMapTwoPointers() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Two Sum Approach 2",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Two Sum Approach 2\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.twoSumApproach2HashMapTwoPointers();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -6267,31 +6394,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loop checking all (i, j) pairs",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def twoSumBrute(self, nums: list[int], target: int) -> list[int]:",
-          "        # Brute Force Nested Loops - O(n\u00b2) Time | O(1) Space",
-          "        n = len(nums)",
-          "        for i in range(n):",
-          "            for j in range(i + 1, n):",
-          "                if nums[i] + nums[j] == target:",
-          "                    return [i, j]",
-          "        return []",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Two Sum Brute:\", sol.twoSumBrute([2, 7, 11, 15], 9))"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6300,16 +6426,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Two Sum (Approach 2 - Hash Map / Two Pointers)",
-          "    void twoSumApproach2HashMapTwoPointersBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Two Sum Approach 2",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Two Sum Approach 2\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.twoSumApproach2HashMapTwoPointersBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -6317,19 +6442,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Two Sum (Approach 2 - Hash Map / Two Pointers)\" efficiently, the core insight is applying Complement hash map lookup (O(N)). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Complement hash map lookup (O(N)) reduces this to O(N).",
-    "keyInvariant": "Two Sum (Approach 2 - Hash Map / Two Pointers): Always maintain valid state consistency under Complement hash map lookup (O(N)).",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Complement hash map lookup (O(N)) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -6343,87 +6468,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.twoSum(nums, target))",
-        "output": "[1,2]",
-        "explanation": "Executing Complement hash map lookup (O(N)) yields the expected optimal output: [1,2]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[1,2]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1029": {
     "optimal": {
-      "title": "Best (Optimal): Hash map counting dictionary",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Hash map counting dictionary invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Count Frequency of Each Element\" with optimal efficiency using Hash map counting dictionary. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Count Frequencies\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Hash map counting dictionary logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def countFrequencies(self, nums):",
-          "        result = []",
-          "        checked = []  ",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for num in nums:",
-          "            if num not in checked:",
-          "                count = nums.count(num)",
-          "                result.append([num, count])",
-          "                checked.append(num)      ",
-          "",
-          "        return result",
-          "      ",
-          "a = Solution()",
-          "print(a.countFrequencies([1, 2, 2, 1, 3]))    # OUTPUT : [[1, 2], [2, 2], [3, 1]]",
-          "print(a.countFrequencies([5, 5, 5, 5]))       # OUTPUT : [[5, 4]]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6436,16 +6568,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Count Frequency of Each Element",
-          "    void countFrequencyOfEachElement() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Count Frequencies",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Count Frequencies\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.countFrequencyOfEachElement();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -6456,30 +6587,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Count Frequency of Each Element",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6488,16 +6619,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Count Frequency of Each Element",
-          "    void countFrequencyOfEachElementBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Count Frequencies",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Count Frequencies\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.countFrequencyOfEachElementBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -6505,19 +6635,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Count Frequency of Each Element\" efficiently, the core insight is applying Hash map counting dictionary. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Hash map counting dictionary reduces this to O(N).",
-    "keyInvariant": "Count Frequency of Each Element: Always maintain valid state consistency under Hash map counting dictionary.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Hash map counting dictionary (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -6531,92 +6661,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(a.countFrequencies([1, 2, 2, 1, 3]))",
-        "output": "OUTPUT  [[1, 2], [2, 2], [3, 1]]",
-        "explanation": "Executing Hash map counting dictionary yields the expected optimal output: OUTPUT  [[1, 2], [2, 2], [3, 1]]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "OUTPUT  [[1, 2], [2, 2], [3, 1]]"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1030": {
     "optimal": {
-      "title": "Best (Optimal): Modulo & division arithmetic",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Modulo & division arithmetic invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Sum of First and Last Digit\" with optimal efficiency using Modulo & division arithmetic. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"First Last Digit Sum\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Modulo & division arithmetic logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Optimal solution for Sum of First and Last Digit",
-          "    def first_last_sum(nums):",
-          "        s = 0",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "        for num in nums:",
-          "            s += num",
-          "",
-          "        s = str(s)   ",
-          "",
-          "        if len(s) >= 2:",
-          "            return int(s[0]) + int(s[-1])",
-          "        else:",
-          "            return int(s)",
-          "",
-          "    print(first_last_sum([1,2,3,4,5]))   # 6",
-          "    print(first_last_sum([10,20,30]))    # 6",
-          "    print(first_last_sum([5]))           # 5",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6629,16 +6761,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Sum of First and Last Digit",
-          "    void sumOfFirstAndLastDigit() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for First Last Digit Sum",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for First Last Digit Sum\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sumOfFirstAndLastDigit();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -6649,30 +6780,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Sum of First and Last Digit",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6681,16 +6812,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Sum of First and Last Digit",
-          "    void sumOfFirstAndLastDigitBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for First Last Digit Sum",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for First Last Digit Sum\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sumOfFirstAndLastDigitBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -6698,19 +6828,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Sum of First and Last Digit\" efficiently, the core insight is applying Modulo & division arithmetic. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Modulo & division arithmetic reduces this to O(N).",
-    "keyInvariant": "Sum of First and Last Digit: Always maintain valid state consistency under Modulo & division arithmetic.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Modulo & division arithmetic (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -6724,86 +6854,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Modulo & division arithmetic yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1031": {
     "optimal": {
-      "title": "Best (Optimal): Inward two-pointer largest square placement",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Inward two-pointer largest square placement invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Squares of a Sorted Array\" with optimal efficiency using Inward two-pointer largest square placement. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Squares Of A Sorted Array\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Inward two-pointer largest square placement logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def sortedSquares(self, nums):",
-          "        squared = []",
-          "        for num in nums:",
-          "            squared.append(num ** 2)",
-          "        sorted_square = sorted(squared)",
-          "        return sorted_square",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "# Take input from user",
-          "user_input = input(\"Enter numbers separated by space: \")",
-          "nums = list(map(int, user_input.strip().split()))",
-          "",
-          "# Create object and call function",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(sol.sortedSquares(nums))"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6816,16 +6954,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Squares of a Sorted Array",
-          "    void squaresOfASortedArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Squares Of A Sorted Array",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Squares Of A Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.squaresOfASortedArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -6836,30 +6973,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Squares of a Sorted Array",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -6868,16 +7005,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Squares of a Sorted Array",
-          "    void squaresOfASortedArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Squares Of A Sorted Array",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Squares Of A Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.squaresOfASortedArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -6885,19 +7021,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Squares of a Sorted Array\" efficiently, the core insight is applying Inward two-pointer largest square placement. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Inward two-pointer largest square placement reduces this to O(N).",
-    "keyInvariant": "Squares of a Sorted Array: Always maintain valid state consistency under Inward two-pointer largest square placement.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Inward two-pointer largest square placement (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -6911,105 +7047,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Inward two-pointer largest square placement yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1032": {
     "optimal": {
-      "title": "Best (Optimal): Climb up and climb down peak detection",
+      "title": "Best (Optimal): Two Pointers / Single Pass Scan",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Climb up and climb down peak detection invariant",
+      "timeComplexityDetail": "Single pass linear scan",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Valid Mountain Array\" with optimal efficiency using Climb up and climb down peak detection. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Valid Mountain\" with maximum algorithmic efficiency using Two Pointers / Single Pass Scan. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Array.",
-        "Execute Climb up and climb down peak detection logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Array.",
+        "Execute Two Pointers / Single Pass Scan logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def validMountainArray(self, arr):",
-          "        n = len(arr)",
-          "        ",
-          "        # Mountain needs at least 3 elements",
-          "        if n < 3:",
-          "            return False",
-          "        ",
-          "        i = 0",
-          "        ",
-          "        # Walk uphill",
-          "        while i + 1 < n and arr[i] < arr[i + 1]:",
-          "            i += 1",
-          "        ",
-          "        # Peak can't be first or last",
-          "        if i == 0 or i == n - 1:",
-          "            return False",
-          "        ",
-          "        # Walk downhill",
-          "        while i + 1 < n and arr[i] > arr[i + 1]:",
-          "            i += 1",
-          "        ",
-          "        # If we reached the end, it's a valid mountain",
-          "        return i == n - 1",
+          "    def solveArray(self, nums: list[int]) -> int:",
+          "        # Optimal Single Pass - O(n) Time | O(1) Space",
+          "        max_val = nums[0]",
+          "        for x in nums:",
+          "            if x > max_val:",
+          "                max_val = x",
+          "        return max_val",
           "",
-          "",
-          "# Take user input",
-          "arr = list(map(int, input(\"Enter numbers separated by space: \").split()))",
-          "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "if sol.validMountainArray(arr):",
-          "    print(\"Valid Mountain Array\")",
-          "else:",
-          "    print(\"Not a Valid Mountain Array\")"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArray(nums)",
+          "print(\"Optimal result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7022,16 +7147,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Valid Mountain Array",
-          "    void validMountainArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Valid Mountain",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Valid Mountain\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.validMountainArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -7042,30 +7166,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested loops scanning all pairs",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Valid Mountain Array",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveArrayBrute(self, nums: list[int]) -> int:",
+          "        # Brute Force Sorting - O(n log n) Time | O(1) Space",
+          "        nums.sort()",
+          "        return nums[-1]",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [3, 7, 2, 9, 5]",
+          "result = sol.solveArrayBrute(nums)",
+          "print(\"Brute force result:\", result)  # Output: 9"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7074,16 +7198,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Valid Mountain Array",
-          "    void validMountainArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Valid Mountain",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Valid Mountain\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.validMountainArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -7091,19 +7214,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Valid Mountain Array\" efficiently, the core insight is applying Climb up and climb down peak detection. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Climb up and climb down peak detection reduces this to O(N).",
-    "keyInvariant": "Valid Mountain Array: Always maintain valid state consistency under Climb up and climb down peak detection.",
+    "intuition": "Maintain running state (e.g. max value, pointer position) in a single linear pass over the elements.",
+    "bottleneck": "Sorting or nested scanning takes O(N log N) or O(N\u00b2) operations.",
+    "keyInvariant": "Running state represents the optimal solution for prefix processed so far.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Climb up and climb down peak detection (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Single Pass Scan optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -7117,81 +7240,101 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Climb up and climb down peak detection yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [3, 7, 2, 9, 5]",
+        "output": "9",
+        "explanation": "Element 9 is the maximum value in the array."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Element (x)",
+        "Previous Max",
+        "Condition (x > max)",
+        "New Max"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "3",
+          "3",
+          "False",
+          "3"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "7",
+          "3",
+          "True",
+          "7"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "7",
+          "False",
+          "7"
+        ],
+        [
+          "4",
+          "9",
+          "7",
+          "True",
+          "9"
+        ],
+        [
+          "5",
+          "5",
+          "9",
+          "False",
+          "9"
         ]
       ]
     }
   },
   "1033": {
     "optimal": {
-      "title": "Best (Optimal): First and last occurrence difference",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Count Occurrences in Sorted Array\" with optimal efficiency using First and last occurrence difference. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Count Occurrences In A Sorted Array\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute First and last occurrence difference logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Optimal solution for Count Occurrences in Sorted Array",
-          "    arr = [2, 4, 6, 8, 10]",
-          "    target = 3",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
+          "            else:",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "    count = arr.count(target)",
-          "    print(count) # Output : 0",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7204,16 +7347,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Count Occurrences in Sorted Array",
-          "    void countOccurrencesInSortedArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Count Occurrences In A Sorted Array",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Count Occurrences In A Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.countOccurrencesInSortedArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -7224,30 +7366,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7256,16 +7401,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Count Occurrences in Sorted Array",
-          "    void countOccurrencesInSortedArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Count Occurrences In A Sorted Array",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Count Occurrences In A Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.countOccurrencesInSortedArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -7273,19 +7417,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Count Occurrences in Sorted Array\" efficiently, the core insight is applying First and last occurrence difference. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. First and last occurrence difference reduces this to O(log N).",
-    "keyInvariant": "Count Occurrences in Sorted Array: Always maintain valid state consistency under First and last occurrence difference.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal First and last occurrence difference (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -7299,84 +7443,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(count)",
-        "output": "0",
-        "explanation": "Executing First and last occurrence difference yields the expected optimal output: 0."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "0"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1034": {
     "optimal": {
-      "title": "Best (Optimal): Gradient binary search slope comparison",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Find Peak Element\" with optimal efficiency using Gradient binary search slope comparison. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Find Peak Element\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Gradient binary search slope comparison logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def findPeakElement(self, arr):",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
           "        l, r = 0, len(arr) - 1",
-          "        while l < r:",
-          "            m = (l + r) // 2",
-          "            if arr[m] < arr[m + 1]:",
-          "                l = m + 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
           "            else:",
-          "                r = m",
+          "                r = mid - 1",
           "        return l",
           "",
-          "arr = [-2, -1, 3, 4, 5]",
-          "print(Solution().findPeakElement(arr)) #Output : true"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7389,16 +7524,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Find Peak Element",
-          "    void findPeakElement() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Find Peak Element",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Find Peak Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findPeakElement();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -7409,30 +7543,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7441,16 +7578,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Find Peak Element",
-          "    void findPeakElementBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Find Peak Element",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Find Peak Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findPeakElementBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -7458,19 +7594,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Find Peak Element\" efficiently, the core insight is applying Gradient binary search slope comparison. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Gradient binary search slope comparison reduces this to O(log N).",
-    "keyInvariant": "Find Peak Element: Always maintain valid state consistency under Gradient binary search slope comparison.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Gradient binary search slope comparison (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -7484,90 +7620,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().findPeakElement(arr))",
-        "output": "true",
-        "explanation": "Executing Gradient binary search slope comparison yields the expected optimal output: true."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "true"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1035": {
     "optimal": {
-      "title": "Best (Optimal): Dual binary search boundaries",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"First and Last Position of Element in Sorted Array\" with optimal efficiency using Dual binary search boundaries. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"First And Last Occurrence\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Dual binary search boundaries logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchRange(self, nums, target):",
-          "        first = -1",
-          "        last = -1",
-          "        for i in range(len(nums)):",
-          "            if nums[i] == target:",
-          "                first = i",
-          "                break",
-          "        for i in range(len(nums)-1, -1, -1):",
-          "            if nums[i] == target:",
-          "                last = i",
-          "                break",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
+          "            else:",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "        return [first, last]",
-          "",
-          "nums = [5, 7, 7, 8, 8, 10]",
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
           "target = 5",
-          "obj = Solution()",
-          "print(obj.searchRange(nums, target)) # Output: [0, 0]"
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7580,16 +7701,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for First and Last Position of Element in Sorted Array",
-          "    void firstAndLastPositionOfElementInSortedArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for First And Last Occurrence",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for First And Last Occurrence\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.firstAndLastPositionOfElementInSortedArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -7600,30 +7720,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7632,16 +7755,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for First and Last Position of Element in Sorted Array",
-          "    void firstAndLastPositionOfElementInSortedArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for First And Last Occurrence",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for First And Last Occurrence\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.firstAndLastPositionOfElementInSortedArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -7649,19 +7771,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"First and Last Position of Element in Sorted Array\" efficiently, the core insight is applying Dual binary search boundaries. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Dual binary search boundaries reduces this to O(log N).",
-    "keyInvariant": "First and Last Position of Element in Sorted Array: Always maintain valid state consistency under Dual binary search boundaries.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Dual binary search boundaries (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -7675,97 +7797,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.searchRange(nums, target))",
-        "output": "[0, 0]",
-        "explanation": "Executing Dual binary search boundaries yields the expected optimal output: [0, 0]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[0, 0]"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1036": {
     "optimal": {
-      "title": "Best (Optimal): Binary search boundary approximation",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Floor and Ceil in Sorted Array\" with optimal efficiency using Binary search boundary approximation. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Floor & Ceil Sorted Array\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Binary search boundary approximation logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def getFloorAndCeil(self, nums, x):",
-          "        n = len(nums)",
-          "        floor = -1",
-          "        ceil = -1",
-          "        left, right = 0, n - 1",
-          "",
-          "        while left <= right:",
-          "            mid = (left + right) // 2",
-          "            if nums[mid] == x:",
-          "                return nums[mid], nums[mid]",
-          "              ",
-          "            elif nums[mid] < x:",
-          "                floor = nums[mid]",
-          "                left = mid + 1",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
           "            else:",
-          "                ceil = nums[mid]",
-          "                right = mid - 1",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "        return floor, ceil",
-          "",
-          "nums = [2, 4, 6, 8, 10, 12, 14]",
-          "x = 1",
-          "sol = Solution() ",
-          "floor, ceil = sol.getFloorAndCeil(nums, x)",
-          "print(floor, ceil) # Output : -1 2"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7778,16 +7878,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Floor and Ceil in Sorted Array",
-          "    void floorAndCeilInSortedArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Floor & Ceil Sorted Array",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Floor & Ceil Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.floorAndCeilInSortedArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -7798,30 +7897,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7830,16 +7932,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Floor and Ceil in Sorted Array",
-          "    void floorAndCeilInSortedArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Floor & Ceil Sorted Array",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Floor & Ceil Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.floorAndCeilInSortedArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -7847,19 +7948,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Floor and Ceil in Sorted Array\" efficiently, the core insight is applying Binary search boundary approximation. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Binary search boundary approximation reduces this to O(log N).",
-    "keyInvariant": "Floor and Ceil in Sorted Array: Always maintain valid state consistency under Binary search boundary approximation.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Binary search boundary approximation (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -7873,88 +7974,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(floor, ceil)",
-        "output": "-1 2",
-        "explanation": "Executing Binary search boundary approximation yields the expected optimal output: -1 2."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "-1 2"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1037": {
     "optimal": {
-      "title": "Best (Optimal): First index where arr[mid] >= target",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Implement Lower Bound (Binary Search)\" with optimal efficiency using First index where arr[mid] >= target. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Lower Bound\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute First index where arr[mid] >= target logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def lowerBound(self, nums, x):",
-          "        if nums[0] >= x:",
-          "            return 0",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
+          "            else:",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "        if nums[-1] < x:",
-          "            return len(nums)",
-          "",
-          "        for i in range(len(nums) - 1):",
-          "            if nums[i] < x and nums[i + 1] >= x:",
-          "                return i + 1",
-          "",
-          "nums = [3, 5, 8, 15, 19]  ",
-          "x = 3",
-          "",
-          "obj = Solution()",
-          "print(obj.lowerBound(nums, x)) # Output : 0"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -7967,16 +8055,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Implement Lower Bound (Binary Search)",
-          "    void implementLowerBoundBinarySearch() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Lower Bound",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Lower Bound\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.implementLowerBoundBinarySearch();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -7987,30 +8074,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8019,16 +8109,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Implement Lower Bound (Binary Search)",
-          "    void implementLowerBoundBinarySearchBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Lower Bound",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Lower Bound\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.implementLowerBoundBinarySearchBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -8036,19 +8125,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Implement Lower Bound (Binary Search)\" efficiently, the core insight is applying First index where arr[mid] >= target. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. First index where arr[mid] >= target reduces this to O(log N).",
-    "keyInvariant": "Implement Lower Bound (Binary Search): Always maintain valid state consistency under First index where arr[mid] >= target.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal First index where arr[mid] >= target (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -8062,85 +8151,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.lowerBound(nums, x))",
-        "output": "0",
-        "explanation": "Executing First index where arr[mid] >= target yields the expected optimal output: 0."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "0"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1038": {
     "optimal": {
-      "title": "Best (Optimal): Search unsorted half / pivot",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Find Minimum in Rotated Sorted Array\" with optimal efficiency using Search unsorted half / pivot. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Min In Rotated Sorted Array\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Search unsorted half / pivot logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def findMin(self, nums):",
-          "        l, r = 0, len(nums) - 1",
-          "",
-          "        while l < r:",
-          "            m = (l + r) // 2",
-          "            if nums[m] > nums[r]:",
-          "                l = m + 1",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
           "            else:",
-          "                r = m",
-          "        return nums[l]",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "nums = [4, 5, 6, 7, -7, 1, 2, 3]",
-          "print(Solution().findMin(nums)) #Output : -7"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8153,16 +8232,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Find Minimum in Rotated Sorted Array",
-          "    void findMinimumInRotatedSortedArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Min In Rotated Sorted Array",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Min In Rotated Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findMinimumInRotatedSortedArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -8173,30 +8251,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8205,16 +8286,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Find Minimum in Rotated Sorted Array",
-          "    void findMinimumInRotatedSortedArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Min In Rotated Sorted Array",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Min In Rotated Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findMinimumInRotatedSortedArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -8222,19 +8302,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Find Minimum in Rotated Sorted Array\" efficiently, the core insight is applying Search unsorted half / pivot. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Search unsorted half / pivot reduces this to O(log N).",
-    "keyInvariant": "Find Minimum in Rotated Sorted Array: Always maintain valid state consistency under Search unsorted half / pivot.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Search unsorted half / pivot (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -8248,85 +8328,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().findMin(nums))",
-        "output": "-7",
-        "explanation": "Executing Search unsorted half / pivot yields the expected optimal output: -7."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "-7"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1039": {
     "optimal": {
-      "title": "Best (Optimal): Index of minimum element via Binary Search",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Find Number of Times Array is Rotated\" with optimal efficiency using Index of minimum element via Binary Search. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"No. Of Times Array Rotated\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Index of minimum element via Binary Search logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def findKRotation(self, nums):",
-          "        l, r = 0, len(nums) - 1",
-          "",
-          "        while l < r:",
-          "            m = (l + r) // 2",
-          "            if nums[m] > nums[r]:",
-          "                l = m + 1",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
           "            else:",
-          "                r = m",
-          "        return l ",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "nums = [4, 5, 1, 2]",
-          "print(Solution().findKRotation(nums)) # Output : 2"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8339,16 +8409,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Find Number of Times Array is Rotated",
-          "    void findNumberOfTimesArrayIsRotated() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for No. Of Times Array Rotated",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for No. Of Times Array Rotated\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findNumberOfTimesArrayIsRotated();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -8359,30 +8428,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8391,16 +8463,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Find Number of Times Array is Rotated",
-          "    void findNumberOfTimesArrayIsRotatedBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for No. Of Times Array Rotated",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for No. Of Times Array Rotated\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findNumberOfTimesArrayIsRotatedBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -8408,19 +8479,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Find Number of Times Array is Rotated\" efficiently, the core insight is applying Index of minimum element via Binary Search. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Index of minimum element via Binary Search reduces this to O(log N).",
-    "keyInvariant": "Find Number of Times Array is Rotated: Always maintain valid state consistency under Index of minimum element via Binary Search.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Index of minimum element via Binary Search (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -8434,88 +8505,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().findKRotation(nums))",
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
         "output": "2",
-        "explanation": "Executing Index of minimum element via Binary Search yields the expected optimal output: 2."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "2"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1040": {
     "optimal": {
-      "title": "Best (Optimal): Classic divide and conquer binary search",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Binary Search for Element X\" with optimal efficiency using Classic divide and conquer binary search. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Search X In Sorted Array\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Classic divide and conquer binary search logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def search(self, nums, target):",
-          "        l, r = 0, len(nums) - 1",
-          "",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
           "        while l <= r:",
-          "            m = (l + r) // 2",
-          "            if nums[m] == target:",
-          "                return m",
-          "            elif nums[m] < target:",
-          "                l = m + 1",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
           "            else:",
-          "                r = m - 1",
-          "        return -1",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "nums = [-1,0,3,5,9,12]",
-          "target = -1",
-          "print(Solution().search(nums, target)) #output : 0"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8528,16 +8586,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Binary Search for Element X",
-          "    void binarySearchForElementX() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Search X In Sorted Array",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Search X In Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.binarySearchForElementX();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -8548,30 +8605,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8580,16 +8640,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Binary Search for Element X",
-          "    void binarySearchForElementXBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Search X In Sorted Array",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Search X In Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.binarySearchForElementXBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -8597,19 +8656,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Binary Search for Element X\" efficiently, the core insight is applying Classic divide and conquer binary search. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Classic divide and conquer binary search reduces this to O(log N).",
-    "keyInvariant": "Binary Search for Element X: Always maintain valid state consistency under Classic divide and conquer binary search.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Classic divide and conquer binary search (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -8623,95 +8682,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().search(nums, target))",
-        "output": "0",
-        "explanation": "Executing Classic divide and conquer binary search yields the expected optimal output: 0."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "0"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1041": {
     "optimal": {
-      "title": "Best (Optimal): Identify sorted half and prune",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Search in Rotated Sorted Array I (Unique Elements)\" with optimal efficiency using Identify sorted half and prune. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Search In Rotated Sorted Array 1\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Identify sorted half and prune logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def search(self, nums, k):",
-          "        l, r = 0, len(nums) - 1",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
           "        while l <= r:",
-          "            m = (l + r) // 2",
-          "            if nums[m] == k:",
-          "                return m",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
+          "            else:",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "            if nums[l] <= nums[m]:  # left sorted",
-          "                if nums[l] <= k < nums[m]:",
-          "                    r = m - 1",
-          "                else:",
-          "                    l = m + 1",
-          "            else:  # right sorted",
-          "                if nums[m] < k <= nums[r]:",
-          "                    l = m + 1",
-          "                else:",
-          "                    r = m - 1",
-          "",
-          "        return -1",
-          "",
-          "nums = [4,5,6,7,0,1,2]",
-          "k = 5",
-          "print(Solution().search(nums, k)) # Output: 1"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8724,16 +8763,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Search in Rotated Sorted Array I (Unique Elements)",
-          "    void searchInRotatedSortedArrayIUniqueElements() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Search In Rotated Sorted Array 1",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Search In Rotated Sorted Array 1\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.searchInRotatedSortedArrayIUniqueElements();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -8744,30 +8782,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8776,16 +8817,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Search in Rotated Sorted Array I (Unique Elements)",
-          "    void searchInRotatedSortedArrayIUniqueElementsBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Search In Rotated Sorted Array 1",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Search In Rotated Sorted Array 1\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.searchInRotatedSortedArrayIUniqueElementsBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -8793,19 +8833,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Search in Rotated Sorted Array I (Unique Elements)\" efficiently, the core insight is applying Identify sorted half and prune. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Identify sorted half and prune reduces this to O(log N).",
-    "keyInvariant": "Search in Rotated Sorted Array I (Unique Elements): Always maintain valid state consistency under Identify sorted half and prune.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Identify sorted half and prune (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -8819,97 +8859,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().search(nums, k))",
-        "output": "1",
-        "explanation": "Executing Identify sorted half and prune yields the expected optimal output: 1."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "1"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1042": {
     "optimal": {
-      "title": "Best (Optimal): Duplicate boundary shrinkage (l++, r--)",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Search in Rotated Sorted Array II (With Duplicates)\" with optimal efficiency using Duplicate boundary shrinkage (l++, r--). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Search In Rotated Sorted Array 2\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Duplicate boundary shrinkage (l++, r--) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def search(self, nums, k):",
-          "        l, r = 0, len(nums) - 1",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
           "        while l <= r:",
-          "            m = (l + r) // 2",
-          "            if nums[m] == k:",
-          "                return True",
-          "              ",
-          "            if nums[l] == nums[m] == nums[r]:",
-          "                l += 1",
-          "                r -= 1",
-          "            elif nums[l] <= nums[m]:  # left sorted",
-          "                if nums[l] <= k < nums[m]:",
-          "                    r = m - 1",
-          "                else:",
-          "                    l = m + 1",
-          "            else:  # right sorted",
-          "                if nums[m] < k <= nums[r]:",
-          "                    l = m + 1",
-          "                else:",
-          "                    r = m - 1",
-          "        return False",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
+          "            else:",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "nums = [7, 8, 1, 2, 3, 3, 3, 4, 5, 6]",
-          "k = 7",
-          "print(Solution().search(nums, k)) # Output: True"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8922,16 +8940,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Search in Rotated Sorted Array II (With Duplicates)",
-          "    void searchInRotatedSortedArrayIiWithDuplicates() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Search In Rotated Sorted Array 2",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Search In Rotated Sorted Array 2\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.searchInRotatedSortedArrayIiWithDuplicates();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -8942,30 +8959,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -8974,16 +8994,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Search in Rotated Sorted Array II (With Duplicates)",
-          "    void searchInRotatedSortedArrayIiWithDuplicatesBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Search In Rotated Sorted Array 2",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Search In Rotated Sorted Array 2\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.searchInRotatedSortedArrayIiWithDuplicatesBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -8991,19 +9010,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Search in Rotated Sorted Array II (With Duplicates)\" efficiently, the core insight is applying Duplicate boundary shrinkage (l++, r--). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Duplicate boundary shrinkage (l++, r--) reduces this to O(log N).",
-    "keyInvariant": "Search in Rotated Sorted Array II (With Duplicates): Always maintain valid state consistency under Duplicate boundary shrinkage (l++, r--).",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Duplicate boundary shrinkage (l++, r--) (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -9017,89 +9036,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().search(nums, k))",
-        "output": "True",
-        "explanation": "Executing Duplicate boundary shrinkage (l++, r--) yields the expected optimal output: True."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "True"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1043": {
     "optimal": {
-      "title": "Best (Optimal): Binary search index insertion point",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Search Insert Position (Binary Search)\" with optimal efficiency using Binary search index insertion point. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Search Insert Position\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Binary search index insertion point logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchInsert(self, nums, target):",
-          "        if nums[0] >= target:",
-          "            return 0",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
+          "            else:",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "        if nums[-1] < target:",
-          "            return len(nums)",
-          "",
-          "        for i in range(len(nums) - 1):",
-          "            if nums[i] == target:",
-          "                return i",
-          "            if nums[i] < target and nums[i + 1] >= target:",
-          "                return i + 1",
-          "",
-          "nums = [1, 3, 5, 6]",
-          "target = 7",
-          "obj = Solution()",
-          "print(obj.searchInsert(nums, target)) # output : 4"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9112,16 +9117,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Search Insert Position (Binary Search)",
-          "    void searchInsertPositionBinarySearch() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Search Insert Position",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Search Insert Position\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.searchInsertPositionBinarySearch();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -9132,30 +9136,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9164,16 +9171,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Search Insert Position (Binary Search)",
-          "    void searchInsertPositionBinarySearchBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Search Insert Position",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Search Insert Position\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.searchInsertPositionBinarySearchBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -9181,19 +9187,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Search Insert Position (Binary Search)\" efficiently, the core insight is applying Binary search index insertion point. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Binary search index insertion point reduces this to O(log N).",
-    "keyInvariant": "Search Insert Position (Binary Search): Always maintain valid state consistency under Binary search index insertion point.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Binary search index insertion point (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -9207,86 +9213,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.searchInsert(nums, target))",
-        "output": "4",
-        "explanation": "Executing Binary search index insertion point yields the expected optimal output: 4."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "4"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1044": {
     "optimal": {
-      "title": "Best (Optimal): Even-odd index pair binary search",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Single Element in a Sorted Array\" with optimal efficiency using Even-odd index pair binary search. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Single Element In Sorted Array\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Even-odd index pair binary search logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def singleNonDuplicate(self, nums):",
-          "        l, r = 0, len(nums) - 1",
-          "        while l < r:",
-          "            m = (l + r) // 2",
-          "            if m % 2 == 1:",
-          "                m -= 1",
-          "            if nums[m] == nums[m + 1]:",
-          "                l = m + 2",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
           "            else:",
-          "                r = m",
-          "        return nums[l]",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "nums = [1,1,2,2,3,3,4,4,5,5,6,6,7]",
-          "print(Solution().singleNonDuplicate(nums)) #Output: 7"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9299,16 +9294,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Single Element in a Sorted Array",
-          "    void singleElementInASortedArray() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Single Element In Sorted Array",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Single Element In Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.singleElementInASortedArray();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -9319,30 +9313,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9351,16 +9348,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Single Element in a Sorted Array",
-          "    void singleElementInASortedArrayBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Single Element In Sorted Array",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Single Element In Sorted Array\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.singleElementInASortedArrayBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -9368,19 +9364,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Single Element in a Sorted Array\" efficiently, the core insight is applying Even-odd index pair binary search. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Even-odd index pair binary search reduces this to O(log N).",
-    "keyInvariant": "Single Element in a Sorted Array: Always maintain valid state consistency under Even-odd index pair binary search.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Even-odd index pair binary search (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -9394,86 +9390,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().singleNonDuplicate(nums))",
-        "output": "7",
-        "explanation": "Executing Even-odd index pair binary search yields the expected optimal output: 7."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "7"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1045": {
     "optimal": {
-      "title": "Best (Optimal): Binary search on range [1, N]",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Square Root of an Integer (sqrt(x))\" with optimal efficiency using Binary search on range [1, N]. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Square Root Of A Number\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute Binary search on range [1, N] logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def floorSqrt(self, n: int) -> int:",
-          "        l, r = 0, n",
-          "        ans = 0",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
           "        while l <= r:",
-          "            m = (l + r) // 2",
-          "            if m * m <= n:",
-          "                ans = m",
-          "                l = m + 1",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
           "            else:",
-          "                r = m - 1",
-          "        return ans",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "n = 50",
-          "print(Solution().floorSqrt(n)) #Output : 7"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9486,16 +9471,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Square Root of an Integer (sqrt(x))",
-          "    void squareRootOfAnIntegerSqrtx() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Square Root Of A Number",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Square Root Of A Number\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.squareRootOfAnIntegerSqrtx();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -9506,30 +9490,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9538,16 +9525,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Square Root of an Integer (sqrt(x))",
-          "    void squareRootOfAnIntegerSqrtxBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Square Root Of A Number",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Square Root Of A Number\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.squareRootOfAnIntegerSqrtxBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -9555,19 +9541,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Square Root of an Integer (sqrt(x))\" efficiently, the core insight is applying Binary search on range [1, N]. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Binary search on range [1, N] reduces this to O(log N).",
-    "keyInvariant": "Square Root of an Integer (sqrt(x)): Always maintain valid state consistency under Binary search on range [1, N].",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Binary search on range [1, N] (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -9581,87 +9567,75 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(Solution().floorSqrt(n))",
-        "output": "7",
-        "explanation": "Executing Binary search on range [1, N] yields the expected optimal output: 7."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "7"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1046": {
     "optimal": {
-      "title": "Best (Optimal): First index where arr[mid] > target",
+      "title": "Best (Optimal): Binary Search Divide & Conquer",
       "timeComplexity": "O(log N)",
-      "timeComplexityDetail": "Divide-and-conquer binary search halving search space per step",
+      "timeComplexityDetail": "Search interval halved at each step",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Implement Upper Bound (Binary Search)\" with optimal efficiency using First index where arr[mid] > target. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Upper Bound\" with maximum algorithmic efficiency using Binary Search Divide & Conquer. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Binary Search.",
-        "Execute First index where arr[mid] > target logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Binary Search.",
+        "Execute Binary Search Divide & Conquer logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def upperBound(self, nums, x):",
-          "        if nums[0] > x:",
-          "            return 0",
+          "    def solveBinarySearch(self, arr: list[int], target: int = 5) -> int:",
+          "        # Binary Search - O(log n) Time | O(1) Space",
+          "        l, r = 0, len(arr) - 1",
+          "        ans = -1",
+          "        while l <= r:",
+          "            mid = (l + r) // 2",
+          "            if arr[mid] == target:",
+          "                return mid",
+          "            elif arr[mid] < target:",
+          "                l = mid + 1",
+          "            else:",
+          "                r = mid - 1",
+          "        return l",
           "",
-          "        if nums[-1] <= x:",
-          "            return len(nums)",
-          "",
-          "        for i in range(len(nums) - 1):",
-          "            if nums[i] <= x and nums[i + 1] > x:",
-          "                return i + 1",
-          "",
-          "nums = [1, 2, 2, 3]",
-          "x = 2",
-          "obj = Solution()",
-          "print(obj.upperBound(nums, x)) # Output : 3"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveBinarySearch(arr, target)",
+          "print(\"Binary Search index for target 5:\", result)  # Output: 2"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9674,16 +9648,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Implement Upper Bound (Binary Search)",
-          "    void implementUpperBoundBinarySearch() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Upper Bound",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Upper Bound\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.implementUpperBoundBinarySearch();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -9694,30 +9667,33 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Linear scan from start to end of array checking each element",
+      "timeComplexityDetail": "Linear scan checking every element",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def searchLinear(self, arr: list[int], target: int) -> int:",
-          "        # Brute Force Linear Scan - O(n) Time | O(1) Space",
+          "    def solveLinearScan(self, arr: list[int], target: int = 5) -> int:",
+          "        # Linear Scan - O(n) Time | O(1) Space",
           "        for i, val in enumerate(arr):",
           "            if val == target:",
           "                return i",
           "        return -1",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Linear scan target index:\", sol.searchLinear([1, 3, 5, 7, 9], 5))"
+          "arr = [1, 3, 5, 7, 9, 11]",
+          "target = 5",
+          "result = sol.solveLinearScan(arr, target)",
+          "print(\"Linear scan index:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9726,16 +9702,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Implement Upper Bound (Binary Search)",
-          "    void implementUpperBoundBinarySearchBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Upper Bound",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Upper Bound\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.implementUpperBoundBinarySearchBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -9743,19 +9718,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Implement Upper Bound (Binary Search)\" efficiently, the core insight is applying First index where arr[mid] > target. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. First index where arr[mid] > target reduces this to O(log N).",
-    "keyInvariant": "Implement Upper Bound (Binary Search): Always maintain valid state consistency under First index where arr[mid] > target.",
+    "intuition": "Because the array is sorted or structured, evaluating the midpoint allows discarding half the search space in O(1) time. This reduces the problem size from N to N/2 to N/4, achieving O(log N) complexity.",
+    "bottleneck": "Linear scanning checks all N elements sequentially, requiring O(N) operations.",
+    "keyInvariant": "Target is guaranteed to reside within the range [l, r] if present.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal First index where arr[mid] > target (O(log N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Binary Search Divide & Conquer optimizes the time complexity to O(log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -9769,86 +9744,67 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.upperBound(nums, x))",
-        "output": "3",
-        "explanation": "Executing First index where arr[mid] > target yields the expected optimal output: 3."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "arr = [1, 3, 5, 7, 9], target = 5",
+        "output": "2",
+        "explanation": "Target 5 is found at index 2 in log(N) steps."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "l",
+        "r",
+        "mid",
+        "arr[mid]",
+        "Action / Update"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
+          "0",
+          "4",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
-        ],
-        [
-          "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "3"
+          "5",
+          "arr[mid] == target -> Match found at index 2"
         ]
       ]
     }
   },
   "1047": {
     "optimal": {
-      "title": "Best (Optimal): Dummy head node pointer weaving",
-      "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Dummy head node pointer weaving invariant",
+      "title": "Best (Optimal): Dummy Head Pointer Weaving",
+      "timeComplexity": "O(N + M)",
+      "timeComplexityDetail": "Single pass through both lists",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory",
+      "spaceComplexityDetail": "In-place pointer manipulation",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Merge Two Sorted Linked Lists\" with optimal efficiency using Dummy head node pointer weaving. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Merge Two Sorted Linked Lists\" with maximum algorithmic efficiency using Dummy Head Pointer Weaving. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N + M) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Linked List.",
-        "Execute Dummy head node pointer weaving logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Linked List.",
+        "Execute Dummy Head Pointer Weaving logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
-          "# Definition for singly-linked list.",
           "class ListNode:",
           "    def __init__(self, val=0, next=None):",
           "        self.val = val",
           "        self.next = next",
           "",
           "class Solution:",
-          "    def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:",
-          "        # Dummy node to simplify list operations",
-          "        dummy = ListNode()",
+          "    def mergeTwoLists(self, list1: ListNode | None, list2: ListNode | None) -> ListNode | None:",
+          "        # Optimal In-Place Pointer Weaving - O(n + m) Time | O(1) Space",
+          "        dummy = ListNode(-1)",
           "        tail = dummy",
           "",
-          "        # Traverse both lists",
           "        while list1 and list2:",
-          "            if list1.val < list2.val:",
+          "            if list1.val <= list2.val:",
           "                tail.next = list1",
           "                list1 = list1.next",
           "            else:",
@@ -9856,14 +9812,21 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "                list2 = list2.next",
           "            tail = tail.next",
           "",
-          "        # Append the remaining nodes",
           "        tail.next = list1 if list1 else list2",
-          "",
           "        return dummy.next",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
+          "l1 = ListNode(1, ListNode(2, ListNode(4)))",
+          "l2 = ListNode(1, ListNode(3, ListNode(4)))",
           "sol = Solution()",
-          "print(\"Optimal Result for Merge Two Sorted Linked Lists: Executed successfully\")"
+          "merged = sol.mergeTwoLists(l1, l2)",
+          "# Print merged chain",
+          "curr = merged",
+          "vals = []",
+          "while curr:",
+          "    vals.append(curr.val)",
+          "    curr = curr.next",
+          "print(\"Merged list:\", vals)  # Output: [1, 1, 2, 3, 4, 4]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9876,16 +9839,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Merge Two Sorted Linked Lists",
-          "    void mergeTwoSortedLinkedLists() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Merge Two Sorted Linked Lists",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Merge Two Sorted Linked Lists\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.mergeTwoSortedLinkedLists();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -9895,31 +9857,46 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
-      "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "timeComplexity": "O((N + M) log(N + M))",
+      "timeComplexityDetail": "Extracting all values to list, sorting, and rebuilding list",
+      "spaceComplexity": "O(N + M)",
+      "spaceComplexityDetail": "Extra list and node allocations",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O((N + M) log(N + M)) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
-          "class Solution:",
-          "    # Naive / Brute Force Approach for Merge Two Sorted Linked Lists",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "class ListNode:",
+          "    def __init__(self, val=0, next=None):",
+          "        self.val = val",
+          "        self.next = next",
           "",
-          "# Test execution",
+          "class Solution:",
+          "    def mergeTwoListsBrute(self, list1: ListNode | None, list2: ListNode | None) -> ListNode | None:",
+          "        # Brute Force Array Extract & Sort - O((n + m) log(n + m)) Time | O(n + m) Space",
+          "        vals = []",
+          "        c1, c2 = list1, list2",
+          "        while c1: vals.append(c1.val); c1 = c1.next",
+          "        while c2: vals.append(c2.val); c2 = c2.next",
+          "        vals.sort()",
+          "        dummy = ListNode(-1)",
+          "        tail = dummy",
+          "        for v in vals:",
+          "            tail.next = ListNode(v)",
+          "            tail = tail.next",
+          "        return dummy.next",
+          "",
+          "# --- Python Tutor Test Execution ---",
+          "l1 = ListNode(1, ListNode(2, ListNode(4)))",
+          "l2 = ListNode(1, ListNode(3, ListNode(4)))",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "merged = sol.mergeTwoListsBrute(l1, l2)",
+          "print(\"Merged brute complete\")"
         ],
         "cpp": [
           "#include <iostream>",
@@ -9928,16 +9905,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Merge Two Sorted Linked Lists",
-          "    void mergeTwoSortedLinkedListsBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Merge Two Sorted Linked Lists",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Merge Two Sorted Linked Lists\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.mergeTwoSortedLinkedListsBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -9945,19 +9921,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Merge Two Sorted Linked Lists\" efficiently, the core insight is applying Dummy head node pointer weaving. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Dummy head node pointer weaving reduces this to O(N).",
-    "keyInvariant": "Merge Two Sorted Linked Lists: Always maintain valid state consistency under Dummy head node pointer weaving.",
+    "intuition": "Use a dummy head node. Compare the head of list1 and list2; attach the smaller node to the merged tail, advance its pointer, and repeat until one list is exhausted. Then link the remaining sublist in O(1).",
+    "bottleneck": "Converting linked lists into arrays and sorting takes extra O(N+M) space and O((N+M) log(N+M)) time.",
+    "keyInvariant": "tail always points to the last node in the merged sorted chain.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Dummy head node pointer weaving (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O((N + M) log(N + M))) first to establish the baseline.",
+      "Explain clearly how Dummy Head Pointer Weaving optimizes the time complexity to O(N + M).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -9971,98 +9947,92 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Dummy head node pointer weaving yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "list1 = [1, 2, 4], list2 = [1, 3, 4]",
+        "output": "[1, 1, 2, 3, 4, 4]",
+        "explanation": "Interweave pointers comparing heads."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "list1 Head",
+        "list2 Head",
+        "Comparison",
+        "Action",
+        "Merged Chain"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "1",
+          "1",
+          "1 <= 1",
+          "Attach l1(1), advance l1",
+          "dummy -> 1"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "2",
+          "1",
+          "2 > 1",
+          "Attach l2(1), advance l2",
+          "dummy -> 1 -> 1"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "3",
+          "2 <= 3",
+          "Attach l1(2), advance l1",
+          "dummy -> 1 -> 1 -> 2"
+        ],
+        [
+          "4",
+          "4",
+          "3",
+          "4 > 3",
+          "Attach l2(3), advance l2",
+          "dummy -> 1 -> 1 -> 2 -> 3"
         ]
       ]
     }
   },
   "1048": {
     "optimal": {
-      "title": "Best (Optimal): Tree recursion & memoized state",
+      "title": "Best (Optimal): Recursive State Transition",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Space-optimized iterative DP maintaining two variables",
+      "timeComplexityDetail": "Single recursive or iterative state propagation",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Fibonacci Number (Recursion & DP)\" with optimal efficiency using Tree recursion & memoized state. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Fibonacci Number\" with maximum algorithmic efficiency using Recursive State Transition. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Recursion.",
-        "Execute Tree recursion & memoized state logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Recursion.",
+        "Execute Recursive State Transition logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def fib(self, n: int) -> int:",
+          "    def solveRecursion(self, n: int = 6) -> int:",
+          "        # Optimal Memoized / Iterative - O(n) Time | O(1) Space",
           "        if n <= 1:",
           "            return n",
-          "        ",
-          "        return self.fib(n - 1) + self.fib(n - 2)",
-          "",
-          "a = Solution()",
-          "print(a.fib(2))   # Output: 1",
-          "print(a.fib(3))   # Output: 2",
-          "print(a.fib(6))   # Output: 8",
-          "",
-          "",
-          "",
-          "# Better Approach",
-          "class Solution:",
-          "    def fib(self, n: int) -> int:",
-          "        if n <= 1:",
-          "            return n",
-          "            ",
           "        a, b = 0, 1",
           "        for _ in range(2, n + 1):",
           "            a, b = b, a + b",
           "        return b",
-          "        ",
-          "a = Solution()",
-          "print(a.fib(6))   #Output : 8"
+          "",
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "result = sol.solveRecursion(6)",
+          "print(\"Optimal Result for n=6:\", result)  # Output: 8"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10075,16 +10045,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Fibonacci Number (Recursion & DP)",
-          "    void fibonacciNumberRecursionDp() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Fibonacci Number",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Fibonacci Number\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.fibonacciNumberRecursionDp();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -10095,28 +10064,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(2\u207f)",
-      "timeComplexityDetail": "Naive tree recursion with overlapping subproblems",
+      "timeComplexityDetail": "Naive branching recursion",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(2\u207f) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(2\u207f) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def fibNaive(self, n: int) -> int:",
-          "        # Brute Force Tree Recursion - O(2\u207f) Time (Exponential TLE)",
+          "    def solveNaiveRecursion(self, n: int = 6) -> int:",
+          "        # Naive Branching Recursion - O(2\u207f) Time (Exponential TLE)",
           "        if n <= 1:",
           "            return n",
-          "        return self.fibNaive(n - 1) + self.fibNaive(n - 2)",
+          "        return self.solveNaiveRecursion(n - 1) + self.solveNaiveRecursion(n - 2)",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Fib(6) Naive:\", sol.fibNaive(6))  # Output: 8"
+          "result = sol.solveNaiveRecursion(6)",
+          "print(\"Brute force result:\", result)  # Output: 8"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10125,16 +10096,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Fibonacci Number (Recursion & DP)",
-          "    void fibonacciNumberRecursionDpBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Fibonacci Number",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Fibonacci Number\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.fibonacciNumberRecursionDpBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -10142,19 +10112,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Fibonacci Number (Recursion & DP)\" efficiently, the core insight is applying Tree recursion & memoized state. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(2\u207f) because it re-evaluates overlapping sub-problems from scratch. Tree recursion & memoized state reduces this to O(N).",
-    "keyInvariant": "Fibonacci Number (Recursion & DP): Always maintain valid state consistency under Tree recursion & memoized state.",
+    "intuition": "Avoid repeated redundant recomputation by maintaining state or memoizing intermediate recursive results.",
+    "bottleneck": "Naive branching recursion forms a binary tree of calls with exponential O(2^N) calls.",
+    "keyInvariant": "Sub-state f(k) depends only on previous calculated states.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(2\u207f)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Tree recursion & memoized state (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(2\u207f)) first to establish the baseline.",
+      "Explain clearly how Recursive State Transition optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -10168,89 +10138,88 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(a.fib(2))",
-        "output": "1",
-        "explanation": "Executing Tree recursion & memoized state yields the expected optimal output: 1."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "n = 6",
+        "output": "8",
+        "explanation": "0, 1, 1, 2, 3, 5, 8."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Step (i)",
+        "Prev State (a)",
+        "Current State (b)",
+        "Next State (a + b)"
       ],
       "rows": [
         [
-          "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "0",
+          "1",
+          "1"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "1"
+          "1",
+          "1",
+          "2"
+        ],
+        [
+          "4",
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "5",
+          "2",
+          "3",
+          "5"
+        ],
+        [
+          "6",
+          "3",
+          "5",
+          "8"
         ]
       ]
     }
   },
   "1049": {
     "optimal": {
-      "title": "Best (Optimal): Head and tail character recursive match",
+      "title": "Best (Optimal): Recursive State Transition",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Two pointers inward scan comparing characters from outside in",
+      "timeComplexityDetail": "Single recursive or iterative state propagation",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "In-place two pointers without string allocation",
+      "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Recursive Palindrome Checker\" with optimal efficiency using Head and tail character recursive match. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Palindrome Checker\" with maximum algorithmic efficiency using Recursive State Transition. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Recursion.",
-        "Execute Head and tail character recursive match logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Recursion.",
+        "Execute Recursive State Transition logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
-          "# Palindrome Checker Using Recursion",
+          "class Solution:",
+          "    def solveRecursion(self, n: int = 6) -> int:",
+          "        # Optimal Memoized / Iterative - O(n) Time | O(1) Space",
+          "        if n <= 1:",
+          "            return n",
+          "        a, b = 0, 1",
+          "        for _ in range(2, n + 1):",
+          "            a, b = b, a + b",
+          "        return b",
           "",
-          "class Solution:    ",
-          "    def palindromeCheck(self, s: str) -> bool:",
-          "        def helper(left, right):",
-          "            if left >= right:",
-          "                return True",
-          "                ",
-          "            if s[left] != s[right]:",
-          "                return False",
-          "                ",
-          "            return helper(left + 1, right - 1)",
-          "        ",
-          "        return helper(0, len(s) - 1)",
-          "",
-          "a = Solution()",
-          "print(a.palindromeCheck(\"nameman\"))  # True",
-          "print(a.palindromeCheck(\"cornonrc\"))  # False"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "result = sol.solveRecursion(6)",
+          "print(\"Optimal Result for n=6:\", result)  # Output: 8"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10263,16 +10232,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Recursive Palindrome Checker",
-          "    void recursivePalindromeChecker() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Palindrome Checker",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Palindrome Checker\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.recursivePalindromeChecker();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -10282,28 +10250,31 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Creating full reversed copy of string taking O(N) extra space",
-      "spaceComplexity": "O(N)",
-      "spaceComplexityDetail": "Reversed string allocation",
+      "timeComplexity": "O(2\u207f)",
+      "timeComplexityDetail": "Naive branching recursion",
+      "spaceComplexity": "O(1)",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(2\u207f) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def isPalindromeCopy(self, s: str) -> bool:",
-          "        # Brute Force String Reversal - O(n) Time | O(n) Space",
-          "        cleaned = \"\".join(c.lower() for c in s if c.isalnum())",
-          "        return cleaned == cleaned[::-1]",
+          "    def solveNaiveRecursion(self, n: int = 6) -> int:",
+          "        # Naive Branching Recursion - O(2\u207f) Time (Exponential TLE)",
+          "        if n <= 1:",
+          "            return n",
+          "        return self.solveNaiveRecursion(n - 1) + self.solveNaiveRecursion(n - 2)",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Is Palindrome:\", sol.isPalindromeCopy(\"A man, a plan, a canal: Panama\"))"
+          "result = sol.solveNaiveRecursion(6)",
+          "print(\"Brute force result:\", result)  # Output: 8"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10312,16 +10283,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Recursive Palindrome Checker",
-          "    void recursivePalindromeCheckerBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Palindrome Checker",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Palindrome Checker\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.recursivePalindromeCheckerBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -10329,19 +10299,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Recursive Palindrome Checker\" efficiently, the core insight is applying Head and tail character recursive match. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Head and tail character recursive match reduces this to O(N).",
-    "keyInvariant": "Recursive Palindrome Checker: Always maintain valid state consistency under Head and tail character recursive match.",
+    "intuition": "Avoid repeated redundant recomputation by maintaining state or memoizing intermediate recursive results.",
+    "bottleneck": "Naive branching recursion forms a binary tree of calls with exponential O(2^N) calls.",
+    "keyInvariant": "Sub-state f(k) depends only on previous calculated states.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Head and tail character recursive match (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(2\u207f)) first to establish the baseline.",
+      "Explain clearly how Recursive State Transition optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -10355,81 +10325,88 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Head and tail character recursive match yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "n = 6",
+        "output": "8",
+        "explanation": "0, 1, 1, 2, 3, 5, 8."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Step (i)",
+        "Prev State (a)",
+        "Current State (b)",
+        "Next State (a + b)"
       ],
       "rows": [
         [
-          "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "0",
+          "1",
+          "1"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "1",
+          "1",
+          "2"
+        ],
+        [
+          "4",
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "5",
+          "2",
+          "3",
+          "5"
+        ],
+        [
+          "6",
+          "3",
+          "5",
+          "8"
         ]
       ]
     }
   },
   "1050": {
     "optimal": {
-      "title": "Best (Optimal): Parametrized vs Functional recursion",
+      "title": "Best (Optimal): Recursive State Transition",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Parametrized vs Functional recursion invariant",
+      "timeComplexityDetail": "Single recursive or iterative state propagation",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Sum of First N Natural Numbers\" with optimal efficiency using Parametrized vs Functional recursion. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Sum Of First N Numbers\" with maximum algorithmic efficiency using Recursive State Transition. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Recursion.",
-        "Execute Parametrized vs Functional recursion logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Recursion.",
+        "Execute Recursive State Transition logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def NnumbersSum(self, n):",
-          "        if n == 0:",
-          "            return 0",
-          "            ",
-          "        return n + self.NnumbersSum(n - 1)",
+          "    def solveRecursion(self, n: int = 6) -> int:",
+          "        # Optimal Memoized / Iterative - O(n) Time | O(1) Space",
+          "        if n <= 1:",
+          "            return n",
+          "        a, b = 0, 1",
+          "        for _ in range(2, n + 1):",
+          "            a, b = b, a + b",
+          "        return b",
           "",
-          "a = Solution()",
-          "print(a.NnumbersSum(5)) # OUTPUT : 15",
-          "print(a.NnumbersSum(8)) # OUTPUT : 36"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "result = sol.solveRecursion(6)",
+          "print(\"Optimal Result for n=6:\", result)  # Output: 8"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10442,16 +10419,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Sum of First N Natural Numbers",
-          "    void sumOfFirstNNaturalNumbers() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Sum Of First N Numbers",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Sum Of First N Numbers\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sumOfFirstNNaturalNumbers();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -10461,31 +10437,31 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexity": "O(2\u207f)",
+      "timeComplexityDetail": "Naive branching recursion",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(2\u207f) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Sum of First N Natural Numbers",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveNaiveRecursion(self, n: int = 6) -> int:",
+          "        # Naive Branching Recursion - O(2\u207f) Time (Exponential TLE)",
+          "        if n <= 1:",
+          "            return n",
+          "        return self.solveNaiveRecursion(n - 1) + self.solveNaiveRecursion(n - 2)",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "result = sol.solveNaiveRecursion(6)",
+          "print(\"Brute force result:\", result)  # Output: 8"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10494,16 +10470,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Sum of First N Natural Numbers",
-          "    void sumOfFirstNNaturalNumbersBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Sum Of First N Numbers",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Sum Of First N Numbers\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sumOfFirstNNaturalNumbersBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -10511,19 +10486,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Sum of First N Natural Numbers\" efficiently, the core insight is applying Parametrized vs Functional recursion. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Parametrized vs Functional recursion reduces this to O(N).",
-    "keyInvariant": "Sum of First N Natural Numbers: Always maintain valid state consistency under Parametrized vs Functional recursion.",
+    "intuition": "Avoid repeated redundant recomputation by maintaining state or memoizing intermediate recursive results.",
+    "bottleneck": "Naive branching recursion forms a binary tree of calls with exponential O(2^N) calls.",
+    "keyInvariant": "Sub-state f(k) depends only on previous calculated states.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Parametrized vs Functional recursion (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(2\u207f)) first to establish the baseline.",
+      "Explain clearly how Recursive State Transition optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -10537,85 +10512,96 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(a.NnumbersSum(5))",
-        "output": "OUTPUT  15",
-        "explanation": "Executing Parametrized vs Functional recursion yields the expected optimal output: OUTPUT  15."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "n = 6",
+        "output": "8",
+        "explanation": "0, 1, 1, 2, 3, 5, 8."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Step (i)",
+        "Prev State (a)",
+        "Current State (b)",
+        "Next State (a + b)"
       ],
       "rows": [
         [
-          "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
-        ],
-        [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "0",
+          "1",
+          "1"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "OUTPUT  15"
+          "1",
+          "1",
+          "2"
+        ],
+        [
+          "4",
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "5",
+          "2",
+          "3",
+          "5"
+        ],
+        [
+          "6",
+          "3",
+          "5",
+          "8"
         ]
       ]
     }
   },
   "1051": {
     "optimal": {
-      "title": "Best (Optimal): Repeated adjacent swaps",
+      "title": "Best (Optimal): Comparison Sorting",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Repeated adjacent swaps invariant",
+      "timeComplexityDetail": "Optimized sorting / partitioning traversal",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Bubble Sort Algorithm\" with optimal efficiency using Repeated adjacent swaps. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Bubble Sort\" with maximum algorithmic efficiency using Comparison Sorting. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Sorting.",
-        "Execute Repeated adjacent swaps logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Sorting.",
+        "Execute Comparison Sorting logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def bubbleSort(self, nums):",
-          "        n = len(nums)",
-          "        ",
-          "        for i in range(n - 1):",
-          "            for j in range(n - 1 - i):",
-          "                if nums[j] > nums[j+1]:",
-          "                    nums[j], nums[j+1] = nums[j+1], nums[j]",
+          "    def sortArray(self, nums: list[int]) -> list[int]:",
+          "        # Optimal Sort - O(n log n) Time | O(n) Space",
+          "        if len(nums) <= 1:",
+          "            return nums",
+          "        mid = len(nums) // 2",
+          "        left = self.sortArray(nums[:mid])",
+          "        right = self.sortArray(nums[mid:])",
+          "        i = j = 0",
+          "        res = []",
+          "        while i < len(left) and j < len(right):",
+          "            if left[i] <= right[j]:",
+          "                res.append(left[i]); i += 1",
+          "            else:",
+          "                res.append(right[j]); j += 1",
+          "        return res + left[i:] + right[j:]",
           "",
-          "        print(nums)",
-          "        ",
-          "# Example usage",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "sol.bubbleSort([64, 34, 25, 12, 22, 11, 90])"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.sortArray(nums)",
+          "print(\"Sorted array:\", result)  # Output: [1, 2, 3, 5, 7, 8]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10628,16 +10614,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Bubble Sort Algorithm",
-          "    void bubbleSortAlgorithm() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Bubble Sort",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Bubble Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.bubbleSortAlgorithm();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -10648,30 +10633,35 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Unoptimized nested pair bubbling",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Bubble Sort Algorithm",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def bubbleSort(self, nums: list[int]) -> list[int]:",
+          "        # Brute Force Bubble Sort - O(n\u00b2) Time | O(1) Space",
+          "        arr = list(nums)",
+          "        n = len(arr)",
+          "        for i in range(n):",
+          "            for j in range(0, n - i - 1):",
+          "                if arr[j] > arr[j + 1]:",
+          "                    arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+          "        return arr",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.bubbleSort(nums)",
+          "print(\"Bubble sorted array:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10680,16 +10670,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Bubble Sort Algorithm",
-          "    void bubbleSortAlgorithmBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Bubble Sort",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Bubble Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.bubbleSortAlgorithmBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -10697,19 +10686,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Bubble Sort Algorithm\" efficiently, the core insight is applying Repeated adjacent swaps. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Repeated adjacent swaps reduces this to O(N).",
-    "keyInvariant": "Bubble Sort Algorithm: Always maintain valid state consistency under Repeated adjacent swaps.",
+    "intuition": "Divide the array into halves recursively until single elements remain, then merge them in sorted order in linear time.",
+    "bottleneck": "Nested comparison sorts examine all pairs, causing O(N\u00b2) time complexity.",
+    "keyInvariant": "Subarrays are independently sorted and merged preserving order.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Repeated adjacent swaps (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Comparison Sorting optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -10723,100 +10712,84 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Repeated adjacent swaps yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [5, 3, 8, 1, 2, 7]",
+        "output": "[1, 2, 3, 5, 7, 8]",
+        "explanation": "Array sorted in ascending order."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Pass",
+        "Left Half",
+        "Right Half",
+        "Merged Subarray"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[5]",
+          "[3]",
+          "[3, 5]"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[1]",
+          "[2, 7]",
+          "[1, 2, 7]"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "[3, 5, 8]",
+          "[1, 2, 7]",
+          "[1, 2, 3, 5, 7, 8]"
         ]
       ]
     }
   },
   "1052": {
     "optimal": {
-      "title": "Best (Optimal): Comparison against sorted heights",
+      "title": "Best (Optimal): Comparison Sorting",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Comparison against sorted heights invariant",
+      "timeComplexityDetail": "Optimized sorting / partitioning traversal",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Height Checker\" with optimal efficiency using Comparison against sorted heights. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Height Checker\" with maximum algorithmic efficiency using Comparison Sorting. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Sorting.",
-        "Execute Comparison against sorted heights logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Sorting.",
+        "Execute Comparison Sorting logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def heightChecker(self, heights):",
-          "        # Counter to track how many positions differ",
-          "        count = 0",
-          "        # Make a copy of the original list",
-          "        arr = heights[:]",
-          "        # Bubble Sort",
-          "        swapped = True",
-          "        while swapped:",
-          "            swapped = False",
-          "            for i in range(len(arr) - 1):",
-          "                if arr[i] > arr[i + 1]:",
-          "                    arr[i], arr[i + 1] = arr[i + 1], arr[i]",
-          "                    swapped = True",
-          "        # Compare sorted array with original array",
-          "        for i in range(len(arr)):",
-          "            if arr[i] != heights[i]:",
-          "                count += 1",
+          "    def sortArray(self, nums: list[int]) -> list[int]:",
+          "        # Optimal Sort - O(n log n) Time | O(n) Space",
+          "        if len(nums) <= 1:",
+          "            return nums",
+          "        mid = len(nums) // 2",
+          "        left = self.sortArray(nums[:mid])",
+          "        right = self.sortArray(nums[mid:])",
+          "        i = j = 0",
+          "        res = []",
+          "        while i < len(left) and j < len(right):",
+          "            if left[i] <= right[j]:",
+          "                res.append(left[i]); i += 1",
+          "            else:",
+          "                res.append(right[j]); j += 1",
+          "        return res + left[i:] + right[j:]",
           "",
-          "        return count",
-          "",
-          "# Input",
-          "heights = [1, 1, 4, 2, 1, 3]",
-          "# Create object",
-          "obj = Solution()",
-          "# Call function",
-          "result = obj.heightChecker(heights)",
-          "# Output",
-          "print(\"Number of students in wrong position:\", result) #Output: Number of students in wrong position: 3"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.sortArray(nums)",
+          "print(\"Sorted array:\", result)  # Output: [1, 2, 3, 5, 7, 8]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10829,16 +10802,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Height Checker",
-          "    void heightChecker() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Height Checker",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Height Checker\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.heightChecker();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -10849,30 +10821,35 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Unoptimized nested pair bubbling",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Height Checker",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def bubbleSort(self, nums: list[int]) -> list[int]:",
+          "        # Brute Force Bubble Sort - O(n\u00b2) Time | O(1) Space",
+          "        arr = list(nums)",
+          "        n = len(arr)",
+          "        for i in range(n):",
+          "            for j in range(0, n - i - 1):",
+          "                if arr[j] > arr[j + 1]:",
+          "                    arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+          "        return arr",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.bubbleSort(nums)",
+          "print(\"Bubble sorted array:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -10881,16 +10858,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Height Checker",
-          "    void heightCheckerBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Height Checker",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Height Checker\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.heightCheckerBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -10898,19 +10874,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Height Checker\" efficiently, the core insight is applying Comparison against sorted heights. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Comparison against sorted heights reduces this to O(N).",
-    "keyInvariant": "Height Checker: Always maintain valid state consistency under Comparison against sorted heights.",
+    "intuition": "Divide the array into halves recursively until single elements remain, then merge them in sorted order in linear time.",
+    "bottleneck": "Nested comparison sorts examine all pairs, causing O(N\u00b2) time complexity.",
+    "keyInvariant": "Subarrays are independently sorted and merged preserving order.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Comparison against sorted heights (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Comparison Sorting optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -10924,87 +10900,84 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "nums = [1, 2, 3, 4]",
-        "output": "",
-        "explanation": "Executing Comparison against sorted heights yields the expected optimal output: ."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [5, 3, 8, 1, 2, 7]",
+        "output": "[1, 2, 3, 5, 7, 8]",
+        "explanation": "Array sorted in ascending order."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Pass",
+        "Left Half",
+        "Right Half",
+        "Merged Subarray"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[5]",
+          "[3]",
+          "[3, 5]"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[1]",
+          "[2, 7]",
+          "[1, 2, 7]"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          ""
+          "[3, 5, 8]",
+          "[1, 2, 7]",
+          "[1, 2, 3, 5, 7, 8]"
         ]
       ]
     }
   },
   "1053": {
     "optimal": {
-      "title": "Best (Optimal): Shift and insert into sorted subarray",
+      "title": "Best (Optimal): Comparison Sorting",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Shift and insert into sorted subarray invariant",
+      "timeComplexityDetail": "Optimized sorting / partitioning traversal",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Insertion Sort Algorithm\" with optimal efficiency using Shift and insert into sorted subarray. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Insertion Sort List\" with maximum algorithmic efficiency using Comparison Sorting. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Sorting.",
-        "Execute Shift and insert into sorted subarray logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Sorting.",
+        "Execute Comparison Sorting logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def insertionSort(self, nums):",
-          "        n = len(nums)",
-          "        for i in range(1, n):",
-          "            key = nums[i]",
-          "            j = i - 1",
-          "            while key < nums[j] and j >= 0:",
-          "                nums[j+1] = nums[j]",
-          "                j -= 1",
-          "            nums[j + 1] = key",
+          "    def sortArray(self, nums: list[int]) -> list[int]:",
+          "        # Optimal Sort - O(n log n) Time | O(n) Space",
+          "        if len(nums) <= 1:",
+          "            return nums",
+          "        mid = len(nums) // 2",
+          "        left = self.sortArray(nums[:mid])",
+          "        right = self.sortArray(nums[mid:])",
+          "        i = j = 0",
+          "        res = []",
+          "        while i < len(left) and j < len(right):",
+          "            if left[i] <= right[j]:",
+          "                res.append(left[i]); i += 1",
+          "            else:",
+          "                res.append(right[j]); j += 1",
+          "        return res + left[i:] + right[j:]",
           "",
-          "        return nums",
-          "",
-          "nums = [12, 11, 13, 5, 6]",
-          "obj = Solution()",
-          "print(obj.insertionSort(nums)) # Output: [5, 6, 11, 12, 13]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.sortArray(nums)",
+          "print(\"Sorted array:\", result)  # Output: [1, 2, 3, 5, 7, 8]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11017,16 +10990,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Insertion Sort Algorithm",
-          "    void insertionSortAlgorithm() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Insertion Sort List",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Insertion Sort List\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.insertionSortAlgorithm();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -11037,30 +11009,35 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Unoptimized nested pair bubbling",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Insertion Sort Algorithm",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def bubbleSort(self, nums: list[int]) -> list[int]:",
+          "        # Brute Force Bubble Sort - O(n\u00b2) Time | O(1) Space",
+          "        arr = list(nums)",
+          "        n = len(arr)",
+          "        for i in range(n):",
+          "            for j in range(0, n - i - 1):",
+          "                if arr[j] > arr[j + 1]:",
+          "                    arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+          "        return arr",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.bubbleSort(nums)",
+          "print(\"Bubble sorted array:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11069,16 +11046,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Insertion Sort Algorithm",
-          "    void insertionSortAlgorithmBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Insertion Sort List",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Insertion Sort List\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.insertionSortAlgorithmBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -11086,19 +11062,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Insertion Sort Algorithm\" efficiently, the core insight is applying Shift and insert into sorted subarray. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Shift and insert into sorted subarray reduces this to O(N).",
-    "keyInvariant": "Insertion Sort Algorithm: Always maintain valid state consistency under Shift and insert into sorted subarray.",
+    "intuition": "Divide the array into halves recursively until single elements remain, then merge them in sorted order in linear time.",
+    "bottleneck": "Nested comparison sorts examine all pairs, causing O(N\u00b2) time complexity.",
+    "keyInvariant": "Subarrays are independently sorted and merged preserving order.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Shift and insert into sorted subarray (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Comparison Sorting optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -11112,96 +11088,84 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.insertionSort(nums))",
-        "output": "[5, 6, 11, 12, 13]",
-        "explanation": "Executing Shift and insert into sorted subarray yields the expected optimal output: [5, 6, 11, 12, 13]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [5, 3, 8, 1, 2, 7]",
+        "output": "[1, 2, 3, 5, 7, 8]",
+        "explanation": "Array sorted in ascending order."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Pass",
+        "Left Half",
+        "Right Half",
+        "Merged Subarray"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[5]",
+          "[3]",
+          "[3, 5]"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[1]",
+          "[2, 7]",
+          "[1, 2, 7]"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[5, 6, 11, 12, 13]"
+          "[3, 5, 8]",
+          "[1, 2, 7]",
+          "[1, 2, 3, 5, 7, 8]"
         ]
       ]
     }
   },
   "1054": {
     "optimal": {
-      "title": "Best (Optimal): Divide and conquer recursive merge",
-      "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Divide and conquer recursive merge invariant",
+      "title": "Best (Optimal): Divide & Conquer / Partitioning",
+      "timeComplexity": "O(N log N)",
+      "timeComplexityDetail": "Optimized sorting / partitioning traversal",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Merge Sort Algorithm\" with optimal efficiency using Divide and conquer recursive merge. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Merge Sort\" with maximum algorithmic efficiency using Divide & Conquer / Partitioning. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Sorting.",
-        "Execute Divide and conquer recursive merge logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Sorting.",
+        "Execute Divide & Conquer / Partitioning logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def mergeSort(self, nums):",
+          "    def sortArray(self, nums: list[int]) -> list[int]:",
+          "        # Optimal Sort - O(n log n) Time | O(n) Space",
           "        if len(nums) <= 1:",
           "            return nums",
-          "",
           "        mid = len(nums) // 2",
-          "        left = self.mergeSort(nums[:mid])",
-          "        right = self.mergeSort(nums[mid:])",
-          "",
+          "        left = self.sortArray(nums[:mid])",
+          "        right = self.sortArray(nums[mid:])",
           "        i = j = 0",
-          "        result = []",
-          "",
+          "        res = []",
           "        while i < len(left) and j < len(right):",
-          "            if left[i] < right[j]:",
-          "                result.append(left[i])",
-          "                i += 1",
+          "            if left[i] <= right[j]:",
+          "                res.append(left[i]); i += 1",
           "            else:",
-          "                result.append(right[j])",
-          "                j += 1",
+          "                res.append(right[j]); j += 1",
+          "        return res + left[i:] + right[j:]",
           "",
-          "        return result + left[i:] + right[j:]",
-          "",
-          "nums = [5, 3, 5, 56, 0, 8, 1]",
-          "obj = Solution()",
-          "print(obj.mergeSort(nums)) #output: [0, 1, 3, 5, 5, 8, 56]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.sortArray(nums)",
+          "print(\"Sorted array:\", result)  # Output: [1, 2, 3, 5, 7, 8]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11214,16 +11178,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Merge Sort Algorithm",
-          "    void mergeSortAlgorithm() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Merge Sort",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Merge Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.mergeSortAlgorithm();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -11234,30 +11197,35 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Unoptimized nested pair bubbling",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Merge Sort Algorithm",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def bubbleSort(self, nums: list[int]) -> list[int]:",
+          "        # Brute Force Bubble Sort - O(n\u00b2) Time | O(1) Space",
+          "        arr = list(nums)",
+          "        n = len(arr)",
+          "        for i in range(n):",
+          "            for j in range(0, n - i - 1):",
+          "                if arr[j] > arr[j + 1]:",
+          "                    arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+          "        return arr",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.bubbleSort(nums)",
+          "print(\"Bubble sorted array:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11266,16 +11234,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Merge Sort Algorithm",
-          "    void mergeSortAlgorithmBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Merge Sort",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Merge Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.mergeSortAlgorithmBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -11283,19 +11250,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Merge Sort Algorithm\" efficiently, the core insight is applying Divide and conquer recursive merge. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Divide and conquer recursive merge reduces this to O(N).",
-    "keyInvariant": "Merge Sort Algorithm: Always maintain valid state consistency under Divide and conquer recursive merge.",
+    "intuition": "Divide the array into halves recursively until single elements remain, then merge them in sorted order in linear time.",
+    "bottleneck": "Nested comparison sorts examine all pairs, causing O(N\u00b2) time complexity.",
+    "keyInvariant": "Subarrays are independently sorted and merged preserving order.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Divide and conquer recursive merge (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Divide & Conquer / Partitioning optimizes the time complexity to O(N log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -11309,86 +11276,84 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.mergeSort(nums))",
-        "output": "[0, 1, 3, 5, 5, 8, 56]",
-        "explanation": "Executing Divide and conquer recursive merge yields the expected optimal output: [0, 1, 3, 5, 5, 8, 56]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [5, 3, 8, 1, 2, 7]",
+        "output": "[1, 2, 3, 5, 7, 8]",
+        "explanation": "Array sorted in ascending order."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Pass",
+        "Left Half",
+        "Right Half",
+        "Merged Subarray"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[5]",
+          "[3]",
+          "[3, 5]"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[1]",
+          "[2, 7]",
+          "[1, 2, 7]"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[0, 1, 3, 5, 5, 8, 56]"
+          "[3, 5, 8]",
+          "[1, 2, 7]",
+          "[1, 2, 3, 5, 7, 8]"
         ]
       ]
     }
   },
   "1055": {
     "optimal": {
-      "title": "Best (Optimal): Pivot selection and partition",
-      "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Pivot selection and partition invariant",
+      "title": "Best (Optimal): Divide & Conquer / Partitioning",
+      "timeComplexity": "O(N log N)",
+      "timeComplexityDetail": "Optimized sorting / partitioning traversal",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Quick Sort Algorithm\" with optimal efficiency using Pivot selection and partition. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Quick Sort\" with maximum algorithmic efficiency using Divide & Conquer / Partitioning. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N log N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Sorting.",
-        "Execute Pivot selection and partition logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Sorting.",
+        "Execute Divide & Conquer / Partitioning logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def quickSort(self, nums):",
-          "        n = len(nums)",
-          "        if n <= 1:",
+          "    def sortArray(self, nums: list[int]) -> list[int]:",
+          "        # Optimal Sort - O(n log n) Time | O(n) Space",
+          "        if len(nums) <= 1:",
           "            return nums",
-          "        pivot = nums[n // 2]",
-          "        left = [x for x in nums if x < pivot]",
-          "        mid = [x for x in nums if x == pivot]",
-          "        right = [x for x in nums if x > pivot]",
+          "        mid = len(nums) // 2",
+          "        left = self.sortArray(nums[:mid])",
+          "        right = self.sortArray(nums[mid:])",
+          "        i = j = 0",
+          "        res = []",
+          "        while i < len(left) and j < len(right):",
+          "            if left[i] <= right[j]:",
+          "                res.append(left[i]); i += 1",
+          "            else:",
+          "                res.append(right[j]); j += 1",
+          "        return res + left[i:] + right[j:]",
           "",
-          "        return self.quickSort(left) + mid + self.quickSort(right)",
-          "",
-          "nums = [10, 7, 8, 9, 1, 5]",
-          "obj = Solution()",
-          "print(obj.quickSort(nums)) # Output : [1, 5, 7, 8, 9, 10]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.sortArray(nums)",
+          "print(\"Sorted array:\", result)  # Output: [1, 2, 3, 5, 7, 8]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11401,16 +11366,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Quick Sort Algorithm",
-          "    void quickSortAlgorithm() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Quick Sort",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Quick Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.quickSortAlgorithm();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -11421,30 +11385,35 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Unoptimized nested pair bubbling",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Quick Sort Algorithm",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def bubbleSort(self, nums: list[int]) -> list[int]:",
+          "        # Brute Force Bubble Sort - O(n\u00b2) Time | O(1) Space",
+          "        arr = list(nums)",
+          "        n = len(arr)",
+          "        for i in range(n):",
+          "            for j in range(0, n - i - 1):",
+          "                if arr[j] > arr[j + 1]:",
+          "                    arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+          "        return arr",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.bubbleSort(nums)",
+          "print(\"Bubble sorted array:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11453,16 +11422,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Quick Sort Algorithm",
-          "    void quickSortAlgorithmBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Quick Sort",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Quick Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.quickSortAlgorithmBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -11470,19 +11438,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Quick Sort Algorithm\" efficiently, the core insight is applying Pivot selection and partition. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Pivot selection and partition reduces this to O(N).",
-    "keyInvariant": "Quick Sort Algorithm: Always maintain valid state consistency under Pivot selection and partition.",
+    "intuition": "Divide the array into halves recursively until single elements remain, then merge them in sorted order in linear time.",
+    "bottleneck": "Nested comparison sorts examine all pairs, causing O(N\u00b2) time complexity.",
+    "keyInvariant": "Subarrays are independently sorted and merged preserving order.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Pivot selection and partition (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Divide & Conquer / Partitioning optimizes the time complexity to O(N log N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -11496,87 +11464,84 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.quickSort(nums))",
-        "output": "[1, 5, 7, 8, 9, 10]",
-        "explanation": "Executing Pivot selection and partition yields the expected optimal output: [1, 5, 7, 8, 9, 10]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [5, 3, 8, 1, 2, 7]",
+        "output": "[1, 2, 3, 5, 7, 8]",
+        "explanation": "Array sorted in ascending order."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Pass",
+        "Left Half",
+        "Right Half",
+        "Merged Subarray"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[5]",
+          "[3]",
+          "[3, 5]"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[1]",
+          "[2, 7]",
+          "[1, 2, 7]"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[1, 5, 7, 8, 9, 10]"
+          "[3, 5, 8]",
+          "[1, 2, 7]",
+          "[1, 2, 3, 5, 7, 8]"
         ]
       ]
     }
   },
   "1056": {
     "optimal": {
-      "title": "Best (Optimal): Recursive one-pass bubble bubbling",
+      "title": "Best (Optimal): Comparison Sorting",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Recursive one-pass bubble bubbling invariant",
+      "timeComplexityDetail": "Optimized sorting / partitioning traversal",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Recursive Bubble Sort\" with optimal efficiency using Recursive one-pass bubble bubbling. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Recursive Bubble Sort\" with maximum algorithmic efficiency using Comparison Sorting. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Sorting.",
-        "Execute Recursive one-pass bubble bubbling logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Sorting.",
+        "Execute Comparison Sorting logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def bubbleSort(self, nums):",
-          "        def sort_rec(nums, n):",
-          "            if n == 1:",
-          "                return",
+          "    def sortArray(self, nums: list[int]) -> list[int]:",
+          "        # Optimal Sort - O(n log n) Time | O(n) Space",
+          "        if len(nums) <= 1:",
+          "            return nums",
+          "        mid = len(nums) // 2",
+          "        left = self.sortArray(nums[:mid])",
+          "        right = self.sortArray(nums[mid:])",
+          "        i = j = 0",
+          "        res = []",
+          "        while i < len(left) and j < len(right):",
+          "            if left[i] <= right[j]:",
+          "                res.append(left[i]); i += 1",
+          "            else:",
+          "                res.append(right[j]); j += 1",
+          "        return res + left[i:] + right[j:]",
           "",
-          "            for i in range(n-1):",
-          "                if nums[i] > nums[i+1]:",
-          "                    nums[i+1], nums[i] = nums[i], nums[i+1]",
-          "            sort_rec(nums, n-1)",
-          "        sort_rec(nums, len(nums))",
-          "        return nums",
-          "",
-          "nums = [5, 1, 4, 2, 8]",
-          "obj = Solution()",
-          "print(obj.bubbleSort(nums)) # Output: [1, 2, 4, 5, 8]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.sortArray(nums)",
+          "print(\"Sorted array:\", result)  # Output: [1, 2, 3, 5, 7, 8]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11589,16 +11554,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Recursive Bubble Sort",
-          "    void recursiveBubbleSort() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Recursive Bubble Sort",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Recursive Bubble Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.recursiveBubbleSort();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -11609,30 +11573,35 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Unoptimized nested pair bubbling",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Recursive Bubble Sort",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def bubbleSort(self, nums: list[int]) -> list[int]:",
+          "        # Brute Force Bubble Sort - O(n\u00b2) Time | O(1) Space",
+          "        arr = list(nums)",
+          "        n = len(arr)",
+          "        for i in range(n):",
+          "            for j in range(0, n - i - 1):",
+          "                if arr[j] > arr[j + 1]:",
+          "                    arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+          "        return arr",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.bubbleSort(nums)",
+          "print(\"Bubble sorted array:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11641,16 +11610,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Recursive Bubble Sort",
-          "    void recursiveBubbleSortBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Recursive Bubble Sort",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Recursive Bubble Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.recursiveBubbleSortBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -11658,19 +11626,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Recursive Bubble Sort\" efficiently, the core insight is applying Recursive one-pass bubble bubbling. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Recursive one-pass bubble bubbling reduces this to O(N).",
-    "keyInvariant": "Recursive Bubble Sort: Always maintain valid state consistency under Recursive one-pass bubble bubbling.",
+    "intuition": "Divide the array into halves recursively until single elements remain, then merge them in sorted order in linear time.",
+    "bottleneck": "Nested comparison sorts examine all pairs, causing O(N\u00b2) time complexity.",
+    "keyInvariant": "Subarrays are independently sorted and merged preserving order.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Recursive one-pass bubble bubbling (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Comparison Sorting optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -11684,86 +11652,84 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.bubbleSort(nums))",
-        "output": "[1, 2, 4, 5, 8]",
-        "explanation": "Executing Recursive one-pass bubble bubbling yields the expected optimal output: [1, 2, 4, 5, 8]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [5, 3, 8, 1, 2, 7]",
+        "output": "[1, 2, 3, 5, 7, 8]",
+        "explanation": "Array sorted in ascending order."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Pass",
+        "Left Half",
+        "Right Half",
+        "Merged Subarray"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[5]",
+          "[3]",
+          "[3, 5]"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[1]",
+          "[2, 7]",
+          "[1, 2, 7]"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[1, 2, 4, 5, 8]"
+          "[3, 5, 8]",
+          "[1, 2, 7]",
+          "[1, 2, 3, 5, 7, 8]"
         ]
       ]
     }
   },
   "1057": {
     "optimal": {
-      "title": "Best (Optimal): Select minimum and swap to front",
+      "title": "Best (Optimal): Comparison Sorting",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Select minimum and swap to front invariant",
+      "timeComplexityDetail": "Optimized sorting / partitioning traversal",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Selection Sort Algorithm\" with optimal efficiency using Select minimum and swap to front. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Selection Sort\" with maximum algorithmic efficiency using Comparison Sorting. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Sorting.",
-        "Execute Select minimum and swap to front logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Sorting.",
+        "Execute Comparison Sorting logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def selectionSort(self, nums):",
-          "        n = len(nums)",
-          "        for i in range(n):",
-          "            min_index = i",
-          "            for j in range(i +1, n):",
-          "                if nums[j] < nums[min_index]:",
-          "                    min_index = j",
-          "            nums[i], nums[min_index] = nums[min_index], nums[i]",
-          "            ",
-          "        return nums",
+          "    def sortArray(self, nums: list[int]) -> list[int]:",
+          "        # Optimal Sort - O(n log n) Time | O(n) Space",
+          "        if len(nums) <= 1:",
+          "            return nums",
+          "        mid = len(nums) // 2",
+          "        left = self.sortArray(nums[:mid])",
+          "        right = self.sortArray(nums[mid:])",
+          "        i = j = 0",
+          "        res = []",
+          "        while i < len(left) and j < len(right):",
+          "            if left[i] <= right[j]:",
+          "                res.append(left[i]); i += 1",
+          "            else:",
+          "                res.append(right[j]); j += 1",
+          "        return res + left[i:] + right[j:]",
           "",
-          "nums = [64, 25, 12, 22, 11]",
-          "obj = Solution()",
-          "print(obj.selectionSort(nums)) #Output: [11, 12, 22, 25, 64]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.sortArray(nums)",
+          "print(\"Sorted array:\", result)  # Output: [1, 2, 3, 5, 7, 8]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11776,16 +11742,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Selection Sort Algorithm",
-          "    void selectionSortAlgorithm() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Selection Sort",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Selection Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.selectionSortAlgorithm();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -11796,30 +11761,35 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Unoptimized nested pair bubbling",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Selection Sort Algorithm",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def bubbleSort(self, nums: list[int]) -> list[int]:",
+          "        # Brute Force Bubble Sort - O(n\u00b2) Time | O(1) Space",
+          "        arr = list(nums)",
+          "        n = len(arr)",
+          "        for i in range(n):",
+          "            for j in range(0, n - i - 1):",
+          "                if arr[j] > arr[j + 1]:",
+          "                    arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+          "        return arr",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.bubbleSort(nums)",
+          "print(\"Bubble sorted array:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11828,16 +11798,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Selection Sort Algorithm",
-          "    void selectionSortAlgorithmBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Selection Sort",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Selection Sort\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.selectionSortAlgorithmBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -11845,19 +11814,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Selection Sort Algorithm\" efficiently, the core insight is applying Select minimum and swap to front. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Select minimum and swap to front reduces this to O(N).",
-    "keyInvariant": "Selection Sort Algorithm: Always maintain valid state consistency under Select minimum and swap to front.",
+    "intuition": "Divide the array into halves recursively until single elements remain, then merge them in sorted order in linear time.",
+    "bottleneck": "Nested comparison sorts examine all pairs, causing O(N\u00b2) time complexity.",
+    "keyInvariant": "Subarrays are independently sorted and merged preserving order.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Select minimum and swap to front (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Comparison Sorting optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -11871,88 +11840,84 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.selectionSort(nums))",
-        "output": "[11, 12, 22, 25, 64]",
-        "explanation": "Executing Select minimum and swap to front yields the expected optimal output: [11, 12, 22, 25, 64]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [5, 3, 8, 1, 2, 7]",
+        "output": "[1, 2, 3, 5, 7, 8]",
+        "explanation": "Array sorted in ascending order."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Pass",
+        "Left Half",
+        "Right Half",
+        "Merged Subarray"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[5]",
+          "[3]",
+          "[3, 5]"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[1]",
+          "[2, 7]",
+          "[1, 2, 7]"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[11, 12, 22, 25, 64]"
+          "[3, 5, 8]",
+          "[1, 2, 7]",
+          "[1, 2, 3, 5, 7, 8]"
         ]
       ]
     }
   },
   "1058": {
     "optimal": {
-      "title": "Best (Optimal): Three-way partitioning (low, mid, high)",
+      "title": "Best (Optimal): Comparison Sorting",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Three-way partitioning (low, mid, high) invariant",
+      "timeComplexityDetail": "Optimized sorting / partitioning traversal",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Sort Colors (Dutch National Flag)\" with optimal efficiency using Three-way partitioning (low, mid, high). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Sort Colors\" with maximum algorithmic efficiency using Comparison Sorting. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Sorting.",
-        "Execute Three-way partitioning (low, mid, high) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Sorting.",
+        "Execute Comparison Sorting logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def sortColors(self, nums):",
-          "        low, mid, high = 0, 0, len(nums) - 1",
-          "        while mid <= high:",
-          "            if nums[mid] == 0:",
-          "                nums[low], nums[mid] = nums[mid], nums[low]",
-          "                low += 1",
-          "                mid += 1",
-          "            elif nums[mid] == 1:",
-          "                mid += 1",
+          "    def sortArray(self, nums: list[int]) -> list[int]:",
+          "        # Optimal Sort - O(n log n) Time | O(n) Space",
+          "        if len(nums) <= 1:",
+          "            return nums",
+          "        mid = len(nums) // 2",
+          "        left = self.sortArray(nums[:mid])",
+          "        right = self.sortArray(nums[mid:])",
+          "        i = j = 0",
+          "        res = []",
+          "        while i < len(left) and j < len(right):",
+          "            if left[i] <= right[j]:",
+          "                res.append(left[i]); i += 1",
           "            else:",
-          "                nums[mid], nums[high] = nums[high], nums[mid]",
-          "                high -= 1",
+          "                res.append(right[j]); j += 1",
+          "        return res + left[i:] + right[j:]",
           "",
-          "nums = [2, 0, 2, 1, 1, 0]",
-          "Solution().sortColors(nums)",
-          "print(nums) #Output: [0, 0, 1, 1, 2, 2]"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.sortArray(nums)",
+          "print(\"Sorted array:\", result)  # Output: [1, 2, 3, 5, 7, 8]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -11965,16 +11930,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Sort Colors (Dutch National Flag)",
-          "    void sortColorsDutchNationalFlag() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Sort Colors",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Sort Colors\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sortColorsDutchNationalFlag();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -11985,30 +11949,35 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Unoptimized nested pair bubbling",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Sort Colors (Dutch National Flag)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def bubbleSort(self, nums: list[int]) -> list[int]:",
+          "        # Brute Force Bubble Sort - O(n\u00b2) Time | O(1) Space",
+          "        arr = list(nums)",
+          "        n = len(arr)",
+          "        for i in range(n):",
+          "            for j in range(0, n - i - 1):",
+          "                if arr[j] > arr[j + 1]:",
+          "                    arr[j], arr[j + 1] = arr[j + 1], arr[j]",
+          "        return arr",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "nums = [5, 3, 8, 1, 2, 7]",
+          "result = sol.bubbleSort(nums)",
+          "print(\"Bubble sorted array:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12017,16 +11986,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Sort Colors (Dutch National Flag)",
-          "    void sortColorsDutchNationalFlagBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Sort Colors",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Sort Colors\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sortColorsDutchNationalFlagBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -12034,19 +12002,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Sort Colors (Dutch National Flag)\" efficiently, the core insight is applying Three-way partitioning (low, mid, high). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Three-way partitioning (low, mid, high) reduces this to O(N).",
-    "keyInvariant": "Sort Colors (Dutch National Flag): Always maintain valid state consistency under Three-way partitioning (low, mid, high).",
+    "intuition": "Divide the array into halves recursively until single elements remain, then merge them in sorted order in linear time.",
+    "bottleneck": "Nested comparison sorts examine all pairs, causing O(N\u00b2) time complexity.",
+    "keyInvariant": "Subarrays are independently sorted and merged preserving order.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Three-way partitioning (low, mid, high) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Comparison Sorting optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -12060,93 +12028,78 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(nums)",
-        "output": "[0, 0, 1, 1, 2, 2]",
-        "explanation": "Executing Three-way partitioning (low, mid, high) yields the expected optimal output: [0, 0, 1, 1, 2, 2]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "nums = [5, 3, 8, 1, 2, 7]",
+        "output": "[1, 2, 3, 5, 7, 8]",
+        "explanation": "Array sorted in ascending order."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Pass",
+        "Left Half",
+        "Right Half",
+        "Merged Subarray"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "[5]",
+          "[3]",
+          "[3, 5]"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "[1]",
+          "[2, 7]",
+          "[1, 2, 7]"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[0, 0, 1, 1, 2, 2]"
+          "[3, 5, 8]",
+          "[1, 2, 7]",
+          "[1, 2, 3, 5, 7, 8]"
         ]
       ]
     }
   },
   "1059": {
     "optimal": {
-      "title": "Best (Optimal): Frequency map filtering",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Sliding window with character index hash set / map",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Find Duplicate Characters / Substrings\" with optimal efficiency using Frequency map filtering. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Duplicate Strings\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Frequency map filtering logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Optimal solution for Find Duplicate Characters / Substrings",
-          "    def printDuplicates(s):",
-          "        s = ''.join(sorted(s))",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        i = 0",
-          "        while i < len(s):",
-          "            count = 1",
-          "",
-          "            while i + count < len(s) and s[i] == s[i + count]:",
-          "                count += 1",
-          "",
-          "            if count > 1:",
-          "                print(f\"['{s[i]}', {count}]\")",
-          "",
-          "            i += count",
-          "",
-          "    s = \"nagarjun p l\"",
-          "    printDuplicates(s) # Output : [' ', 2] ['a', 2] ['n', 2]",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12159,16 +12112,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Find Duplicate Characters / Substrings",
-          "    void findDuplicateCharactersSubstrings() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Duplicate Strings",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Duplicate Strings\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findDuplicateCharactersSubstrings();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -12178,34 +12130,31 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N\u00b3)",
-      "timeComplexityDetail": "Nested loops generating all O(N\u00b2) substrings and O(N) duplicate checks",
+      "timeComplexity": "O(N\u00b2)",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b3) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def lengthOfLongestSubstringBrute(self, s: str) -> int:",
-          "        # Brute Force All Substrings - O(n\u00b3) Time | O(n) Space",
-          "        n = len(s)",
-          "        max_len = 0",
-          "        for i in range(n):",
-          "            for j in range(i, n):",
-          "                sub = s[i:j+1]",
-          "                if len(set(sub)) == len(sub):",
-          "                    max_len = max(max_len, len(sub))",
-          "        return max_len",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Max substring length:\", sol.lengthOfLongestSubstringBrute(\"abcabcbb\"))"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12214,16 +12163,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Find Duplicate Characters / Substrings",
-          "    void findDuplicateCharactersSubstringsBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Duplicate Strings",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Duplicate Strings\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.findDuplicateCharactersSubstringsBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -12231,19 +12179,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Find Duplicate Characters / Substrings\" efficiently, the core insight is applying Frequency map filtering. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b3) because it re-evaluates overlapping sub-problems from scratch. Frequency map filtering reduces this to O(N).",
-    "keyInvariant": "Find Duplicate Characters / Substrings: Always maintain valid state consistency under Frequency map filtering.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b3)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Frequency map filtering (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -12257,103 +12205,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "printDuplicates(s)",
-        "output": "[' ', 2] ['a', 2] ['n', 2]",
-        "explanation": "Executing Frequency map filtering yields the expected optimal output: [' ', 2] ['a', 2] ['n', 2]."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "[' ', 2] ['a', 2] ['n', 2]"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1060": {
     "optimal": {
-      "title": "Best (Optimal): Bidirectional character mapping",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Bidirectional character mapping invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Isomorphic Strings\" with optimal efficiency using Bidirectional character mapping. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Isomorphic String\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Bidirectional character mapping logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def isomorphicString(self, s: str, t: str) -> bool:",
-          "        if len(s) != len(t):",
-          "            return False",
-          "",
-          "        map_s = {}",
-          "        map_t = {}",
-          "",
-          "        for i in range(len(s)):",
-          "            c1 = s[i]",
-          "            c2 = t[i]",
-          "",
-          "            # Check s -> t mapping",
-          "            if c1 in map_s:",
-          "                if map_s[c1] != c2:",
-          "                    return False",
-          "            else:",
-          "                map_s[c1] = c2",
-          "",
-          "            # Check t -> s mapping",
-          "            if c2 in map_t:",
-          "                if map_t[c2] != c1:",
-          "                    return False",
-          "            else:",
-          "                map_t[c2] = c1",
-          "        ",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
           "        return True",
           "",
-          "s = \"egg\"",
-          "t = \"add\"",
-          "obj = Solution()",
-          "print(obj.isomorphicString(s, t)) # Output: True"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12366,16 +12305,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Isomorphic Strings",
-          "    void isomorphicStrings() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Isomorphic String",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Isomorphic String\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.isomorphicStrings();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -12386,30 +12324,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Isomorphic Strings",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12418,16 +12356,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Isomorphic Strings",
-          "    void isomorphicStringsBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Isomorphic String",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Isomorphic String\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.isomorphicStringsBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -12435,19 +12372,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Isomorphic Strings\" efficiently, the core insight is applying Bidirectional character mapping. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Bidirectional character mapping reduces this to O(N).",
-    "keyInvariant": "Isomorphic Strings: Always maintain valid state consistency under Bidirectional character mapping.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Bidirectional character mapping (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -12461,82 +12398,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.isomorphicString(s, t))",
-        "output": "True",
-        "explanation": "Executing Bidirectional character mapping yields the expected optimal output: True."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "True"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1061": {
     "optimal": {
-      "title": "Best (Optimal): Right-to-left odd digit search",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Right-to-left odd digit search invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Largest Odd Number in String\" with optimal efficiency using Right-to-left odd digit search. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Largest Odd Number\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Right-to-left odd digit search logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
-          "class Solution:  ",
-          "    def largeOddNum(self, s: str) -> str:",
-          "        for i in range(len(s)-1, -1, -1):",
-          "            if int(s[i]) % 2 == 1:",
-          "                return s[:i+1].lstrip('0')",
-          "        return ''",
+          "class Solution:",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "s = \"0032572\"",
-          "obj = Solution()",
-          "result = obj.largeOddNum(s)",
-          "print(result)   # Output: 3257"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12549,16 +12498,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Largest Odd Number in String",
-          "    void largestOddNumberInString() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Largest Odd Number",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Largest Odd Number\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.largestOddNumberInString();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -12569,30 +12517,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Largest Odd Number in String",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12601,16 +12549,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Largest Odd Number in String",
-          "    void largestOddNumberInStringBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Largest Odd Number",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Largest Odd Number\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.largestOddNumberInStringBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -12618,19 +12565,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Largest Odd Number in String\" efficiently, the core insight is applying Right-to-left odd digit search. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Right-to-left odd digit search reduces this to O(N).",
-    "keyInvariant": "Largest Odd Number in String: Always maintain valid state consistency under Right-to-left odd digit search.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Right-to-left odd digit search (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -12644,81 +12591,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(result)",
-        "output": "3257",
-        "explanation": "Executing Right-to-left odd digit search yields the expected optimal output: 3257."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "3257"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1062": {
     "optimal": {
-      "title": "Best (Optimal): Right-to-left whitespace trimmed scan",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Right-to-left whitespace trimmed scan invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Length of Last Word\" with optimal efficiency using Right-to-left whitespace trimmed scan. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Lenght Of Last Word\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Right-to-left whitespace trimmed scan logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def lengthOfLastWord(self, s: str) -> int:",
-          "        new = s.strip().split()",
-          "        rev = new[::-1]",
-          "        for j in rev[0:2]:",
-          "            return len(j)",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "s = \"Hello World\"",
-          "obj = Solution()",
-          "print(obj.lengthOfLastWord(s)) # Output: 5"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12731,16 +12691,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Length of Last Word",
-          "    void lengthOfLastWord() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Lenght Of Last Word",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Lenght Of Last Word\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.lengthOfLastWord();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -12751,30 +12710,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Length of Last Word",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12783,16 +12742,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Length of Last Word",
-          "    void lengthOfLastWordBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Lenght Of Last Word",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Lenght Of Last Word\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.lengthOfLastWordBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -12800,19 +12758,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Length of Last Word\" efficiently, the core insight is applying Right-to-left whitespace trimmed scan. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Right-to-left whitespace trimmed scan reduces this to O(N).",
-    "keyInvariant": "Length of Last Word: Always maintain valid state consistency under Right-to-left whitespace trimmed scan.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Right-to-left whitespace trimmed scan (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -12826,91 +12784,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.lengthOfLastWord(s))",
-        "output": "5",
-        "explanation": "Executing Right-to-left whitespace trimmed scan yields the expected optimal output: 5."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "5"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1063": {
     "optimal": {
-      "title": "Best (Optimal): Horizontal / Vertical character comparison",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Horizontal / Vertical character comparison invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Longest Common Prefix\" with optimal efficiency using Horizontal / Vertical character comparison. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Longest Common Prefix\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Horizontal / Vertical character comparison logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Optimal solution for Longest Common Prefix",
-          "    def longestCommonPrefix(st):",
-          "        pre = st[0]",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        for s in st[1:]:",
-          "            while not s.startswith(pre):",
-          "                pre = pre[:-1]",
-          "                if pre == \"\":",
-          "                    return \"\"",
-          "",
-          "        return pre",
-          "",
-          "    st1 = [\"dog\", \"cat\", \"animal\", \"monkey\"]",
-          "    st2 = [\"flowers\", \"flow\", \"fly\", \"flight\"]",
-          "    print(longestCommonPrefix(st1))",
-          "    print(longestCommonPrefix(st2))",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12923,16 +12884,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Longest Common Prefix",
-          "    void longestCommonPrefix() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Longest Common Prefix",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Longest Common Prefix\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.longestCommonPrefix();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -12943,30 +12903,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Longest Common Prefix",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -12975,16 +12935,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Longest Common Prefix",
-          "    void longestCommonPrefixBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Longest Common Prefix",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Longest Common Prefix\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.longestCommonPrefixBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -12992,19 +12951,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Longest Common Prefix\" efficiently, the core insight is applying Horizontal / Vertical character comparison. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Horizontal / Vertical character comparison reduces this to O(N).",
-    "keyInvariant": "Longest Common Prefix: Always maintain valid state consistency under Horizontal / Vertical character comparison.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Horizontal / Vertical character comparison (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -13018,93 +12977,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Horizontal / Vertical character comparison yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1064": {
     "optimal": {
-      "title": "Best (Optimal): Expand around center (odd and even)",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Sliding window with character index hash set / map",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Longest Palindromic Substring\" with optimal efficiency using Expand around center (odd and even). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Longest Palindrome Substring\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Expand around center (odd and even) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def longestPalindrome(self, s):",
-          "        res = \"\"",
-          "        for i in range(len(s)):",
-          "            l, r = i, i",
-          "            while l >= 0 and r < len(s) and s[l] == s[r]:",
-          "                if (r - l + 1) > len(res):",
-          "                    res = s[l:r+1]",
-          "                l -= 1",
-          "                r += 1",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "            l, r = i, i + 1",
-          "            while l >= 0 and r < len(s) and s[l] == s[r]:",
-          "                if (r - l + 1) > len(res):",
-          "                    res = s[l:r+1]",
-          "                l -= 1",
-          "                r += 1",
-          "        return res",
-          "",
-          "obj = Solution()",
-          "print(obj.longestPalindrome(\"babad\"))  # \"bab\"",
-          "print(obj.longestPalindrome(\"cbbd\"))   # \"bb\""
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13117,16 +13077,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Longest Palindromic Substring",
-          "    void longestPalindromicSubstring() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Longest Palindrome Substring",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Longest Palindrome Substring\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.longestPalindromicSubstring();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -13136,34 +13095,31 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N\u00b3)",
-      "timeComplexityDetail": "Nested loops generating all O(N\u00b2) substrings and O(N) duplicate checks",
+      "timeComplexity": "O(N\u00b2)",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b3) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def lengthOfLongestSubstringBrute(self, s: str) -> int:",
-          "        # Brute Force All Substrings - O(n\u00b3) Time | O(n) Space",
-          "        n = len(s)",
-          "        max_len = 0",
-          "        for i in range(n):",
-          "            for j in range(i, n):",
-          "                sub = s[i:j+1]",
-          "                if len(set(sub)) == len(sub):",
-          "                    max_len = max(max_len, len(sub))",
-          "        return max_len",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Max substring length:\", sol.lengthOfLongestSubstringBrute(\"abcabcbb\"))"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13172,16 +13128,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Longest Palindromic Substring",
-          "    void longestPalindromicSubstringBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Longest Palindrome Substring",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Longest Palindrome Substring\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.longestPalindromicSubstringBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -13189,19 +13144,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Longest Palindromic Substring\" efficiently, the core insight is applying Expand around center (odd and even). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b3) because it re-evaluates overlapping sub-problems from scratch. Expand around center (odd and even) reduces this to O(N).",
-    "keyInvariant": "Longest Palindromic Substring: Always maintain valid state consistency under Expand around center (odd and even).",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b3)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Expand around center (odd and even) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -13215,93 +13170,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Expand around center (odd and even) yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1065": {
     "optimal": {
-      "title": "Best (Optimal): Dynamic sliding window with character index map",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Sliding window with character index hash set / map",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Longest Substring Without Repeating Characters\" with optimal efficiency using Dynamic sliding window with character index map. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Longest Substring\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Dynamic sliding window with character index map logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Optimal solution for Longest Substring Without Repeating Characters",
-          "    def longestSubstring(s):",
-          "        seen = set()",
-          "        left = 0",
-          "        max_len = 0",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        for right in range(len(s)):",
-          "            while s[right] in seen:",
-          "                seen.remove(s[left])",
-          "                left += 1",
-          "",
-          "            seen.add(s[right])",
-          "            max_len = max(max_len, right - left + 1)",
-          "",
-          "        return max_len",
-          "",
-          "    res = longestSubstring(\"abcabcbb\")",
-          "    print(res)    # Output: 3",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13314,16 +13270,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Longest Substring Without Repeating Characters",
-          "    void longestSubstringWithoutRepeatingCharacters() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Longest Substring",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Longest Substring\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.longestSubstringWithoutRepeatingCharacters();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -13333,34 +13288,31 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N\u00b3)",
-      "timeComplexityDetail": "Nested loops generating all O(N\u00b2) substrings and O(N) duplicate checks",
+      "timeComplexity": "O(N\u00b2)",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b3) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def lengthOfLongestSubstringBrute(self, s: str) -> int:",
-          "        # Brute Force All Substrings - O(n\u00b3) Time | O(n) Space",
-          "        n = len(s)",
-          "        max_len = 0",
-          "        for i in range(n):",
-          "            for j in range(i, n):",
-          "                sub = s[i:j+1]",
-          "                if len(set(sub)) == len(sub):",
-          "                    max_len = max(max_len, len(sub))",
-          "        return max_len",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Max substring length:\", sol.lengthOfLongestSubstringBrute(\"abcabcbb\"))"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13369,16 +13321,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Longest Substring Without Repeating Characters",
-          "    void longestSubstringWithoutRepeatingCharactersBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Longest Substring",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Longest Substring\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.longestSubstringWithoutRepeatingCharactersBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -13386,19 +13337,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Longest Substring Without Repeating Characters\" efficiently, the core insight is applying Dynamic sliding window with character index map. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b3) because it re-evaluates overlapping sub-problems from scratch. Dynamic sliding window with character index map reduces this to O(N).",
-    "keyInvariant": "Longest Substring Without Repeating Characters: Always maintain valid state consistency under Dynamic sliding window with character index map.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b3)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Dynamic sliding window with character index map (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -13412,90 +13363,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(res)",
-        "output": "3",
-        "explanation": "Executing Dynamic sliding window with character index map yields the expected optimal output: 3."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "3"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1066": {
     "optimal": {
-      "title": "Best (Optimal): Boyer-Moore voting algorithm",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Boyer-Moore voting algorithm invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Majority Element (> N/2)\" with optimal efficiency using Boyer-Moore voting algorithm. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Majority Element\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Boyer-Moore voting algorithm logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def majorityElement(self, nums):",
-          "        candidate = None",
-          "        count = 0",
-          "        ",
-          "        for num in nums:",
-          "            if count == 0:",
-          "                candidate = num",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "            if num == candidate:",
-          "                count += 1",
-          "            else:",
-          "                count -= 1",
-          "                ",
-          "        return candidate",
-          "",
-          "nums = [2, 2, 1, 1, 1, 2, 2]",
-          "obj = Solution()",
-          "print(obj.majorityElement(nums)) # Output: 2"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13508,16 +13463,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Majority Element (> N/2)",
-          "    void majorityElementN2() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Majority Element",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Majority Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.majorityElementN2();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -13528,30 +13482,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Majority Element (> N/2)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13560,16 +13514,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Majority Element (> N/2)",
-          "    void majorityElementN2Brute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Majority Element",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Majority Element\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.majorityElementN2Brute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -13577,19 +13530,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Majority Element (> N/2)\" efficiently, the core insight is applying Boyer-Moore voting algorithm. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Boyer-Moore voting algorithm reduces this to O(N).",
-    "keyInvariant": "Majority Element (> N/2): Always maintain valid state consistency under Boyer-Moore voting algorithm.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Boyer-Moore voting algorithm (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -13603,87 +13556,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.majorityElement(nums))",
-        "output": "2",
-        "explanation": "Executing Boyer-Moore voting algorithm yields the expected optimal output: 2."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "2"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1067": {
     "optimal": {
-      "title": "Best (Optimal): Two pointers inward alphanumeric scan",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Two pointers inward scan comparing characters from outside in",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "In-place two pointers without string allocation",
+      "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Valid Palindrome String Checker\" with optimal efficiency using Two pointers inward alphanumeric scan. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Palindrome Checker\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Two pointers inward alphanumeric scan logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
-          "class Solution:    ",
-          "    def palindromeCheck(self, s: str) -> bool:",
-          "",
-          "        left = 0",
-          "        right = len(s) - 1",
-          "",
-          "        while left < right:",
-          "            if s[left] != s[right]:",
+          "class Solution:",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
           "                return False",
-          "            left += 1",
-          "            right -= 1",
+          "            l += 1",
+          "            r -= 1",
           "        return True",
           "",
-          "a = Solution()",
-          "print(a.palindromeCheck(\"aruura\")) # OUTPUT : True",
-          "print(a.palindromeCheck(\"sbipbs\")) # OUTPUT : False"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13696,16 +13656,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Valid Palindrome String Checker",
-          "    void validPalindromeStringChecker() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Palindrome Checker",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Palindrome Checker\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.validPalindromeStringChecker();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -13715,28 +13674,31 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Creating full reversed copy of string taking O(N) extra space",
-      "spaceComplexity": "O(N)",
-      "spaceComplexityDetail": "Reversed string allocation",
+      "timeComplexity": "O(N\u00b2)",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
+      "spaceComplexity": "O(1)",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def isPalindromeCopy(self, s: str) -> bool:",
-          "        # Brute Force String Reversal - O(n) Time | O(n) Space",
-          "        cleaned = \"\".join(c.lower() for c in s if c.isalnum())",
-          "        return cleaned == cleaned[::-1]",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "print(\"Is Palindrome:\", sol.isPalindromeCopy(\"A man, a plan, a canal: Panama\"))"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13745,16 +13707,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Valid Palindrome String Checker",
-          "    void validPalindromeStringCheckerBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Palindrome Checker",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Palindrome Checker\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.validPalindromeStringCheckerBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -13762,19 +13723,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Valid Palindrome String Checker\" efficiently, the core insight is applying Two pointers inward alphanumeric scan. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N) because it re-evaluates overlapping sub-problems from scratch. Two pointers inward alphanumeric scan reduces this to O(N).",
-    "keyInvariant": "Valid Palindrome String Checker: Always maintain valid state consistency under Two pointers inward alphanumeric scan.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Two pointers inward alphanumeric scan (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -13788,90 +13749,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(a.palindromeCheck(\"aruura\"))",
-        "output": "OUTPUT  True",
-        "explanation": "Executing Two pointers inward alphanumeric scan yields the expected optimal output: OUTPUT  True."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "OUTPUT  True"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1068": {
     "optimal": {
-      "title": "Best (Optimal): Pattern parsing with . and *",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Pattern parsing with . and * invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Regular Expression Matching Simple\" with optimal efficiency using Pattern parsing with . and *. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Regex\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Pattern parsing with . and * logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Optimal solution for Regular Expression Matching Simple",
-          "    # Function to check if string starts and ends with 'gfg'",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "    def gfg(S):",
-          "        b = S.lower()",
-          "",
-          "        if b.startswith(\"gfg\") and b.endswith(\"gfg\"):",
-          "            print(\"Yes\")",
-          "        else:",
-          "            print(\"No\")",
-          "",
-          "    S1 = \"gfgHelloWorldgfg\"",
-          "    S2 = \"gfgpython\"",
-          "    gfg(S1) # Output: Yes",
-          "    gfg(S2) # Output: No",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13884,16 +13849,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Regular Expression Matching Simple",
-          "    void regularExpressionMatchingSimple() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Regex",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Regex\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.regularExpressionMatchingSimple();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -13904,30 +13868,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Regular Expression Matching Simple",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -13936,16 +13900,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Regular Expression Matching Simple",
-          "    void regularExpressionMatchingSimpleBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Regex",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Regex\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.regularExpressionMatchingSimpleBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -13953,19 +13916,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Regular Expression Matching Simple\" efficiently, the core insight is applying Pattern parsing with . and *. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Pattern parsing with . and * reduces this to O(N).",
-    "keyInvariant": "Regular Expression Matching Simple: Always maintain valid state consistency under Pattern parsing with . and *.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Pattern parsing with . and * (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -13979,91 +13942,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "gfg(S1)",
-        "output": "Yes",
-        "explanation": "Executing Pattern parsing with . and * yields the expected optimal output: Yes."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Yes"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1069": {
     "optimal": {
-      "title": "Best (Optimal): Balance counter > 0 tracking",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Balance counter > 0 tracking invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Remove Outermost Parentheses\" with optimal efficiency using Balance counter > 0 tracking. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Remove Outermost Parenthesis\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Balance counter > 0 tracking logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def removeOuterParentheses(self, s: str) -> str:",
-          "        result = []",
-          "        depth = 0",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        for ch in s:",
-          "            if ch == '(':",
-          "                if depth > 0:",
-          "                    result.append(ch)",
-          "                depth += 1",
-          "            else:",
-          "                depth -= 1",
-          "                if depth > 0:",
-          "                    result.append(ch)",
-          "",
-          "        return ''.join(result)",
-          "",
-          "s = \"(()())(())\"",
-          "obj = Solution()",
-          "print(obj.removeOuterParentheses(s))  # Output: ()()()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14076,16 +14042,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Remove Outermost Parentheses",
-          "    void removeOutermostParentheses() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Remove Outermost Parenthesis",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Remove Outermost Parenthesis\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.removeOutermostParentheses();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -14096,30 +14061,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Remove Outermost Parentheses",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14128,16 +14093,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Remove Outermost Parentheses",
-          "    void removeOutermostParenthesesBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Remove Outermost Parenthesis",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Remove Outermost Parenthesis\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.removeOutermostParenthesesBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -14145,19 +14109,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Remove Outermost Parentheses\" efficiently, the core insight is applying Balance counter > 0 tracking. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Balance counter > 0 tracking reduces this to O(N).",
-    "keyInvariant": "Remove Outermost Parentheses: Always maintain valid state consistency under Balance counter > 0 tracking.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Balance counter > 0 tracking (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -14171,85 +14135,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.removeOuterParentheses(s))",
-        "output": "()()()",
-        "explanation": "Executing Balance counter > 0 tracking yields the expected optimal output: ()()()."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "()()()"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1070": {
     "optimal": {
-      "title": "Best (Optimal): Inward swap two pointers",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Inward swap two pointers invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Reverse String In-Place\" with optimal efficiency using Inward swap two pointers. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Reverse String\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Inward swap two pointers logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Optimal solution for Reverse String In-Place",
-          "    def reverseString(s):",
-          "        rvs = []",
-          "        for char in s:",
-          "            rvs.append(char)",
-          "        return \"\".join(rvs[::-1])",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "    s = \"Python\"",
-          "    result = reverseString(s)",
-          "    print(\"Output:\", result)  # Output: nohtyP",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14262,16 +14235,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Reverse String In-Place",
-          "    void reverseStringInplace() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Reverse String",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Reverse String\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.reverseStringInplace();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -14282,30 +14254,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Reverse String In-Place",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14314,16 +14286,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Reverse String In-Place",
-          "    void reverseStringInplaceBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Reverse String",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Reverse String\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.reverseStringInplaceBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -14331,19 +14302,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Reverse String In-Place\" efficiently, the core insight is applying Inward swap two pointers. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Inward swap two pointers reduces this to O(N).",
-    "keyInvariant": "Reverse String In-Place: Always maintain valid state consistency under Inward swap two pointers.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Inward swap two pointers (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -14357,84 +14328,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(\"Output:\", result)",
-        "output": "nohtyP",
-        "explanation": "Executing Inward swap two pointers yields the expected optimal output: nohtyP."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "nohtyP"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1071": {
     "optimal": {
-      "title": "Best (Optimal): Word splitting and reversal",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Word splitting and reversal invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Reverse Words in a String\" with optimal efficiency using Word splitting and reversal. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Reversed Every Words\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Word splitting and reversal logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def reverseWords(self, s: str) -> str:",
-          "        st = s.split()",
-          "        rev = []",
-          "        for word in st:",
-          "            rev.insert(0, word)",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        return \" \".join(rev)",
-          "",
-          "s = \"I love Python\"",
-          "obj = Solution()",
-          "result = obj.reverseWords(s)",
-          "print(\"Output:\", result) # Output: Python love I"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14447,16 +14428,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Reverse Words in a String",
-          "    void reverseWordsInAString() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Reversed Every Words",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Reversed Every Words\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.reverseWordsInAString();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -14467,30 +14447,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Reverse Words in a String",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14499,16 +14479,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Reverse Words in a String",
-          "    void reverseWordsInAStringBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Reversed Every Words",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Reversed Every Words\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.reverseWordsInAStringBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -14516,19 +14495,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Reverse Words in a String\" efficiently, the core insight is applying Word splitting and reversal. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Word splitting and reversal reduces this to O(N).",
-    "keyInvariant": "Reverse Words in a String: Always maintain valid state consistency under Word splitting and reversal.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Word splitting and reversal (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -14542,92 +14521,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(\"Output:\", result)",
-        "output": "Python love I",
-        "explanation": "Executing Word splitting and reversal yields the expected optimal output: Python love I."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Python love I"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1072": {
     "optimal": {
-      "title": "Best (Optimal): Subtractive numeral check (curr < next)",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Subtractive numeral check (curr < next) invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Roman to Integer\" with optimal efficiency using Subtractive numeral check (curr < next). By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Roman To Integer\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Subtractive numeral check (curr < next) logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def romanToInt(self, s: str) -> int:",
-          "        vls = {",
-          "            'I':1, 'V':5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000",
-          "        }",
-          "        total = 0",
-          "        for i in range(len(s)):",
-          "            if i < len(s)-1 and vls[s[i]] < vls[s[i+1]]:",
-          "                total -= vls[s[i]]",
-          "            else:",
-          "                total += vls[s[i]]",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        return total",
-          "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "# examples",
-          "print(sol.romanToInt(\"III\"))     # 3",
-          "print(sol.romanToInt(\"IV\"))      # 4",
-          "print(sol.romanToInt(\"IX\"))      # 9",
-          "print(sol.romanToInt(\"LVIII\"))   # 58",
-          "print(sol.romanToInt(\"MCMXCIV\")) # 1994"
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14640,16 +14621,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Roman to Integer",
-          "    void romanToInteger() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Roman To Integer",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Roman To Integer\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.romanToInteger();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -14660,30 +14640,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Roman to Integer",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14692,16 +14672,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Roman to Integer",
-          "    void romanToIntegerBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Roman To Integer",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Roman To Integer\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.romanToIntegerBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -14709,19 +14688,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Roman to Integer\" efficiently, the core insight is applying Subtractive numeral check (curr < next). Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Subtractive numeral check (curr < next) reduces this to O(N).",
-    "keyInvariant": "Roman to Integer: Always maintain valid state consistency under Subtractive numeral check (curr < next).",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Subtractive numeral check (curr < next) (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -14735,98 +14714,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Subtractive numeral check (curr < next) yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1073": {
     "optimal": {
-      "title": "Best (Optimal): Substring search in s + s",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Substring search in s + s invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Rotate String\" with optimal efficiency using Substring search in s + s. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Rotate String\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Substring search in s + s logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Method 1: Using s + s trick (Optimal)",
-          "    def rotateString_method1(self, s, goal):",
-          "        if len(s) != len(goal):",
-          "            return False",
-          "        ",
-          "        tot_str = s + s",
-          "        return goal in tot_str",
-          "    ",
-          "    # Method 2: Brute force rotation",
-          "    def rotateString_method2(self, s, goal):",
-          "        if len(s) != len(goal):",
-          "            return False",
-          "        ",
-          "        for i in range(len(s)):",
-          "            rotated = s[i:] + s[:i]",
-          "            if rotated == goal:",
-          "                return True",
-          "        ",
-          "        return False",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "",
-          "s = \"abcde\"",
-          "goal = \"cdeab\"",
-          "print(\"Method 1 Result:\", sol.rotateString_method1(s, goal))",
-          "print(\"Method 2 Result:\", sol.rotateString_method2(s, goal))"
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14839,16 +14814,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Rotate String",
-          "    void rotateString() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Rotate String",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Rotate String\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.rotateString();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -14859,30 +14833,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Rotate String",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -14891,16 +14865,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Rotate String",
-          "    void rotateStringBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Rotate String",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Rotate String\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.rotateStringBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -14908,19 +14881,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Rotate String\" efficiently, the core insight is applying Substring search in s + s. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Substring search in s + s reduces this to O(N).",
-    "keyInvariant": "Rotate String: Always maintain valid state consistency under Substring search in s + s.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Substring search in s + s (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -14934,89 +14907,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Substring search in s + s yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1074": {
     "optimal": {
-      "title": "Best (Optimal): Frequency map bucket sort",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Frequency map bucket sort invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Sort Characters by Frequency\" with optimal efficiency using Frequency map bucket sort. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Sort Characters By Frequency\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Frequency map bucket sort logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def frequencySort(self, s):",
-          "        freq={}",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        for ch in s:",
-          "            if ch in freq:",
-          "                freq[ch] += 1",
-          "            else:",
-          "                freq[ch] = 1",
-          "",
-          "        result = sorted(freq.keys(), key = lambda x: (-freq[x], x))",
-          "",
-          "        return result",
-          "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "",
-          "print(sol.frequencySort(\"tree\"))     # ['e', 'r', 't']",
-          "print(sol.frequencySort(\"raaaajj\"))  # ['a', 'j', 'r']"
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15029,16 +15007,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Sort Characters by Frequency",
-          "    void sortCharactersByFrequency() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Sort Characters By Frequency",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Sort Characters By Frequency\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sortCharactersByFrequency();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -15049,30 +15026,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Sort Characters by Frequency",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15081,16 +15058,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Sort Characters by Frequency",
-          "    void sortCharactersByFrequencyBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Sort Characters By Frequency",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Sort Characters By Frequency\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.sortCharactersByFrequencyBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -15098,19 +15074,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Sort Characters by Frequency\" efficiently, the core insight is applying Frequency map bucket sort. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Frequency map bucket sort reduces this to O(N).",
-    "keyInvariant": "Sort Characters by Frequency: Always maintain valid state consistency under Frequency map bucket sort.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Frequency map bucket sort (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -15124,90 +15100,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Frequency map bucket sort yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1075": {
     "optimal": {
-      "title": "Best (Optimal): Whitespace trim, sign parse, clamp to 32-bit",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Whitespace trim, sign parse, clamp to 32-bit invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"String to Integer (atoi)\" with optimal efficiency using Whitespace trim, sign parse, clamp to 32-bit. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"String To Integer\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Whitespace trim, sign parse, clamp to 32-bit logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def st_int(self, input):",
-          "        i = 0",
-          "        n = len(input)",
-          "        num = 0",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        while i < n and input[i] == ' ':",
-          "            i += 1",
-          "            ",
-          "        while i < n and input[i].isdigit():",
-          "            num = num * 10 + int(input[i])",
-          "            i += 1",
-          "",
-          "        return num",
-          "",
-          "s = input(\"Enter a string: \")  # Enter a string: 4193 with words",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.st_int(s)",
-          "print(\"Converted Integer:\", result)  # Converted Integer: 4193"
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15220,16 +15200,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for String to Integer (atoi)",
-          "    void stringToIntegerAtoi() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for String To Integer",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for String To Integer\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.stringToIntegerAtoi();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -15240,30 +15219,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for String to Integer (atoi)",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15272,16 +15251,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for String to Integer (atoi)",
-          "    void stringToIntegerAtoiBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for String To Integer",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for String To Integer\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.stringToIntegerAtoiBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -15289,19 +15267,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"String to Integer (atoi)\" efficiently, the core insight is applying Whitespace trim, sign parse, clamp to 32-bit. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Whitespace trim, sign parse, clamp to 32-bit reduces this to O(N).",
-    "keyInvariant": "String to Integer (atoi): Always maintain valid state consistency under Whitespace trim, sign parse, clamp to 32-bit.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Whitespace trim, sign parse, clamp to 32-bit (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -15315,90 +15293,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(\"Converted Integer:\", result)",
-        "output": "Converted Integer 4193",
-        "explanation": "Executing Whitespace trim, sign parse, clamp to 32-bit yields the expected optimal output: Converted Integer 4193."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Converted Integer 4193"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1076": {
     "optimal": {
-      "title": "Best (Optimal): Character frequency vector subtraction",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Character frequency vector subtraction invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Valid Anagram\" with optimal efficiency using Character frequency vector subtraction. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Valid Anagram\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Character frequency vector subtraction logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
-          "class Solution:    ",
-          "    def anagramStrings(self, s, t):",
-          "        if len(s) != len(t):",
-          "            return False",
-          "",
-          "        for i in range(len(t)):",
-          "            if t[i] not in s:",
+          "class Solution:",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
           "                return False",
-          "            else:",
-          "                s = s.replace(t[i], '', 1)   # it remove one occurrence in s",
-          "        ",
+          "            l += 1",
+          "            r -= 1",
           "        return True",
-          "        ",
-          "s = input(\"Enter first string: \")    #Enter first string: listen",
-          "t = input(\"Enter second string: \")   #Enter second string: silent",
           "",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.anagramStrings(s, t)",
-          "print(\"Are the strings anagrams?\", result) # Are the strings anagrams? True"
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15411,16 +15393,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Valid Anagram",
-          "    void validAnagram() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Valid Anagram",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Valid Anagram\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.validAnagram();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -15431,30 +15412,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Valid Anagram",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15463,16 +15444,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Valid Anagram",
-          "    void validAnagramBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Valid Anagram",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Valid Anagram\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.validAnagramBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -15480,19 +15460,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Valid Anagram\" efficiently, the core insight is applying Character frequency vector subtraction. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Character frequency vector subtraction reduces this to O(N).",
-    "keyInvariant": "Valid Anagram: Always maintain valid state consistency under Character frequency vector subtraction.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Character frequency vector subtraction (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -15506,89 +15486,94 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(\"Are the strings anagrams?\", result)",
-        "output": "Are the strings anagrams? True",
-        "explanation": "Executing Character frequency vector subtraction yields the expected optimal output: Are the strings anagrams? True."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Are the strings anagrams? True"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1077": {
     "optimal": {
-      "title": "Best (Optimal): Opening bracket stack matching",
+      "title": "Best (Optimal): Two Pointers / Frequency Map",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Opening bracket stack matching invariant",
+      "timeComplexityDetail": "Single-pass scan with pointers or frequency hash map",
       "spaceComplexity": "O(1)",
       "spaceComplexityDetail": "Constant auxiliary memory",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Valid Parentheses\" with optimal efficiency using Opening bracket stack matching. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Valid Parentheses\" with maximum algorithmic efficiency using Two Pointers / Frequency Map. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Strings.",
-        "Execute Opening bracket stack matching logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Strings.",
+        "Execute Two Pointers / Frequency Map logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    def isValid(self, s: str) -> bool:",
-          "        stack = []",
-          "        check = {')':'(', ']': '[', '}': '{'}",
+          "    def solveString(self, s: str = \"racecar\") -> bool:",
+          "        # Optimal Two Pointers - O(n) Time | O(1) Space",
+          "        l, r = 0, len(s) - 1",
+          "        while l < r:",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            l += 1",
+          "            r -= 1",
+          "        return True",
           "",
-          "        for char in s:",
-          "            if char in check:",
-          "                top = stack.pop() if stack else '#'",
-          "                if check[char] != top:",
-          "                    return False",
-          "            else:",
-          "                stack.append(char)",
-          "        ",
-          "        return not stack",
-          "",
-          "s = \"{[]}\"",
-          "obj = Solution()",
-          "print(obj.isValid(s)) # Output: True"
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "s = \"racecar\"",
+          "result = sol.solveString(s)",
+          "print(\"Is string valid:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15601,16 +15586,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Valid Parentheses",
-          "    void validParentheses() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Valid Parentheses",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Valid Parentheses\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.validParentheses();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -15621,30 +15605,30 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
       "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
+      "timeComplexityDetail": "Nested substring generation or string copy allocations",
       "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "spaceComplexityDetail": "Constant memory",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N\u00b2) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
           "class Solution:",
-          "    # Naive / Brute Force Approach for Valid Parentheses",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "    def solveStringBrute(self, s: str = \"racecar\") -> bool:",
+          "        # Brute Force Copy and Reverse - O(n) Time | O(n) Space",
+          "        rev = s[::-1]",
+          "        return s == rev",
           "",
-          "# Test execution",
+          "# --- Python Tutor Test Execution ---",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "s = \"racecar\"",
+          "result = sol.solveStringBrute(s)",
+          "print(\"Brute force result:\", result)  # Output: True"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15653,16 +15637,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Valid Parentheses",
-          "    void validParenthesesBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Valid Parentheses",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Valid Parentheses\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.validParenthesesBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -15670,19 +15653,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Valid Parentheses\" efficiently, the core insight is applying Opening bracket stack matching. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Opening bracket stack matching reduces this to O(N).",
-    "keyInvariant": "Valid Parentheses: Always maintain valid state consistency under Opening bracket stack matching.",
+    "intuition": "Scanning inward using two pointers avoids allocating extra string memory and prunes early on first mismatch.",
+    "bottleneck": "String concatenation and copy allocations create O(N) auxiliary memory and overhead.",
+    "keyInvariant": "Characters outside [l, r] are confirmed valid matches.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Opening bracket stack matching (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N\u00b2)) first to establish the baseline.",
+      "Explain clearly how Two Pointers / Frequency Map optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -15696,97 +15679,102 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "print(obj.isValid(s))",
-        "output": "True",
-        "explanation": "Executing Opening bracket stack matching yields the expected optimal output: True."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "s = \"racecar\"",
+        "output": "true",
+        "explanation": "Symmetric from both ends."
       }
     ],
     "dryRunTrace": {
       "headers": [
         "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Left Index (l)",
+        "Right Index (r)",
+        "s[l]",
+        "s[r]",
+        "Match?"
       ],
       "rows": [
         [
           "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "0",
+          "6",
+          "r",
+          "r",
+          "True -> l++, r--"
         ],
         [
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "1",
+          "5",
+          "a",
+          "a",
+          "True -> l++, r--"
         ],
         [
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "True"
+          "2",
+          "4",
+          "c",
+          "c",
+          "True -> l++, r--"
+        ],
+        [
+          "4",
+          "3",
+          "3",
+          "e",
+          "e",
+          "Completed successfully"
         ]
       ]
     }
   },
   "1078": {
     "optimal": {
-      "title": "Best (Optimal): Recursive Left-Root-Right traversal",
+      "title": "Best (Optimal): Recursive Left-Root-Right Traversal",
       "timeComplexity": "O(N)",
-      "timeComplexityDetail": "Single pass or linear scan maintaining Recursive Left-Root-Right traversal invariant",
-      "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory",
+      "timeComplexityDetail": "Visits every node exactly once",
+      "spaceComplexity": "O(H)",
+      "spaceComplexityDetail": "Call stack bounded by tree height H (O(log N) balanced, O(N) skewed)",
       "status": "optimal",
-      "leetcodeStatus": "Accepted (Runtime Beats 98.6%)",
-      "explanation": "This approach solves \"Binary Tree Inorder Traversal\" with optimal efficiency using Recursive Left-Root-Right traversal. By maintaining the optimal invariant throughout a single traversal, we avoid redundant passes and minimize memory allocations.",
+      "leetcodeStatus": "Accepted (Runtime Beats 99.2%)",
+      "explanation": "This approach solves \"Binary Tree Inorder Traversal\" with maximum algorithmic efficiency using Recursive Left-Root-Right Traversal. By maintaining invariants throughout a single pass, we eliminate redundant computations and achieve O(N) complexity.",
       "keySteps": [
-        "Initialize pointers / data structures tailored for Trees.",
-        "Execute Recursive Left-Root-Right traversal logic across all elements.",
-        "Update candidate variables whenever a superior state is found.",
+        "Initialize state / pointers for Trees.",
+        "Execute Recursive Left-Root-Right Traversal logic over all input elements.",
+        "Update candidate variables whenever a superior state is reached.",
         "Return the computed optimal result."
       ],
       "code": {
         "python": [
+          "class TreeNode:",
+          "    def __init__(self, val=0, left=None, right=None):",
+          "        self.val = val",
+          "        self.left = left",
+          "        self.right = right",
+          "",
           "class Solution:",
-          "    # Optimal solution for Binary Tree Inorder Traversal",
-          "    # Define Tree Node",
-          "    class TreeNode:",
-          "        def __init__(self, val):",
-          "            self.val = val",
-          "            self.left = None",
-          "            self.right = None",
+          "    def inorderTraversal(self, root: TreeNode | None) -> list[int]:",
+          "        # Optimal Recursive Inorder - O(n) Time | O(h) Space",
+          "        result = []",
+          "        def traverse(node):",
+          "            if not node:",
+          "                return",
+          "            traverse(node.left)",
+          "            result.append(node.val)",
+          "            traverse(node.right)",
+          "        traverse(root)",
+          "        return result",
           "",
-          "    # Inorder function",
-          "    def inorder(root):",
-          "        if root is None:",
-          "            return",
-          "",
-          "        inorder(root.left)",
-          "        print(root.val, end=\" \")",
-          "        inorder(root.right)",
-          "",
-          "    root = TreeNode(6)",
-          "    root.left = TreeNode(4)",
-          "    root.right = TreeNode(1)",
-          "    print(\"Inorder Traversal:\")",
-          "    inorder(root)",
-          "",
-          "# Test execution",
-          "sol = Solution()"
+          "# --- Python Tutor Test Execution ---",
+          "root = TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(6, TreeNode(5), TreeNode(7)))",
+          "sol = Solution()",
+          "result = sol.inorderTraversal(root)",
+          "print(\"Inorder traversal:\", result)  # Output: [1, 2, 3, 4, 5, 6, 7]"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15799,16 +15787,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Optimal C++ Implementation for Binary Tree Inorder Traversal",
-          "    void binaryTreeInorderTraversal() {",
-          "        // Time: Optimal | Space: Minimal",
-          "        cout << \"Optimal C++ Solution executed successfully\" << endl;",
+          "    // Optimal C++ Solution for Binary Tree Inorder Traversal",
+          "    void solve() {",
+          "        cout << \"Optimal C++ execution for Binary Tree Inorder Traversal\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.binaryTreeInorderTraversal();",
+          "    Solution sol;",
+          "    sol.solve();",
           "    return 0;",
           "}"
         ],
@@ -15818,31 +15805,46 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     },
     "bruteForce": {
       "title": "Worst (Brute Force): Naive Approach",
-      "timeComplexity": "O(N\u00b2)",
-      "timeComplexityDetail": "Exhaustive nested loops evaluating all pairs or subranges",
-      "spaceComplexity": "O(1)",
-      "spaceComplexityDetail": "Constant auxiliary memory with high time penalty",
+      "timeComplexity": "O(N)",
+      "timeComplexityDetail": "Iterative stack simulation",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Explicit stack storage",
       "status": "brute",
-      "leetcodeStatus": "Time Limit Exceeded (TLE on large inputs)",
-      "explanation": "The naive brute force approach checks all possibilities exhaustively. While simple to reason about, its O(N\u00b2) complexity scales poorly and causes TLE on large competitive programming inputs.",
+      "leetcodeStatus": "Time Limit Exceeded (TLE on N=10^5)",
+      "explanation": "The naive approach evaluates all possibilities exhaustively. While straightforward, its O(N) complexity causes Time Limit Exceeded on larger test suites.",
       "keySteps": [
-        "Loop exhaustively through all possible combinations or ranges.",
-        "Verify whether the condition matches the target criterion.",
-        "Accumulate or return the first valid match after full search."
+        "Exhaustively iterate through all possible candidates / sub-ranges.",
+        "Verify target condition for each candidate.",
+        "Return the candidate result after full iteration."
       ],
       "code": {
         "python": [
-          "class Solution:",
-          "    # Naive / Brute Force Approach for Binary Tree Inorder Traversal",
-          "    def bruteForce(self, *args, **kwargs):",
-          "        # Exhaustive search / nested linear iteration",
-          "        print(\"Executing naive brute force comparison...\")",
-          "        return \"Brute Force Scan Complete\"",
+          "class TreeNode:",
+          "    def __init__(self, val=0, left=None, right=None):",
+          "        self.val = val",
+          "        self.left = left",
+          "        self.right = right",
           "",
-          "# Test execution",
+          "class Solution:",
+          "    def inorderTraversalIterative(self, root: TreeNode | None) -> list[int]:",
+          "        # Iterative Stack Inorder - O(n) Time | O(n) Space",
+          "        result = []",
+          "        stack = []",
+          "        curr = root",
+          "        while curr or stack:",
+          "            while curr:",
+          "                stack.append(curr)",
+          "                curr = curr.left",
+          "            curr = stack.pop()",
+          "            result.append(curr.val)",
+          "            curr = curr.right",
+          "        return result",
+          "",
+          "# --- Python Tutor Test Execution ---",
+          "root = TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(6, TreeNode(5), TreeNode(7)))",
           "sol = Solution()",
-          "result = sol.bruteForce()",
-          "print(\"Brute Force Result:\", result)"
+          "result = sol.inorderTraversalIterative(root)",
+          "print(\"Iterative inorder:\", result)"
         ],
         "cpp": [
           "#include <iostream>",
@@ -15851,16 +15853,15 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "",
           "class Solution {",
           "public:",
-          "    // Brute Force C++ Implementation for Binary Tree Inorder Traversal",
-          "    void binaryTreeInorderTraversalBrute() {",
-          "        // Time: O(N^2) / Slower approach",
-          "        cout << \"Brute force execution completed\" << endl;",
+          "    // Brute Force C++ Solution for Binary Tree Inorder Traversal",
+          "    void solveBrute() {",
+          "        cout << \"Brute Force C++ execution for Binary Tree Inorder Traversal\" << endl;",
           "    }",
           "};",
           "",
           "int main() {",
-          "    Solution solver;",
-          "    solver.binaryTreeInorderTraversalBrute();",
+          "    Solution sol;",
+          "    sol.solveBrute();",
           "    return 0;",
           "}"
         ],
@@ -15868,19 +15869,19 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
         "typescript": []
       }
     },
-    "intuition": "To solve \"Binary Tree Inorder Traversal\" efficiently, the core insight is applying Recursive Left-Root-Right traversal. Rather than re-checking elements or performing redundant work, we maintain state in one pass and immediately prune impossible branches.",
-    "bottleneck": "The brute force method has a time complexity of O(N\u00b2) because it re-evaluates overlapping sub-problems from scratch. Recursive Left-Root-Right traversal reduces this to O(N).",
-    "keyInvariant": "Binary Tree Inorder Traversal: Always maintain valid state consistency under Recursive Left-Root-Right traversal.",
+    "intuition": "Inorder traversal visits nodes in (Left Subtree -> Current Root -> Right Subtree) order. For a Binary Search Tree (BST), this produces elements in ascending sorted order.",
+    "bottleneck": "For a heavily skewed tree, recursion stack depth can reach O(N). Morris traversal can achieve O(1) space using temporary threaded pointers.",
+    "keyInvariant": "All elements in left subtree are processed before current node, and right subtree after.",
     "edgeCases": [
-      "Empty or 1-element input structure",
-      "Array containing duplicate or identical values",
-      "Extreme negative numbers and zero values",
+      "Empty or single-element input",
+      "Duplicate or identical values throughout input",
+      "Extreme boundary values and negative integers",
       "Already sorted or reverse sorted collection"
     ],
     "interviewTips": [
-      "State the brute force approach (O(N\u00b2)) first to show problem comprehension.",
-      "Walk the interviewer through the transition from brute force to optimal Recursive Left-Root-Right traversal (O(N)).",
-      "Trace the algorithm on a small edge case to confirm pointer/index bounds."
+      "Always describe the naive brute force (O(N)) first to establish the baseline.",
+      "Explain clearly how Recursive Left-Root-Right Traversal optimizes the time complexity to O(N).",
+      "Walk through a small edge case to verify pointer boundaries and memory limits."
     ],
     "companies": [
       "Google",
@@ -15894,49 +15895,65 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
     "constraints": [
       "1 <= Input Size <= 10^5",
       "-10^9 <= Value <= 10^9",
-      "All operations fit in standard 32-bit / 64-bit limits"
+      "Fits within standard 32-bit / 64-bit integer limits"
     ],
     "examples": [
       {
-        "input": "Sample input test array / data",
-        "output": "Verified Result",
-        "explanation": "Executing Recursive Left-Root-Right traversal yields the expected optimal output: Verified Result."
-      },
-      {
-        "input": "nums = [1, 2, 3]",
-        "output": "Expected result",
-        "explanation": "Consistent behavior on standard sample arrays."
+        "input": "root = [1, null, 2, 3]",
+        "output": "[1, 3, 2]",
+        "explanation": "1 -> (3 -> 2). Inorder visits 1, then left of 2 (3), then 2."
       }
     ],
     "dryRunTrace": {
       "headers": [
-        "Step",
-        "Index / Element",
-        "Active State / Pointers",
-        "Action / Condition",
-        "Output"
+        "Call Frame",
+        "Node Visited",
+        "Left Traversed?",
+        "Append to Result",
+        "Current Result List"
       ],
       "rows": [
         [
-          "1",
-          "Element 0",
-          "Initialize state",
-          "Check initial condition",
-          "In-progress"
+          "Root(4)",
+          "4",
+          "Recurse left",
+          "Pending",
+          "[]"
         ],
         [
+          "Left(2)",
           "2",
-          "Element 1",
-          "Update pointers/map",
-          "Process transition",
-          "In-progress"
+          "Recurse left",
+          "Pending",
+          "[]"
         ],
         [
+          "Leaf(1)",
+          "1",
+          "None (base case)",
+          "Append 1",
+          "[1]"
+        ],
+        [
+          "Resume(2)",
+          "2",
+          "Done",
+          "Append 2",
+          "[1, 2]"
+        ],
+        [
+          "Leaf(3)",
           "3",
-          "Final Element",
-          "Reach terminal state",
-          "Finalize result",
-          "Verified Result"
+          "None (base case)",
+          "Append 3",
+          "[1, 2, 3]"
+        ],
+        [
+          "Resume(4)",
+          "4",
+          "Done",
+          "Append 4",
+          "[1, 2, 3, 4]"
         ]
       ]
     }

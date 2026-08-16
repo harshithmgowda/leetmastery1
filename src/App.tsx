@@ -28,6 +28,7 @@ import {
   Share2,
   ShieldAlert,
   Sparkles,
+  Star,
   Sun,
   TerminalSquare,
   TrendingUp,
@@ -38,22 +39,18 @@ import {
   getDetailedProblemData,
   DetailedProblemData,
   buildPythonTutorExecutableCode,
+  Problem,
+  Difficulty,
 } from './leetcodeSolutions'
+import {
+  impProblemsSeed,
+  IMP_TOPICS_LIST,
+  getImpDetailedProblemData,
+} from './impQuestionsData'
 
-type Difficulty = 'Easy' | 'Medium' | 'Hard'
 type Language = 'python' | 'cpp'
 type TabMode = 'overview' | 'comparison' | 'walkthrough' | 'edgecases'
-
-type Problem = {
-  number: number
-  title: string
-  difficulty: Difficulty
-  topics: string[]
-  pattern: string
-  url: string
-  category?: string
-  solved?: boolean
-}
+type SectionMode = 'core' | 'imp'
 
 const allProblemsSeed: Problem[] = [
   // Arrays & Hashing
@@ -307,11 +304,13 @@ const TOPICS_LIST = [
 
 function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+  const [activeSection, setActiveSection] = useState<SectionMode>('core')
   const [query, setQuery] = useState('')
   const [difficulty, setDifficulty] = useState<Difficulty | 'All'>('All')
   const [topic, setTopic] = useState('All topics')
   const [isTopicDropdownOpen, setIsTopicDropdownOpen] = useState(false)
-  const [selectedProblemNumber, setSelectedProblemNumber] = useState(1)
+  const [selectedCoreProblemNumber, setSelectedCoreProblemNumber] = useState(1)
+  const [selectedImpProblemNumber, setSelectedImpProblemNumber] = useState(1001)
   const [approachMode, setApproachMode] = useState<'optimal' | 'brute' | 'alternative'>('optimal')
   const [language, setLanguage] = useState<Language>('python')
   const [activeTab, setActiveTab] = useState<TabMode>('overview')
@@ -322,15 +321,27 @@ function App() {
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
     'Arrays & Hashing': true,
     'Two Pointers': true,
+    'Array': true,
+    'Binary Search': true,
+    'Strings': true,
   })
 
-  // Track solved problems in localStorage
-  const [solvedMap, setSolvedMap] = useState<Record<number, boolean>>(() => {
+  // Track solved problems in localStorage independently
+  const [coreSolvedMap, setCoreSolvedMap] = useState<Record<number, boolean>>(() => {
     try {
       const saved = localStorage.getItem('leetmastery_solved')
       return saved ? JSON.parse(saved) : { 1: true }
     } catch {
       return { 1: true }
+    }
+  })
+
+  const [impSolvedMap, setImpSolvedMap] = useState<Record<number, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem('leetmastery_imp_solved')
+      return saved ? JSON.parse(saved) : {}
+    } catch {
+      return {}
     }
   })
 
@@ -347,13 +358,27 @@ function App() {
     percentile: '98.4%',
   })
 
+  const activeProblemList = useMemo(() => {
+    return activeSection === 'core' ? allProblemsSeed : impProblemsSeed
+  }, [activeSection])
+
+  const activeTopicsList = useMemo(() => {
+    return activeSection === 'core' ? TOPICS_LIST : IMP_TOPICS_LIST
+  }, [activeSection])
+
+  const currentSolvedMap = activeSection === 'core' ? coreSolvedMap : impSolvedMap
+  const selectedProblemNumber = activeSection === 'core' ? selectedCoreProblemNumber : selectedImpProblemNumber
+
   const currentProblem = useMemo(() => {
-    return allProblemsSeed.find((p) => p.number === selectedProblemNumber) ?? allProblemsSeed[0]
-  }, [selectedProblemNumber])
+    return activeProblemList.find((p) => p.number === selectedProblemNumber) ?? activeProblemList[0]
+  }, [activeProblemList, selectedProblemNumber])
 
   const problemData = useMemo(() => {
+    if (activeSection === 'imp') {
+      return getImpDetailedProblemData(currentProblem.number)
+    }
     return getDetailedProblemData(currentProblem.title, currentProblem.category, currentProblem.pattern)
-  }, [currentProblem])
+  }, [activeSection, currentProblem])
 
   // Category auto-expand
   useEffect(() => {
@@ -364,18 +389,40 @@ function App() {
   }, [currentProblem])
 
   const toggleSolved = (num: number) => {
-    setSolvedMap((prev) => {
-      const updated = { ...prev, [num]: !prev[num] }
-      try {
-        localStorage.setItem('leetmastery_solved', JSON.stringify(updated))
-      } catch {}
-      return updated
-    })
-    setToast(solvedMap[num] ? `Marked #${num} as Unsolved` : `Problem #${num} Solved! 🚀`)
+    if (activeSection === 'core') {
+      setCoreSolvedMap((prev) => {
+        const updated = { ...prev, [num]: !prev[num] }
+        try {
+          localStorage.setItem('leetmastery_solved', JSON.stringify(updated))
+        } catch {}
+        return updated
+      })
+      setToast(coreSolvedMap[num] ? `Marked #${num} as Unsolved` : `Problem #${num} Solved! 🚀`)
+    } else {
+      setImpSolvedMap((prev) => {
+        const updated = { ...prev, [num]: !prev[num] }
+        try {
+          localStorage.setItem('leetmastery_imp_solved', JSON.stringify(updated))
+        } catch {}
+        return updated
+      })
+      setToast(impSolvedMap[num] ? `Marked #${num} as Unsolved` : `DSA Problem #${num} Solved! ⭐`)
+    }
   }
 
   const toggleCategory = (cat: string) => {
     setExpandedCategories((prev) => ({ ...prev, [cat]: !prev[cat] }))
+  }
+
+  const switchSection = (section: SectionMode) => {
+    if (section === activeSection) return
+    setActiveSection(section)
+    setTopic('All topics')
+    setQuery('')
+    setDifficulty('All')
+    setApproachMode('optimal')
+    setTestStatus({ isRunning: false, hasRun: false, outputLog: [], percentile: '98.4%' })
+    setToast(section === 'imp' ? '⭐ Switched to Imp Questions (78 DSA in Python)!' : '⚡ Switched to Core Patterns (100+ LeetCode)!')
   }
 
   const currentApproach = useMemo(() => {
@@ -398,7 +445,7 @@ function App() {
   // Generate Ask ChatGPT link with beginner-friendly prompt
   const openChatGPT = () => {
     const code = currentCodeLines.join('\n')
-    const prompt = `Explain LeetCode Problem #${currentProblem.number}: ${currentProblem.title} (${currentProblem.pattern} pattern) step-by-step from absolute scratch.
+    const prompt = `Explain Problem #${currentProblem.number}: ${currentProblem.title} (${currentProblem.pattern} pattern) step-by-step from absolute scratch.
 
 Assume I am a beginner with zero algorithmic experience:
 1. Explain the problem simply using an everyday intuitive analogy.
@@ -456,7 +503,7 @@ ${code}`
 
   const filteredProblems = useMemo(() => {
     const normalized = query.trim().toLowerCase()
-    return allProblemsSeed.filter((p) => {
+    return activeProblemList.filter((p) => {
       const matchesQuery =
         !normalized ||
         [p.title, p.number, p.pattern, ...(p.topics || [])].join(' ').toLowerCase().includes(normalized)
@@ -464,7 +511,7 @@ ${code}`
       const matchesTopic = topic === 'All topics' || p.topics.includes(topic)
       return matchesQuery && matchesDifficulty && matchesTopic
     })
-  }, [difficulty, query, topic])
+  }, [activeProblemList, difficulty, query, topic])
 
   const groupedProblems = useMemo(() => {
     const groups = new Map<string, Problem[]>()
@@ -476,8 +523,8 @@ ${code}`
   }, [filteredProblems])
 
   const solvedCount = useMemo(() => {
-    return allProblemsSeed.filter((p) => solvedMap[p.number]).length
-  }, [solvedMap])
+    return activeProblemList.filter((p) => currentSolvedMap[p.number]).length
+  }, [activeProblemList, currentSolvedMap])
 
   useEffect(() => {
     if (!toast) return
@@ -486,7 +533,11 @@ ${code}`
   }, [toast])
 
   const selectProblem = (num: number) => {
-    setSelectedProblemNumber(num)
+    if (activeSection === 'core') {
+      setSelectedCoreProblemNumber(num)
+    } else {
+      setSelectedImpProblemNumber(num)
+    }
     setApproachMode('optimal')
     setTestStatus({ isRunning: false, hasRun: false, outputLog: [], percentile: '98.4%' })
   }
@@ -504,7 +555,33 @@ ${code}`
           <span className="brand-title">
             leet<span className="brand-accent">mastery</span>
           </span>
-          <span className="brand-version-badge">100+ PATTERNS</span>
+          <span className={`brand-version-badge ${activeSection === 'imp' ? 'imp-badge-brand' : ''}`}>
+            {activeSection === 'core' ? '100+ PATTERNS' : '78 DSA PYTHON'}
+          </span>
+        </div>
+
+        {/* Section Switcher Nav Buttons */}
+        <div className="section-switch-pill-group">
+          <button
+            type="button"
+            className={`section-tab-btn ${activeSection === 'core' ? 'active' : ''}`}
+            onClick={() => switchSection('core')}
+            title="Switch to Core 100+ LeetCode Patterns"
+          >
+            <Zap size={13} />
+            <span>Core Patterns</span>
+            <span className="section-tab-badge">100+</span>
+          </button>
+          <button
+            type="button"
+            className={`section-tab-btn imp-tab ${activeSection === 'imp' ? 'active' : ''}`}
+            onClick={() => switchSection('imp')}
+            title="Switch to 78 Important DSA in Python Questions (GitHub)"
+          >
+            <Star size={13} className="star-icon" />
+            <span>Imp Questions</span>
+            <span className="section-tab-badge imp-badge">78 DSA</span>
+          </button>
         </div>
 
         <div className="topbar-center">
@@ -512,7 +589,11 @@ ${code}`
             <Search size={14} className="search-icon" />
             <input
               aria-label="Search problems"
-              placeholder="Search 100+ problems, patterns, tags..."
+              placeholder={
+                activeSection === 'core'
+                  ? 'Search 100+ problems, patterns, tags...'
+                  : 'Search 78 DSA in Python questions, topics...'
+              }
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -523,10 +604,10 @@ ${code}`
         </div>
 
         <div className="topbar-actions">
-          <div className="solved-counter-pill" title="Tracked completed problems">
+          <div className="solved-counter-pill" title="Tracked completed problems in this section">
             <CheckCircle2 size={14} className="solved-icon" />
             <span>
-              <strong>{solvedCount}</strong> / {allProblemsSeed.length} Solved
+              <strong>{solvedCount}</strong> / {activeProblemList.length} Solved
             </span>
           </div>
 
@@ -545,8 +626,8 @@ ${code}`
         <aside className="sidebar">
           <div className="sidebar-heading">
             <div className="heading-title">
-              <Layers size={13} />
-              <span>Core Patterns ({allProblemsSeed.length})</span>
+              {activeSection === 'core' ? <Layers size={13} /> : <Star size={13} className="star-icon" />}
+              <span>{activeSection === 'core' ? 'Core Patterns' : 'DSA in Python'} ({activeProblemList.length})</span>
             </div>
             <span className="count-badge">{filteredProblems.length}</span>
           </div>
@@ -591,7 +672,7 @@ ${code}`
               <>
                 <div className="dropdown-backdrop" onClick={() => setIsTopicDropdownOpen(false)} />
                 <div className="topic-dropdown-menu" role="listbox">
-                  {TOPICS_LIST.map((t) => (
+                  {activeTopicsList.map((t) => (
                     <button
                       key={t}
                       type="button"
@@ -629,7 +710,7 @@ ${code}`
                   {isOpen && (
                     <div className="section-problems">
                       {categoryProblems.map((problem) => {
-                        const isSolved = !!solvedMap[problem.number]
+                        const isSolved = !!currentSolvedMap[problem.number]
                         const isSelected = selectedProblemNumber === problem.number
                         return (
                           <div
@@ -669,21 +750,21 @@ ${code}`
           {/* Sidebar Progress Footer */}
           <div className="sidebar-footer">
             <div className="progress-line">
-              <span>Your Mastery Progress</span>
+              <span>{activeSection === 'core' ? 'Mastery Progress' : 'Imp Questions Progress'}</span>
               <strong>
-                {solvedCount} / {allProblemsSeed.length} ({Math.round((solvedCount / allProblemsSeed.length) * 100)}%)
+                {solvedCount} / {activeProblemList.length} ({Math.round((solvedCount / activeProblemList.length) * 100)}%)
               </strong>
             </div>
             <div className="progress-track">
-              <span style={{ width: `${(solvedCount / allProblemsSeed.length) * 100}%` }} />
+              <span style={{ width: `${(solvedCount / activeProblemList.length) * 100}%` }} />
             </div>
             <div className="streak-banner">
               <div className="streak-icon">
-                <Flame size={14} />
+                {activeSection === 'core' ? <Flame size={14} /> : <Star size={14} />}
               </div>
               <div className="streak-info">
-                <strong>LeetCode Ready</strong>
-                <small>Best & Worst algorithmic patterns</small>
+                <strong>{activeSection === 'core' ? 'LeetCode Ready' : 'GitHub DSA in Python'}</strong>
+                <small>{activeSection === 'core' ? 'Best & Worst algorithmic patterns' : '78 Curated Striver & FAANG questions'}</small>
               </div>
             </div>
           </div>
@@ -695,7 +776,7 @@ ${code}`
           <section className="problem-top-banner">
             <div className="problem-header-left">
               <div className="breadcrumb-nav">
-                <span>LeetCode</span>
+                <span>{activeSection === 'core' ? 'LeetCode' : 'DSA in Python (GitHub)'}</span>
                 <ArrowRight size={12} />
                 <span>{currentProblem.category || currentProblem.topics[0]}</span>
                 <ArrowRight size={12} />
@@ -707,11 +788,11 @@ ${code}`
                   {currentProblem.number}. {currentProblem.title}
                 </h1>
                 <button
-                  className={`mark-solved-btn ${solvedMap[currentProblem.number] ? 'solved' : ''}`}
+                  className={`mark-solved-btn ${currentSolvedMap[currentProblem.number] ? 'solved' : ''}`}
                   onClick={() => toggleSolved(currentProblem.number)}
                 >
                   <Check size={14} />
-                  <span>{solvedMap[currentProblem.number] ? 'Solved' : 'Mark Solved'}</span>
+                  <span>{currentSolvedMap[currentProblem.number] ? 'Solved' : 'Mark Solved'}</span>
                 </button>
               </div>
 
@@ -741,9 +822,9 @@ ${code}`
                   href={currentProblem.url}
                   target="_blank"
                   rel="noreferrer"
-                  title="Open on LeetCode.com"
+                  title="Open Problem Reference"
                 >
-                  <span>LeetCode</span>
+                  <span>{currentProblem.url.includes('leetcode.com') ? 'LeetCode' : (currentProblem.url.includes('takeuforward.org') ? 'Striver DSA' : 'Reference')}</span>
                   <ExternalLink size={12} />
                 </a>
               </div>
@@ -1051,7 +1132,7 @@ ${code}`
                   {/* Xcode Breadcrumbs */}
                   <div className="xcode-breadcrumbs">
                     <TerminalSquare size={12} className="xcode-icon" />
-                    <span className="crumb">LeetMastery</span>
+                    <span className="crumb">{activeSection === 'core' ? 'LeetMastery' : 'DSA_in_Python'}</span>
                     <span className="sep">›</span>
                     <span className="crumb">{currentProblem.category || 'Solutions'}</span>
                     <span className="sep">›</span>

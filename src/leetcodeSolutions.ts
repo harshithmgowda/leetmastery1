@@ -1,3 +1,17 @@
+export type Difficulty = 'Easy' | 'Medium' | 'Hard'
+
+export type Problem = {
+  number: number
+  title: string
+  difficulty: Difficulty
+  topics: string[]
+  pattern: string
+  url: string
+  category?: string
+  solved?: boolean
+  source?: 'core' | 'imp'
+}
+
 export type CodeByLanguage = {
   python: string[]
   cpp: string[]

@@ -42,10 +42,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Collect values into array, reverse, and construct new list.",
       keySteps: ["1. Collect values.", "2. Rebuild list."],
       code: {
-        python: ["# Array rebuild"],
-        cpp: ["// Array rebuild"],
-        java: ["// Array rebuild"],
-        typescript: ["// Array rebuild"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -90,10 +90,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Extract values, reverse subslice, overwrite node values.",
       keySteps: ["1. Extract values.", "2. Reverse slice.", "3. Overwrite nodes."],
       code: {
-        python: ["# Array slice"],
-        cpp: ["// Array slice"],
-        java: ["// Array slice"],
-        typescript: ["// Array slice"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -138,10 +138,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Recursively attach smaller head to merged rest.",
       keySteps: ["1. Base cases.", "2. Recursive call."],
       code: {
-        python: ["# Recursive"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -186,10 +186,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Track visited nodes in a set.",
       keySteps: ["1. Store in set.", "2. Return true on duplicate."],
       code: {
-        python: ["# Hash set"],
-        cpp: ["// Hash set"],
-        java: ["// Hash set"],
-        typescript: ["// Hash set"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -234,10 +234,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Store nodes in set and return first duplicate.",
       keySteps: ["1. Loop nodes.", "2. Return duplicate."],
       code: {
-        python: ["# Hash set"],
-        cpp: ["// Hash set"],
-        java: ["// Hash set"],
-        typescript: ["// Hash set"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -282,10 +282,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Store nodes in array, rewire pointers from both ends.",
       keySteps: ["1. Array copy.", "2. Rewire."],
       code: {
-        python: ["# Array buffer"],
-        cpp: ["// Array buffer"],
-        java: ["// Array buffer"],
-        typescript: ["// Array buffer"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -330,10 +330,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Count total length L, then advance L-n steps from dummy to remove target node.",
       keySteps: ["1. Count length.", "2. Delete node."],
       code: {
-        python: ["# Two pass"],
-        cpp: ["// Two pass"],
-        java: ["// Two pass"],
-        typescript: ["// Two pass"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -378,10 +378,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Interleave copy nodes into original list to copy without hash map.",
       keySteps: ["1. Interleave.", "2. Copy random.", "3. Separate."],
       code: {
-        python: ["# Interleaving"],
-        cpp: ["// Interleaving"],
-        java: ["// Interleaving"],
-        typescript: ["// Interleaving"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -426,10 +426,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Extract numbers, sum, create linked list.",
       keySteps: ["1. Extract big integers.", "2. Add and reconstruct."],
       code: {
-        python: ["# BigInt conversion"],
-        cpp: ["// BigInt"],
-        java: ["// BigInt"],
-        typescript: ["// BigInt"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -474,10 +474,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Add numbers to set and return first duplicate.",
       keySteps: ["1. Loop nums.", "2. Return if in set."],
       code: {
-        python: ["# Hash set"],
-        cpp: ["// Hash set"],
-        java: ["// Hash set"],
-        typescript: ["// Hash set"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -522,10 +522,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Store items in list and find/splice on each access.",
       keySteps: ["1. Array splice on access."],
       code: {
-        python: ["# Array list"],
-        cpp: ["// Array list"],
-        java: ["// Array list"],
-        typescript: ["// Array list"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -570,10 +570,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Linear search through all elements on eviction.",
       keySteps: ["1. Search min frequency."],
       code: {
-        python: ["# Linear scan"],
-        cpp: ["// Linear scan"],
-        java: ["// Linear scan"],
-        typescript: ["// Linear scan"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -618,10 +618,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Extract all values into array, sort, and create new linked list.",
       keySteps: ["1. Collect all node values.", "2. Sort.", "3. Construct list."],
       code: {
-        python: ["# Sort all"],
-        cpp: ["// Sort all"],
-        java: ["// Sort all"],
-        typescript: ["// Sort all"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -666,10 +666,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Extract nodes into array, reverse chunks of size k, rewire pointers.",
       keySteps: ["1. Array copy.", "2. Chunk reverse.", "3. Rebuild."],
       code: {
-        python: ["# Array chunk"],
-        cpp: ["// Array chunk"],
-        java: ["// Array chunk"],
-        typescript: ["// Array chunk"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -714,10 +714,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Extract values to list, return vals == vals[::-1].",
       keySteps: ["1. Extract values.", "2. Compare reverse."],
       code: {
-        python: ["# Array check"],
-        cpp: ["// Array check"],
-        java: ["// Array check"],
-        typescript: ["// Array check"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -762,10 +762,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Add listA nodes to set. Traverse listB and return first node found in set.",
       keySteps: ["1. Store listA in set.", "2. Traverse listB."],
       code: {
-        python: ["# Hash set"],
-        cpp: ["// Hash set"],
-        java: ["// Hash set"],
-        typescript: ["// Hash set"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },
@@ -810,10 +810,10 @@ export const linkedListSolutions: Record<string, DetailedProblemData> = {
       explanation: "Count total length L, then advance L // 2 steps from head.",
       keySteps: ["1. Count length.", "2. Advance L//2 steps."],
       code: {
-        python: ["# Two pass"],
-        cpp: ["// Two pass"],
-        java: ["// Two pass"],
-        typescript: ["// Two pass"],
+        python: ["# Brute Force: Collect all node values in array, manipulate, and reconstruct list", "class Solution:", "    def solveBrute(self, head: Optional[ListNode]) -> Optional[ListNode]:", "        if not head: return None", "        vals = []", "        curr = head", "        while curr:", "            vals.append(curr.val)", "            curr = curr.next", "        dummy = ListNode(0)", "        curr = dummy", "        for v in vals:", "            curr.next = ListNode(v)", "            curr = curr.next", "        return dummy.next"],
+        cpp: ["// Brute Force: Array conversion - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    ListNode* solveBrute(ListNode* head) {", "        if (!head) return nullptr;", "        vector<int> vals;", "        ListNode* curr = head;", "        while (curr) { vals.push_back(curr->val); curr = curr->next; }", "        ListNode dummy(0); ListNode* tail = &dummy;", "        for (int v : vals) { tail->next = new ListNode(v); tail = tail->next; }", "        return dummy.next;", "    }", "};"],
+        java: ["// Brute Force: List collection - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    public ListNode solveBrute(ListNode head) {", "        if (head == null) return null;", "        List<Integer> vals = new ArrayList<>();", "        ListNode curr = head;", "        while (curr != null) { vals.add(curr.val); curr = curr.next; }", "        ListNode dummy = new ListNode(0); ListNode tail = dummy;", "        for (int v : vals) { tail.next = new ListNode(v); tail = tail.next; }", "        return dummy.next;", "    }", "}"],
+        typescript: ["// Brute Force: Array collection - O(n) Time | O(n) Space", "function solveBrute(head: ListNode | null): ListNode | null {", "  if (!head) return null;", "  const vals: number[] = [];", "  let curr: ListNode | null = head;", "  while (curr) { vals.push(curr.val); curr = curr.next; }", "  const dummy = new ListNode(0); let tail = dummy;", "  for (const v of vals) { tail.next = new ListNode(v); tail = tail.next; }", "  return dummy.next;", "}"]
       },
     },
   },

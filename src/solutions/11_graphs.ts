@@ -42,10 +42,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Initialize DSU with 1s as individual sets, union adjacent 1s, count distinct roots.",
       keySteps: ["1. DSU union adjacent 1s.", "2. Count components."],
       code: {
-        python: ["# DSU approach"],
-        cpp: ["// DSU"],
-        java: ["// DSU"],
-        typescript: ["// DSU"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -90,10 +90,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Use BFS queue to count connected 1s.",
       keySteps: ["1. BFS area count."],
       code: {
-        python: ["# BFS area"],
-        cpp: ["// BFS"],
-        java: ["// BFS"],
-        typescript: ["// BFS"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -138,10 +138,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Push nodes into BFS queue and clone edges iteratively.",
       keySteps: ["1. BFS queue.", "2. Clone edges."],
       code: {
-        python: ["# BFS clone"],
-        cpp: ["// BFS clone"],
-        java: ["// BFS clone"],
-        typescript: ["// BFS clone"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -186,10 +186,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Scan entire grid each minute to find all rotten oranges and propagate to fresh ones.",
       keySteps: ["1. Grid scan each minute."],
       code: {
-        python: ["# Grid scan simulation"],
-        cpp: ["// Grid scan"],
-        java: ["// Grid scan"],
-        typescript: ["// Grid scan"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -234,10 +234,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "From every cell, search if path exists to both oceans.",
       keySteps: ["1. DFS from each cell."],
       code: {
-        python: ["# Downhill DFS"],
-        cpp: ["// Downhill"],
-        java: ["// Downhill"],
-        typescript: ["// Downhill"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -282,10 +282,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Collect each connected component of O and flip if none touch border.",
       keySteps: ["1. Find component.", "2. Flip if no border touch."],
       code: {
-        python: ["# Component search"],
-        cpp: ["// Component"],
-        java: ["// Component"],
-        typescript: ["// Component"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -330,10 +330,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "State array: 0=unvisited, 1=visiting, 2=visited. If neighbor is 1, cycle found.",
       keySteps: ["1. DFS 3-state cycle check."],
       code: {
-        python: ["# 3-state DFS"],
-        cpp: ["// DFS 3-state"],
-        java: ["// DFS 3-state"],
-        typescript: ["// DFS 3-state"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -378,10 +378,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Run DFS with cycle detection, append node on exit, return reversed order.",
       keySteps: ["1. DFS post-order.", "2. Reverse order."],
       code: {
-        python: ["# DFS postorder"],
-        cpp: ["// DFS"],
-        java: ["// DFS"],
-        typescript: ["// DFS"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -426,10 +426,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Before adding edge (u, v), run DFS to see if path already exists between u and v.",
       keySteps: ["1. Check path with DFS.", "2. Add edge."],
       code: {
-        python: ["# DFS path check"],
-        cpp: ["// DFS"],
-        java: ["// DFS"],
-        typescript: ["// DFS"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -474,10 +474,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Expand from beginSet and endSet alternatively, meeting in middle.",
       keySteps: ["1. Two-ended BFS sets."],
       code: {
-        python: ["# Bidirectional BFS"],
-        cpp: ["// Bidirectional BFS"],
-        java: ["// Bidirectional BFS"],
-        typescript: ["// Bidirectional BFS"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -522,10 +522,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Initialize n components. Union whenever isConnected[i][j] == 1, decrement component count.",
       keySteps: ["1. DSU union.", "2. Decrement component count."],
       code: {
-        python: ["# DSU provinces"],
-        cpp: ["// DSU"],
-        java: ["// DSU"],
-        typescript: ["// DSU"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -570,10 +570,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "dfs(node, color): color node, recurse on neighbors with -color.",
       keySteps: ["1. DFS 2-color."],
       code: {
-        python: ["# DFS 2-color"],
-        cpp: ["// DFS 2-color"],
-        java: ["// DFS 2-color"],
-        typescript: ["// DFS 2-color"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },
@@ -618,10 +618,10 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
       explanation: "Use A* priority queue with heuristic max(abs(r - target_r), abs(c - target_c)).",
       keySteps: ["1. A* heuristic search."],
       code: {
-        python: ["# A* search"],
-        cpp: ["// A*"],
-        java: ["// A*"],
-        typescript: ["// A*"],
+        python: ["# Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space (Causes TLE on N=10^5)", "class Solution:", "    def solveBrute(self, nums: list[int], target: int = 0) -> int:", "        count = 0", "        n = len(nums)", "        for i in range(n):", "            for j in range(i + 1, n):", "                if nums[i] + nums[j] == target:", "                    count += 1", "        return count"],
+        cpp: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "#include <vector>", "using namespace std;", "class Solution {", "public:", "    int solveBrute(vector<int>& nums, int target = 0) {", "        int count = 0, n = nums.size();", "        for (int i = 0; i < n; ++i) {", "            for (int j = i + 1; j < n; ++j) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "class Solution {", "    public int solveBrute(int[] nums, int target) {", "        int count = 0, n = nums.length;", "        for (int i = 0; i < n; i++) {", "            for (int j = i + 1; j < n; j++) {", "                if (nums[i] + nums[j] == target) count++;", "            }", "        }", "        return count;", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Nested loop all pairs - O(n^2) Time | O(1) Space", "function solveBrute(nums: number[], target: number = 0): number {", "  let count = 0, n = nums.length;", "  for (let i = 0; i < n; i++) {", "    for (let j = i + 1; j < n; j++) {", "      if (nums[i] + nums[j] === target) count++;", "    }", "  }", "  return count;", "}"]
       },
     },
   },

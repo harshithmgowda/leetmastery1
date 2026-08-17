@@ -42,10 +42,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "paths(r, c): return paths(r+1, c) + paths(r, c+1).",
       keySteps: ["1. Recursive branching."],
       code: {
-        python: ["# Recursive paths"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -90,10 +90,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "Recurse skipping obstacle cells.",
       keySteps: ["1. Recurse."],
       code: {
-        python: ["# Recursive"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -138,10 +138,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "min_path(r, c) = grid[r][c] + min(min_path(r+1, c), min_path(r, c+1)).",
       keySteps: ["1. Recurse."],
       code: {
-        python: ["# Recursive"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -186,10 +186,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "Recursive match or branch.",
       keySteps: ["1. Recurse."],
       code: {
-        python: ["# Recursive LCS"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -234,10 +234,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "Explore buy, sell, cooldown recursively.",
       keySteps: ["1. Recurse."],
       code: {
-        python: ["# Recursive"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -282,10 +282,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "Recurse choosing coin or moving to next coin.",
       keySteps: ["1. Recurse."],
       code: {
-        python: ["# Recursive"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -330,10 +330,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "dfs(i, total): branch +nums[i] and -nums[i].",
       keySteps: ["1. Binary recursion."],
       code: {
-        python: ["# Recursive"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -378,10 +378,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "Recurse picking matching char from s1 or s2.",
       keySteps: ["1. Recurse."],
       code: {
-        python: ["# Recursive"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -426,10 +426,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "Recurse on insert, delete, replace.",
       keySteps: ["1. 3-way recursion."],
       code: {
-        python: ["# Recursive"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -474,10 +474,10 @@ export const dp2DSolutions: Record<string, DetailedProblemData> = {
       explanation: "Try all n! burst sequences.",
       keySteps: ["1. Permutations."],
       code: {
-        python: ["# n! permutations"],
-        cpp: ["// n!"],
-        java: ["// n!"],
-        typescript: ["// n!"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },

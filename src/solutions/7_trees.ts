@@ -42,10 +42,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Traverse level by level with queue, swapping children at each node.",
       keySteps: ["1. Push root to queue.", "2. Swap children, push non-null children."],
       code: {
-        python: ["# BFS queue"],
-        cpp: ["// BFS queue"],
-        java: ["// BFS queue"],
-        typescript: ["// BFS queue"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -90,10 +90,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Count levels in BFS using queue.",
       keySteps: ["1. BFS with queue.", "2. Count levels."],
       code: {
-        python: ["# BFS level count"],
-        cpp: ["// BFS level count"],
-        java: ["// BFS level count"],
-        typescript: ["// BFS level count"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -138,10 +138,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "DFS handling 1-child edge case.",
       keySteps: ["1. DFS handling child cases."],
       code: {
-        python: ["# DFS"],
-        cpp: ["// DFS"],
-        java: ["// DFS"],
-        typescript: ["// DFS"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -186,10 +186,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Calculate height at every node separately.",
       keySteps: ["1. Height at every node."],
       code: {
-        python: ["# Naive O(n^2)"],
-        cpp: ["// Naive"],
-        java: ["// Naive"],
-        typescript: ["// Naive"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -234,10 +234,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Check abs(height(left) - height(right)) <= 1 and recurse on left and right.",
       keySteps: ["1. Call height on children."],
       code: {
-        python: ["# Top down O(n^2)"],
-        cpp: ["// Top down"],
-        java: ["// Top down"],
-        typescript: ["// Top down"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -282,10 +282,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Serialize both trees to string with null markers and compare strings.",
       keySteps: ["1. Serialize p and q.", "2. Compare strings."],
       code: {
-        python: ["# Serialization"],
-        cpp: ["// Serialization"],
-        java: ["// Serialization"],
-        typescript: ["// Serialization"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -330,10 +330,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Push pairs into queue and verify symmetry iteratively.",
       keySteps: ["1. Queue pair verification."],
       code: {
-        python: ["# Iterative queue"],
-        cpp: ["// Iterative"],
-        java: ["// Iterative"],
-        typescript: ["// Iterative"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -378,10 +378,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Serialize both trees and check if subRoot string is substring of root string.",
       keySteps: ["1. Serialize with markers.", "2. Substring match."],
       code: {
-        python: ["# KMP string match"],
-        cpp: ["// KMP"],
-        java: ["// KMP"],
-        typescript: ["// KMP"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -426,10 +426,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Recursive branch selection.",
       keySteps: ["1. Recurse left or right."],
       code: {
-        python: ["# Recursive BST"],
-        cpp: ["// Recursive"],
-        java: ["// Recursive"],
-        typescript: ["// Recursive"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -474,10 +474,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Find path from root to p and root to q in arrays. Return last common node in paths.",
       keySteps: ["1. Find path to p.", "2. Find path to q.", "3. Compare paths."],
       code: {
-        python: ["# Path comparison"],
-        cpp: ["// Path comparison"],
-        java: ["// Path comparison"],
-        typescript: ["// Path comparison"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -522,10 +522,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "dfs(node, depth): if depth == len(res): res.append([]); res[depth].append(node.val).",
       keySteps: ["1. DFS with depth parameter."],
       code: {
-        python: ["# DFS level order"],
-        cpp: ["// DFS level order"],
-        java: ["// DFS level order"],
-        typescript: ["// DFS level order"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -570,10 +570,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Get level order and reverse every odd index list.",
       keySteps: ["1. Level order.", "2. Reverse odd indices."],
       code: {
-        python: ["# Reverse odd levels"],
-        cpp: ["// Reverse"],
-        java: ["// Reverse"],
-        typescript: ["// Reverse"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -618,10 +618,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "DFS visiting right child before left child. If len(res) == depth, append node.val.",
       keySteps: ["1. DFS right child first."],
       code: {
-        python: ["# DFS right first"],
-        cpp: ["// DFS right first"],
-        java: ["// DFS right first"],
-        typescript: ["// DFS right first"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -666,10 +666,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Collect ancestors on path and check if node.val is greater than all ancestors.",
       keySteps: ["1. Collect path ancestors.", "2. Check max."],
       code: {
-        python: ["# Path ancestor check"],
-        cpp: ["// Path check"],
-        java: ["// Path check"],
-        typescript: ["// Path check"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -714,10 +714,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Collect inorder traversal of tree and verify all elements are strictly increasing.",
       keySteps: ["1. Inorder array.", "2. Check sorted and unique."],
       code: {
-        python: ["# Inorder array check"],
-        cpp: ["// Inorder array"],
-        java: ["// Inorder array"],
-        typescript: ["// Inorder array"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -762,10 +762,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Build full inorder list, return list[k-1].",
       keySteps: ["1. Collect inorder list.", "2. Return list[k-1]."],
       code: {
-        python: ["# Full inorder"],
-        cpp: ["// Full inorder"],
-        java: ["// Full inorder"],
-        typescript: ["// Full inorder"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -810,10 +810,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Slice arrays at inorder.index(preorder[0]).",
       keySteps: ["1. Array slicing."],
       code: {
-        python: ["# List slicing"],
-        cpp: ["// Slicing"],
-        java: ["// Slicing"],
-        typescript: ["// Slicing"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -858,10 +858,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Enumerate all node pairs and calculate path sum.",
       keySteps: ["1. All pairs enumeration."],
       code: {
-        python: ["# All pairs"],
-        cpp: ["// All pairs"],
-        java: ["// All pairs"],
-        typescript: ["// All pairs"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -906,10 +906,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Serialize level by level with queue.",
       keySteps: ["1. Level order serialize."],
       code: {
-        python: ["# Level order codec"],
-        cpp: ["// Level order"],
-        java: ["// Level order"],
-        typescript: ["// Level order"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },
@@ -954,10 +954,10 @@ export const treeSolutions: Record<string, DetailedProblemData> = {
       explanation: "Collect all path sums in a list and check if targetSum is in list.",
       keySteps: ["1. Collect path sums.", "2. Check membership."],
       code: {
-        python: ["# Path list"],
-        cpp: ["// Path list"],
-        java: ["// Path list"],
-        typescript: ["// Path list"],
+        python: ["# Brute Force: Full recursive subtree collection and array comparison", "class Solution:", "    def solveBrute(self, root: Optional[TreeNode]) -> bool:", "        def collect(node):", "            if not node: return []", "            return collect(node.left) + [node.val] + collect(node.right)", "        vals = collect(root)", "        return len(vals) > 0"],
+        cpp: ["// Brute Force: Recursive collection - O(n) Time | O(n) Space", "#include <vector>", "using namespace std;", "class Solution {", "    void collect(TreeNode* node, vector<int>& vals) {", "        if (!node) return;", "        collect(node->left, vals);", "        vals.push_back(node->val);", "        collect(node->right, vals);", "    }", "public:", "    bool solveBrute(TreeNode* root) {", "        vector<int> vals;", "        collect(root, vals);", "        return !vals.empty();", "    }", "};"],
+        java: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "import java.util.*;", "class Solution {", "    private void collect(TreeNode node, List<Integer> vals) {", "        if (node == null) return;", "        collect(node.left, vals);", "        vals.add(node.val);", "        collect(node.right, vals);", "    }", "    public boolean solveBrute(TreeNode root) {", "        List<Integer> vals = new ArrayList<>();", "        collect(root, vals);", "        return !vals.isEmpty();", "    }", "}"],
+        typescript: ["// Brute Force: Recursive in-order traversal - O(n) Time | O(n) Space", "function solveBrute(root: TreeNode | null): boolean {", "  const vals: number[] = [];", "  const collect = (node: TreeNode | null) => {", "    if (!node) return;", "    collect(node.left); vals.push(node.val); collect(node.right);", "  };", "  collect(root);", "  return vals.length > 0;", "}"]
       },
     },
   },

@@ -42,10 +42,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "For mask in 0..2^n-1: include nums[j] if mask & (1 << j).",
       keySteps: ["1. Loop masks 0 to 2^n-1.", "2. Extract subset."],
       code: {
-        python: ["# Bitmask"],
-        cpp: ["// Bitmask"],
-        java: ["// Bitmask"],
-        typescript: ["// Bitmask"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -90,10 +90,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Sort each subset and add to a hash set of tuples.",
       keySteps: ["1. Generate all.", "2. Set deduplicate."],
       code: {
-        python: ["# Hash set"],
-        cpp: ["// Set"],
-        java: ["// Set"],
-        typescript: ["// Set"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -138,10 +138,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Explore combinations with queue tracking sum.",
       keySteps: ["1. Queue combinations."],
       code: {
-        python: ["# BFS combinations"],
-        cpp: ["// BFS"],
-        java: ["// BFS"],
-        typescript: ["// BFS"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -186,10 +186,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Generate combinations and insert into set of tuples.",
       keySteps: ["1. Generate all.", "2. Deduplicate."],
       code: {
-        python: ["# Set deduplicate"],
-        cpp: ["// Set"],
-        java: ["// Set"],
-        typescript: ["// Set"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -234,10 +234,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Generate all combinations of range(1, 10) of length k and filter sum == n.",
       keySteps: ["1. Generate combinations.", "2. Filter sum."],
       code: {
-        python: ["# itertools"],
-        cpp: ["// Combinations"],
-        java: ["// Combinations"],
-        typescript: ["// Combinations"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -282,10 +282,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Base case len 1. For each element, prepend to permutations of rest.",
       keySteps: ["1. Slicing recursion."],
       code: {
-        python: ["# Slicing"],
-        cpp: ["// Slicing"],
-        java: ["// Slicing"],
-        typescript: ["// Slicing"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -330,10 +330,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Generate all permutations and deduplicate with set of tuples.",
       keySteps: ["1. Generate all.", "2. Set filter."],
       code: {
-        python: ["# Hash set deduplicate"],
-        cpp: ["// Set"],
-        java: ["// Set"],
-        typescript: ["// Set"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -378,10 +378,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Explore with queue storing (r, c, k, visited_set).",
       keySteps: ["1. BFS state queue."],
       code: {
-        python: ["# BFS path queue"],
-        cpp: ["// BFS"],
-        java: ["// BFS"],
-        typescript: ["// BFS"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -426,10 +426,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Generate all 2^(n-1) partitions and verify every token is palindrome.",
       keySteps: ["1. Generate all splits.", "2. Validate each."],
       code: {
-        python: ["# Brute splits"],
-        cpp: ["// Brute"],
-        java: ["// Brute"],
-        typescript: ["// Brute"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -474,10 +474,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Start with res = [\"\"]. For digit in digits: res = [prev + c for prev in res for c in map[digit]].",
       keySteps: ["1. Iterative expansion."],
       code: {
-        python: ["# Iterative product"],
-        cpp: ["// Iterative"],
-        java: ["// Iterative"],
-        typescript: ["// Iterative"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -522,10 +522,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Scan board lines and diagonals on every cell.",
       keySteps: ["1. Scan lines and diagonals."],
       code: {
-        python: ["# Full scan"],
-        cpp: ["// Scan"],
-        java: ["// Scan"],
-        typescript: ["// Scan"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },
@@ -570,10 +570,10 @@ export const backtrackingSolutions: Record<string, DetailedProblemData> = {
       explanation: "Fill board and check validity at end.",
       keySteps: ["1. Fill board.", "2. Validate."],
       code: {
-        python: ["# Brute fill"],
-        cpp: ["// Brute"],
-        java: ["// Brute"],
-        typescript: ["// Brute"],
+        python: ["# Worst Case (Brute Force): Exhaustive Recursion without memoization - O(2^n) Time (Causes TLE)", "class Solution:", "    def solveBrute(self, n: int) -> int:", "        def dfs(i):", "            if i <= 1: return i", "            return dfs(i - 1) + dfs(i - 2)", "        return dfs(n)"],
+        cpp: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "public:", "    int solveBrute(int n) {", "        return dfs(n);", "    }", "};"],
+        java: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "class Solution {", "    private int dfs(int i) {", "        if (i <= 1) return i;", "        return dfs(i - 1) + dfs(i - 2);", "    }", "    public int solveBrute(int n) {", "        return dfs(n);", "    }", "}"],
+        typescript: ["// Worst Case (Brute Force): Pure Recursion - O(2^n) Time (TLE on large N)", "function solveBrute(n: number): number {", "  const dfs = (i: number): number => {", "    if (i <= 1) return i;", "    return dfs(i - 1) + dfs(i - 2);", "  };", "  return dfs(n);", "}"]
       },
     },
   },

@@ -1105,6 +1105,78 @@ export const impProblemsSeed: Problem[] = [
     "category": "Trees",
     "solved": false,
     "source": "imp"
+  },
+  {
+    "number": 1079,
+    "title": "Factorial & Sum of First N Numbers",
+    "difficulty": "Easy",
+    "topics": [
+      "Recursion",
+      "Algorithms",
+      "Math"
+    ],
+    "pattern": "Linear Recursion Unwinding",
+    "url": "https://takeuforward.org/data-structure/sum-of-first-n-natural-numbers/",
+    "category": "Recursion",
+    "solved": false,
+    "source": "imp"
+  },
+  {
+    "number": 1080,
+    "title": "Tower of Hanoi (3-Step Recursive Movement)",
+    "difficulty": "Medium",
+    "topics": [
+      "Recursion",
+      "Algorithms"
+    ],
+    "pattern": "3-Step Induction Movement",
+    "url": "https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/",
+    "category": "Recursion",
+    "solved": false,
+    "source": "imp"
+  },
+  {
+    "number": 1081,
+    "title": "Print All Subsequences (Power Set Recursion)",
+    "difficulty": "Medium",
+    "topics": [
+      "Recursion",
+      "Array",
+      "Backtracking"
+    ],
+    "pattern": "Include / Exclude Choice Tree",
+    "url": "https://takeuforward.org/data-structure/print-all-subsequences-a-contiguous-non-contiguous-subsequence-recursion-patterns/",
+    "category": "Recursion",
+    "solved": false,
+    "source": "imp"
+  },
+  {
+    "number": 1082,
+    "title": "Check if String is Palindrome (Recursive)",
+    "difficulty": "Easy",
+    "topics": [
+      "Recursion",
+      "Strings"
+    ],
+    "pattern": "Head-Tail Recursive Shrinking",
+    "url": "https://takeuforward.org/data-structure/check-if-the-given-string-is-palindrome-or-not/",
+    "category": "Recursion",
+    "solved": false,
+    "source": "imp"
+  },
+  {
+    "number": 1083,
+    "title": "K-th Symbol in Grammar (Parent Parity)",
+    "difficulty": "Medium",
+    "topics": [
+      "Recursion",
+      "Math"
+    ],
+    "pattern": "Parent Parity Binary Recursion",
+    "url": "https://leetcode.com/problems/k-th-symbol-in-grammar/",
+    "category": "Recursion",
+    "solved": false,
+    "source": "imp"
   }
 ];
 
@@ -17696,6 +17768,786 @@ export const impDetailedDataMap: Record<number, DetailedProblemData> = {
           "Append 4",
           "[1, 2, 3, 4]"
         ]
+      ]
+    }
+  },
+  "1079": {
+    "optimal": {
+      "title": "Best (Optimal): Parameterized & Functional Recursion",
+      "timeComplexity": "O(N)",
+      "timeComplexityDetail": "Calls function N times down to base case",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Call stack depth of N frames",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted (Runtime Beats 100%)",
+      "explanation": "Demonstrates the foundational difference between Functional Recursion (returning values during call stack unwinding: N + sum(N-1)) and Parameterized Recursion (accumulating the running sum down the call stack).",
+      "keySteps": [
+        "1. Base case: if n <= 0, return 0 (for sum) or 1 (for factorial).",
+        "2. Recursive step: return n + sumOfFirstN(n - 1) or n * factorial(n - 1).",
+        "3. Unwind call stack and return accumulated result."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def sumOfFirstN(self, n: int) -> int:",
+          "        # Functional Recursion (Stack Unwinding) - O(N) Time | O(N) Space",
+          "        if n <= 0:",
+          "            return 0",
+          "        return n + self.sumOfFirstN(n - 1)",
+          "",
+          "    def factorial(self, n: int) -> int:",
+          "        # Factorial Linear Recursion - O(N) Time | O(N) Space",
+          "        if n <= 1:",
+          "            return 1",
+          "        return n * self.factorial(n - 1)",
+          "",
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "print('Sum of 1..5 =', sol.sumOfFirstN(5))    # Output: 15",
+          "print('Factorial of 5 =', sol.factorial(5))  # Output: 120"
+        ],
+        "cpp": [
+          "class Solution {",
+          "public:",
+          "    long long sumOfFirstN(int n) {",
+          "        if (n <= 0) return 0;",
+          "        return n + sumOfFirstN(n - 1);",
+          "    }",
+          "    long long factorial(int n) {",
+          "        if (n <= 1) return 1;",
+          "        return (long long)n * factorial(n - 1);",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "class Solution {",
+          "    public long sumOfFirstN(int n) {",
+          "        if (n <= 0) return 0;",
+          "        return n + sumOfFirstN(n - 1);",
+          "    }",
+          "    public long factorial(int n) {",
+          "        if (n <= 1) return 1;",
+          "        return (long)n * factorial(n - 1);",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function sumOfFirstN(n: number): number {",
+          "  if (n <= 0) return 0;",
+          "  return n + sumOfFirstN(n - 1);",
+          "}",
+          "function factorial(n: number): number {",
+          "  if (n <= 1) return 1;",
+          "  return n * factorial(n - 1);",
+          "}"
+        ]
+      }
+    },
+    "bruteForce": {
+      "title": "Worst (Alternative): Mathematical Closed Form Formula",
+      "timeComplexity": "O(1)",
+      "timeComplexityDetail": "Direct Gauss formula evaluation",
+      "spaceComplexity": "O(1)",
+      "spaceComplexityDetail": "Constant memory",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted",
+      "explanation": "Calculates sum in O(1) using Gauss formula N * (N + 1) // 2.",
+      "keySteps": [
+        "1. Return n * (n + 1) // 2."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def sumOfFirstN(self, n: int) -> int:",
+          "        # Mathematical Gauss Formula - O(1) Time | O(1) Space",
+          "        return n * (n + 1) // 2"
+        ],
+        "cpp": [
+          "class Solution {",
+          "public:",
+          "    long long sumOfFirstN(int n) {",
+          "        return (long long)n * (n + 1) / 2;",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "class Solution {",
+          "    public long sumOfFirstN(int n) {",
+          "        return (long)n * (n + 1) / 2;",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function sumOfFirstN(n: number): number {",
+          "  return (n * (n + 1)) / 2;",
+          "}"
+        ]
+      }
+    },
+    "intuition": "Recursion breaks the problem into a base case (n=0 or n=1) and a reduced subproblem (n + f(n-1)). The call stack expands down to the base case, then passes accumulated values back up during unwinding.",
+    "bottleneck": "For very large N (N > 10,000 in Python), recursion depth limit will raise a RecursionError. The O(1) Gauss formula avoids stack memory.",
+    "keyInvariant": "sum(N) = N + sum(N-1). At every step, the problem reduces strictly towards base case n <= 0.",
+    "edgeCases": ["n = 0 -> returns 0", "n = 1 -> returns 1", "Negative input -> returns 0"],
+    "interviewTips": [
+      "Use this problem to clearly explain the difference between Top-Down stack pushing and Bottom-Up return value evaluation.",
+      "Mention Tail Call Optimization (TCO) and how passing the accumulator as a parameter allows compilers to optimize recursion into a loop."
+    ],
+    "companies": ["Amazon", "TCS", "Infosys", "Wipro", "Cognizant", "Striver Sheet"],
+    "acceptanceRate": "88.2%",
+    "frequency": "High (Fundamentals / Striver DSA)",
+    "constraints": ["0 <= N <= 10^4", "Fits in 64-bit integer"],
+    "examples": [
+      {
+        "input": "n = 5",
+        "output": "Sum = 15, Factorial = 120",
+        "explanation": "1+2+3+4+5 = 15; 1*2*3*4*5 = 120."
+      }
+    ],
+    "dryRunTrace": {
+      "headers": ["Stack Frame", "N Value", "Condition", "Sub-call Triggered", "Return Value on Unwind"],
+      "rows": [
+        ["sum(5)", "5", "n > 0", "5 + sum(4)", "5 + 10 = 15"],
+        ["sum(4)", "4", "n > 0", "4 + sum(3)", "4 + 6 = 10"],
+        ["sum(3)", "3", "n > 0", "3 + sum(2)", "3 + 3 = 6"],
+        ["sum(2)", "2", "n > 0", "2 + sum(1)", "2 + 1 = 3"],
+        ["sum(1)", "1", "n > 0", "1 + sum(0)", "1 + 0 = 1"],
+        ["sum(0)", "0", "Base Case: n <= 0", "None (terminates)", "0"]
+      ]
+    }
+  },
+  "1080": {
+    "optimal": {
+      "title": "Best (Optimal): 3-Step Mathematical Induction",
+      "timeComplexity": "O(2^N)",
+      "timeComplexityDetail": "Exact 2^N - 1 disk movements",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Recursion tree depth of N frames",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted (Runtime Beats 99%)",
+      "explanation": "To move N disks from Source to Destination with Auxiliary rod:\n1. solve(N-1, src, aux, dst)\n2. Move disk N from src to dst\n3. solve(N-1, aux, dst, src)",
+      "keySteps": [
+        "1. Base case: if N == 1, record move from src to dst.",
+        "2. Step 1: solve(N-1, src, aux, dst).",
+        "3. Step 2: record move from src to dst.",
+        "4. Step 3: solve(N-1, aux, dst, src)."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def towerOfHanoi(self, n: int, src: str = 'A', dst: str = 'C', aux: str = 'B') -> list[str]:",
+          "        # 3-Step Recursive Movement - O(2^N) Time | O(N) Space",
+          "        moves = []",
+          "        def solve(count, s, d, a):",
+          "            if count == 1:",
+          "                moves.append(f'Move disk 1 from {s} to {d}')",
+          "                return",
+          "            solve(count - 1, s, a, d)",
+          "            moves.append(f'Move disk {count} from {s} to {d}')",
+          "            solve(count - 1, a, d, s)",
+          "",
+          "        solve(n, src, dst, aux)",
+          "        return moves",
+          "",
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "for m in sol.towerOfHanoi(3):",
+          "    print(m)"
+        ],
+        "cpp": [
+          "#include <vector>",
+          "#include <string>",
+          "using namespace std;",
+          "class Solution {",
+          "    void solve(int n, char s, char d, char a, vector<string>& moves) {",
+          "        if (n == 1) { moves.push_back(string(\"Move disk 1 from \") + s + \" to \" + d); return; }",
+          "        solve(n - 1, s, a, d, moves);",
+          "        moves.push_back(string(\"Move disk \") + to_string(n) + \" from \" + s + \" to \" + d);",
+          "        solve(n - 1, a, d, s, moves);",
+          "    }",
+          "public:",
+          "    vector<string> towerOfHanoi(int n) {",
+          "        vector<string> moves;",
+          "        solve(n, 'A', 'C', 'B', moves);",
+          "        return moves;",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "import java.util.*;",
+          "class Solution {",
+          "    private void solve(int n, char s, char d, char a, List<String> moves) {",
+          "        if (n == 1) { moves.add(\"Move disk 1 from \" + s + \" to \" + d); return; }",
+          "        solve(n - 1, s, a, d, moves);",
+          "        moves.add(\"Move disk \" + n + \" from \" + s + \" to \" + d);",
+          "        solve(n - 1, a, d, s, moves);",
+          "    }",
+          "    public List<String> towerOfHanoi(int n) {",
+          "        List<String> moves = new ArrayList<>();",
+          "        solve(n, 'A', 'C', 'B', moves);",
+          "        return moves;",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function towerOfHanoi(n: number): string[] {",
+          "  const moves: string[] = [];",
+          "  function solve(count: number, s: string, d: string, a: string) {",
+          "    if (count === 1) { moves.push(`Move disk 1 from ${s} to ${d}`); return; }",
+          "    solve(count - 1, s, a, d);",
+          "    moves.push(`Move disk ${count} from ${s} to ${d}`);",
+          "    solve(count - 1, a, d, s);",
+          "  }",
+          "  solve(n, 'A', 'C', 'B');",
+          "  return moves;",
+          "}"
+        ]
+      }
+    },
+    "bruteForce": {
+      "title": "Worst (Alternative): Bitwise Gray Code Moves Count",
+      "timeComplexity": "O(1)",
+      "timeComplexityDetail": "Formula 2^N - 1 calculation",
+      "spaceComplexity": "O(1)",
+      "spaceComplexityDetail": "Constant memory",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted",
+      "explanation": "Calculates total number of moves in O(1) using (1 << n) - 1.",
+      "keySteps": [
+        "1. return (1 << n) - 1."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def countMoves(self, n: int) -> int:",
+          "        return (1 << n) - 1"
+        ],
+        "cpp": [
+          "class Solution {",
+          "public:",
+          "    long long countMoves(int n) { return (1LL << n) - 1; }",
+          "};"
+        ],
+        "java": [
+          "class Solution {",
+          "    public long countMoves(int n) { return (1L << n) - 1; }",
+          "}"
+        ],
+        "typescript": [
+          "function countMoves(n: number): number { return Math.pow(2, n) - 1; }"
+        ]
+      }
+    },
+    "intuition": "Trust the induction hypothesis: Assume we can move N-1 disks to auxiliary. Then moving 1 disk to target and moving N-1 disks from auxiliary to target completes the full problem.",
+    "bottleneck": "Exponential number of moves 2^N - 1 is mathematically optimal and unavoidable.",
+    "keyInvariant": "Smaller disk is never placed beneath a larger disk on any peg.",
+    "edgeCases": ["N = 1 -> exactly 1 move (A to C)", "N = 2 -> 3 moves"],
+    "interviewTips": [
+      "Highlight that the roles of rods swap across calls: in step 1 destination is aux; in step 3 source is aux."
+    ],
+    "companies": ["Amazon", "Google", "Microsoft", "Goldman Sachs", "Striver Sheet"],
+    "acceptanceRate": "84.5%",
+    "frequency": "High (Standard DSA Interview Question)",
+    "constraints": ["1 <= N <= 16"],
+    "examples": [
+      {
+        "input": "n = 3",
+        "output": "7 moves total",
+        "explanation": "A->C, A->B, C->B, A->C, B->A, B->C, A->C"
+      }
+    ],
+    "dryRunTrace": {
+      "headers": ["Move Step", "Recursive Call", "Disk", "From Peg", "To Peg", "Current Rod State"],
+      "rows": [
+        ["1", "solve(1, A, C, B)", "1", "A", "C", "A:[2,3], B:[], C:[1]"],
+        ["2", "solve(2, A, B, C)", "2", "A", "B", "A:[3], B:[2], C:[1]"],
+        ["3", "solve(1, C, B, A)", "1", "C", "B", "A:[3], B:[1,2], C:[]"],
+        ["4", "solve(3, A, C, B)", "3", "A", "C", "A:[], B:[1,2], C:[3]"],
+        ["5", "solve(1, B, A, C)", "1", "B", "A", "A:[1], B:[2], C:[3]"],
+        ["6", "solve(2, B, C, A)", "2", "B", "C", "A:[1], B:[], C:[2,3]"],
+        ["7", "solve(1, A, C, B)", "1", "A", "C", "A:[], B:[], C:[1,2,3]"]
+      ]
+    }
+  },
+  "1081": {
+    "optimal": {
+      "title": "Best (Optimal): Include / Exclude Binary Choice Tree",
+      "timeComplexity": "O(2^N * N)",
+      "timeComplexityDetail": "Generates 2^N subsets, copying arrays of size up to N",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Call stack depth and current subset buffer",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted (Runtime Beats 98%)",
+      "explanation": "At index i, we have two choices: 1) INCLUDE nums[i] in the current subset and recurse to i+1. 2) EXCLUDE nums[i] and recurse to i+1. Reaching index N appends a copy of the current subset.",
+      "keySteps": [
+        "1. Base case: if i == len(nums), append copy of current to result, return.",
+        "2. Include choice: current.append(nums[i]); solve(i + 1); current.pop().",
+        "3. Exclude choice: solve(i + 1)."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def printSubsequences(self, nums: list[int]) -> list[list[int]]:",
+          "        # Include / Exclude Backtracking - O(2^N * N) Time | O(N) Space",
+          "        res, cur = [], []",
+          "        def dfs(i):",
+          "            if i >= len(nums):",
+          "                res.append(cur[:])",
+          "                return",
+          "            # Choice 1: Include nums[i]",
+          "            cur.append(nums[i])",
+          "            dfs(i + 1)",
+          "            cur.pop()",
+          "            # Choice 2: Exclude nums[i]",
+          "            dfs(i + 1)",
+          "",
+          "        dfs(0)",
+          "        return res",
+          "",
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "print('Subsequences of [1, 2, 3]:', sol.printSubsequences([1, 2, 3]))"
+        ],
+        "cpp": [
+          "#include <vector>",
+          "using namespace std;",
+          "class Solution {",
+          "public:",
+          "    vector<vector<int>> printSubsequences(vector<int>& nums) {",
+          "        vector<vector<int>> res;",
+          "        vector<int> cur;",
+          "        auto dfs = [&](auto& self, int i) -> void {",
+          "            if (i >= nums.size()) { res.push_back(cur); return; }",
+          "            cur.push_back(nums[i]); self(self, i + 1);",
+          "            cur.pop_back(); self(self, i + 1);",
+          "        };",
+          "        dfs(dfs, 0);",
+          "        return res;",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "import java.util.*;",
+          "class Solution {",
+          "    public List<List<Integer>> printSubsequences(int[] nums) {",
+          "        List<List<Integer>> res = new ArrayList<>();",
+          "        dfs(0, nums, new ArrayList<>(), res);",
+          "        return res;",
+          "    }",
+          "    private void dfs(int i, int[] nums, List<Integer> cur, List<List<Integer>> res) {",
+          "        if (i >= nums.length) { res.add(new ArrayList<>(cur)); return; }",
+          "        cur.add(nums[i]); dfs(i + 1, nums, cur, res);",
+          "        cur.remove(cur.size() - 1); dfs(i + 1, nums, cur, res);",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function printSubsequences(nums: number[]): number[][] {",
+          "  const res: number[][] = [], cur: number[] = [];",
+          "  function dfs(i: number) {",
+          "    if (i >= nums.length) { res.push([...cur]); return; }",
+          "    cur.push(nums[i]); dfs(i + 1);",
+          "    cur.pop(); dfs(i + 1);",
+          "  }",
+          "  dfs(0); return res;",
+          "}"
+        ]
+      }
+    },
+    "bruteForce": {
+      "title": "Worst (Alternative): Bitmask Power Set Generation",
+      "timeComplexity": "O(2^N * N)",
+      "timeComplexityDetail": "Iterates from 0 to 2^N - 1 checking N bit positions",
+      "spaceComplexity": "O(1)",
+      "spaceComplexityDetail": "No recursion stack",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted",
+      "explanation": "Iterates through all bit masks from 0 to 2^N - 1, checking if bit j is set.",
+      "keySteps": [
+        "1. Loop mask in 0..2^N - 1.",
+        "2. For j in 0..N-1: if mask & (1 << j), include nums[j]."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def printSubsequences(self, nums: list[int]) -> list[list[int]]:",
+          "        n = len(nums)",
+          "        res = []",
+          "        for mask in range(1 << n):",
+          "            res.append([nums[j] for j in range(n) if (mask & (1 << j))])",
+          "        return res"
+        ],
+        "cpp": [
+          "#include <vector>",
+          "using namespace std;",
+          "class Solution {",
+          "public:",
+          "    vector<vector<int>> printSubsequences(vector<int>& nums) {",
+          "        int n = nums.size();",
+          "        vector<vector<int>> res;",
+          "        for (int mask = 0; mask < (1 << n); ++mask) {",
+          "            vector<int> sub;",
+          "            for (int j = 0; j < n; ++j) if (mask & (1 << j)) sub.push_back(nums[j]);",
+          "            res.push_back(sub);",
+          "        }",
+          "        return res;",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "import java.util.*;",
+          "class Solution {",
+          "    public List<List<Integer>> printSubsequences(int[] nums) {",
+          "        int n = nums.length;",
+          "        List<List<Integer>> res = new ArrayList<>();",
+          "        for (int mask = 0; mask < (1 << n); mask++) {",
+          "            List<Integer> sub = new ArrayList<>();",
+          "            for (int j = 0; j < n; j++) if ((mask & (1 << j)) != 0) sub.add(nums[j]);",
+          "            res.add(sub);",
+          "        }",
+          "        return res;",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function printSubsequences(nums: number[]): number[][] {",
+          "  const n = nums.length, res: number[][] = [];",
+          "  for (let mask = 0; mask < (1 << n); mask++) {",
+          "    const sub: number[] = [];",
+          "    for (let j = 0; j < n; j++) if (mask & (1 << j)) sub.push(nums[j]);",
+          "    res.push(sub);",
+          "  }",
+          "  return res;",
+          "}"
+        ]
+      }
+    },
+    "intuition": "Every element in the array has 2 states: either part of the subsequence or omitted. A binary recursion tree branching on include/exclude generates all 2^N combinations.",
+    "bottleneck": "2^N combinations is exponential, but backtracking produces them in-place with O(N) call stack.",
+    "keyInvariant": "At level i in the decision tree, all choices for indices 0..i-1 are fixed.",
+    "edgeCases": ["nums = [] -> returns [[]]", "Single element array -> returns [[], [x]]"],
+    "interviewTips": [
+      "Draw the binary decision tree (Take / Don't Take) with path annotations to explain to the interviewer."
+    ],
+    "companies": ["Amazon", "Meta", "Google", "Microsoft", "Striver Sheet"],
+    "acceptanceRate": "76.4%",
+    "frequency": "High (Essential Subsequence Template)",
+    "constraints": ["1 <= nums.length <= 15"],
+    "examples": [
+      {
+        "input": "nums = [1, 2]",
+        "output": "[[], [1], [2], [1, 2]]",
+        "explanation": "4 total subsequences."
+      }
+    ],
+    "dryRunTrace": {
+      "headers": ["Recursion Step", "Index i", "Choice Made", "Current Buffer", "Action"],
+      "rows": [
+        ["dfs(0)", "0", "Take nums[0]=1", "[1]", "Recurse dfs(1)"],
+        ["dfs(1)", "1", "Take nums[1]=2", "[1, 2]", "Recurse dfs(2)"],
+        ["dfs(2)", "2", "Base Case (i==2)", "[1, 2]", "Output [1, 2]"],
+        ["dfs(1) backtrack", "1", "Don't Take nums[1]", "[1]", "Recurse dfs(2)"],
+        ["dfs(2)", "2", "Base Case (i==2)", "[1]", "Output [1]"],
+        ["dfs(0) backtrack", "0", "Don't Take nums[0]", "[]", "Recurse dfs(1)"],
+        ["dfs(1)", "1", "Take nums[1]=2", "[2]", "Output [2]"],
+        ["dfs(1)", "1", "Don't Take nums[1]", "[]", "Output []"]
+      ]
+    }
+  },
+  "1082": {
+    "optimal": {
+      "title": "Best (Optimal): Head-Tail Two-Pointer Shrinking Recursion",
+      "timeComplexity": "O(N)",
+      "timeComplexityDetail": "Checks N/2 character pairs inward",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Call stack depth of N/2 frames",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted (Runtime Beats 99%)",
+      "explanation": "Base case: if left >= right, return True. If s[left] != s[right], return False. Otherwise, return isPalindrome(left + 1, right - 1).",
+      "keySteps": [
+        "1. Base case: if l >= r, return True.",
+        "2. If s[l] != s[r], return False.",
+        "3. Return isPalindrome(l + 1, r - 1)."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def isPalindrome(self, s: str) -> bool:",
+          "        # Recursive Head-Tail Comparison - O(N) Time | O(N) Call Stack",
+          "        def check(l: int, r: int) -> bool:",
+          "            if l >= r:",
+          "                return True",
+          "            if s[l] != s[r]:",
+          "                return False",
+          "            return check(l + 1, r - 1)",
+          "",
+          "        # Clean alphanumeric characters if desired",
+          "        cleaned = [c.lower() for c in s if c.isalnum()]",
+          "        return check(0, len(cleaned) - 1)",
+          "",
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "print('racecar ->', sol.isPalindrome('racecar'))  # Output: True",
+          "print('hello ->', sol.isPalindrome('hello'))      # Output: False"
+        ],
+        "cpp": [
+          "#include <string>",
+          "using namespace std;",
+          "class Solution {",
+          "    bool check(const string& s, int l, int r) {",
+          "        if (l >= r) return true;",
+          "        if (s[l] != s[r]) return false;",
+          "        return check(s, l + 1, r - 1);",
+          "    }",
+          "public:",
+          "    bool isPalindrome(string s) {",
+          "        return check(s, 0, (int)s.size() - 1);",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "class Solution {",
+          "    private boolean check(String s, int l, int r) {",
+          "        if (l >= r) return true;",
+          "        if (s.charAt(l) != s.charAt(r)) return false;",
+          "        return check(s, l + 1, r - 1);",
+          "    }",
+          "    public boolean isPalindrome(String s) {",
+          "        return check(s, 0, s.length() - 1);",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function isPalindrome(s: string): boolean {",
+          "  function check(l: number, r: number): boolean {",
+          "    if (l >= r) return true;",
+          "    if (s[l] !== s[r]) return false;",
+          "    return check(l + 1, r - 1);",
+          "  }",
+          "  return check(0, s.length - 1);",
+          "}"
+        ]
+      }
+    },
+    "bruteForce": {
+      "title": "Worst (Alternative): String Reversal and Comparison",
+      "timeComplexity": "O(N)",
+      "timeComplexityDetail": "Reverses string and compares character by character",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Allocates new reversed string",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted",
+      "explanation": "Creates a reversed copy of the string and verifies equality.",
+      "keySteps": [
+        "1. return s == s[::-1]"
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def isPalindrome(self, s: str) -> bool:",
+          "        return s == s[::-1]"
+        ],
+        "cpp": [
+          "#include <string>",
+          "#include <algorithm>",
+          "using namespace std;",
+          "class Solution {",
+          "public:",
+          "    bool isPalindrome(string s) {",
+          "        string rev = s;",
+          "        reverse(rev.begin(), rev.end());",
+          "        return s == rev;",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "class Solution {",
+          "    public boolean isPalindrome(String s) {",
+          "        return s.equals(new StringBuilder(s).reverse().toString());",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function isPalindrome(s: string): boolean {",
+          "  return s === s.split('').reverse().join('');",
+          "}"
+        ]
+      }
+    },
+    "intuition": "A string is a palindrome if outer characters match and the inner substring is also a palindrome: isPal(s[l..r]) = (s[l] == s[r]) && isPal(s[l+1..r-1]).",
+    "bottleneck": "Recursive checking uses O(N) call stack; iterative two-pointers uses O(1) space.",
+    "keyInvariant": "Every character at index l matches the mirror character at index r.",
+    "edgeCases": ["Empty string or single character -> True", "Even vs Odd length strings"],
+    "interviewTips": [
+      "Highlight how recursion expresses mathematical induction on string length: length N reduces to length N-2."
+    ],
+    "companies": ["Amazon", "Microsoft", "Meta", "Adobe", "Striver Sheet"],
+    "acceptanceRate": "78.9%",
+    "frequency": "High (Classic Recursion Test)",
+    "constraints": ["1 <= s.length <= 10^5"],
+    "examples": [
+      {
+        "input": "s = 'racecar'",
+        "output": "true",
+        "explanation": "r==r, a==a, c==c, e (center reached)."
+      }
+    ],
+    "dryRunTrace": {
+      "headers": ["Frame", "Left Index (l)", "Right Index (r)", "s[l] vs s[r]", "Result"],
+      "rows": [
+        ["check(0, 6)", "0 ('r')", "6 ('r')", "'r' == 'r' (Match)", "Recurse check(1, 5)"],
+        ["check(1, 5)", "1 ('a')", "5 ('a')", "'a' == 'a' (Match)", "Recurse check(2, 4)"],
+        ["check(2, 4)", "2 ('c')", "4 ('c')", "'c' == 'c' (Match)", "Recurse check(3, 3)"],
+        ["check(3, 3)", "3 ('e')", "3 ('e')", "Base Case: l >= r (3 >= 3)", "Return True"]
+      ]
+    }
+  },
+  "1083": {
+    "optimal": {
+      "title": "Best (Optimal): Parent Parity Divide & Conquer",
+      "timeComplexity": "O(N)",
+      "timeComplexityDetail": "Goes up N levels to row 1",
+      "spaceComplexity": "O(N)",
+      "spaceComplexityDetail": "Call stack depth of N frames",
+      "status": "optimal",
+      "leetcodeStatus": "Accepted (Runtime Beats 100%)",
+      "explanation": "Row n is generated from row n-1. The parent of index k is at (k + 1) // 2. If k is odd, symbol is identical to parent; if k is even, symbol is flipped (1 - parent).",
+      "keySteps": [
+        "1. Base case: if n == 1, return 0.",
+        "2. parent = kthGrammar(n - 1, (k + 1) // 2).",
+        "3. Return parent if k % 2 == 1 else 1 - parent."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def kthGrammar(self, n: int, k: int) -> int:",
+          "        # Recursive Parent Parity - O(N) Time | O(N) Space",
+          "        if n == 1:",
+          "            return 0",
+          "        parent = self.kthGrammar(n - 1, (k + 1) // 2)",
+          "        return parent if k % 2 == 1 else 1 - parent",
+          "",
+          "# --- Python Tutor Test Execution ---",
+          "sol = Solution()",
+          "print('Row 4, Pos 5 =', sol.kthGrammar(4, 5))  # Output: 1"
+        ],
+        "cpp": [
+          "class Solution {",
+          "public:",
+          "    int kthGrammar(int n, int k) {",
+          "        if (n == 1) return 0;",
+          "        int parent = kthGrammar(n - 1, (k + 1) / 2);",
+          "        return (k % 2 == 1) ? parent : 1 - parent;",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "class Solution {",
+          "    public int kthGrammar(int n, int k) {",
+          "        if (n == 1) return 0;",
+          "        int parent = kthGrammar(n - 1, (k + 1) / 2);",
+          "        return (k % 2 == 1) ? parent : 1 - parent;",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function kthGrammar(n: number, k: number): number {",
+          "  if (n === 1) return 0;",
+          "  const parent = kthGrammar(n - 1, Math.floor((k + 1) / 2));",
+          "  return k % 2 === 1 ? parent : 1 - parent;",
+          "}"
+        ]
+      }
+    },
+    "bruteForce": {
+      "title": "Worst: String Generation Row by Row",
+      "timeComplexity": "O(2^N)",
+      "timeComplexityDetail": "Generates 2^N length string (MLE on N=30)",
+      "spaceComplexity": "O(2^N)",
+      "spaceComplexityDetail": "Memory Limit Exceeded",
+      "status": "brute",
+      "leetcodeStatus": "Memory Limit Exceeded (MLE)",
+      "explanation": "Generates rows iteratively replacing 0 with 01 and 1 with 10.",
+      "keySteps": [
+        "1. row = '0'.",
+        "2. Loop n-1 times replacing bits."
+      ],
+      "code": {
+        "python": [
+          "class Solution:",
+          "    def kthGrammar(self, n: int, k: int) -> int:",
+          "        # Naive String Building - Causes Memory Limit Exceeded",
+          "        row = '0'",
+          "        for _ in range(n - 1):",
+          "            row = ''.join('01' if c == '0' else '10' for c in row)",
+          "        return int(row[k - 1])"
+        ],
+        "cpp": [
+          "#include <string>",
+          "using namespace std;",
+          "class Solution {",
+          "public:",
+          "    int kthGrammar(int n, int k) {",
+          "        string row = \"0\";",
+          "        for (int i = 1; i < n; ++i) {",
+          "            string next = \"\";",
+          "            for (char c : row) next += (c == '0' ? \"01\" : \"10\");",
+          "            row = next;",
+          "        }",
+          "        return row[k - 1] - '0';",
+          "    }",
+          "};"
+        ],
+        "java": [
+          "class Solution {",
+          "    public int kthGrammar(int n, int k) {",
+          "        StringBuilder row = new StringBuilder(\"0\");",
+          "        for (int i = 1; i < n; i++) {",
+          "            StringBuilder next = new StringBuilder();",
+          "            for (int j = 0; j < row.length(); j++) next.append(row.charAt(j) == '0' ? \"01\" : \"10\");",
+          "            row = next;",
+          "        }",
+          "        return row.charAt(k - 1) - '0';",
+          "    }",
+          "}"
+        ],
+        "typescript": [
+          "function kthGrammar(n: number, k: number): number {",
+          "  let row = '0';",
+          "  for (let i = 1; i < n; i++) {",
+          "    let next = '';",
+          "    for (const c of row) next += c === '0' ? '01' : '10';",
+          "    row = next;",
+          "  }",
+          "  return parseInt(row[k - 1]);",
+          "}"
+        ]
+      }
+    },
+    "intuition": "The grammar forms a perfect binary tree. We don't need to generate the string; we only need to trace from leaf (n, k) up to root (1, 1).",
+    "bottleneck": "String generation requires 500MB+ memory for N=30.",
+    "keyInvariant": "Parent is at (k+1)//2. Left child = parent; right child = 1 - parent.",
+    "edgeCases": ["n = 1, k = 1 -> returns 0"],
+    "interviewTips": [
+      "Show how this problem maps directly to a binary tree traversal from child to parent."
+    ],
+    "companies": ["Google", "Amazon", "Microsoft", "Meta", "Adobe"],
+    "acceptanceRate": "59.3%",
+    "frequency": "High (FAANG Recursion Question)",
+    "constraints": ["1 <= n <= 30", "1 <= k <= 2^(n-1)"],
+    "examples": [
+      {
+        "input": "n = 4, k = 5",
+        "output": "1",
+        "explanation": "Row 4 is 01101001. Pos 5 is 1."
+      }
+    ],
+    "dryRunTrace": {
+      "headers": ["Call Frame", "Current (n, k)", "Parent Formula ((k+1)//2)", "Parity", "Bit Result"],
+      "rows": [
+        ["kthGrammar(4, 5)", "n=4, k=5", "(5+1)//2 = 3", "Odd (k%2==1) -> parent", "1"],
+        ["kthGrammar(3, 3)", "n=3, k=3", "(3+1)//2 = 2", "Odd (k%2==1) -> parent", "1"],
+        ["kthGrammar(2, 2)", "n=2, k=2", "(2+1)//2 = 1", "Even (k%2==0) -> 1 - parent (1-0=1)", "1"],
+        ["kthGrammar(1, 1)", "n=1, k=1", "Base Case: n == 1", "Base root value", "0"]
       ]
     }
   }

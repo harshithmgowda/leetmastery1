@@ -547,6 +547,60 @@ export function generateMultiLangCode(title: string, pattern: string, isOptimal:
     }
   }
 
+  // 9. Recursion & Divide and Conquer
+  if (pLower.includes('recursion') || pLower.includes('recur') || pLower.includes('divide')) {
+    if (isOptimal) {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'solve'}(self, n: int) -> int:`,
+          '        # Divide & Conquer Recursion - O(log n) or O(n) Time | O(n) Call Stack Space',
+          '        if n <= 1:',
+          '            return n',
+          `        return self.${cleanTitle || 'solve'}(n - 1) + 1`,
+        ],
+        cpp: [
+          'class Solution {',
+          'public:',
+          `    int ${cleanTitle || 'solve'}(int n) {`,
+          '        if (n <= 1) return n;',
+          `        return ${cleanTitle || 'solve'}(n - 1) + 1;`,
+          '    }',
+          '};',
+        ],
+        java: [
+          'class Solution {',
+          `    public int ${cleanTitle || 'solve'}(int n) {`,
+          '        if (n <= 1) return n;',
+          `        return ${cleanTitle || 'solve'}(n - 1) + 1;`,
+          '    }',
+          '}',
+        ],
+        typescript: [
+          `function ${cleanTitle || 'solve'}(n: number): number {`,
+          '  if (n <= 1) return n;',
+          `  return ${cleanTitle || 'solve'}(n - 1) + 1;`,
+          '}',
+        ],
+      }
+    } else {
+      return {
+        python: [
+          'class Solution:',
+          `    def ${cleanTitle || 'solve'}(self, n: int) -> int:`,
+          '        # Pure Recursion Tree - O(2^n) Time (TLE)',
+          '        if n <= 1: return n',
+          `        return self.${cleanTitle || 'solve'}(n - 1) + self.${cleanTitle || 'solve'}(n - 2)`,
+        ],
+        cpp: [
+          '// Exponential O(2^n) recursion tree',
+        ],
+        java: [],
+        typescript: [],
+      }
+    }
+  }
+
   // Default: Arrays & Hash Map Lookup
   if (isOptimal) {
     return {

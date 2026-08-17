@@ -17,6 +17,7 @@ import { greedySolutions } from './15_greedy';
 import { intervalSolutions } from './16_intervals';
 import { mathGeometrySolutions } from './17_mathGeometry';
 import { bitManipulationSolutions } from './18_bitManipulation';
+import { recursionSolutions } from './19_recursion';
 
 export const allCuratedProblemData: Record<string, DetailedProblemData> = {
   ...arraysHashingSolutions,
@@ -37,4 +38,5 @@ export const allCuratedProblemData: Record<string, DetailedProblemData> = {
   ...intervalSolutions,
   ...mathGeometrySolutions,
   ...bitManipulationSolutions,
+  ...recursionSolutions,
 };

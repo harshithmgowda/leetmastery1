@@ -280,6 +280,16 @@ const allProblemsSeed: Problem[] = [
   { number: 190, title: 'Reverse Bits', difficulty: 'Easy', topics: ['Bit Manipulation'], pattern: '32-bit shift and assemble', url: 'https://leetcode.com/problems/reverse-bits/', category: 'Bit Manipulation' },
   { number: 268, title: 'Missing Number', difficulty: 'Easy', topics: ['Bit Manipulation'], pattern: 'XOR index vs value', url: 'https://leetcode.com/problems/missing-number/', category: 'Bit Manipulation' },
   { number: 371, title: 'Sum of Two Integers', difficulty: 'Medium', topics: ['Bit Manipulation'], pattern: 'Bitwise XOR & Carry shift', url: 'https://leetcode.com/problems/sum-of-two-integers/', category: 'Bit Manipulation' },
+
+  // Recursion & Divide and Conquer
+  { number: 509, title: 'Fibonacci Number', difficulty: 'Easy', topics: ['Recursion', 'Dynamic Programming'], pattern: 'Base Cases & Tree Unwinding', url: 'https://leetcode.com/problems/fibonacci-number/', category: 'Recursion & Divide and Conquer' },
+  { number: 50, title: 'Pow(x, n)', difficulty: 'Medium', topics: ['Recursion', 'Math'], pattern: 'Divide & Conquer Exponentiation', url: 'https://leetcode.com/problems/powx-n/', category: 'Recursion & Divide and Conquer' },
+  { number: 779, title: 'K-th Symbol in Grammar', difficulty: 'Medium', topics: ['Recursion', 'Math'], pattern: 'Parent Parity Recursion', url: 'https://leetcode.com/problems/k-th-symbol-in-grammar/', category: 'Recursion & Divide and Conquer' },
+  { number: 1090, title: 'Tower of Hanoi', difficulty: 'Medium', topics: ['Recursion'], pattern: '3-Step Induction Movement', url: 'https://en.wikipedia.org/wiki/Tower_of_Hanoi', category: 'Recursion & Divide and Conquer' },
+  { number: 486, title: 'Predict the Winner', difficulty: 'Medium', topics: ['Recursion', 'Dynamic Programming'], pattern: 'Minimax Game Theory Recursion', url: 'https://leetcode.com/problems/predict-the-winner/', category: 'Recursion & Divide and Conquer' },
+  { number: 894, title: 'All Possible Full Binary Trees', difficulty: 'Medium', topics: ['Recursion', 'Trees'], pattern: 'Subtree Split Combinations', url: 'https://leetcode.com/problems/all-possible-full-binary-trees/', category: 'Recursion & Divide and Conquer' },
+  { number: 206, title: 'Reverse Linked List (Recursive)', difficulty: 'Easy', topics: ['Recursion', 'Linked List'], pattern: 'Post-Order Unwinding Reversal', url: 'https://leetcode.com/problems/reverse-linked-list/', category: 'Recursion & Divide and Conquer' },
+  { number: 21, title: 'Merge Two Sorted Lists (Recursive)', difficulty: 'Easy', topics: ['Recursion', 'Linked List'], pattern: 'Inductive Subproblem Linking', url: 'https://leetcode.com/problems/merge-two-sorted-lists/', category: 'Recursion & Divide and Conquer' },
 ]
 
 const TOPICS_LIST = [
@@ -294,6 +304,7 @@ const TOPICS_LIST = [
   'Trees',
   'Trie',
   'Heap',
+  'Recursion',
   'Backtracking',
   'Graphs',
   'Dynamic Programming',
@@ -310,7 +321,7 @@ function App() {
   const [difficulty, setDifficulty] = useState<Difficulty | 'All'>('All')
   const [topic, setTopic] = useState('All topics')
   const [isTopicDropdownOpen, setIsTopicDropdownOpen] = useState(false)
-  const [selectedCoreProblemNumber, setSelectedCoreProblemNumber] = useState(1)
+  const [selectedCoreProblemNumber, setSelectedCoreProblemNumber] = useState(509)
   const [selectedImpProblemNumber, setSelectedImpProblemNumber] = useState(1001)
   const [approachMode, setApproachMode] = useState<'optimal' | 'brute' | 'alternative'>('optimal')
   const [language, setLanguage] = useState<Language>('python')
@@ -320,6 +331,8 @@ function App() {
   const [copied, setCopied] = useState(false)
   const [toast, setToast] = useState('')
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
+    'Recursion & Divide and Conquer': true,
+    'Recursion': true,
     'Arrays & Hashing': true,
     'Two Pointers': true,
     'Array': true,

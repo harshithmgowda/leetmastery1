@@ -752,7 +752,7 @@ export function getLeetCodeSolution(problemTitle: string, category: string = '')
   }
 }
 
-// Build clean, minimal, self-contained Python 3 code for Python Tutor
+// Build clean, minimal, self-contained Python 3 code for Python Tutor with rich execution steps
 export function buildPythonTutorExecutableCode(
   pythonLines: string[],
   problemNumber: number,
@@ -761,159 +761,383 @@ export function buildPythonTutorExecutableCode(
 ): string {
   const rawCode = pythonLines.join('\n').trim()
 
-  const headerParts: string[] = []
+  const headerParts: string[] = [
+    'from typing import List, Dict, Set, Tuple, Optional, Any, Union',
+    'import collections',
+    'from collections import defaultdict, Counter, deque',
+    'import heapq',
+    'import math',
+  ]
 
-  // 1. Typing import only if type hints are present
-  if (/\b(List|Dict|Set|Tuple|Optional|Union|Any)\b/.test(rawCode)) {
-    headerParts.push('from typing import List, Dict, Set, Tuple, Optional, Any')
-  }
-
-  // 2. Standard libraries only if used
-  if (/\bcollections\b|\bdefaultdict\b|\bCounter\b|\bdeque\b/.test(rawCode) && !rawCode.includes('import collections')) {
-    headerParts.push('import collections')
-  }
-  if (/\bheapq\b/.test(rawCode) && !rawCode.includes('import heapq')) {
-    headerParts.push('import heapq')
-  }
-  if (/\bmath\b/.test(rawCode) && !rawCode.includes('import math')) {
-    headerParts.push('import math')
-  }
-
-  // 3. ListNode definition only if problem uses it
-  if (/\bListNode\b/.test(rawCode) && !rawCode.includes('class ListNode')) {
+  // 1. ListNode definition and constructor helper
+  if (
+    /\bListNode\b/i.test(rawCode) ||
+    /Linked List/i.test(problemTitle) ||
+    /list1|list2|head/i.test(exampleInput)
+  ) {
     headerParts.push(`class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
-        self.next = next`)
+        self.next = next
+    def __repr__(self):
+        vals = []
+        curr, visited = self, set()
+        while curr and id(curr) not in visited and len(vals) < 15:
+            visited.add(id(curr))
+            vals.append(str(curr.val))
+            curr = curr.next
+        return " -> ".join(vals) + (" -> ..." if curr else "")
+
+def build_list(vals):
+    if not vals:
+        return None
+    dummy = ListNode(0)
+    curr = dummy
+    for v in vals:
+        curr.next = ListNode(v)
+        curr = curr.next
+    return dummy.next`)
   }
 
-  // 4. TreeNode definition only if problem uses it
-  if (/\bTreeNode\b/.test(rawCode) && !rawCode.includes('class TreeNode')) {
+  // 2. TreeNode definition and level-order tree builder helper
+  if (
+    /\bTreeNode\b/i.test(rawCode) ||
+    /Tree|BST/i.test(problemTitle) ||
+    /root|subRoot/i.test(exampleInput)
+  ) {
     headerParts.push(`class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
-        self.right = right`)
+        self.right = right
+    def __repr__(self):
+        return f"TreeNode({self.val})"
+
+def build_tree(vals):
+    if not vals or vals[0] is None:
+        return None
+    root = TreeNode(vals[0])
+    queue = [root]
+    i = 1
+    while queue and i < len(vals):
+        curr = queue.pop(0)
+        if i < len(vals) and vals[i] is not None:
+            curr.left = TreeNode(vals[i])
+            queue.append(curr.left)
+        i += 1
+        if i < len(vals) and vals[i] is not None:
+            curr.right = TreeNode(vals[i])
+            queue.append(curr.right)
+        i += 1
+    return root`)
   }
 
-  // Match method definition inside Solution
-  const methodMatch = rawCode.match(/def\s+([a-zA-Z0-9_]+)\s*\(\s*self\s*,?\s*([^)]*)\)/)
+  // 3. Node definition for Graph / Random Pointer List
+  if (/\bclass Node\b/i.test(rawCode) || /Random Pointer|Clone Graph/i.test(problemTitle)) {
+    if (!rawCode.includes('class Node:')) {
+      headerParts.push(`class Node:
+    def __init__(self, val=0, neighbors=None, next=None, random=None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+        self.next = next
+        self.random = random`)
+    }
+  }
 
+  // 4. Custom Design Data Structures Driver Check
   let driver = ''
-  if (rawCode.includes('sol = Solution()') || rawCode.includes('# Test execution') || rawCode.includes('obj = Solution()')) {
-    driver = ''
-  } else if (methodMatch) {
-    const methodName = methodMatch[1]
-    const paramsStr = methodMatch[2] || ''
-    const paramNames = paramsStr
-      .split(',')
-      .map((p) => p.split(':')[0].trim())
-      .filter((p) => p.length > 0 && p !== 'self')
 
-    const args = generatePythonArgsForParams(paramNames, problemTitle, exampleInput)
-    driver = `\n# --- Test Execution ---
-sol = Solution()
-result = sol.${methodName}(${args})
-print("Result:", result)`
-  } else if (rawCode.includes('class MinStack')) {
-    driver = `\n# --- Test Execution ---
-obj = MinStack()
-obj.push(-2)
-obj.push(0)
-obj.push(-3)
-print("Min:", obj.getMin())`
-  } else if (rawCode.includes('class LRUCache')) {
-    driver = `\n# --- Test Execution ---
+  if (
+    rawCode.includes('sol = Solution()') ||
+    rawCode.includes('# --- Python Tutor Test Execution ---') ||
+    rawCode.includes('# --- Test Execution ---')
+  ) {
+    driver = ''
+  } else if (/class MinStack/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
+st = MinStack()
+st.push(-2)
+st.push(0)
+st.push(-3)
+print("Current Min:", st.getMin())  # -3
+st.pop()
+print("Top after pop:", st.top())   # 0
+print("Current Min:", st.getMin())  # -2`
+  } else if (/class LRUCache/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
 cache = LRUCache(2)
 cache.put(1, 1)
 cache.put(2, 2)
-print("Get 1:", cache.get(1))`
-  } else if (rawCode.includes('class Trie')) {
-    driver = `\n# --- Test Execution ---
+print("get(1) ->", cache.get(1))    # 1
+cache.put(3, 3)                     # Evicts key 2
+print("get(2) ->", cache.get(2))    # -1 (not found)
+cache.put(4, 4)                     # Evicts key 1
+print("get(1) ->", cache.get(1))    # -1
+print("get(3) ->", cache.get(3))    # 3
+print("get(4) ->", cache.get(4))    # 4`
+  } else if (/class LFUCache/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
+lfu = LFUCache(2)
+lfu.put(1, 1)
+lfu.put(2, 2)
+print("get(1) ->", lfu.get(1))      # 1
+lfu.put(3, 3)                       # Evicts key 2
+print("get(2) ->", lfu.get(2))      # -1
+print("get(3) ->", lfu.get(3))      # 3`
+  } else if (/class Trie\b/i.test(rawCode) && !rawCode.includes('class Solution')) {
+    driver = `\n# --- Python Tutor Test Execution ---
 trie = Trie()
 trie.insert("apple")
-print("Search apple:", trie.search("apple"))`
+print("search('apple') ->", trie.search("apple"))      # True
+print("search('app') ->", trie.search("app"))          # False
+print("startsWith('app') ->", trie.startsWith("app"))  # True
+trie.insert("app")
+print("search('app') ->", trie.search("app"))          # True`
+  } else if (/class WordDictionary/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
+wd = WordDictionary()
+wd.addWord("bad")
+wd.addWord("dad")
+wd.addWord("mad")
+print("search('pad') ->", wd.search("pad"))  # False
+print("search('bad') ->", wd.search("bad"))  # True
+print("search('.ad') ->", wd.search(".ad"))  # True
+print("search('b..') ->", wd.search("b.."))  # True`
+  } else if (/class TimeMap/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
+tm = TimeMap()
+tm.set("foo", "bar", 1)
+print("get('foo', 1) ->", tm.get("foo", 1))   # "bar"
+print("get('foo', 3) ->", tm.get("foo", 3))   # "bar"
+tm.set("foo", "bar2", 4)
+print("get('foo', 4) ->", tm.get("foo", 4))   # "bar2"
+print("get('foo', 5) ->", tm.get("foo", 5))   # "bar2"`
+  } else if (/class MedianFinder/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
+mf = MedianFinder()
+mf.addNum(1)
+mf.addNum(2)
+print("findMedian() ->", mf.findMedian())  # 1.5
+mf.addNum(3)
+print("findMedian() ->", mf.findMedian())  # 2.0`
+  } else if (/class KthLargest/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
+kl = KthLargest(3, [4, 5, 8, 2])
+print("add(3) ->", kl.add(3))   # 4
+print("add(5) ->", kl.add(5))   # 5
+print("add(10) ->", kl.add(10)) # 5
+print("add(9) ->", kl.add(9))   # 8
+print("add(4) ->", kl.add(4))   # 8`
+  } else if (/class StockSpanner/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
+spanner = StockSpanner()
+for price in [100, 80, 60, 70, 60, 75, 85]:
+    print(f"next({price}) ->", spanner.next(price))`
+  } else if (/class Codec/i.test(rawCode)) {
+    driver = `\n# --- Python Tutor Test Execution ---
+codec = Codec()
+root = build_tree([1, 2, 3, None, None, 4, 5])
+serialized = codec.serialize(root)
+print("Serialized string:", serialized)
+deserialized = codec.deserialize(serialized)
+print("Deserialized root:", deserialized)`
   } else {
-    driver = `\n# --- Test Execution ---
+    // 5. General Class Solution Method Matching
+    const allMethods = Array.from(
+      rawCode.matchAll(/def\s+([a-zA-Z0-9_]+)\s*\(\s*self\s*,?\s*([^)]*)\)/g)
+    )
+    // Find the primary method (filter out __init__, dfs, helper, backtrack)
+    const primaryMethod =
+      allMethods.find((m) => !['__init__', 'dfs', 'helper', 'backtrack'].includes(m[1])) ||
+      allMethods[0]
+
+    if (primaryMethod) {
+      const methodName = primaryMethod[1]
+      const paramsStr = primaryMethod[2] || ''
+      const paramNames = paramsStr
+        .split(',')
+        .map((p) => p.split(':')[0].trim())
+        .filter((p) => p.length > 0 && p !== 'self')
+
+      const { argsSetup, argsCall, isVoid } = generateSmartPythonArgs(
+        paramNames,
+        problemTitle,
+        exampleInput,
+        rawCode
+      )
+
+      driver = `\n# --- Python Tutor Test Execution ---
+sol = Solution()
+${argsSetup}
+${
+  isVoid
+    ? `sol.${methodName}(${argsCall})
+print("In-Place Modified Result:", ${argsCall})`
+    : `result = sol.${methodName}(${argsCall})
+print("Result:", result)`
+}`
+    } else {
+      driver = `\n# --- Python Tutor Test Execution ---
 sol = Solution()`
+    }
   }
 
-  const prefix = headerParts.length > 0 ? headerParts.join('\n') + '\n\n' : ''
+  const prefix = headerParts.join('\n') + '\n\n'
   return `${prefix}${rawCode}${driver ? `\n${driver}` : ''}`
 }
 
-function generatePythonArgsForParams(paramNames: string[], problemTitle: string, exampleInput: string): string {
-  // If example input is structured like "nums = [2, 7], target = 9", parse it
+// Generate smart, realistic test arguments with full linked-list and tree building
+function generateSmartPythonArgs(
+  paramNames: string[],
+  problemTitle: string,
+  exampleInput: string,
+  rawCode: string
+): { argsSetup: string; argsCall: string; isVoid: boolean } {
+  const isVoid =
+    /->\s*None\b/.test(rawCode) ||
+    /Rotate Image|Sort Colors|Move Zeroes|Reverse String|Duplicate Zeros/i.test(problemTitle)
+
+  // 1. Try to parse exampleInput if formatted as key = value
+  const parsedInputs: Record<string, string> = {}
   if (exampleInput && exampleInput.includes('=')) {
-    const parts = exampleInput.split(/,\s*(?=[a-zA-Z0-9_]+\s*=)/).map((p) => {
-      const idx = p.indexOf('=')
-      return idx !== -1 ? p.slice(idx + 1).trim() : p.trim()
-    })
-    if (parts.length === paramNames.length) {
-      return parts.join(', ')
+    // Clean null -> None, true -> True, false -> False
+    const cleanInput = exampleInput
+      .replace(/\bnull\b/g, 'None')
+      .replace(/\btrue\b/g, 'True')
+      .replace(/\bfalse\b/g, 'False')
+
+    // Split on parameter assignments
+    const matches = Array.from(
+      cleanInput.matchAll(/(?:([a-zA-Z0-9_]+)\s*=\s*)([^=]+?)(?=(?:,\s*[a-zA-Z0-9_]+\s*=)|$)/g)
+    )
+    for (const m of matches) {
+      const k = m[1].trim()
+      let v = m[2].trim()
+      if (v.endsWith(',')) v = v.slice(0, -1).trim()
+      parsedInputs[k] = v
     }
   }
 
-  // Clean, minimal parameter-matching defaults
-  const mappedArgs = paramNames.map((p) => {
+  const setupLines: string[] = []
+  const callArgs: string[] = []
+
+  paramNames.forEach((p, idx) => {
     const lower = p.toLowerCase()
-    if (lower.includes('head') || lower.includes('list1') || lower.includes('l1')) {
-      return 'ListNode(1, ListNode(2, ListNode(3)))'
+    let valStr = parsedInputs[p] || ''
+
+    const isTreeParam =
+      lower.includes('root') ||
+      lower.includes('subroot') ||
+      lower === 'p' ||
+      lower === 'q' ||
+      /tree|bst/i.test(problemTitle)
+    const isListParam =
+      lower.includes('head') ||
+      lower.includes('list1') ||
+      lower.includes('list2') ||
+      lower === 'l1' ||
+      lower === 'l2' ||
+      /linked list/i.test(problemTitle)
+
+    if (valStr) {
+      if (isTreeParam && valStr.startsWith('[') && valStr.endsWith(']')) {
+        valStr = `build_tree(${valStr})`
+      } else if (isListParam && valStr.startsWith('[') && valStr.endsWith(']')) {
+        valStr = `build_list(${valStr})`
+      }
+      callArgs.push(valStr)
+    } else {
+      // Intelligent fallback based on parameter and problem semantics
+      if (isTreeParam) {
+        if (lower === 'p') {
+          setupLines.push(`tree_p = build_tree([1, 2, 3])`)
+          callArgs.push(`tree_p`)
+        } else if (lower === 'q') {
+          setupLines.push(`tree_q = build_tree([1, 2, 3])`)
+          callArgs.push(`tree_q`)
+        } else if (problemTitle.includes('Lowest Common Ancestor')) {
+          setupLines.push(`root_node = build_tree([6, 2, 8, 0, 4, 7, 9, None, None, 3, 5])`)
+          callArgs.push(`root_node, root_node.left, root_node.right`)
+        } else if (problemTitle.includes('Validate Binary Search Tree')) {
+          setupLines.push(`tree_root = build_tree([5, 1, 4, None, None, 3, 6])`)
+          callArgs.push(`tree_root`)
+        } else {
+          setupLines.push(`tree_root = build_tree([3, 9, 20, None, None, 15, 7])`)
+          callArgs.push(`tree_root`)
+        }
+      } else if (isListParam) {
+        if (lower.includes('list2') || lower === 'l2') {
+          setupLines.push(`list_b = build_list([1, 3, 4])`)
+          callArgs.push(`list_b`)
+        } else if (lower.includes('list1') || lower === 'l1') {
+          setupLines.push(`list_a = build_list([1, 2, 4])`)
+          callArgs.push(`list_a`)
+        } else {
+          setupLines.push(`head_node = build_list([1, 2, 3, 4, 5])`)
+          callArgs.push(`head_node`)
+        }
+      } else if (lower === 'strs' || lower.includes('words')) {
+        callArgs.push('["eat", "tea", "tan", "ate", "nat", "bat"]')
+      } else if (lower === 'grid' || lower === 'board' || lower === 'matrix') {
+        if (/Number of Islands|Pacific Atlantic|Rotting Oranges|Word Search/i.test(problemTitle)) {
+          callArgs.push('[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]')
+        } else {
+          callArgs.push('[[1, 2, 3], [4, 5, 6], [7, 8, 9]]')
+        }
+      } else if (lower === 's' || lower === 'str' || lower === 's1') {
+        if (/Parenthes/i.test(problemTitle)) callArgs.push('"()[]{}"')
+        else if (/Palindrome/i.test(problemTitle)) callArgs.push('"racecar"')
+        else if (/Roman/i.test(problemTitle)) callArgs.push('"MCMXCIV"')
+        else if (/Anagram/i.test(problemTitle)) callArgs.push('"anagram"')
+        else callArgs.push('"abcabcbb"')
+      } else if (lower === 't' || lower === 's2' || lower === 'p') {
+        if (/Anagram/i.test(problemTitle)) callArgs.push('"nagaram"')
+        else callArgs.push('"abc"')
+      } else if (lower === 'prices') {
+        callArgs.push('[7, 1, 5, 3, 6, 4]')
+      } else if (lower === 'temperatures') {
+        callArgs.push('[73, 74, 75, 71, 69, 72, 76, 73]')
+      } else if (lower === 'tokens') {
+        callArgs.push('["2", "1", "+", "3", "*"]')
+      } else if (lower === 'nums' || lower === 'arr' || lower === 'nums1') {
+        if (/Two Sum/i.test(problemTitle)) callArgs.push('[2, 7, 11, 15]')
+        else if (/3Sum/i.test(problemTitle)) callArgs.push('[-1, 0, 1, 2, -1, -4]')
+        else if (/Contains Duplicate/i.test(problemTitle)) callArgs.push('[1, 2, 3, 1]')
+        else if (/Top K Frequent/i.test(problemTitle)) callArgs.push('[1, 1, 1, 2, 2, 3]')
+        else if (/Longest Consecutive/i.test(problemTitle)) callArgs.push('[100, 4, 200, 1, 3, 2]')
+        else if (/Product of Array/i.test(problemTitle)) callArgs.push('[1, 2, 3, 4]')
+        else if (/Trapping Rain/i.test(problemTitle)) callArgs.push('[0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]')
+        else if (/Sort Colors/i.test(problemTitle)) callArgs.push('[2, 0, 2, 1, 1, 0]')
+        else if (/Move Zeroes/i.test(problemTitle)) callArgs.push('[0, 1, 0, 3, 12]')
+        else callArgs.push('[2, 7, 11, 15]')
+      } else if (lower === 'nums2') {
+        callArgs.push('[1, 3, 4, 2]')
+      } else if (lower === 'coins') {
+        callArgs.push('[1, 2, 5]')
+      } else if (lower === 'target' || lower === 'amount' || lower === 'sum') {
+        if (/Coin Change/i.test(problemTitle)) callArgs.push('11')
+        else callArgs.push('9')
+      } else if (lower === 'k' || lower === 'val') {
+        callArgs.push('2')
+      } else if (lower === 'n') {
+        callArgs.push('5')
+      } else if (lower === 'x') {
+        callArgs.push('2.0')
+      } else if (lower === 'intervals') {
+        callArgs.push('[[1, 3], [2, 6], [8, 10], [15, 18]]')
+      } else if (lower === 'points') {
+        callArgs.push('[[1, 3], [-2, 2], [5, 8]]')
+      } else {
+        callArgs.push('[1, 2, 3]')
+      }
     }
-    if (lower.includes('list2') || lower.includes('l2')) {
-      return 'ListNode(1, ListNode(4))'
-    }
-    if (lower.includes('root') || lower.includes('p') || lower.includes('q') || lower.includes('node')) {
-      return 'TreeNode(3, TreeNode(9), TreeNode(20))'
-    }
-    if (lower === 'strs' || lower.includes('words') || lower.includes('tokens')) {
-      return '["eat", "tea", "tan", "ate", "nat", "bat"]'
-    }
-    if (lower === 'grid' || lower === 'matrix' || lower === 'board') {
-      return '[["1","1","0"],["1","1","0"],["0","0","1"]]'
-    }
-    if (lower === 's' || lower === 'str' || lower === 's1') {
-      if (problemTitle.includes('Parentheses')) return '"()[]{}"'
-      if (problemTitle.includes('Palindrome')) return '"racecar"'
-      return '"abcabcbb"'
-    }
-    if (lower === 't' || lower === 's2' || lower === 'p') {
-      return '"abc"'
-    }
-    if (lower === 'prices') {
-      return '[7, 1, 5, 3, 6, 4]'
-    }
-    if (lower === 'nums' || lower === 'arr' || lower === 'nums1') {
-      if (problemTitle === 'Two Sum') return '[2, 7, 11, 15]'
-      if (problemTitle === '3Sum') return '[-1, 0, 1, 2, -1, -4]'
-      if (problemTitle === 'Contains Duplicate') return '[1, 2, 3, 1]'
-      if (problemTitle === 'Top K Frequent Elements') return '[1, 1, 1, 2, 2, 3]'
-      if (problemTitle === 'Longest Consecutive Sequence') return '[100, 4, 200, 1, 3, 2]'
-      return '[2, 7, 11, 15]'
-    }
-    if (lower === 'nums2') {
-      return '[1, 2, 3]'
-    }
-    if (lower === 'coins') {
-      return '[1, 2, 5]'
-    }
-    if (lower === 'target' || lower === 'amount' || lower === 'sum') {
-      if (problemTitle === 'Two Sum') return '9'
-      if (problemTitle === 'Coin Change') return '11'
-      return '9'
-    }
-    if (lower === 'k' || lower === 'val') {
-      return '2'
-    }
-    if (lower === 'n') {
-      return '5'
-    }
-    if (lower === 'intervals') {
-      return '[[1, 3], [2, 6], [8, 10], [15, 18]]'
-    }
-    return '[1, 2, 3]'
   })
 
-  return mappedArgs.join(', ')
+  return {
+    argsSetup: setupLines.join('\n'),
+    argsCall: callArgs.join(', '),
+    isVoid,
+  }
 }
+
 

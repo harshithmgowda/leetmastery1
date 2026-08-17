@@ -1039,7 +1039,7 @@ function generateSmartPythonArgs(
       lower === 'l2' ||
       /linked list/i.test(problemTitle)
 
-    if (valStr) {
+    if (valStr && !valStr.includes('...')) {
       if (isTreeParam && valStr.startsWith('[') && valStr.endsWith(']')) {
         valStr = `build_tree(${valStr})`
       } else if (isListParam && valStr.startsWith('[') && valStr.endsWith(']')) {
@@ -1079,7 +1079,15 @@ function generateSmartPythonArgs(
       } else if (lower === 'strs' || lower.includes('words')) {
         callArgs.push('["eat", "tea", "tan", "ate", "nat", "bat"]')
       } else if (lower === 'grid' || lower === 'board' || lower === 'matrix') {
-        if (/Number of Islands|Pacific Atlantic|Rotting Oranges|Word Search/i.test(problemTitle)) {
+        if (/Max Area of Island/i.test(problemTitle)) {
+          callArgs.push('[[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]')
+        } else if (/Rotting Oranges/i.test(problemTitle)) {
+          callArgs.push('[[2,1,1],[1,1,0],[0,1,1]]')
+        } else if (/Pacific Atlantic/i.test(problemTitle)) {
+          callArgs.push('[[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]')
+        } else if (/Surrounded Regions/i.test(problemTitle)) {
+          callArgs.push('[["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]')
+        } else if (/Number of Islands|Word Search/i.test(problemTitle)) {
           callArgs.push('[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]')
         } else {
           callArgs.push('[[1, 2, 3], [4, 5, 6], [7, 8, 9]]')

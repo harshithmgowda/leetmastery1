@@ -256,7 +256,7 @@ export const binarySearchSolutions: Record<string, DetailedProblemData> = {
     constraints: ['m == matrix.length', 'n == matrix[i].length', '1 <= m, n <= 300', '-10^9 <= matrix[i][j], target <= 10^9'],
     examples: [
       { input: 'matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5', output: 'true', explanation: '5 is present.' },
-      { input: 'matrix = [...], target = 20', output: 'false', explanation: '20 is not present.' },
+      { input: 'matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20', output: 'false', explanation: '20 is not present.' },
     ],
     companies: ['Amazon', 'Microsoft', 'Google', 'Meta', 'Apple'],
     acceptanceRate: '51.9%',

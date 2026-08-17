@@ -54,7 +54,7 @@ export const graphSolutions: Record<string, DetailedProblemData> = {
     bottleneck: "BFS queue works but DFS recursion computes area in-place in O(m * n) linear time and O(m * n) space.",
     keyInvariant: "dfs(r, c) returns the exact node count of the connected island rooted at (r, c).",
     constraints: ["m == grid.length", "n == grid[i].length", "1 <= m, n <= 50", "grid[i][j] is 0 or 1."],
-    examples: [{"input": "grid = [...]", "output": "6", "explanation": "Max island area is 6."}],
+    examples: [{"input": "grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]", "output": "6", "explanation": "The maximum area of an island is 6."}],
     companies: ["Amazon", "Meta", "Google", "Microsoft"],
     acceptanceRate: "72.1%",
     frequency: "91%",

@@ -48,9 +48,13 @@ import {
   IMP_TOPICS_LIST,
   getImpDetailedProblemData,
 } from './impQuestionsData'
+import {
+  hasVisualizer,
+  getVisualizer,
+} from './visualizerConfig'
 
 type Language = 'python' | 'cpp'
-type TabMode = 'overview' | 'comparison' | 'walkthrough' | 'edgecases'
+type TabMode = 'overview' | 'comparison' | 'walkthrough' | 'edgecases' | 'visualizer'
 type SectionMode = 'core' | 'imp'
 
 const allProblemsSeed: Problem[] = [
@@ -326,6 +330,7 @@ function App() {
   const [approachMode, setApproachMode] = useState<'optimal' | 'brute' | 'alternative'>('optimal')
   const [language, setLanguage] = useState<Language>('python')
   const [activeTab, setActiveTab] = useState<TabMode>('overview')
+  const [isVisualizerModalOpen, setIsVisualizerModalOpen] = useState(false)
   const [fontSize, setFontSize] = useState(13)
   const [isExpanded, setIsExpanded] = useState(false)
   const [copied, setCopied] = useState(false)
@@ -401,6 +406,24 @@ function App() {
       setExpandedCategories((prev) => ({ ...prev, [cat]: true }))
     }
   }, [currentProblem])
+
+  // Auto-switch away from visualizer tab if the newly selected problem has no visualizer
+  useEffect(() => {
+    if (activeTab === 'visualizer' && !hasVisualizer(currentProblem.number)) {
+      setActiveTab('overview')
+    }
+  }, [currentProblem.number, activeTab])
+
+  // ESC key listener to close fullscreen visualizer modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isVisualizerModalOpen) {
+        setIsVisualizerModalOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isVisualizerModalOpen])
 
   const toggleSolved = (num: number) => {
     if (activeSection === 'core') {
@@ -559,6 +582,10 @@ ${code}`
     }
     setApproachMode('optimal')
     setTestStatus({ isRunning: false, hasRun: false, outputLog: [], percentile: '98.4%' })
+    // If the problem has a dedicated interactive visualizer, open it right away!
+    if (hasVisualizer(num)) {
+      setActiveTab('visualizer')
+    }
   }
 
   const diffClass = currentProblem.difficulty.toLowerCase()
@@ -881,8 +908,55 @@ ${code}`
           <div className="studio-workspace">
             {/* Left Column: Problem Explanation & Breakdown Tabs */}
             <div className="explanation-column">
+              {/* Interactive Visualizer Hero Callout Banner (if available) */}
+              {hasVisualizer(currentProblem.number) && (
+                <div className="visualizer-hero-banner">
+                  <div className="hero-banner-left">
+                    <div className="hero-banner-icon">
+                      <Sparkles size={16} />
+                    </div>
+                    <div className="hero-banner-content">
+                      <div className="hero-banner-title">
+                        <strong>Interactive Visualizer Available</strong>
+                        <span className="hero-badge">{getVisualizer(currentProblem.number)?.badge}</span>
+                      </div>
+                      <p className="hero-banner-desc">
+                        {getVisualizer(currentProblem.number)?.description}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="hero-banner-buttons">
+                    <button
+                      className={`hero-launch-tab-btn ${activeTab === 'visualizer' ? 'active' : ''}`}
+                      onClick={() => setActiveTab('visualizer')}
+                    >
+                      <Eye size={13} />
+                      <span>{activeTab === 'visualizer' ? 'Viewing in Tab' : 'Open in Tab'}</span>
+                    </button>
+                    <button
+                      className="hero-fullscreen-btn"
+                      onClick={() => setIsVisualizerModalOpen(true)}
+                      title="Open Fullscreen Studio"
+                    >
+                      <Maximize2 size={13} />
+                      <span>Fullscreen Studio</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+
               {/* Tab Navigation */}
               <div className="study-tab-nav">
+                {hasVisualizer(currentProblem.number) && (
+                  <button
+                    className={`study-tab visualizer-tab ${activeTab === 'visualizer' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('visualizer')}
+                  >
+                    <Sparkles size={14} className="visualizer-sparkle-icon" />
+                    <span>Interactive Visualizer</span>
+                    <span className="visualizer-tab-pill">Live</span>
+                  </button>
+                )}
                 <button
                   className={`study-tab ${activeTab === 'overview' ? 'active' : ''}`}
                   onClick={() => setActiveTab('overview')}
@@ -1161,6 +1235,84 @@ ${code}`
                     </div>
                   </div>
                 )}
+
+                {/* TAB 5: Interactive Visualizer */}
+                {activeTab === 'visualizer' && hasVisualizer(currentProblem.number) && (
+                  <div className="tab-pane visualizer-pane">
+                    <div className="visualizer-container-card">
+                      <div className="visualizer-card-header">
+                        <div className="visualizer-card-header-left">
+                          <div className="visualizer-chip">
+                            <Sparkles size={13} />
+                            <span>{getVisualizer(currentProblem.number)?.badge}</span>
+                          </div>
+                          <div>
+                            <h3 className="visualizer-card-title">
+                              {getVisualizer(currentProblem.number)?.title}
+                            </h3>
+                            <span className="visualizer-card-subtitle">
+                              {getVisualizer(currentProblem.number)?.subtitle}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="visualizer-card-header-actions">
+                          <button
+                            className="visualizer-tool-btn"
+                            onClick={() => {
+                              const iframe = document.getElementById('embedded-visualizer-frame') as HTMLIFrameElement
+                              if (iframe) iframe.src = iframe.src
+                              setToast('🔄 Visualizer reset!')
+                            }}
+                            title="Reset Visualizer"
+                          >
+                            <RotateCcw size={12} />
+                            <span>Reset</span>
+                          </button>
+                          <a
+                            className="visualizer-tool-btn"
+                            href={getVisualizer(currentProblem.number)?.path}
+                            target="_blank"
+                            rel="noreferrer"
+                            title="Open standalone in new tab"
+                          >
+                            <ExternalLink size={12} />
+                            <span>New Tab</span>
+                          </a>
+                          <button
+                            className="visualizer-tool-btn primary"
+                            onClick={() => setIsVisualizerModalOpen(true)}
+                            title="Expand to Fullscreen Studio"
+                          >
+                            <Maximize2 size={12} />
+                            <span>Fullscreen Studio</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Key highlights tags */}
+                      {getVisualizer(currentProblem.number)?.highlights && (
+                        <div className="visualizer-highlights-row">
+                          {getVisualizer(currentProblem.number)?.highlights.map((h, i) => (
+                            <span key={i} className="visualizer-highlight-tag">
+                              ✓ {h}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="visualizer-iframe-frame">
+                        <iframe
+                          id="embedded-visualizer-frame"
+                          src={getVisualizer(currentProblem.number)?.path}
+                          title={getVisualizer(currentProblem.number)?.title}
+                          className="embedded-visualizer-iframe"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -1316,6 +1468,22 @@ ${code}`
                       <span>Python Tutor</span>
                     </button>
 
+                    {/* Dedicated Interactive Visualizer Button (if available for problem) */}
+                    {hasVisualizer(currentProblem.number) && (
+                      <button
+                        className="xcode-visualizer-btn"
+                        onClick={() => {
+                          setActiveTab('visualizer')
+                          setIsVisualizerModalOpen(true)
+                        }}
+                        title="Launch Interactive Visualizer in Fullscreen Studio"
+                      >
+                        <Sparkles size={13} className="sparkle-gold" />
+                        <span>Visualizer</span>
+                        <span className="xcode-btn-badge">Live</span>
+                      </button>
+                    )}
+
                     <button className="xcode-copy-btn" onClick={copySolution} title="Copy code">
                       {copied ? <Check size={13} /> : <Copy size={13} />}
                       <span>{copied ? 'Copied!' : 'Copy'}</span>
@@ -1370,6 +1538,76 @@ ${code}`
           </div>
         </main>
       </div>
+
+      {/* Fullscreen Visualizer Modal Overlay */}
+      {isVisualizerModalOpen && hasVisualizer(currentProblem.number) && (
+        <div className="visualizer-fullscreen-modal-overlay" onClick={() => setIsVisualizerModalOpen(false)}>
+          <div className="visualizer-fullscreen-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="fullscreen-modal-header">
+              <div className="modal-header-title-group">
+                <div className="modal-logo-badge">
+                  <Sparkles size={16} />
+                </div>
+                <div>
+                  <div className="modal-title-row">
+                    <h2 className="modal-problem-title">
+                      #{currentProblem.number}. {currentProblem.title}
+                    </h2>
+                    <span className="modal-version-tag">
+                      {getVisualizer(currentProblem.number)?.badge}
+                    </span>
+                  </div>
+                  <p className="modal-subtitle-text">
+                    {getVisualizer(currentProblem.number)?.subtitle}
+                  </p>
+                </div>
+              </div>
+
+              <div className="modal-header-actions">
+                <button
+                  className="modal-tool-btn"
+                  onClick={() => {
+                    const iframe = document.getElementById('fullscreen-visualizer-frame') as HTMLIFrameElement
+                    if (iframe) iframe.src = iframe.src
+                    setToast('🔄 Visualizer reloaded!')
+                  }}
+                  title="Reload"
+                >
+                  <RotateCcw size={14} />
+                  <span>Reload</span>
+                </button>
+                <a
+                  className="modal-tool-btn"
+                  href={getVisualizer(currentProblem.number)?.path}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Open standalone in new window"
+                >
+                  <ExternalLink size={14} />
+                  <span>New Window</span>
+                </a>
+                <button
+                  className="modal-close-btn"
+                  onClick={() => setIsVisualizerModalOpen(false)}
+                  title="Close (Esc)"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+
+            <div className="fullscreen-modal-body">
+              <iframe
+                id="fullscreen-visualizer-frame"
+                src={getVisualizer(currentProblem.number)?.path}
+                title={getVisualizer(currentProblem.number)?.title}
+                className="fullscreen-visualizer-iframe"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Floating Toast Notification */}
       {toast && (

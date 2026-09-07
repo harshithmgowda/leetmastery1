@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode 111: Minimum Depth of Binary Tree — BFS Early-Exit Visualizer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            slate: {
+              850: '#0f172a',
+              950: '#020617',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.05); }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 1.8s infinite ease-in-out;
+    }
+    @keyframes wave-scan {
+      0% { opacity: 0.2; transform: translateY(-5px); }
+      50% { opacity: 0.7; transform: translateY(0px); }
+      100% { opacity: 0.2; transform: translateY(5px); }
+    }
+    .animate-wave-scan {
+      animation: wave-scan 2.5s infinite ease-in-out;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+    .code-font {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .indent-guide {
+      position: relative;
+    }
+    .indent-guide::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(var(--indent-level) * 1.25rem + 0.4rem);
+      width: 2px;
+      background: rgba(99, 102, 241, 0.25);
+    }
+    .indent-guide-active::before {
+      background: rgba(99, 102, 241, 0.9);
+      box-shadow: 0 0 8px rgba(99, 102, 241, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white antialiased">
+
+  <!-- TOP BAR: NAVIGATION & MODES -->
+  <header class="border-b border-slate-800/80 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40 px-3 sm:px-4 py-2.5">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-cyan-600 via-indigo-600 to-emerald-400 flex items-center justify-center font-black text-white shadow-lg shadow-cyan-500/20 text-sm">
+          111
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-1.5">
+              <span>Minimum Depth of Binary Tree</span>
+            </h1>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">BFS Optimal Early-Exit</span>
+          </div>
+          <p class="text-[11px] text-slate-400 hidden md:block">
+            Level-by-level BFS search &bull; First popped leaf node immediately gives minimum depth in optimal time!
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center flex-wrap gap-1.5 sm:gap-2">
+        <div class="bg-slate-800/90 p-0.5 rounded-lg flex items-center border border-slate-700/60 text-xs font-medium">
+          <button id="mode-beginner" onclick="setMode('beginner')" class="px-2.5 py-1 rounded-md transition-all bg-indigo-600 text-white font-semibold shadow-sm">
+            🌱 Beginner
+          </button>
+          <button id="mode-deep" onclick="setMode('deep')" class="px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white">
+            🔬 Deep Dive
+          </button>
+          <button id="mode-interview" onclick="setMode('interview')" class="px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white">
+            💼 Interview
+          </button>
+        </div>
+
+        <button onclick="toggleTraceAnswer()" id="btn-trace" class="px-2.5 py-1.5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 text-xs font-semibold flex items-center gap-1.5 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <span id="trace-btn-label">Trace Shortest Path</span>
+        </button>
+
+        <button onclick="toggleModal('modal-analogy')" class="px-2 py-1.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center gap-1">
+          <span>🌊 Water Ripple</span>
+        </button>
+        <button onclick="toggleModal('modal-compare')" class="px-2 py-1.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center gap-1">
+          <span>🔄 104 vs 111</span>
+        </button>
+        <button onclick="toggleModal('modal-quiz')" class="px-2 py-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-xs font-semibold flex items-center gap-1">
+          <span>🎯 Quiz</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- BFS EXECUTION LIFECYCLE BAR -->
+  <section class="border-b border-slate-800/60 bg-slate-900/40 px-3 sm:px-4 py-2">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 overflow-x-auto scrollbar-thin text-xs">
+      <div class="flex items-center gap-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider flex-shrink-0 mr-2">
+        <span>BFS Stage:</span>
+      </div>
+      
+      <div id="flow-bar-container" class="flex items-center gap-1 sm:gap-2 flex-nowrap min-w-max">
+        <div id="stage-INIT" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>1. INIT QUEUE</span> <span class="text-slate-600">&bull;</span>
+        </div>
+        <div id="stage-WHILE" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>2. WHILE Q</span> <span class="text-slate-600">&bull;</span>
+        </div>
+        <div id="stage-POPLEF" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>3. POPLEFT (FIFO)</span> <span class="text-slate-600">&bull;</span>
+        </div>
+        <div id="stage-LEAFCHECK" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>4. LEAF CHECK?</span> <span class="text-slate-600">&bull;</span>
+        </div>
+        <div id="stage-ENQUEUE" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>5. ENQUEUE CHILDREN</span> <span class="text-slate-600">&bull;</span>
+        </div>
+        <div id="stage-EARLYEXIT" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>6. EARLY EXIT 🎯</span>
+        </div>
+      </div>
+
+      <div id="flow-current-label" class="text-[11px] font-mono text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-2 py-0.5 rounded flex-shrink-0 hidden md:block">
+        Step 0: Initializing
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+    <!-- LEFT COLUMN: TREE CANVAS, PHYSICAL QUEUE & REASONING (7 cols) -->
+    <div class="lg:col-span-7 flex flex-col gap-3.5">
+
+      <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+        
+        <div class="sm:col-span-7 bg-slate-900/90 border border-indigo-500/30 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-indigo-400 mb-1">
+            <span class="flex items-center gap-1.5">
+              <span>🎯 Current BFS Goal</span>
+            </span>
+            <span id="task-badge-node" class="font-mono text-white bg-indigo-600/40 px-2 py-0.5 rounded border border-indigo-500/40">Queue Init</span>
+          </div>
+          <p id="task-goal-text" class="text-xs text-slate-200 leading-relaxed font-medium">
+            Find the shortest root-to-leaf path. BFS scans level-by-level so the first leaf encountered is optimal!
+          </p>
+          <div id="task-substeps" class="mt-2 text-[11px] text-slate-400 flex flex-wrap gap-2">
+            <span id="substep-1" class="px-1.5 py-0.5 rounded bg-slate-800">1. Pop Front</span>
+            <span id="substep-2" class="px-1.5 py-0.5 rounded bg-slate-800">2. Check Leaf</span>
+            <span id="substep-3" class="px-1.5 py-0.5 rounded bg-slate-800">3. Enqueue Children</span>
+            <span id="substep-4" class="px-1.5 py-0.5 rounded bg-slate-800">4. Early Exit</span>
+          </div>
+        </div>
+
+        <div class="sm:col-span-5 bg-gradient-to-br from-slate-900 to-indigo-950/60 border border-slate-800 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>You Are Here</span>
+          </div>
+          <div class="my-1">
+            <div id="anchor-code-line" class="font-mono text-xs font-bold text-amber-300">Line 4: q = deque([(root, 1)])</div>
+            <div id="anchor-action" class="text-[11px] text-slate-300 truncate">Initializing BFS Queue with Root</div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-slate-400 border-t border-slate-800/80 pt-1.5">
+            <span>Current Depth Level:</span>
+            <span id="anchor-depth-tag" class="font-mono font-bold text-cyan-300">d = 1</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 sm:p-4 relative overflow-hidden shadow-xl flex flex-col">
+        
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2 mb-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+              <span>🌳 Tree Level Hierarchy</span>
+            </span>
+            <span class="text-[10px] text-cyan-300 bg-cyan-950/60 border border-cyan-800 px-2 py-0.5 rounded">BFS Scans Top-to-Bottom</span>
+          </div>
+
+          <div class="bg-slate-800/90 border border-emerald-500/40 px-2.5 py-1 rounded-lg text-xs font-mono text-emerald-200 flex items-center gap-1.5 shadow-sm">
+            <span class="text-slate-400">BFS Invariant:</span>
+            <span class="font-bold text-emerald-300">First leaf popped = Minimum Depth</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5 text-[11px] text-slate-400 mb-2">
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-700 border border-slate-500"></span> Unvisited</div>
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-cyan-600 ring-2 ring-cyan-400/50"></span> In Queue 📥</div>
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-emerald-400/50"></span> Popped Active 🟢</div>
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 ring-2 ring-amber-400/50"></span> Leaf Found 🎯</div>
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600 opacity-40"></span> Pruned (Never Visited) ⏭️</div>
+        </div>
+
+        <div class="relative w-full h-[340px] sm:h-[380px] bg-slate-950/70 rounded-xl border border-slate-800 overflow-hidden flex items-center justify-center">
+          
+          <svg class="absolute inset-0 w-full h-full stroke-slate-800/30" width="100%" height="100%">
+            <defs>
+              <pattern id="grid-pattern-main" width="24" height="24" patternUnits="userSpaceOnUse">
+                <path d="M.5 24V.5H24" fill="none"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#grid-pattern-main)" />
+          </svg>
+
+          <svg id="tree-svg" class="w-full h-full relative z-10" viewBox="0 0 520 370">
+            <defs>
+              <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+              <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="7" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            <!-- Level 1 Band (y: 65) -->
+            <line x1="10" y1="65" x2="510" y2="65" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <rect x="12" y="52" width="62" height="18" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+            <text x="43" y="65" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Level 1</text>
+
+            <!-- Level 2 Band (y: 155) -->
+            <line x1="10" y1="155" x2="510" y2="155" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <rect x="12" y="142" width="62" height="18" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+            <text x="43" y="155" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Level 2</text>
+
+            <!-- Level 3 Band (y: 255) -->
+            <line x1="10" y1="255" x2="510" y2="255" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <rect x="12" y="242" width="62" height="18" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+            <text x="43" y="255" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Level 3</text>
+
+            <!-- TREE EDGES -->
+            <line id="edge-3-9" x1="260" y1="65" x2="140" y2="155" stroke="#334155" stroke-width="3" stroke-linecap="round" class="transition-all duration-300"/>
+            <text id="edge-label-3-9" x="190" y="105" fill="#64748b" font-size="10" font-family="monospace">.left</text>
+
+            <line id="edge-3-20" x1="260" y1="65" x2="380" y2="155" stroke="#334155" stroke-width="3" stroke-linecap="round" class="transition-all duration-300"/>
+            <text id="edge-label-3-20" x="330" y="105" fill="#64748b" font-size="10" font-family="monospace">.right</text>
+
+            <line id="edge-20-15" x1="380" y1="155" x2="320" y2="255" stroke="#334155" stroke-width="3" stroke-linecap="round" class="transition-all duration-300"/>
+            <text id="edge-label-20-15" x="340" y="200" fill="#64748b" font-size="10" font-family="monospace">.left</text>
+
+            <line id="edge-20-7" x1="380" y1="155" x2="440" y2="255" stroke="#334155" stroke-width="3" stroke-linecap="round" class="transition-all duration-300"/>
+            <text id="edge-label-20-7" x="420" y="200" fill="#64748b" font-size="10" font-family="monospace">.right</text>
+
+            <!-- TREE NODES -->
+            <g id="node-group-3" class="cursor-pointer transition-all duration-300" transform="translate(260, 65)" onclick="inspectNode('3')">
+              <circle id="node-circle-3" r="26" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+              <text text-anchor="middle" y="6" fill="#f8fafc" font-size="16" font-weight="bold">3</text>
+              
+              <g id="tag-node-3" class="opacity-0 transition-opacity duration-300" transform="translate(0, -36)">
+                <rect x="-34" y="-9" width="68" height="18" rx="9" fill="#10b981" />
+                <text id="tag-text-3" text-anchor="middle" y="3.5" fill="#ffffff" font-size="10" font-weight="bold">node=3, d=1</text>
+              </g>
+
+              <g id="leaf-badge-3" class="opacity-0 transition-opacity duration-300" transform="translate(34, 10)">
+                <rect x="-4" y="-10" width="80" height="20" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                <text id="leaf-text-3" x="36" y="4" text-anchor="middle" fill="#94a3b8" font-size="10">Has 2 children</text>
+              </g>
+            </g>
+
+            <g id="node-group-9" class="cursor-pointer transition-all duration-300" transform="translate(140, 155)" onclick="inspectNode('9')">
+              <circle id="node-circle-9" r="25" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+              <text text-anchor="middle" y="5" fill="#f8fafc" font-size="15" font-weight="bold">9</text>
+              
+              <g id="tag-node-9" class="opacity-0 transition-opacity duration-300" transform="translate(0, -34)">
+                <rect x="-34" y="-9" width="68" height="18" rx="9" fill="#10b981" />
+                <text id="tag-text-9" text-anchor="middle" y="3.5" fill="#ffffff" font-size="10" font-weight="bold">node=9, d=2</text>
+              </g>
+
+              <g id="leaf-badge-9" class="opacity-0 transition-opacity duration-300" transform="translate(-84, 10)">
+                <rect x="-4" y="-10" width="76" height="20" rx="6" fill="#047857" stroke="#34d399" stroke-width="1.5"/>
+                <text id="leaf-text-9" x="34" y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">🎯 LEAF NODE</text>
+              </g>
+            </g>
+
+            <g id="node-group-20" class="cursor-pointer transition-all duration-300" transform="translate(380, 155)" onclick="inspectNode('20')">
+              <circle id="node-circle-20" r="25" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+              <text text-anchor="middle" y="5" fill="#f8fafc" font-size="15" font-weight="bold">20</text>
+              
+              <g id="tag-node-20" class="opacity-0 transition-opacity duration-300" transform="translate(0, -34)">
+                <rect x="-34" y="-9" width="68" height="18" rx="9" fill="#0284c7" />
+                <text id="tag-text-20" text-anchor="middle" y="3.5" fill="#ffffff" font-size="10" font-weight="bold">In Queue (20, 2)</text>
+              </g>
+
+              <g id="leaf-badge-20" class="opacity-0 transition-opacity duration-300" transform="translate(34, 10)">
+                <rect x="-4" y="-10" width="80" height="20" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                <text id="leaf-text-20" x="36" y="4" text-anchor="middle" fill="#94a3b8" font-size="10">Has 2 children</text>
+              </g>
+            </g>
+
+            <g id="node-group-15" class="cursor-pointer transition-all duration-300" transform="translate(320, 255)" onclick="inspectNode('15')">
+              <circle id="node-circle-15" r="22" fill="#1e293b" stroke="#475569" stroke-width="2.5" />
+              <text text-anchor="middle" y="5" fill="#94a3b8" font-size="14" font-weight="bold">15</text>
+              
+              <g id="tag-node-15" class="opacity-0 transition-opacity duration-300" transform="translate(0, -32)">
+                <rect x="-36" y="-9" width="72" height="18" rx="9" fill="#334155" />
+                <text id="tag-text-15" text-anchor="middle" y="3.5" fill="#94a3b8" font-size="9.5">Pruned</text>
+              </g>
+            </g>
+
+            <g id="node-group-7" class="cursor-pointer transition-all duration-300" transform="translate(440, 255)" onclick="inspectNode('7')">
+              <circle id="node-circle-7" r="22" fill="#1e293b" stroke="#475569" stroke-width="2.5" />
+              <text text-anchor="middle" y="5" fill="#94a3b8" font-size="14" font-weight="bold">7</text>
+              
+              <g id="tag-node-7" class="opacity-0 transition-opacity duration-300" transform="translate(0, -32)">
+                <rect x="-36" y="-9" width="72" height="18" rx="9" fill="#334155" />
+                <text id="tag-text-7" text-anchor="middle" y="3.5" fill="#94a3b8" font-size="9.5">Pruned</text>
+              </g>
+            </g>
+          </svg>
+
+          <div id="tree-speech-bubble" class="absolute top-3 left-3 bg-slate-900/95 border border-indigo-500/40 text-xs px-3 py-2 rounded-xl text-slate-200 shadow-xl max-w-xs transition-all pointer-events-none opacity-0">
+            <span class="text-cyan-400 font-bold">🧠 BFS Inspector:</span>
+            <div id="tree-speech-text" class="mt-0.5 text-slate-300">Level-by-level evaluation</div>
+          </div>
+
+          <div id="shortest-path-banner" class="absolute bottom-3 inset-x-3 bg-slate-900/95 border border-cyan-500/50 rounded-xl p-3 flex items-center justify-between text-xs backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none shadow-2xl">
+            <div class="flex items-center gap-2.5">
+              <span class="text-xl">🏆</span>
+              <div>
+                <div class="font-bold text-cyan-300 text-sm">Shortest Path to Leaf: 3 → 9</div>
+                <div class="text-[11px] text-slate-300">Minimum Depth = <span class="font-bold text-white underline">2 nodes</span> &bull; Early Exit avoided Level 3 completely!</div>
+              </div>
+            </div>
+            <button onclick="toggleTraceAnswer()" class="pointer-events-auto text-xs px-2.5 py-1 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-200 rounded-md border border-cyan-500/40 font-semibold">Done</button>
+          </div>
+
+        </div>
+
+        <div class="mt-3.5 pt-3 border-t border-slate-800">
+          <div class="flex items-center justify-between mb-1.5">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+              <span>PHYSICAL QUEUE (collections.deque)</span>
+              <span class="text-cyan-400 font-mono text-[11px]">FIFO: Pop left ← [ ... ] ← Append right</span>
+            </div>
+            <span id="queue-count-badge" class="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded font-mono">Size: 0</span>
+          </div>
+
+          <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between gap-2 overflow-x-auto min-h-[58px]">
+            <div class="flex items-center gap-1 text-[10px] font-bold text-emerald-400 uppercase tracking-wider border-r border-slate-800 pr-2 flex-shrink-0">
+              <span>← POPLEFT</span>
+            </div>
+
+            <div id="queue-elements-container" class="flex-1 flex items-center gap-2 overflow-x-auto scrollbar-thin px-1">
+              <div class="text-xs text-slate-600 italic">Queue is empty</div>
+            </div>
+
+            <div class="flex items-center gap-1 text-[10px] font-bold text-cyan-400 uppercase tracking-wider border-l border-slate-800 pl-2 flex-shrink-0">
+              <span>APPEND ←</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-indigo-400 font-bold text-xs uppercase tracking-wider mb-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>1. What Happened</span>
+            </div>
+            <p id="explanation-what" class="text-xs text-slate-200 leading-relaxed">
+              Ready to start! Click Next or Play to watch BFS explore level-by-level.
+            </p>
+          </div>
+          <div id="micro-action-tag" class="mt-2 text-[10px] font-mono text-indigo-300 bg-indigo-950/40 px-2 py-0.5 rounded border border-indigo-900/40 truncate">
+            Action: Init
+          </div>
+        </div>
+
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-amber-400 font-bold text-xs uppercase tracking-wider mb-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              <span>2. Why BFS?</span>
+            </div>
+            <p id="explanation-why" class="text-xs text-slate-300 leading-relaxed">
+              BFS guarantees that any node visited at depth d is processed before any node at depth d+1.
+            </p>
+          </div>
+          <div class="mt-2 text-[10px] text-emerald-400 font-mono">
+            Early exit saves time!
+          </div>
+        </div>
+
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-cyan-400 font-bold text-xs uppercase tracking-wider mb-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              <span>3. What Happens Next?</span>
+            </div>
+            <p id="explanation-next" class="text-xs text-slate-200 leading-relaxed">
+              We initialize the FIFO queue with root Node 3 at depth 1.
+            </p>
+          </div>
+          <div id="preview-flow-tag" class="mt-2 text-[10px] font-mono text-cyan-300 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-900/40 truncate">
+            Next: q.append((root, 1))
+          </div>
+        </div>
+      </div>
+
+      <div id="confusion-box" class="bg-slate-900/80 border border-amber-500/30 rounded-xl p-3 text-xs flex items-start gap-2.5">
+        <span class="text-lg flex-shrink-0">⚠️</span>
+        <div>
+          <span class="font-bold text-amber-300 uppercase tracking-wider text-[11px] block">The Single-Child Trap:</span>
+          <p id="confusion-text" class="text-slate-300 mt-0.5 leading-relaxed">
+            A node is ONLY a leaf if BOTH `left` and `right` are None! If a node has one child, the path must continue down through that child.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: EXACT CODE, VARIABLES & INVARIANTS (5 cols) -->
+    <div class="lg:col-span-5 flex flex-col gap-3.5">
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+          <div class="flex items-center gap-2">
+            <div class="flex gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="text-xs font-mono text-slate-400 ml-1">solution.py</span>
+          </div>
+          
+          <div class="flex items-center gap-1 text-[11px] font-mono bg-slate-800 px-2 py-0.5 rounded text-indigo-300 border border-slate-700">
+            <span>Indent Level:</span>
+            <span id="indent-level-badge" class="font-bold text-white">0</span>
+          </div>
+        </div>
+
+        <div class="code-font text-xs leading-5 bg-slate-950 p-3 rounded-xl border border-slate-800/90 overflow-x-auto text-slate-300 relative select-none">
+          <div id="code-line-1" class="px-2 py-0.5 rounded transition-colors text-slate-400">
+            <span class="text-purple-400">from</span> collections <span class="text-purple-400">import</span> deque
+          </div>
+          
+          <div id="code-line-2" class="px-2 py-0.5 rounded transition-colors text-slate-400">
+            <span class="text-purple-400">class</span> <span class="text-amber-300">Solution</span>:
+          </div>
+
+          <div id="code-line-3" class="px-2 py-0.5 rounded transition-colors text-slate-400 pl-4 relative indent-guide" style="--indent-level: 1;">
+            <span class="text-purple-400">def</span> <span class="text-blue-400">minDepth</span>(<span class="text-orange-300">self</span>, <span class="text-emerald-300 font-bold">root</span>: <span class="text-cyan-300">Optional[TreeNode]</span>) -&gt; <span class="text-cyan-300">int</span>:
+          </div>
+          
+          <div id="code-line-4" class="px-2 py-0.5 rounded transition-colors pl-8 relative indent-guide" style="--indent-level: 2;">
+            <span class="text-purple-400 font-bold">if not</span> <span class="text-emerald-300">root</span>: <span class="text-purple-400 font-bold">return</span> <span class="text-amber-400">0</span>
+          </div>
+          
+          <div id="code-line-5" class="px-2 py-0.5 rounded transition-colors pl-8 relative indent-guide" style="--indent-level: 2;">
+            q = <span class="text-blue-400">deque</span>([(root, <span class="text-amber-400 font-bold">1</span>)])
+          </div>
+          
+          <div id="code-line-6" class="px-2 py-0.5 rounded transition-colors pl-8 relative indent-guide" style="--indent-level: 2;">
+            <span class="text-purple-400 font-bold">while</span> q:
+          </div>
+          
+          <div id="code-line-7" class="px-2 py-0.5 rounded transition-colors pl-12 relative indent-guide" style="--indent-level: 3;">
+            node, d = q.<span class="text-blue-400 font-bold">popleft</span>()
+          </div>
+          
+          <div id="code-line-8" class="px-2 py-0.5 rounded transition-colors pl-12 relative indent-guide" style="--indent-level: 3;">
+            <span class="text-purple-400 font-bold">if not</span> node.left <span class="text-purple-400 font-bold">and not</span> node.right:
+          </div>
+          
+          <div id="code-line-9" class="px-2 py-0.5 rounded transition-colors pl-16 relative indent-guide" style="--indent-level: 4;">
+            <span class="text-purple-400 font-bold">return</span> d  <span class="text-emerald-400 font-semibold italic"># 🎯 First leaf wins!</span>
+          </div>
+
+          <div id="code-line-10" class="px-2 py-0.5 rounded transition-colors pl-12 relative indent-guide" style="--indent-level: 3;">
+            <span class="text-purple-400 font-bold">if</span> node.left: q.<span class="text-blue-400">append</span>((node.left, d + <span class="text-amber-400">1</span>))
+          </div>
+
+          <div id="code-line-11" class="px-2 py-0.5 rounded transition-colors pl-12 relative indent-guide" style="--indent-level: 3;">
+            <span class="text-purple-400 font-bold">if</span> node.right: q.<span class="text-blue-400">append</span>((node.right, d + <span class="text-amber-400">1</span>))
+          </div>
+        </div>
+
+        <div class="mt-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs flex flex-col gap-1.5">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+            <span>Live Operation State</span>
+            <span id="eval-status-badge" class="text-cyan-300 font-mono">BFS Scanner</span>
+          </div>
+          <div id="eval-breakdown-box" class="font-mono text-xs text-cyan-200 bg-slate-900/90 p-2 rounded border border-slate-800">
+            Initializing algorithm...
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 shadow-xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+          <div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-300">
+            <span>🔍 Current BFS Variables</span>
+          </div>
+          <span class="text-[10px] text-slate-400 font-mono">Frame Active</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+          <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+            <span class="text-slate-500 text-[10px] block">Active node:</span>
+            <span class="text-slate-400">node → </span><span id="var-node" class="text-emerald-300 font-bold">None</span>
+          </div>
+          <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+            <span class="text-slate-500 text-[10px] block">Current depth:</span>
+            <span class="text-slate-400">d = </span><span id="var-depth" class="text-amber-300 font-bold">-</span>
+          </div>
+          <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+            <span class="text-slate-500 text-[10px] block">Left child:</span>
+            <span class="text-slate-400">node.left → </span><span id="var-left-ptr" class="text-slate-300">None</span>
+          </div>
+          <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+            <span class="text-slate-500 text-[10px] block">Right child:</span>
+            <span class="text-slate-400">node.right → </span><span id="var-right-ptr" class="text-slate-300">None</span>
+          </div>
+        </div>
+
+        <div class="mt-2 bg-slate-950 p-2 rounded-lg border border-slate-800 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-400">not node.left and not node.right:</span>
+          <span id="var-is-leaf" class="px-2 py-0.5 rounded font-bold bg-slate-800 text-slate-400">False</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/90 border border-indigo-500/30 rounded-2xl p-3.5 shadow-xl flex-1 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-xs font-bold text-indigo-300 flex items-center gap-1.5">
+              <span>⚡ Why BFS Is Optimal Here</span>
+            </div>
+            <span class="text-[10px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800 font-mono">O(min_depth)</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            In DFS, you might explore down 10,000 nodes on an unbalanced right subtree before ever discovering a leaf at depth 2 on the left.
+          </p>
+          <div class="mt-2 p-2 rounded-lg bg-slate-950 border border-slate-800 text-[11px] space-y-1 font-mono">
+            <div>&bull; <span class="text-cyan-400">BFS explores:</span> 2 nodes total (3, 9)</div>
+            <div>&bull; <span class="text-rose-400">DFS might explore:</span> 5 nodes (all 5)</div>
+            <div>&bull; <span class="text-emerald-400">Savings:</span> Early exit skips subtree 20!</div>
+          </div>
+        </div>
+        <div class="mt-2 text-[10px] text-slate-500 italic">
+          First leaf in BFS order is guaranteed to have the smallest depth.
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="mid-step-prompt" class="fixed inset-x-4 top-20 max-w-md mx-auto bg-slate-900 border-2 border-indigo-500 rounded-2xl p-4 shadow-2xl z-50 transition-all transform scale-95 opacity-0 pointer-events-none">
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1">
+        <span>🤔 Quick Check: What happens next?</span>
+      </span>
+      <button onclick="dismissMidStepPrompt()" class="text-slate-400 hover:text-white text-xs font-bold">Skip &rarr;</button>
+    </div>
+    <div id="mid-step-question" class="text-xs text-white font-medium mb-3">
+      Question text
+    </div>
+    <div id="mid-step-choices" class="space-y-1.5 text-xs">
+    </div>
+    <div id="mid-step-feedback" class="mt-2 text-[11px] p-2 rounded hidden font-medium"></div>
+  </div>
+
+  <footer class="border-t border-slate-800 bg-slate-900/95 backdrop-blur-lg sticky bottom-0 z-40 px-3 sm:px-4 py-2.5">
+    <div class="max-w-7xl mx-auto flex flex-col gap-2">
+      
+      <div class="flex items-center justify-between gap-2 text-xs text-slate-400 font-medium">
+        <div class="flex items-center gap-2 truncate">
+          <span id="step-counter" class="text-slate-200 font-bold font-mono">Step 0 / 12</span>
+          <span class="text-slate-600">&bull;</span>
+          <span id="step-title" class="text-cyan-300 truncate">Initialization</span>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-1 text-[11px]">
+          <span class="text-slate-500">Jump:</span>
+          <button onclick="goToStep(2)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Init Q (3, 1)</button>
+          <button onclick="goToStep(4)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Pop Node 3</button>
+          <button onclick="goToStep(7)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Enqueue Level 2</button>
+          <button onclick="goToStep(10)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Leaf 9 Found 🎯</button>
+          <button onclick="goToStep(12)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Final (2)</button>
+        </div>
+      </div>
+
+      <div class="w-full relative flex items-center">
+        <input id="step-slider" type="range" min="0" max="12" value="0" oninput="goToStep(parseInt(this.value))"
+          class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500 focus:outline-none" />
+      </div>
+
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <button onclick="restartVisualizer()" title="Restart (R)" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </button>
+
+          <button onclick="prevStep()" id="btn-prev" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            <span>Prev</span>
+          </button>
+
+          <button onclick="togglePlay()" id="btn-play" class="px-4 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-cyan-600/30 transition">
+            <svg id="play-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span id="play-text">Play</span>
+          </button>
+
+          <button onclick="nextStep()" id="btn-next" class="px-3 py-1.5 rounded-xl bg-cyan-600/20 border border-cyan-500/40 hover:bg-cyan-600/30 text-cyan-300 text-xs font-semibold flex items-center gap-1 transition">
+            <span>Next</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+          <span>Speed:</span>
+          <div class="bg-slate-800 rounded-lg p-0.5 border border-slate-700 flex text-[11px]">
+            <button onclick="setSpeed(2000, '0.5x')" id="speed-0" class="px-2 py-0.5 rounded text-slate-300 hover:text-white">0.5x</button>
+            <button onclick="setSpeed(1200, '1x')" id="speed-1" class="px-2 py-0.5 rounded bg-cyan-600 text-white font-bold">1x</button>
+            <button onclick="setSpeed(600, '2x')" id="speed-2" class="px-2 py-0.5 rounded text-slate-300 hover:text-white">2x</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="modal-analogy" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+      <button onclick="toggleModal('modal-analogy')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl">🌊</span>
+        <div>
+          <h3 class="text-base font-bold text-white">The Water Ripple Analogy</h3>
+          <p class="text-xs text-slate-400">Why BFS level-order finds the shortest distance first</p>
+        </div>
+      </div>
+      <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+        <p>Imagine dropping a pebble at the root (<strong class="text-emerald-400">Node 3</strong>). Ripples expand outward in concentric circles.</p>
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-start gap-2">
+            <span class="text-cyan-400 font-bold">Ring 1:</span>
+            <span>Touches all nodes at distance 1 (Node 3). Is 3 a leaf? No, it has children.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-cyan-400 font-bold">Ring 2:</span>
+            <span>Expands to distance 2 (Nodes 9 and 20). Is Node 9 a leaf? <strong class="text-emerald-300 font-bold">YES! It has no children!</strong></span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-emerald-400 font-bold">Stop:</span>
+            <span>Because water ripples expand uniformly, the FIRST leaf hit is mathematically guaranteed to be the closest leaf to the origin!</span>
+          </div>
+        </div>
+        <p class="italic text-cyan-300">
+          "We don't need to check Ring 3 (nodes 15 and 7) because distance 2 is already complete."
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-compare" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl relative">
+      <button onclick="toggleModal('modal-compare')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl">🔄</span>
+        <div>
+          <h3 class="text-base font-bold text-white">LeetCode 104 vs LeetCode 111</h3>
+          <p class="text-xs text-slate-400">Why Maximum Depth uses DFS, but Minimum Depth prefers BFS</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col gap-2">
+          <div class="font-bold text-indigo-400 text-sm">LeetCode 104: Max Depth</div>
+          <p class="text-slate-400">Must explore the <strong>entire</strong> tree.</p>
+          <div class="bg-slate-900 p-2.5 rounded font-mono text-[11px] text-slate-300 border border-slate-800">
+            return 1 + max(dfs(left), dfs(right))
+          </div>
+          <p class="text-slate-300 text-[11px]">
+            You cannot exit early because a deeper leaf could hide anywhere at the very bottom.
+          </p>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-cyan-500/40 flex flex-col gap-2">
+          <div class="font-bold text-cyan-400 text-sm">LeetCode 111: Min Depth</div>
+          <p class="text-slate-400">Can exit <strong>immediately</strong> at the first leaf.</p>
+          <div class="bg-slate-900 p-2.5 rounded font-mono text-[11px] text-slate-300 border border-slate-800">
+            if not left and not right: return d
+          </div>
+          <p class="text-slate-300 text-[11px]">
+            BFS level-order guarantees the first leaf popped is at the minimum depth. Pruning saves massive execution time!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-quiz" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="toggleModal('modal-quiz')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl">🎯</span>
+        <div>
+          <h3 class="text-base font-bold text-white">5 Core BFS Intuition Questions</h3>
+          <p class="text-xs text-slate-400">Verify your understanding of BFS leaf detection</p>
+        </div>
+      </div>
+
+      <div class="space-y-4 text-xs" id="quiz-questions">
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">1. Why does BFS guarantee finding the minimum depth first?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(1, 'A', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) Because BFS processes nodes level-by-level; all nodes at depth d are visited before depth d+1.</button>
+            <button onclick="answerQuiz(1, 'B', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) Because queues sort nodes automatically from smallest to largest value.</button>
+            <button onclick="answerQuiz(1, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) Because it uses less memory than recursion in every single case.</button>
+          </div>
+          <div id="quiz-feedback-1" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">2. What defines a "leaf node" in binary trees?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(2, 'A', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) Any node that has at least one null child.</button>
+            <button onclick="answerQuiz(2, 'B', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) A node with NO children at all (both left and right are None).</button>
+            <button onclick="answerQuiz(2, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) The node with the smallest integer key.</button>
+          </div>
+          <div id="quiz-feedback-2" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">3. If root = [1, 2, null] (root has only a left child), what is the minimum depth?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(3, 'A', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) 1, because root has no right child.</button>
+            <button onclick="answerQuiz(3, 'B', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) 2, because root is NOT a leaf. The path must continue down to Node 2.</button>
+            <button onclick="answerQuiz(3, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) 0, because it's unbalanced.</button>
+          </div>
+          <div id="quiz-feedback-3" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">4. Why do we store a tuple `(node, d)` in the queue?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(4, 'A', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) To keep track of each node's exact depth along with the node pointer.</button>
+            <button onclick="answerQuiz(4, 'B', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) Python deques only accept tuples of length 2.</button>
+            <button onclick="answerQuiz(4, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) To remember the node's parent index.</button>
+          </div>
+          <div id="quiz-feedback-4" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">5. What is the best-case time complexity of BFS for Minimum Depth?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(5, 'A', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) O(min_depth) or O(1) if root is a leaf; stops immediately upon finding first leaf.</button>
+            <button onclick="answerQuiz(5, 'B', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) Always O(N log N) because of sorting.</button>
+            <button onclick="answerQuiz(5, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) Always O(N) because every node in the tree must be visited.</button>
+          </div>
+          <div id="quiz-feedback-5" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STEPS = [
+      {
+        id: 0,
+        title: "BFS Setup & Problem Definition",
+        stage: "INIT",
+        codeLine: 3,
+        indentLevel: 1,
+        activeNode: null,
+        speech: "Minimum Depth is the number of nodes on the SHORTEST path from the root to a LEAF node.",
+        treeStates: { '3': 'unvisited', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        queue: [],
+        vars: { node: "None", depth: "-", leftPtr: "None", rightPtr: "None", isLeaf: "False" },
+        task: { node: "Start", text: "Target: Shortest path to a node with NO children (leaf). Using BFS level-order!", activeSubstep: 0 },
+        anchor: { line: "Line 3: def minDepth(root):", action: "Calling minDepth(root = Node 3)", depth: "d = -" },
+        expression: "Calling: minDepth(root = [3, 9, 20, null, null, 15, 7])",
+        whatHappened: "Function called with binary tree root. BFS is chosen because it explores in circular waves.",
+        why: "BFS explores all nodes at depth 1, then depth 2, etc. The first leaf we see is GUARANTEED to be the minimum depth.",
+        whatNext: "Check if tree is completely empty (`if not root: return 0`).",
+        microAction: "Init algorithm",
+        quizPrompt: null
+      },
+      {
+        id: 1,
+        title: "Check Base Case: if not root",
+        stage: "INIT",
+        codeLine: 4,
+        indentLevel: 2,
+        activeNode: '3',
+        speech: "Node 3 exists, so root is not empty. False!",
+        treeStates: { '3': 'current', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        queue: [],
+        vars: { node: "Node 3", depth: "-", leftPtr: "Node 9", rightPtr: "Node 20", isLeaf: "False" },
+        task: { node: "Node 3", text: "Confirm tree is non-empty before initializing the queue.", activeSubstep: 0 },
+        anchor: { line: "Line 4: if not root:", action: "Condition is False (Node 3 exists)", depth: "d = -" },
+        expression: "root = Node 3 &bull; if not root -> False",
+        whatHappened: "`root` points to Node 3. The empty-tree check is False, so execution continues.",
+        why: "If root were None, depth would be 0. Here, root exists.",
+        whatNext: "Initialize the FIFO queue with `(root, 1)`.",
+        microAction: "Evaluated if not root",
+        quizPrompt: null
+      },
+      {
+        id: 2,
+        title: "Initialize Queue: q = deque([(root, 1)])",
+        stage: "INIT",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '3',
+        speech: "Enqueue root Node 3 with starting depth 1.",
+        treeStates: { '3': 'in-queue', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        queue: [{ val: 3, d: 1 }],
+        vars: { node: "None", depth: "-", leftPtr: "Node 9", rightPtr: "Node 20", isLeaf: "False" },
+        task: { node: "Queue", text: "Store (Node 3, d=1) in queue. Depth starts at 1 for the root.", activeSubstep: 0 },
+        anchor: { line: "Line 5: q = deque([(root, 1)])", action: "Pushed (Node 3, 1) into FIFO queue", depth: "d = 1" },
+        expression: "q = deque([(Node 3, 1)]) &bull; Queue Size: 1",
+        whatHappened: "A deque is created with one element: `(Node 3, depth=1)`.",
+        why: "Every queue item is a pair: the node reference and its distance (depth) from the root.",
+        whatNext: "Enter the main loop: `while q:`.",
+        microAction: "Enqueued (3, 1)",
+        quizPrompt: null
+      },
+      {
+        id: 3,
+        title: "Loop Check: while q",
+        stage: "WHILE",
+        codeLine: 6,
+        indentLevel: 2,
+        activeNode: '3',
+        speech: "Queue has 1 element, so while q is True!",
+        treeStates: { '3': 'in-queue', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        queue: [{ val: 3, d: 1 }],
+        vars: { node: "None", depth: "-", leftPtr: "Node 9", rightPtr: "Node 20", isLeaf: "False" },
+        task: { node: "Loop", text: "Check while q: True because queue is not empty.", activeSubstep: 1 },
+        anchor: { line: "Line 6: while q:", action: "Queue has elements -> Loop continues", depth: "d = 1" },
+        expression: "while q: -> True (q has 1 item)",
+        whatHappened: "Queue is not empty. The while-loop proceeds to pop the front element.",
+        why: "BFS continues as long as there are unexplored nodes in the queue.",
+        whatNext: "Pop the front item using `q.popleft()`.",
+        microAction: "Verified while q",
+        quizPrompt: null
+      },
+      {
+        id: 4,
+        title: "Pop Front: node, d = q.popleft()",
+        stage: "POPLEF",
+        codeLine: 7,
+        indentLevel: 3,
+        activeNode: '3',
+        speech: "Pop Node 3 from the front of the queue. Current depth d = 1.",
+        treeStates: { '3': 'current', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        queue: [],
+        vars: { node: "Node 3", depth: "1", leftPtr: "Node 9", rightPtr: "Node 20", isLeaf: "False" },
+        task: { node: "Node 3", text: "Inspect Node 3. Is it a leaf? Check children.", activeSubstep: 2 },
+        anchor: { line: "Line 7: node, d = q.popleft()", action: "Popped node=3, depth d=1", depth: "d = 1" },
+        expression: "node = Node 3, d = 1 &bull; Queue is now empty",
+        whatHappened: "FIFO popleft retrieves `Node 3` and depth `1`. Node 3 is now the active node.",
+        why: "We always inspect the oldest element in the queue (FIFO order).",
+        whatNext: "Leaf Check: Does Node 3 have neither left nor right child?",
+        microAction: "Popped (3, 1)",
+        quizPrompt: null
+      },
+      {
+        id: 5,
+        title: "Leaf Check: if not node.left and not node.right",
+        stage: "LEAFCHECK",
+        codeLine: 8,
+        indentLevel: 3,
+        activeNode: '3',
+        speech: "Node 3 has left (Node 9) and right (Node 20). It is NOT a leaf!",
+        treeStates: { '3': 'current', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        queue: [],
+        vars: { node: "Node 3", depth: "1", leftPtr: "Node 9", rightPtr: "Node 20", isLeaf: "False" },
+        task: { node: "Node 3", text: "Leaf check failed. Node 3 has children, so the path continues down.", activeSubstep: 3 },
+        anchor: { line: "Line 8: if not node.left and not node.right:", action: "Leaf check: False (Internal Node)", depth: "d = 1" },
+        expression: "node.left = 9, node.right = 20 &bull; Condition: False",
+        whatHappened: "Node 3 has two children. It is NOT a leaf node, so we cannot return yet.",
+        why: "A leaf node MUST have no children. Node 3 is an internal node.",
+        whatNext: "Enqueue its children (Node 9 and Node 20) with depth = d + 1 = 2.",
+        microAction: "Leaf check = False",
+        quizPrompt: null
+      },
+      {
+        id: 6,
+        title: "Enqueue Left: q.append((node.left, d + 1))",
+        stage: "ENQUEUE",
+        codeLine: 10,
+        indentLevel: 3,
+        activeNode: '3',
+        speech: "Add left child Node 9 to the back of the queue with depth 1 + 1 = 2.",
+        treeStates: { '3': 'current', '9': 'in-queue', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        queue: [{ val: 9, d: 2 }],
+        vars: { node: "Node 3", depth: "1", leftPtr: "Node 9", rightPtr: "Node 20", isLeaf: "False" },
+        task: { node: "Node 3", text: "Append (Node 9, d=2) to queue.", activeSubstep: 3 },
+        anchor: { line: "Line 10: q.append((node.left, d + 1))", action: "Enqueued (Node 9, 2)", depth: "d = 1" },
+        expression: "q.append((Node 9, d + 1 = 2)) &bull; Queue: [(9, 2)]",
+        whatHappened: "Left child Node 9 enters the queue at depth 2.",
+        why: "Every child is 1 level deeper than its parent ($d + 1$).",
+        whatNext: "Check if Node 3 has a right child.",
+        microAction: "Enqueued (9, 2)",
+        quizPrompt: null
+      },
+      {
+        id: 7,
+        title: "Enqueue Right: q.append((node.right, d + 1))",
+        stage: "ENQUEUE",
+        codeLine: 11,
+        indentLevel: 3,
+        activeNode: '3',
+        speech: "Add right child Node 20 to the back of the queue with depth 1 + 1 = 2.",
+        treeStates: { '3': 'unvisited', '9': 'in-queue', '20': 'in-queue', '15': 'unvisited', '7': 'unvisited' },
+        queue: [{ val: 9, d: 2 }, { val: 20, d: 2 }],
+        vars: { node: "Node 3", depth: "1", leftPtr: "Node 9", rightPtr: "Node 20", isLeaf: "False" },
+        task: { node: "Node 3", text: "Append (Node 20, d=2). Level 2 is now fully queued!", activeSubstep: 3 },
+        anchor: { line: "Line 11: q.append((node.right, d + 1))", action: "Enqueued (Node 20, 2)", depth: "d = 1" },
+        expression: "q.append((Node 20, d + 1 = 2)) &bull; Queue: [(9, 2), (20, 2)]",
+        whatHappened: "Node 20 added to the back of the queue. Queue now holds both Level 2 nodes: 9 and 20.",
+        why: "All nodes at Level 2 are queued up in left-to-right order.",
+        whatNext: "Loop back to `while q:` to process the next node.",
+        microAction: "Enqueued (20, 2)",
+        quizPrompt: null
+      },
+      {
+        id: 8,
+        title: "Loop Iteration 2: while q",
+        stage: "WHILE",
+        codeLine: 6,
+        indentLevel: 2,
+        activeNode: null,
+        speech: "Queue has 2 items: [(Node 9, 2), (Node 20, 2)]. Still True!",
+        treeStates: { '3': 'unvisited', '9': 'in-queue', '20': 'in-queue', '15': 'unvisited', '7': 'unvisited' },
+        queue: [{ val: 9, d: 2 }, { val: 20, d: 2 }],
+        vars: { node: "None", depth: "-", leftPtr: "-", rightPtr: "-", isLeaf: "False" },
+        task: { node: "Loop", text: "Next iteration: Pop front element from Level 2.", activeSubstep: 1 },
+        anchor: { line: "Line 6: while q:", action: "Queue size: 2 -> Loop continues", depth: "d = 2" },
+        expression: "while q: -> True &bull; Front element is Node 9",
+        whatHappened: "The queue contains Level 2 nodes. BFS maintains FIFO order.",
+        why: "FIFO guarantees we inspect Node 9 before any Level 3 nodes are ever considered.",
+        whatNext: "Pop the front element: `node, d = q.popleft()`.",
+        microAction: "Verified while q",
+        quizPrompt: null
+      },
+      {
+        id: 9,
+        title: "Pop Front: node, d = q.popleft() -> Node 9",
+        stage: "POPLEF",
+        codeLine: 7,
+        indentLevel: 3,
+        activeNode: '9',
+        speech: "Pop Node 9 from front! Depth d = 2. Node 20 is waiting in queue.",
+        treeStates: { '3': 'unvisited', '9': 'current', '20': 'in-queue', '15': 'unvisited', '7': 'unvisited' },
+        queue: [{ val: 20, d: 2 }],
+        vars: { node: "Node 9", depth: "2", leftPtr: "None", rightPtr: "None", isLeaf: "True" },
+        task: { node: "Node 9", text: "Inspect Node 9. Check if left and right are None.", activeSubstep: 2 },
+        anchor: { line: "Line 7: node, d = q.popleft()", action: "Popped node=9, depth d=2", depth: "d = 2" },
+        expression: "node = Node 9, d = 2 &bull; Remaining in Queue: [(20, 2)]",
+        whatHappened: "Node 9 is popped from the front of the queue. Depth is 2.",
+        why: "Node 9 was enqueued before Node 20, so it is popped first.",
+        whatNext: "Leaf Check: Does Node 9 have children?",
+        microAction: "Popped (9, 2)",
+        quizPrompt: {
+          q: "Node 9 has node.left == None and node.right == None. What will happen next?",
+          options: [
+            { text: "The condition matches! The function immediately returns depth d = 2.", correct: true },
+            { text: "The code continues and explores Node 20 first.", correct: false },
+            { text: "It adds None to the queue.", correct: false }
+          ],
+          feedback: "Spot on! Node 9 has NO children, which means it is a LEAF. In BFS, the first leaf popped triggers an early exit!"
+        }
+      },
+      {
+        id: 10,
+        title: "Leaf Detected: if not node.left and not node.right",
+        stage: "LEAFCHECK",
+        codeLine: 8,
+        indentLevel: 3,
+        activeNode: '9',
+        speech: "🎯 LEAF FOUND! Node 9 has no left child and no right child!",
+        treeStates: { '3': 'unvisited', '9': 'leaf-found', '20': 'in-queue', '15': 'pruned', '7': 'pruned' },
+        queue: [{ val: 20, d: 2 }],
+        vars: { node: "Node 9", depth: "2", leftPtr: "None", rightPtr: "None", isLeaf: "True" },
+        task: { node: "Node 9", text: "Leaf check passed! Both children are None. Ready to early exit!", activeSubstep: 4 },
+        anchor: { line: "Line 8: if not node.left and not node.right:", action: "Condition is TRUE! Leaf found at d=2", depth: "d = 2" },
+        expression: "not node.left (True) and not node.right (True) -> TRUE 🎯",
+        whatHappened: "Node 9 has no children. The leaf condition evaluates to TRUE!",
+        why: "A leaf node is defined as a node with 0 children. Node 9 satisfies this definition.",
+        whatNext: "Execute `return d` (returns 2).",
+        microAction: "Leaf condition TRUE",
+        quizPrompt: null
+      },
+      {
+        id: 11,
+        title: "🎯 EARLY EXIT: return d (returns 2)",
+        stage: "EARLYEXIT",
+        codeLine: 9,
+        indentLevel: 4,
+        activeNode: '9',
+        speech: "🎯 RETURN 2! Minimum depth is 2. We stop immediately without checking 15 or 7!",
+        treeStates: { '3': 'completed', '9': 'leaf-found', '20': 'pruned', '15': 'pruned', '7': 'pruned' },
+        queue: [{ val: 20, d: 2 }],
+        vars: { node: "Node 9", depth: "2", leftPtr: "None", rightPtr: "None", isLeaf: "True" },
+        task: { node: "Return", text: "Return 2! Subtrees below Node 20 are completely pruned.", activeSubstep: 4 },
+        anchor: { line: "Line 9: return d", action: "EARLY EXIT: return 2", depth: "d = 2" },
+        expression: "return d = 2 &bull; Optimal BFS Early-Exit Triggered!",
+        whatHappened: "The algorithm returns 2 immediately. It never processes Node 20, and never visits Node 15 or Node 7!",
+        why: "Because BFS checks shallower depths first, NO OTHER LEAF can possibly have a depth smaller than 2.",
+        whatNext: "Execution finished.",
+        microAction: "Returned 2 (Early Exit)",
+        quizPrompt: null
+      },
+      {
+        id: 12,
+        title: "🎉 Final Answer: Minimum Depth = 2",
+        stage: "EARLYEXIT",
+        codeLine: 9,
+        indentLevel: 4,
+        activeNode: '9',
+        speech: "🎉 Finished! Minimum depth = 2. Path: 3 → 9.",
+        treeStates: { '3': 'completed', '9': 'leaf-found', '20': 'pruned', '15': 'pruned', '7': 'pruned' },
+        queue: [],
+        vars: { node: "Node 9", depth: "2", leftPtr: "None", rightPtr: "None", isLeaf: "True" },
+        task: { node: "Done", text: "Minimum Depth = 2. Shortest root-to-leaf path is 3 -> 9.", activeSubstep: 4 },
+        anchor: { line: "Execution Finished", action: "Final Output: 2", depth: "d = 2" },
+        expression: "OUTPUT = 2 &bull; Shortest root-to-leaf path: 3 -> 9 (Length 2)",
+        whatHappened: "BFS terminated with the optimal answer 2. Only 2 nodes were ever inspected.",
+        why: "BFS early-exit avoids scanning deeper branches, achieving optimal best-case performance.",
+        whatNext: "Click 'Trace Shortest Path' or take the Quiz to test your intuition!",
+        microAction: "Algorithm Complete",
+        quizPrompt: null
+      }
+    ];
+
+    let currentStepIndex = 0;
+    let isPlaying = false;
+    let playInterval = null;
+    let currentSpeed = 1200;
+    let currentMode = 'beginner';
+    let isTraceActive = false;
+    let promptAnswered = {};
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderStep(0);
+      setupKeyboard();
+    });
+
+    function setupKeyboard() {
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+          e.preventDefault();
+          nextStep();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevStep();
+        } else if (e.key.toLowerCase() === 'r') {
+          restartVisualizer();
+        } else if (e.key.toLowerCase() === 'p') {
+          togglePlay();
+        }
+      });
+    }
+
+    function renderStep(index) {
+      currentStepIndex = Math.max(0, Math.min(index, STEPS.length - 1));
+      const step = STEPS[currentStepIndex];
+
+      document.getElementById('step-slider').value = currentStepIndex;
+      document.getElementById('step-counter').textContent = `Step ${currentStepIndex} / ${STEPS.length - 1}`;
+      document.getElementById('step-title').textContent = step.title;
+
+      updateFlowBar(step.stage, currentStepIndex);
+      updateAnchorAndTask(step);
+      updateCodeAndIndent(step.codeLine, step.indentLevel, step.expression);
+      updateVariables(step.vars);
+      updateExplanations(step);
+      updateTreeVisuals(step);
+      updatePhysicalQueue(step.queue);
+      handleMidStepPrompt(step);
+
+      document.getElementById('btn-prev').disabled = currentStepIndex === 0;
+      document.getElementById('btn-next').disabled = currentStepIndex === STEPS.length - 1;
+
+      if (currentStepIndex === STEPS.length - 1 && isPlaying) {
+        togglePlay();
+      }
+    }
+
+    function updateFlowBar(activeStage, stepNum) {
+      const stages = ['INIT', 'WHILE', 'POPLEF', 'LEAFCHECK', 'ENQUEUE', 'EARLYEXIT'];
+      stages.forEach(st => {
+        const el = document.getElementById(`stage-${st}`);
+        if (!el) return;
+        if (st === activeStage) {
+          el.className = "px-2.5 py-1 rounded-md border border-cyan-400 bg-cyan-600 text-white font-bold flex items-center gap-1 shadow-md shadow-cyan-600/30 scale-105 transition-all";
+        } else {
+          el.className = "px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all";
+        }
+      });
+      const lbl = document.getElementById('flow-current-label');
+      if (lbl) {
+        lbl.textContent = `Stage: ${activeStage} (Step ${stepNum})`;
+      }
+    }
+
+    function updateAnchorAndTask(step) {
+      document.getElementById('task-badge-node').textContent = step.task.node;
+      document.getElementById('task-goal-text').textContent = step.task.text;
+
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`substep-${i}`);
+        if (!el) continue;
+        if (i === step.task.activeSubstep) {
+          el.className = "px-1.5 py-0.5 rounded bg-cyan-600 text-white font-bold shadow-sm";
+        } else {
+          el.className = "px-1.5 py-0.5 rounded bg-slate-800 text-slate-400";
+        }
+      }
+
+      document.getElementById('anchor-code-line').textContent = step.anchor.line;
+      document.getElementById('anchor-action').textContent = step.anchor.action;
+      document.getElementById('anchor-depth-tag').textContent = step.anchor.depth;
+    }
+
+    function updateCodeAndIndent(lineNum, indentLevel, expr) {
+      document.getElementById('indent-level-badge').textContent = indentLevel;
+
+      for (let i = 1; i <= 11; i++) {
+        const el = document.getElementById(`code-line-${i}`);
+        if (!el) continue;
+        el.classList.remove('bg-cyan-600/35', 'border-l-4', 'border-cyan-400', 'text-white', 'font-bold', 'indent-guide-active');
+      }
+
+      const activeEl = document.getElementById(`code-line-${lineNum}`);
+      if (activeEl) {
+        activeEl.classList.add('bg-cyan-600/35', 'border-l-4', 'border-cyan-400', 'text-white', 'font-bold', 'indent-guide-active');
+      }
+
+      document.getElementById('eval-breakdown-box').innerHTML = expr;
+    }
+
+    function updateVariables(vars) {
+      document.getElementById('var-node').textContent = vars.node;
+      document.getElementById('var-depth').textContent = vars.depth;
+      document.getElementById('var-left-ptr').textContent = vars.leftPtr;
+      document.getElementById('var-right-ptr').textContent = vars.rightPtr;
+      
+      const isLeafEl = document.getElementById('var-is-leaf');
+      isLeafEl.textContent = vars.isLeaf;
+      if (vars.isLeaf === "True") {
+        isLeafEl.className = "px-2 py-0.5 rounded font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40";
+      } else {
+        isLeafEl.className = "px-2 py-0.5 rounded font-bold bg-slate-800 text-slate-400";
+      }
+    }
+
+    function updateExplanations(step) {
+      document.getElementById('explanation-what').textContent = step.whatHappened;
+      document.getElementById('explanation-why').textContent = step.why;
+      document.getElementById('explanation-next').textContent = step.whatNext;
+      document.getElementById('micro-action-tag').textContent = `Event: ${step.microAction}`;
+    }
+
+    function updateTreeVisuals(step) {
+      const nodes = ['3', '9', '20', '15', '7'];
+
+      const bubble = document.getElementById('tree-speech-bubble');
+      const bubbleText = document.getElementById('tree-speech-text');
+      if (step.speech && step.activeNode) {
+        bubbleText.textContent = step.speech;
+        bubble.classList.remove('opacity-0');
+      } else {
+        bubble.classList.add('opacity-0');
+      }
+
+      nodes.forEach(id => {
+        const circle = document.getElementById(`node-circle-${id}`);
+        const tag = document.getElementById(`tag-node-${id}`);
+        const leafBadge = document.getElementById(`leaf-badge-${id}`);
+        const state = step.treeStates[id] || 'unvisited';
+
+        circle.setAttribute('stroke-width', '3');
+        circle.classList.remove('animate-pulse-subtle');
+        circle.setAttribute('filter', '');
+
+        if (state === 'unvisited') {
+          circle.setAttribute('fill', '#1e293b');
+          circle.setAttribute('stroke', '#64748b');
+          tag.classList.add('opacity-0');
+          if (leafBadge) leafBadge.classList.add('opacity-0');
+        } else if (state === 'in-queue') {
+          circle.setAttribute('fill', '#075985');
+          circle.setAttribute('stroke', '#38bdf8');
+          circle.setAttribute('stroke-dasharray', '4 3');
+          tag.classList.remove('opacity-0');
+          if (leafBadge) leafBadge.classList.add('opacity-0');
+        } else if (state === 'current') {
+          circle.setAttribute('fill', '#065f46');
+          circle.setAttribute('stroke', '#34d399');
+          circle.setAttribute('stroke-width', '4');
+          circle.setAttribute('stroke-dasharray', '');
+          circle.classList.add('animate-pulse-subtle');
+          tag.classList.remove('opacity-0');
+          if (leafBadge) leafBadge.classList.remove('opacity-0');
+        } else if (state === 'leaf-found') {
+          circle.setAttribute('fill', '#047857');
+          circle.setAttribute('stroke', '#10b981');
+          circle.setAttribute('stroke-width', '5');
+          circle.setAttribute('filter', 'url(#glow-gold)');
+          tag.classList.remove('opacity-0');
+          if (leafBadge) leafBadge.classList.remove('opacity-0');
+        } else if (state === 'completed') {
+          circle.setAttribute('fill', '#312e81');
+          circle.setAttribute('stroke', '#818cf8');
+          tag.classList.add('opacity-0');
+          if (leafBadge) leafBadge.classList.add('opacity-0');
+        } else if (state === 'pruned') {
+          circle.setAttribute('fill', '#0f172a');
+          circle.setAttribute('stroke', '#334155');
+          circle.setAttribute('stroke-width', '1.5');
+          tag.classList.remove('opacity-0');
+          if (leafBadge) leafBadge.classList.add('opacity-0');
+        }
+      });
+
+      updateEdgeHighlights();
+    }
+
+    function updateEdgeHighlights() {
+      const e3_9 = document.getElementById('edge-3-9');
+      const e3_20 = document.getElementById('edge-3-20');
+      const e20_15 = document.getElementById('edge-20-15');
+      const e20_7 = document.getElementById('edge-20-7');
+
+      if (isTraceActive || currentStepIndex >= 11) {
+        e3_9.setAttribute('stroke', '#10b981');
+        e3_9.setAttribute('stroke-width', '6');
+        e3_20.setAttribute('stroke', '#1e293b');
+        e3_20.setAttribute('stroke-width', '1.5');
+        e20_15.setAttribute('stroke', '#1e293b');
+        e20_15.setAttribute('stroke-width', '1.5');
+        e20_7.setAttribute('stroke', '#1e293b');
+        e20_7.setAttribute('stroke-width', '1.5');
+      } else {
+        e3_9.setAttribute('stroke', '#334155');
+        e3_9.setAttribute('stroke-width', '3');
+        e3_20.setAttribute('stroke', '#334155');
+        e3_20.setAttribute('stroke-width', '3');
+        e20_15.setAttribute('stroke', '#334155');
+        e20_15.setAttribute('stroke-width', '3');
+        e20_7.setAttribute('stroke', '#334155');
+        e20_7.setAttribute('stroke-width', '3');
+      }
+    }
+
+    function updatePhysicalQueue(queue) {
+      const container = document.getElementById('queue-elements-container');
+      const countBadge = document.getElementById('queue-count-badge');
+      countBadge.textContent = `Size: ${queue.length}`;
+
+      if (queue.length === 0) {
+        container.innerHTML = `<div class="text-xs text-slate-600 italic py-1">Queue is empty</div>`;
+        return;
+      }
+
+      let html = '';
+      queue.forEach((item, idx) => {
+        const isHead = idx === 0;
+        const style = isHead 
+          ? 'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold shadow-md shadow-emerald-950'
+          : 'bg-slate-900 border-cyan-600/50 text-cyan-200';
+
+        html += `
+          <div class="flex-shrink-0 px-3 py-1.5 rounded-lg border text-xs font-mono flex items-center gap-2 ${style} transition-all">
+            <span class="text-slate-400 text-[10px]">#${idx + 1}</span>
+            <span>(Node <strong class="text-white">${item.val}</strong>, d=<span class="text-amber-300 font-bold">${item.d}</span>)</span>
+            ${isHead ? '<span class="text-[9px] px-1 py-0.2 rounded bg-emerald-500 text-black uppercase font-bold">NEXT</span>' : ''}
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function handleMidStepPrompt(step) {
+      const promptEl = document.getElementById('mid-step-prompt');
+      if (!step.quizPrompt || promptAnswered[step.id]) {
+        promptEl.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+        return;
+      }
+
+      if (isPlaying) togglePlay();
+
+      document.getElementById('mid-step-question').textContent = step.quizPrompt.q;
+      const choicesEl = document.getElementById('mid-step-choices');
+      const feedbackEl = document.getElementById('mid-step-feedback');
+      feedbackEl.classList.add('hidden');
+
+      let html = '';
+      step.quizPrompt.options.forEach((opt) => {
+        html += `
+          <button onclick="handlePromptAnswer(${step.id}, ${opt.correct}, '${step.quizPrompt.feedback}')" 
+            class="w-full text-left p-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200">
+            ${opt.text}
+          </button>
+        `;
+      });
+      choicesEl.innerHTML = html;
+
+      promptEl.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+    }
+
+    function handlePromptAnswer(stepId, isCorrect, feedback) {
+      const fb = document.getElementById('mid-step-feedback');
+      fb.classList.remove('hidden');
+
+      if (isCorrect) {
+        fb.className = "mt-2 text-[11px] p-2 rounded font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        fb.textContent = `✅ Correct! ${feedback}`;
+        promptAnswered[stepId] = true;
+        setTimeout(dismissMidStepPrompt, 2200);
+      } else {
+        fb.className = "mt-2 text-[11px] p-2 rounded font-medium bg-rose-500/20 text-rose-300 border border-rose-500/30";
+        fb.textContent = "❌ Not quite! Notice that Node 9 has no children. What does that mean?";
+      }
+    }
+
+    function dismissMidStepPrompt() {
+      const promptEl = document.getElementById('mid-step-prompt');
+      promptEl.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+    }
+
+    function inspectNode(nodeId) {
+      const explanations = {
+        '3': "Node 3 (Root): Has two children (Node 9 and Node 20). It is not a leaf. BFS enqueued both children at depth 2.",
+        '9': "Node 9 (Leaf): Has no children (left is None, right is None). Because BFS explores level-order, this first leaf immediately returns depth 2!",
+        '20': "Node 20: Was placed in the queue at depth 2, but was NEVER popped or processed because Node 9 triggered an immediate early exit.",
+        '15': "Node 15: Pruned! Located at Level 3. BFS never visited this node, saving execution time.",
+        '7': "Node 7: Pruned! Located at Level 3. BFS never visited this node."
+      };
+      const bubble = document.getElementById('tree-speech-bubble');
+      const bubbleText = document.getElementById('tree-speech-text');
+      bubbleText.textContent = explanations[nodeId] || "Binary tree node.";
+      bubble.classList.remove('opacity-0');
+    }
+
+    function toggleTraceAnswer() {
+      isTraceActive = !isTraceActive;
+      const banner = document.getElementById('shortest-path-banner');
+      const label = document.getElementById('trace-btn-label');
+      const btn = document.getElementById('btn-trace');
+
+      if (isTraceActive) {
+        banner.classList.remove('opacity-0', 'pointer-events-none');
+        label.textContent = "Exit Trace";
+        btn.classList.add('bg-cyan-500', 'text-black');
+      } else {
+        banner.classList.add('opacity-0', 'pointer-events-none');
+        label.textContent = "Trace Shortest Path";
+        btn.classList.remove('bg-cyan-500', 'text-black');
+      }
+      updateEdgeHighlights();
+    }
+
+    function nextStep() {
+      if (currentStepIndex < STEPS.length - 1) {
+        goToStep(currentStepIndex + 1);
+      }
+    }
+
+    function prevStep() {
+      if (currentStepIndex > 0) {
+        goToStep(currentStepIndex - 1);
+      }
+    }
+
+    function goToStep(idx) {
+      renderStep(idx);
+    }
+
+    function restartVisualizer() {
+      if (isPlaying) togglePlay();
+      isTraceActive = false;
+      document.getElementById('shortest-path-banner').classList.add('opacity-0', 'pointer-events-none');
+      document.getElementById('trace-btn-label').textContent = "Trace Shortest Path";
+      promptAnswered = {};
+      goToStep(0);
+    }
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      const playText = document.getElementById('play-text');
+      const playBtn = document.getElementById('btn-play');
+
+      if (isPlaying) {
+        playText.textContent = "Pause";
+        playBtn.classList.replace('bg-cyan-600', 'bg-amber-600');
+        playInterval = setInterval(() => {
+          if (currentStepIndex < STEPS.length - 1) {
+            nextStep();
+          } else {
+            togglePlay();
+          }
+        }, currentSpeed);
+      } else {
+        playText.textContent = "Play";
+        playBtn.classList.replace('bg-amber-600', 'bg-cyan-600');
+        clearInterval(playInterval);
+      }
+    }
+
+    function setSpeed(ms, label) {
+      currentSpeed = ms;
+      ['speed-0', 'speed-1', 'speed-2'].forEach(id => {
+        document.getElementById(id).classList.remove('bg-cyan-600', 'text-white', 'font-bold');
+        document.getElementById(id).classList.add('text-slate-300');
+      });
+
+      if (label.includes('0.5x')) document.getElementById('speed-0').classList.add('bg-cyan-600', 'text-white', 'font-bold');
+      if (label.includes('1x')) document.getElementById('speed-1').classList.add('bg-cyan-600', 'text-white', 'font-bold');
+      if (label.includes('2x')) document.getElementById('speed-2').classList.add('bg-cyan-600', 'text-white', 'font-bold');
+
+      if (isPlaying) {
+        clearInterval(playInterval);
+        playInterval = setInterval(nextStep, currentSpeed);
+      }
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      ['mode-beginner', 'mode-deep', 'mode-interview'].forEach(id => {
+        document.getElementById(id).className = "px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white";
+      });
+      document.getElementById(`mode-${mode}`).className = "px-2.5 py-1 rounded-md transition-all bg-indigo-600 text-white font-semibold shadow-sm";
+      renderStep(currentStepIndex);
+    }
+
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.toggle('hidden');
+    }
+
+    function answerQuiz(qNum, choice, isCorrect) {
+      const fb = document.getElementById(`quiz-feedback-${qNum}`);
+      fb.classList.remove('hidden');
+
+      if (isCorrect) {
+        fb.className = "text-[11px] p-2 rounded font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        fb.textContent = "✅ Correct! That captures the exact BFS invariant.";
+      } else {
+        fb.className = "text-[11px] p-2 rounded font-medium bg-rose-500/20 text-rose-300 border border-rose-500/30";
+        fb.textContent = "❌ Not quite. Review the explanation in Beginner Mode!";
+      }
+    }
+  </script>
+</body>
+</html>

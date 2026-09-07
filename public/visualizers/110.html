@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeetCode 110: Balanced Binary Tree — Interactive Visualizer</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d'
+            },
+            codebg: '#0f172a'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+
+    @keyframes nodePulse {
+      0%, 100% { filter: drop-shadow(0 0 0px rgba(245, 158, 11, 0)); }
+      50% { filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.9)); }
+    }
+    .node-active-pulse {
+      animation: nodePulse 1.1s ease-in-out infinite;
+    }
+
+    @keyframes edgePulse {
+      0%, 100% { stroke-opacity: 0.7; }
+      50% { stroke-opacity: 1; stroke-width: 4px; }
+    }
+    .edge-active-pulse {
+      animation: edgePulse 0.9s ease-in-out infinite;
+    }
+
+    @keyframes stackSlideIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .stack-enter {
+      animation: stackSlideIn 0.22s ease-out forwards;
+    }
+
+    @keyframes dashMarch {
+      to { stroke-dashoffset: -24; }
+    }
+    .active-edge-dash {
+      stroke-dasharray: 6 4;
+      animation: dashMarch 0.8s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-emerald-500/30 selection:text-emerald-300">
+
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40 px-4 py-3">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-slate-950 shadow-lg shadow-emerald-500/20">
+          ⚖️
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="font-bold text-base md:text-lg text-slate-100 flex items-center gap-2">
+              <span>110. Balanced Binary Tree</span>
+              <span class="text-xs px-2 py-0.5 rounded-full font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Optimal DFS O(N)</span>
+            </h1>
+          </div>
+          <p class="text-xs text-slate-400 hidden sm:block">
+            Balanced if for every node: <code class="text-emerald-400 bg-slate-800/80 px-1 py-0.5 rounded font-mono">abs(height(left) - height(right)) ≤ 1</code>
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 mr-1 hidden md:inline">Presets:</span>
+        <button id="btn-ex1" class="preset-btn px-2.5 py-1.5 rounded-md text-xs font-medium bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 hover:bg-emerald-600/40 transition">
+          Ex 1: Balanced [3,9,20..]
+        </button>
+        <button id="btn-ex2" class="preset-btn px-2.5 py-1.5 rounded-md text-xs font-medium bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white transition">
+          Ex 2: Unbalanced [1,2,2..]
+        </button>
+        <button id="btn-skew" class="preset-btn px-2.5 py-1.5 rounded-md text-xs font-medium bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white transition hidden lg:inline">
+          Skewed Left
+        </button>
+        <button id="btn-custom" class="px-2.5 py-1.5 rounded-md text-xs font-medium bg-slate-800 border border-indigo-500/40 text-indigo-300 hover:bg-indigo-900/30 transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+          Custom
+        </button>
+        <button id="btn-sound" class="px-2 py-1.5 rounded-md text-xs bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 transition" title="Toggle Sound">
+          <span id="sound-icon">🔊 Sound On</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="border-b border-slate-800/80 bg-slate-900/50 px-4 py-2">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center space-x-1.5">
+        <button id="btn-reset" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1" title="Reset to Step 0">
+          🔄 Reset
+        </button>
+        <button id="btn-prev" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1" title="Previous Step (Arrow Left)">
+          ⏮️ Prev
+        </button>
+        <button id="btn-play" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-md shadow-emerald-500/20 flex items-center gap-1.5">
+          <span id="play-icon">▶️</span>
+          <span id="play-text">Play</span>
+        </button>
+        <button id="btn-next" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-500/50 transition shadow-md shadow-indigo-600/20 flex items-center gap-1" title="Next Step (Arrow Right / Space)">
+          <span>Next Step</span> ⏭️
+        </button>
+      </div>
+
+      <div class="flex items-center space-x-3 text-xs">
+        <div class="bg-slate-800/90 border border-slate-700/80 px-3 py-1 rounded-full text-slate-300 font-mono">
+          Step <span id="current-step-num" class="text-amber-400 font-bold">0</span> / <span id="total-steps-num" class="text-slate-400">0</span>
+        </div>
+        <div id="tree-status-pill" class="px-2.5 py-1 rounded-full font-medium text-xs bg-slate-800 border border-slate-700 text-slate-300 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-slate-400 animate-pulse"></span>
+          <span>Ready to execute</span>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-1">
+        <span class="text-xs text-slate-400 mr-1 hidden sm:inline">Speed:</span>
+        <div class="bg-slate-800/80 p-0.5 rounded-lg border border-slate-700 flex text-xs">
+          <button class="speed-btn px-2 py-0.5 rounded text-slate-400 hover:text-slate-200 transition" data-speed="2000">0.5x</button>
+          <button class="speed-btn px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold transition" data-speed="1000">1x</button>
+          <button class="speed-btn px-2 py-0.5 rounded text-slate-400 hover:text-slate-200 transition" data-speed="600">1.5x</button>
+          <button class="speed-btn px-2 py-0.5 rounded text-slate-400 hover:text-slate-200 transition" data-speed="350">2x</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto p-3 md:p-4 space-y-4">
+
+    <!-- Top Grid: Tree Visualization Canvas + Recursion Call Stack & Calculation Card -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      
+      <!-- Tree Visualization Canvas -->
+      <section class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col relative overflow-hidden shadow-xl shadow-black/40 min-h-[440px]">
+        <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800/80 flex-wrap gap-2">
+          <div class="flex items-center space-x-2">
+            <span class="text-sm font-bold text-slate-200 flex items-center gap-1.5">
+              🌳 Binary Tree Canvas
+            </span>
+            <span class="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded font-mono">Bottom-Up Postorder (L → R → Node)</span>
+          </div>
+
+          <div class="flex items-center space-x-1.5">
+            <div class="flex items-center bg-slate-800/90 rounded-lg p-0.5 border border-slate-700/80 text-xs">
+              <button id="btn-zoom-in" class="px-2 py-0.5 rounded text-slate-300 hover:text-white hover:bg-slate-700 transition" title="Zoom In (+)">➕</button>
+              <button id="btn-zoom-out" class="px-2 py-0.5 rounded text-slate-300 hover:text-white hover:bg-slate-700 transition" title="Zoom Out (-)">➖</button>
+              <button id="btn-zoom-reset" class="px-2.5 py-0.5 rounded text-emerald-400 hover:bg-emerald-950/50 transition text-[11px] font-semibold" title="Fit & Center Tree">🎯 Fit View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pb-2 text-[11px] text-slate-400 border-b border-slate-800/40">
+          <div class="flex items-center space-x-3 flex-wrap">
+            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-amber-500 border border-amber-300"></span> Active</span>
+            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-emerald-600 border border-emerald-400"></span> Balanced</span>
+            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-rose-600 border border-rose-400"></span> Broken (-1)</span>
+            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-slate-800 border border-slate-600 border-dashed"></span> Null (h=0)</span>
+          </div>
+          <span class="text-[10px] text-slate-400 hidden sm:inline">🖱️ Drag to pan &bull; Scroll to zoom</span>
+        </div>
+
+        <div id="tree-canvas-container" class="relative flex-1 w-full h-full min-h-[360px] overflow-hidden flex items-center justify-center bg-slate-950/80 rounded-lg border border-slate-800/80 select-none cursor-grab active:cursor-grabbing">
+          <div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+          <svg id="tree-svg" class="w-full h-full min-h-[360px] block">
+            <g id="tree-viewport">
+              <g id="svg-edges-layer"></g>
+              <g id="svg-nodes-layer"></g>
+              <g id="svg-tokens-layer"></g>
+            </g>
+          </svg>
+
+          <!-- Early Exit Alert Banner -->
+          <div id="early-exit-banner" class="hidden absolute top-4 left-1/2 -translate-x-1/2 bg-rose-950/95 border-2 border-rose-500 text-rose-100 px-4 py-2 rounded-xl shadow-2xl backdrop-blur flex items-center gap-3 z-30 animate-bounce">
+            <span class="text-2xl">🚨</span>
+            <div>
+              <div class="font-bold text-xs uppercase tracking-wider text-rose-400 flex items-center gap-1">
+                <span>EARLY EXIT TRIGGERED ⚡</span>
+              </div>
+              <div class="text-xs text-rose-200">
+                Subtree is unbalanced! Returning <strong class="underline text-white font-mono">-1</strong> upward immediately.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-2 pt-2 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-400">
+          <div id="canvas-action-tip" class="flex items-center gap-1.5 text-slate-300">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Collision-free layout: Nodes and NULL pointers are mathematically spaced without overlap.</span>
+          </div>
+          <div class="text-[11px] text-slate-400">
+            <span class="text-slate-400">Format:</span> <code class="text-amber-300 font-mono">[val | h=?]</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Call Stack & Live Balance Calculation Card -->
+      <section class="lg:col-span-5 flex flex-col space-y-4">
+        
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 shadow-xl shadow-black/30">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+              <span>⚖️ Balance Calculation Card</span>
+            </h2>
+            <span id="card-node-badge" class="text-xs px-2 py-0.5 rounded font-mono font-bold bg-slate-800 text-amber-400 border border-slate-700">
+              node: None
+            </span>
+          </div>
+
+          <div id="calculation-card-content" class="bg-slate-950 p-3 rounded-lg border border-slate-800/80 space-y-2">
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div class="p-2 rounded bg-slate-900 border border-slate-800">
+                <span class="text-slate-400 block text-[10px] uppercase font-semibold">Left Height (l)</span>
+                <span id="calc-l-val" class="font-mono text-base font-bold text-sky-400">?</span>
+              </div>
+              <div class="p-2 rounded bg-slate-900 border border-slate-800">
+                <span class="text-slate-400 block text-[10px] uppercase font-semibold">Right Height (r)</span>
+                <span id="calc-r-val" class="font-mono text-base font-bold text-sky-400">?</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-900/90 border border-slate-800 space-y-1.5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-slate-400 font-mono">Difference: |l - r|</span>
+                <span id="calc-diff-formula" class="font-mono text-xs text-slate-300">|? - ?| = ?</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-400">Condition (|l - r| ≤ 1):</span>
+                <span id="calc-condition-result" class="text-xs font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-400">
+                  Waiting for subtrees...
+                </span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-2 rounded bg-emerald-950/20 border border-emerald-800/40 text-xs">
+              <div class="text-slate-300">
+                <span class="text-emerald-400 font-bold block text-[10px] uppercase">Node Return Value</span>
+                <span id="calc-return-formula" class="font-mono text-slate-400 text-[11px]">1 + max(l, r)</span>
+              </div>
+              <span id="calc-final-return" class="text-lg font-mono font-extrabold text-emerald-400">
+                ?
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 flex-1 flex flex-col shadow-xl shadow-black/30 min-h-[230px]">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+            <div class="flex items-center space-x-1.5">
+              <span class="text-sm font-bold text-slate-200">📚 Recursion Call Stack</span>
+              <span class="text-[10px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded font-mono">LIFO (Push/Pop)</span>
+            </div>
+            <div class="text-xs text-slate-400">
+              Depth: <span id="stack-depth" class="font-mono text-amber-400 font-bold">0</span>
+            </div>
+          </div>
+
+          <div id="call-stack-container" class="flex-1 overflow-y-auto space-y-1.5 pr-1 max-h-[260px] min-h-[140px] flex flex-col-reverse justify-end">
+            <div class="text-center text-xs text-slate-400 py-6 italic">
+              Stack is currently empty. Press "Next Step" to invoke dfs(root).
+            </div>
+          </div>
+
+          <div class="mt-2 pt-2 border-t border-slate-800/60 text-[11px] text-slate-400 flex items-center justify-between">
+            <span>➡️ Push on entry</span>
+            <span>⬆️ Pop & return value upward</span>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- Bottom Row: Code Execution Panel & Beginner 4-Card Explainer -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      
+      <section class="lg:col-span-5 bg-codebg border border-slate-800 rounded-xl p-3.5 shadow-xl flex flex-col font-mono text-xs overflow-hidden">
+        <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-slate-400">
+          <div class="flex items-center space-x-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+            <span class="text-xs font-semibold text-slate-300 font-sans ml-1">Optimal Solution (Python3)</span>
+          </div>
+          <span class="text-[10px] text-emerald-400/80 bg-emerald-950/40 border border-emerald-800/40 px-2 py-0.5 rounded font-sans">
+            Postorder DFS
+          </span>
+        </div>
+
+        <div class="relative overflow-x-auto select-none space-y-0.5 leading-relaxed py-1" id="code-lines-container">
+          <div class="code-line px-2 py-0.5 rounded text-slate-500" data-line="1"><span class="text-purple-400 font-semibold">class</span> <span class="text-yellow-300">Solution</span>:</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-500" data-line="2">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">def</span> <span class="text-blue-400">isBalanced</span>(self, root: Optional[TreeNode]) -&gt; <span class="text-teal-300">bool</span>:</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">def</span> <span class="text-blue-400">dfs</span>(node):</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">if</span> <span class="text-red-400 font-semibold">not</span> node:</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">return</span> <span class="text-amber-300">0</span></div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l = dfs(node.left)</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">if</span> l == -<span class="text-amber-300">1</span>:</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">return</span> -<span class="text-amber-300">1</span></div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r = dfs(node.right)</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">if</span> r == -<span class="text-amber-300">1</span> <span class="text-purple-400 font-semibold">or</span> <span class="text-teal-300">abs</span>(l - r) &gt; <span class="text-amber-300">1</span>:</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">return</span> -<span class="text-amber-300">1</span></div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">return</span> <span class="text-amber-300">1</span> + <span class="text-teal-300">max</span>(l, r)</div>
+          <div class="code-line px-2 py-0.5 rounded text-slate-400" data-line="13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400 font-semibold">return</span> dfs(root) != -<span class="text-amber-300">1</span></div>
+        </div>
+
+        <div class="mt-2 pt-2 border-t border-slate-800 text-[11px] font-sans flex flex-wrap gap-2 text-slate-300">
+          <span class="text-slate-400">Variables:</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 font-mono">node=<span id="var-node" class="text-amber-300">None</span></span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 font-mono">l=<span id="var-l" class="text-sky-300">None</span></span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 font-mono">r=<span id="var-r" class="text-purple-300">None</span></span>
+        </div>
+      </section>
+
+      <section class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-xl p-3.5 shadow-xl flex flex-col">
+        <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-800">
+          <div class="flex items-center space-x-2">
+            <h2 class="text-sm font-bold text-slate-200 flex items-center gap-1.5">
+              <span>📚 What is happening right now?</span>
+            </h2>
+            <span class="text-xs text-slate-400">Beginner Walkthrough</span>
+          </div>
+          <span id="explanation-stage-tag" class="text-xs px-2.5 py-0.5 rounded-full font-medium bg-indigo-950 border border-indigo-700 text-indigo-300">
+            Initial State
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 flex-1">
+          <div class="bg-slate-950/70 border border-slate-800 rounded-lg p-2.5 flex flex-col space-y-1">
+            <div class="flex items-center space-x-1.5 text-xs font-bold text-emerald-400">
+              <span>🟢</span>
+              <span class="uppercase tracking-wider">WHAT? (Action)</span>
+            </div>
+            <p id="explain-what" class="text-xs text-slate-200 leading-relaxed">
+              We are ready to start. The algorithm begins by calling <code class="text-emerald-300">dfs(root)</code> to inspect the root node.
+            </p>
+          </div>
+
+          <div class="bg-slate-950/70 border border-slate-800 rounded-lg p-2.5 flex flex-col space-y-1">
+            <div class="flex items-center space-x-1.5 text-xs font-bold text-sky-400">
+              <span>🧠</span>
+              <span class="uppercase tracking-wider">WHY? (Recursion Reason)</span>
+            </div>
+            <p id="explain-why" class="text-xs text-slate-200 leading-relaxed">
+              A node cannot determine if it is balanced until it knows the heights of both its left and right subtrees.
+            </p>
+          </div>
+
+          <div class="bg-slate-950/70 border border-slate-800 rounded-lg p-2.5 flex flex-col space-y-1">
+            <div class="flex items-center space-x-1.5 text-xs font-bold text-amber-400">
+              <span>📤</span>
+              <span class="uppercase tracking-wider">RETURN VALUE?</span>
+            </div>
+            <p id="explain-return" class="text-xs text-slate-200 leading-relaxed">
+              Pending. If balanced, returns <code class="text-amber-300">1 + max(l, r)</code>. If broken, returns <code class="text-rose-400">-1</code>.
+            </p>
+          </div>
+
+          <div class="bg-slate-950/70 border border-slate-800 rounded-lg p-2.5 flex flex-col space-y-1">
+            <div class="flex items-center space-x-1.5 text-xs font-bold text-purple-400">
+              <span>⬆️</span>
+              <span class="uppercase tracking-wider">WHERE DOES IT GO?</span>
+            </div>
+            <p id="explain-where" class="text-xs text-slate-200 leading-relaxed">
+              The return value travels back to whichever parent call is waiting for its left or right child calculation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Execution Timeline Scrubbing Bar -->
+    <section class="bg-slate-900 border border-slate-800 rounded-xl p-3 shadow-lg">
+      <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+        <span class="font-semibold text-slate-300 flex items-center gap-1">
+          <span>⏱️ Execution Timeline</span>
+          <span class="text-[10px] text-slate-400">(Click any event to jump directly)</span>
+        </span>
+        <span id="timeline-indicator" class="font-mono text-amber-400">0 / 0</span>
+      </div>
+
+      <div id="timeline-track" class="flex items-center space-x-1.5 overflow-x-auto py-1 px-0.5">
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+      <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 space-y-2">
+        <div class="flex items-center space-x-2 text-amber-400 font-bold text-sm">
+          <span>🧠</span>
+          <h3>THE BIG IDEA: The "-1" Signal</h3>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Instead of writing two separate helpers that cause a slow <strong class="text-rose-400">O(N²)</strong> recalculation, we combine status and height into <strong>ONE single integer</strong>:
+        </p>
+        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800/80 text-xs space-y-1.5 font-mono">
+          <div class="flex items-center gap-2 text-emerald-400">
+            <span>Height ≥ 0</span>
+            <span class="text-slate-400">→</span>
+            <span class="text-slate-200">Subtree is healthy!</span>
+          </div>
+          <div class="flex items-center gap-2 text-rose-400">
+            <span>Return -1</span>
+            <span class="text-slate-400">→</span>
+            <span class="text-slate-200">Subtree is BROKEN!</span>
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-400">
+          -1 is NOT a negative height. It acts as an emergency signal that immediately short-circuits the rest of the recursion.
+        </p>
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 space-y-2">
+        <div class="flex items-center space-x-2 text-emerald-400 font-bold text-sm">
+          <span>⏱️</span>
+          <h3>Complexity: Bottom-Up vs Brute Force</h3>
+        </div>
+        <div class="space-y-1.5 text-xs">
+          <div class="p-2 rounded bg-slate-950 border border-slate-800">
+            <div class="flex justify-between text-slate-300 font-semibold mb-0.5">
+              <span>Time Complexity:</span>
+              <span class="text-emerald-400 font-mono">O(N)</span>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Each node is visited once during the post-order DFS traversal.
+            </p>
+          </div>
+          <div class="p-2 rounded bg-slate-950 border border-slate-800">
+            <div class="flex justify-between text-slate-300 font-semibold mb-0.5">
+              <span>Space Complexity:</span>
+              <span class="text-sky-400 font-mono">O(H)</span>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Recursion stack depth equals tree height <strong class="text-slate-300">H</strong> (worst case O(N) for skewed tree, O(log N) for balanced).
+            </p>
+          </div>
+          <div class="text-[11px] text-slate-400 pt-1 border-t border-slate-800">
+            <span class="text-rose-400 font-semibold">Brute Force:</span> Recalculating heights top-down costs <strong class="text-rose-300 font-mono">O(N²)</strong> because nodes are repeatedly traversed.
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 space-y-2">
+        <div class="flex items-center space-x-2 text-indigo-400 font-bold text-sm">
+          <span>🎯</span>
+          <h3>Interview Mental Model</h3>
+        </div>
+        <p class="text-xs text-slate-300 italic leading-relaxed border-l-2 border-indigo-500 pl-2">
+          "I use bottom-up postorder DFS. For every node, I recursively obtain left and right subtree heights. If either returns -1, I propagate -1 up immediately. If |left - right| &gt; 1, I return -1. Otherwise, I return 1 + max(left, right). Finally, I check if root != -1."
+        </p>
+        <div class="bg-indigo-950/40 border border-indigo-800/40 p-2 rounded text-[11px] text-indigo-200">
+          💡 <strong>Interview Pro-Tip:</strong> Highlighting early exit via -1 shows you understand both recursion call overhead and optimal time complexity.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="custom-modal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-5 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-slate-100 flex items-center gap-2">
+          <span>🌲 Custom Binary Tree Input</span>
+        </h3>
+        <button id="modal-close-btn" class="text-slate-400 hover:text-white text-lg px-1">✕</button>
+      </div>
+
+      <p class="text-xs text-slate-300">
+        Enter a level-order serialized array just like LeetCode (comma-separated with <code class="text-amber-300 font-mono">null</code> or numbers):
+      </p>
+
+      <div class="space-y-1">
+        <label class="text-[11px] text-slate-400 font-mono">Array representation:</label>
+        <input id="custom-tree-input" type="text" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 font-mono text-sm text-emerald-400 focus:outline-none focus:border-emerald-500" value="[3, 9, 20, null, null, 15, 7]" placeholder="e.g. [1,2,2,3,null,null,3,4,null,null,4]">
+      </div>
+
+      <div class="flex flex-wrap gap-1.5 text-xs">
+        <span class="text-slate-400 text-[11px] mr-1 self-center">Templates:</span>
+        <button class="modal-preset-chip px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:bg-slate-700" data-val="[1, 2, 3, 4, 5, 6, 7]">Perfect Balanced</button>
+        <button class="modal-preset-chip px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:bg-slate-700" data-val="[1, 2, 2, 3, 3, null, null, 4, 4]">LeetCode Ex 2</button>
+        <button class="modal-preset-chip px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:bg-slate-700" data-val="[1, 2, null, 3, null, 4]">Deep Left Skew</button>
+        <button class="modal-preset-chip px-2 py-0.5 rounded bg-slate-800 text-slate-300 hover:bg-slate-700" data-val="[1]">Single Node</button>
+      </div>
+
+      <div id="modal-error-msg" class="hidden text-xs text-rose-400 bg-rose-950/40 p-2 rounded border border-rose-800/40"></div>
+
+      <div class="flex justify-end gap-2 pt-2 border-t border-slate-800">
+        <button id="modal-cancel-btn" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300">Cancel</button>
+        <button id="modal-apply-btn" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-lg shadow-emerald-500/20">Build & Visualize</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    class SoundEffects {
+      constructor() {
+        this.ctx = null;
+        this.enabled = true;
+      }
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            this.ctx = new AudioContext();
+          }
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+      playTone(freq = 440, type = 'sine', duration = 0.12, gainLevel = 0.04) {
+        if (!this.enabled) return;
+        try {
+          this.init();
+          if (!this.ctx) return;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+          gain.gain.setValueAtTime(gainLevel, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + duration);
+        } catch (e) {}
+      }
+      push() { this.playTone(520, 'sine', 0.1, 0.03); }
+      pop() { this.playTone(380, 'triangle', 0.12, 0.03); }
+      balanced() { this.playTone(659, 'sine', 0.25, 0.05); }
+      unbalanced() { this.playTone(190, 'sawtooth', 0.35, 0.07); }
+      nullLeaf() { this.playTone(300, 'sine', 0.08, 0.02); }
+    }
+    const sfx = new SoundEffects();
+
+    class TreeNode {
+      constructor(val, id, left = null, right = null) {
+        this.val = val;
+        this.id = id;
+        this.left = left;
+        this.right = right;
+        this.x = 0;
+        this.y = 0;
+      }
+    }
+
+    function parseTreeFromArray(arr) {
+      if (!arr || arr.length === 0 || arr[0] === null) return null;
+      let idCounter = 1;
+      const root = new TreeNode(arr[0], `node_${idCounter++}`);
+      const queue = [root];
+      let i = 1;
+
+      while (queue.length > 0 && i < arr.length) {
+        const current = queue.shift();
+
+        if (i < arr.length) {
+          if (arr[i] !== null && arr[i] !== undefined) {
+            current.left = new TreeNode(arr[i], `node_${idCounter++}`);
+            queue.push(current.left);
+          }
+          i++;
+        }
+
+        if (i < arr.length) {
+          if (arr[i] !== null && arr[i] !== undefined) {
+            current.right = new TreeNode(arr[i], `node_${idCounter++}`);
+            queue.push(current.right);
+          }
+          i++;
+        }
+      }
+      return root;
+    }
+
+    function parseInputString(str) {
+      try {
+        const cleaned = str.trim()
+          .replace(/^\[/, '')
+          .replace(/\]$/, '');
+        if (!cleaned) return [];
+        return cleaned.split(',').map(s => {
+          const item = s.trim();
+          if (item === 'null' || item === 'None' || item === '') return null;
+          const n = Number(item);
+          if (isNaN(n)) throw new Error(`Invalid token "${item}"`);
+          return n;
+        });
+      } catch (err) {
+        throw new Error(err.message || 'Invalid format');
+      }
+    }
+
+    function buildFullRenderTree(root) {
+      if (!root) return null;
+
+      function cloneWithNulls(node) {
+        if (!node) return null;
+
+        const renderNode = {
+          id: node.id,
+          val: node.val,
+          isNull: false,
+          width: 58,
+          height: 44,
+          x: 0,
+          y: 0,
+          leftOffset: 0,
+          rightOffset: 0,
+          left: null,
+          right: null
+        };
+
+        if (node.left) {
+          renderNode.left = cloneWithNulls(node.left);
+        } else {
+          renderNode.left = {
+            id: `null_${node.id}_left`,
+            val: 'NULL',
+            isNull: true,
+            width: 40,
+            height: 22,
+            x: 0,
+            y: 0,
+            leftOffset: 0,
+            rightOffset: 0,
+            left: null,
+            right: null
+          };
+        }
+
+        if (node.right) {
+          renderNode.right = cloneWithNulls(node.right);
+        } else {
+          renderNode.right = {
+            id: `null_${node.id}_right`,
+            val: 'NULL',
+            isNull: true,
+            width: 40,
+            height: 22,
+            x: 0,
+            y: 0,
+            leftOffset: 0,
+            rightOffset: 0,
+            left: null,
+            right: null
+          };
+        }
+
+        return renderNode;
+      }
+
+      return cloneWithNulls(root);
+    }
+
+    function layoutTree(renderRoot) {
+      if (!renderRoot) {
+        return { width: 500, height: 300, minX: 0, maxX: 500, maxY: 300, nodes: [], edges: [] };
+      }
+
+      const LEVEL_HEIGHT = 80;
+      const MIN_GAP = 28;
+
+      function layoutSubtree(node) {
+        if (node.isNull || (!node.left && !node.right)) {
+          const halfW = node.width / 2;
+          return [{ minX: -halfW, maxX: halfW }];
+        }
+
+        const leftExtents = layoutSubtree(node.left);
+        const rightExtents = layoutSubtree(node.right);
+
+        const minSep = (node.left.width / 2) + (node.right.width / 2) + MIN_GAP;
+        let rightX = minSep;
+
+        const sharedLevels = Math.min(leftExtents.length, rightExtents.length);
+        for (let d = 0; d < sharedLevels; d++) {
+          const needed = leftExtents[d].maxX - rightExtents[d].minX + MIN_GAP;
+          if (needed > rightX) {
+            rightX = needed;
+          }
+        }
+
+        const leftX = 0;
+        const parentX = rightX / 2;
+
+        node.leftOffset = leftX - parentX;
+        node.rightOffset = rightX - parentX;
+
+        const halfW = node.width / 2;
+        const mergedExtents = [{ minX: -halfW, maxX: halfW }];
+        const maxLevels = Math.max(leftExtents.length, rightExtents.length);
+
+        for (let d = 0; d < maxLevels; d++) {
+          let minX = Infinity;
+          let maxX = -Infinity;
+
+          if (d < leftExtents.length) {
+            minX = Math.min(minX, leftExtents[d].minX + node.leftOffset);
+            maxX = Math.max(maxX, leftExtents[d].maxX + node.leftOffset);
+          }
+          if (d < rightExtents.length) {
+            minX = Math.min(minX, rightExtents[d].minX + node.rightOffset);
+            maxX = Math.max(maxX, rightExtents[d].maxX + node.rightOffset);
+          }
+
+          mergedExtents.push({ minX, maxX });
+        }
+
+        return mergedExtents;
+      }
+
+      layoutSubtree(renderRoot);
+
+      let minX = Infinity;
+      let maxX = -Infinity;
+      let maxY = 0;
+
+      const flatNodes = [];
+      const flatEdges = [];
+
+      function assignCoords(node, currX, depth) {
+        if (!node) return;
+        node.x = currX;
+        node.y = 48 + depth * LEVEL_HEIGHT;
+
+        const leftEdge = node.x - node.width / 2;
+        const rightEdge = node.x + node.width / 2;
+        if (leftEdge < minX) minX = leftEdge;
+        if (rightEdge > maxX) maxX = rightEdge;
+        if (node.y + node.height / 2 > maxY) maxY = node.y + node.height / 2;
+
+        flatNodes.push(node);
+
+        if (node.left) {
+          flatEdges.push({ from: node, to: node.left, branch: 'left' });
+          assignCoords(node.left, currX + node.leftOffset, depth + 1);
+        }
+        if (node.right) {
+          flatEdges.push({ from: node, to: node.right, branch: 'right' });
+          assignCoords(node.right, currX + node.rightOffset, depth + 1);
+        }
+      }
+
+      assignCoords(renderRoot, 0, 0);
+
+      const PADDING_X = 64;
+      const PADDING_Y = 48;
+      const shiftX = PADDING_X - minX;
+
+      flatNodes.forEach(node => {
+        node.x += shiftX;
+      });
+
+      const totalWidth = Math.max(480, (maxX - minX) + PADDING_X * 2);
+      const totalHeight = Math.max(340, maxY + PADDING_Y);
+
+      return {
+        width: totalWidth,
+        height: totalHeight,
+        minX: 0,
+        maxX: totalWidth,
+        maxY: totalHeight,
+        nodes: flatNodes,
+        edges: flatEdges
+      };
+    }
+
+    function renderSvgTree(layoutData, activeNodeId, childBranch, treeState) {
+      const edgesLayer = document.getElementById('svg-edges-layer');
+      const nodesLayer = document.getElementById('svg-nodes-layer');
+      if (!edgesLayer || !nodesLayer || !layoutData) return;
+
+      if (layoutData.nodes.length === 0) {
+        edgesLayer.innerHTML = '';
+        nodesLayer.innerHTML = `
+          <g transform="translate(240, 160)">
+            <rect x="-100" y="-30" width="200" height="60" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+            <text x="0" y="6" text-anchor="middle" fill="#94a3b8" font-size="13" font-family="monospace">
+              Empty Tree (root = null)
+            </text>
+          </g>
+        `;
+        return;
+      }
+
+      let edgesHtml = '';
+      layoutData.edges.forEach(edge => {
+        const isEdgeActive = (activeNodeId === edge.from.id && childBranch === edge.branch);
+        let strokeColor = edge.to.isNull ? '#1e293b' : '#334155';
+        let strokeWidth = edge.to.isNull ? '1.5' : '2';
+        let edgeClass = '';
+
+        if (isEdgeActive) {
+          strokeColor = '#f59e0b';
+          strokeWidth = '3.5';
+          edgeClass = 'active-edge-dash edge-active-pulse';
+        }
+
+        const startY = edge.from.y + edge.from.height / 2;
+        const endY = edge.to.y - edge.to.height / 2;
+        const deltaY = (endY - startY) * 0.55;
+
+        const pathData = `M ${edge.from.x} ${startY} C ${edge.from.x} ${startY + deltaY}, ${edge.to.x} ${endY - deltaY}, ${edge.to.x} ${endY}`;
+        const midX = (edge.from.x + edge.to.x) / 2;
+        const midY = (startY + endY) / 2;
+
+        edgesHtml += `
+          <g>
+            <path d="${pathData}" fill="none" stroke="${strokeColor}" stroke-width="${strokeWidth}" stroke-linecap="round" class="${edgeClass}"/>
+            ${isEdgeActive ? `
+              <circle cx="${midX}" cy="${midY}" r="9" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+              <text x="${midX}" y="${midY + 3.5}" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="bold" font-family="monospace">${edge.branch === 'left' ? 'L' : 'R'}</text>
+            ` : ''}
+          </g>
+        `;
+      });
+      edgesLayer.innerHTML = edgesHtml;
+
+      let nodesHtml = '';
+      layoutData.nodes.forEach(node => {
+        const isActive = (node.id === activeNodeId);
+
+        if (node.isNull) {
+          const isNullActive = isActive;
+          const rectFill = isNullActive ? '#78350f' : '#090d16';
+          const rectStroke = isNullActive ? '#f59e0b' : '#334155';
+          const strokeW = isNullActive ? '2' : '1';
+          const textFill = isNullActive ? '#fef08a' : '#475569';
+
+          nodesHtml += `
+            <g transform="translate(${node.x}, ${node.y})" class="transition-all duration-200">
+              <rect x="-20" y="-11" width="40" height="22" rx="5" fill="${rectFill}" stroke="${rectStroke}" stroke-width="${strokeW}" stroke-dasharray="2 2"/>
+              <text x="0" y="3.5" text-anchor="middle" fill="${textFill}" font-size="9.5" font-family="monospace" font-weight="bold">NULL</text>
+              ${isNullActive ? `
+                <text x="0" y="22" text-anchor="middle" fill="#38bdf8" font-size="9" font-family="monospace" font-weight="bold">h=0</text>
+              ` : ''}
+            </g>
+          `;
+        } else {
+          const status = treeState.statuses[node.id] || 'unvisited';
+          const height = treeState.heights[node.id] !== undefined ? treeState.heights[node.id] : '?';
+
+          let boxBg = '#0f172a';
+          let boxStroke = '#334155';
+          let strokeWidth = '2';
+          let valColor = '#f8fafc';
+          let hBadgeBg = '#1e293b';
+          let hBadgeText = '#94a3b8';
+          let glowClass = '';
+
+          if (status === 'unbalanced' || height === -1) {
+            boxBg = '#450a0a';
+            boxStroke = '#f43f5e';
+            strokeWidth = '2.5';
+            hBadgeBg = '#881337';
+            hBadgeText = '#fecdd3';
+            glowClass = 'drop-shadow-[0_0_12px_rgba(244,63,94,0.7)]';
+          } else if (status === 'balanced') {
+            boxBg = '#052e16';
+            boxStroke = '#22c55e';
+            strokeWidth = '2';
+            hBadgeBg = '#14532d';
+            hBadgeText = '#bbf7d0';
+          } else if (isActive || status === 'visiting') {
+            boxBg = '#172554';
+            boxStroke = '#f59e0b';
+            strokeWidth = '3';
+            hBadgeBg = '#78350f';
+            hBadgeText = '#fef08a';
+            glowClass = 'node-active-pulse';
+          } else if (status === 'left_done' || status === 'right_done') {
+            boxBg = '#1e1b4b';
+            boxStroke = '#6366f1';
+            strokeWidth = '2';
+          }
+
+          nodesHtml += `
+            <g id="svg-node-${node.id}" transform="translate(${node.x}, ${node.y})" class="${glowClass} transition-all duration-300">
+              <rect x="-29" y="-22" width="58" height="44" rx="10" fill="${boxBg}" stroke="${boxStroke}" stroke-width="${strokeWidth}"/>
+              <text x="0" y="-3" text-anchor="middle" fill="${valColor}" font-size="14" font-weight="700" font-family="system-ui">${node.val}</text>
+              <rect x="-22" y="6" width="44" height="13" rx="4" fill="${hBadgeBg}"/>
+              <text x="0" y="15.5" text-anchor="middle" fill="${hBadgeText}" font-size="9" font-weight="bold" font-family="monospace">
+                ${height === -1 ? 'h=-1 ❌' : `h=${height}`}
+              </text>
+              ${isActive ? `
+                <circle cx="0" cy="-28" r="4" fill="#f59e0b"/>
+              ` : ''}
+            </g>
+          `;
+        }
+      });
+      nodesLayer.innerHTML = nodesHtml;
+    }
+
+    function animateSvgToken(token, layoutData) {
+      const tokensLayer = document.getElementById('svg-tokens-layer');
+      if (!tokensLayer || !token || !layoutData) return;
+
+      const fromNode = layoutData.nodes.find(n => n.id === token.fromNodeId);
+      const toNode = layoutData.nodes.find(n => n.id === token.toNodeId);
+      if (!fromNode || !toNode) return;
+
+      const isBroken = token.value === -1;
+      const fillColor = isBroken ? '#e11d48' : '#059669';
+      const strokeColor = isBroken ? '#fda4af' : '#6ee7b7';
+      const labelText = isBroken ? '⚠️ -1' : `▲ ${token.value}`;
+
+      const tokenGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      tokenGroup.innerHTML = `
+        <rect x="-22" y="-11" width="44" height="22" rx="11" fill="${fillColor}" stroke="${strokeColor}" stroke-width="1.5" filter="drop-shadow(0 2px 6px rgba(0,0,0,0.5))"/>
+        <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold" font-family="monospace">${labelText}</text>
+      `;
+
+      tokenGroup.setAttribute('transform', `translate(${fromNode.x}, ${fromNode.y})`);
+      tokensLayer.appendChild(tokenGroup);
+
+      const startTime = performance.now();
+      const duration = 420;
+
+      function anim(now) {
+        const elapsed = now - startTime;
+        const t = Math.min(1, elapsed / duration);
+        const ease = 1 - Math.pow(1 - t, 3);
+
+        const curX = fromNode.x + (toNode.x - fromNode.x) * ease;
+        const curY = fromNode.y + (toNode.y - fromNode.y) * ease;
+        const curScale = 1 + 0.15 * Math.sin(ease * Math.PI);
+
+        tokenGroup.setAttribute('transform', `translate(${curX}, ${curY}) scale(${curScale})`);
+
+        if (t < 1) {
+          requestAnimationFrame(anim);
+        } else {
+          setTimeout(() => {
+            if (tokensLayer.contains(tokenGroup)) {
+              tokensLayer.removeChild(tokenGroup);
+            }
+          }, 350);
+        }
+      }
+
+      requestAnimationFrame(anim);
+    }
+
+    function generateAlgorithmTrace(root) {
+      const steps = [];
+      const treeState = { statuses: {}, heights: {} };
+      const callStack = [];
+
+      function cloneTreeState() {
+        return { statuses: { ...treeState.statuses }, heights: { ...treeState.heights } };
+      }
+
+      function cloneCallStack() {
+        return callStack.map(f => ({ ...f }));
+      }
+
+      steps.push({
+        timelineLabel: 'Start: dfs(root)',
+        codeLine: 13,
+        sound: null,
+        activeNodeId: root ? root.id : null,
+        childBranch: null,
+        treeState: cloneTreeState(),
+        callStackSnapshot: [],
+        travelToken: null,
+        variables: { node: root ? root.val : 'None', l: 'None', r: 'None' },
+        calcCard: {
+          nodeVal: root ? root.val : 'None',
+          l: '?',
+          r: '?',
+          diffText: '|? - ?| = ?',
+          conditionText: 'Ready to invoke dfs(root)...',
+          isBalanced: null,
+          returnFormula: '1 + max(l, r)',
+          finalReturn: '?'
+        },
+        explanation: {
+          what: 'Starting the optimal bottom-up DFS algorithm at the root node.',
+          why: 'We need to check whether every subtree is balanced while computing heights bottom-up in a single O(N) pass.',
+          returned: 'Waiting for recursive execution...',
+          where: 'dfs(root) will be called to begin traversal.'
+        }
+      });
+
+      function traceDfs(node, parentNode, branchType) {
+        const isNull = (node === null);
+        const virtualNullId = isNull && parentNode ? `null_${parentNode.id}_${branchType}` : null;
+        const currentActiveId = isNull ? virtualNullId : node.id;
+        const currentValName = isNull ? 'None' : String(node.val);
+
+        const frameName = `dfs(${currentValName})`;
+        const currentFrame = {
+          name: frameName,
+          nodeId: currentActiveId,
+          l: '?',
+          r: '?'
+        };
+        callStack.push(currentFrame);
+
+        if (isNull) {
+          steps.push({
+            timelineLabel: `dfs(None)`,
+            codeLine: 4,
+            sound: 'nullLeaf',
+            activeNodeId: currentActiveId,
+            childBranch: null,
+            treeState: cloneTreeState(),
+            callStackSnapshot: cloneCallStack(),
+            travelToken: null,
+            variables: { node: 'None', l: 'None', r: 'None' },
+            calcCard: {
+              nodeVal: 'None (NULL)',
+              l: '0',
+              r: '0',
+              diffText: '|0 - 0| = 0',
+              conditionText: 'Base case reached: Empty child',
+              isBalanced: true,
+              returnFormula: 'Base case height = 0',
+              finalReturn: '0'
+            },
+            explanation: {
+              what: `Reached base case: node is None (${branchType || 'root'} child of [${parentNode ? parentNode.val : 'None'}]).`,
+              why: 'Empty subtrees have height 0 by definition, enabling the parent node to calculate its height.',
+              returned: '0 (height of an empty subtree)',
+              where: parentNode ? `Returns to parent node [${parentNode.val}] as ${branchType} height.` : 'Returns to caller.'
+            }
+          });
+
+          const returnToken = parentNode ? {
+            fromNodeId: currentActiveId,
+            toNodeId: parentNode.id,
+            branch: branchType,
+            value: 0
+          } : null;
+
+          steps.push({
+            timelineLabel: `return 0`,
+            codeLine: 5,
+            sound: 'pop',
+            activeNodeId: currentActiveId,
+            childBranch: null,
+            treeState: cloneTreeState(),
+            callStackSnapshot: cloneCallStack(),
+            travelToken: returnToken,
+            variables: { node: 'None', l: 'None', r: 'None' },
+            calcCard: {
+              nodeVal: 'None (NULL)',
+              l: '0',
+              r: '0',
+              diffText: '|0 - 0| = 0',
+              conditionText: 'Returning 0 to parent',
+              isBalanced: true,
+              returnFormula: 'return 0',
+              finalReturn: '0'
+            },
+            explanation: {
+              what: 'Returning 0 upward from the empty subtree.',
+              why: 'Base case completes immediately and pops off the call stack.',
+              returned: '0',
+              where: parentNode ? `Transmitted upward to node [${parentNode.val}].` : 'Finished.'
+            }
+          });
+
+          callStack.pop();
+          return 0;
+        }
+
+        treeState.statuses[node.id] = 'visiting';
+        steps.push({
+          timelineLabel: `dfs(${node.val})`,
+          codeLine: 3,
+          sound: 'push',
+          activeNodeId: node.id,
+          childBranch: null,
+          treeState: cloneTreeState(),
+          callStackSnapshot: cloneCallStack(),
+          travelToken: null,
+          variables: { node: node.val, l: 'None', r: 'None' },
+          calcCard: {
+            nodeVal: node.val,
+            l: '?',
+            r: '?',
+            diffText: '|? - ?| = ?',
+            conditionText: 'Need left & right subtree heights',
+            isBalanced: null,
+            returnFormula: '1 + max(l, r)',
+            finalReturn: '?'
+          },
+          explanation: {
+            what: `Entered dfs(node=${node.val}).`,
+            why: `To verify if node [${node.val}] is balanced, we must first compute its left and right subtree heights bottom-up.`,
+            returned: 'Pending left & right exploration',
+            where: `Frame pushed to Call Stack. Exploring node [${node.val}].`
+          }
+        });
+
+        steps.push({
+          timelineLabel: `Explore Left: ${node.val} → ${node.left ? node.left.val : 'None'}`,
+          codeLine: 6,
+          sound: null,
+          activeNodeId: node.id,
+          childBranch: 'left',
+          treeState: cloneTreeState(),
+          callStackSnapshot: cloneCallStack(),
+          travelToken: null,
+          variables: { node: node.val, l: '?', r: 'None' },
+          calcCard: {
+            nodeVal: node.val,
+            l: '?',
+            r: '?',
+            diffText: '|? - ?| = ?',
+            conditionText: 'Exploring LEFT child branch...',
+            isBalanced: null,
+            returnFormula: '1 + max(l, r)',
+            finalReturn: '?'
+          },
+          explanation: {
+            what: `At node [${node.val}], calling dfs(node.left) to inspect left branch.`,
+            why: 'Postorder traversal mandates that the entire left subtree is solved before moving to the right subtree.',
+            returned: 'Awaiting left child height',
+            where: `Recursive descent to left child (${node.left ? node.left.val : 'None'}).`
+          }
+        });
+
+        const leftHeight = traceDfs(node.left, node, 'left');
+        currentFrame.l = leftHeight;
+        treeState.statuses[node.id] = 'left_done';
+
+        steps.push({
+          timelineLabel: `Check left l=${leftHeight}`,
+          codeLine: 7,
+          sound: null,
+          activeNodeId: node.id,
+          childBranch: null,
+          treeState: cloneTreeState(),
+          callStackSnapshot: cloneCallStack(),
+          travelToken: null,
+          variables: { node: node.val, l: leftHeight, r: 'None' },
+          calcCard: {
+            nodeVal: node.val,
+            l: leftHeight,
+            r: '?',
+            diffText: `|${leftHeight} - ?| = ?`,
+            conditionText: leftHeight === -1 ? '🚨 Left subtree is UNBALANCED!' : `Left subtree healthy (l = ${leftHeight})`,
+            isBalanced: leftHeight === -1 ? false : null,
+            returnFormula: '1 + max(l, r)',
+            finalReturn: leftHeight === -1 ? '-1' : '?'
+          },
+          explanation: {
+            what: `Received left subtree height: l = ${leftHeight}.`,
+            why: `Check "if l == -1" to see if the left subtree was already broken.`,
+            returned: `Left height = ${leftHeight}`,
+            where: `At node [${node.val}], evaluating early exit condition.`
+          }
+        });
+
+        if (leftHeight === -1) {
+          treeState.statuses[node.id] = 'unbalanced';
+          treeState.heights[node.id] = -1;
+
+          const returnToken = parentNode ? {
+            fromNodeId: node.id,
+            toNodeId: parentNode.id,
+            branch: branchType,
+            value: -1
+          } : null;
+
+          steps.push({
+            timelineLabel: `EARLY EXIT ⚡ at ${node.val} (left was -1)`,
+            codeLine: 8,
+            sound: 'unbalanced',
+            activeNodeId: node.id,
+            childBranch: null,
+            treeState: cloneTreeState(),
+            callStackSnapshot: cloneCallStack(),
+            travelToken: returnToken,
+            variables: { node: node.val, l: -1, r: 'None' },
+            calcCard: {
+              nodeVal: node.val,
+              l: -1,
+              r: 'Skipped',
+              diffText: 'Short-circuit triggered',
+              conditionText: 'EARLY EXIT: Subtree is broken!',
+              isBalanced: false,
+              returnFormula: 'return -1 immediately',
+              finalReturn: '-1'
+            },
+            explanation: {
+              what: `🚨 EARLY EXIT TRIGGERED at node [${node.val}]!`,
+              why: 'Left subtree returned -1 (broken). The entire tree cannot be balanced, so exploring right subtree is completely skipped.',
+              returned: '-1 (Unbalanced flag)',
+              where: parentNode ? `Propagating -1 upward to node [${parentNode.val}].` : 'Propagating to root result.'
+            }
+          });
+
+          callStack.pop();
+          return -1;
+        }
+
+        steps.push({
+          timelineLabel: `Explore Right: ${node.val} → ${node.right ? node.right.val : 'None'}`,
+          codeLine: 9,
+          sound: null,
+          activeNodeId: node.id,
+          childBranch: 'right',
+          treeState: cloneTreeState(),
+          callStackSnapshot: cloneCallStack(),
+          travelToken: null,
+          variables: { node: node.val, l: leftHeight, r: '?' },
+          calcCard: {
+            nodeVal: node.val,
+            l: leftHeight,
+            r: '?',
+            diffText: `|${leftHeight} - ?| = ?`,
+            conditionText: 'Exploring RIGHT child branch...',
+            isBalanced: null,
+            returnFormula: '1 + max(l, r)',
+            finalReturn: '?'
+          },
+          explanation: {
+            what: `At node [${node.val}], calling dfs(node.right) to inspect right branch.`,
+            why: `Left subtree is healthy (height = ${leftHeight}). Now we compute right subtree height to compare.`,
+            returned: 'Awaiting right child height',
+            where: `Recursive descent to right child (${node.right ? node.right.val : 'None'}).`
+          }
+        });
+
+        const rightHeight = traceDfs(node.right, node, 'right');
+        currentFrame.r = rightHeight;
+        treeState.statuses[node.id] = 'right_done';
+
+        const diff = Math.abs(leftHeight - rightHeight);
+        const isBroken = (rightHeight === -1 || diff > 1);
+
+        steps.push({
+          timelineLabel: `Balance Check: |${leftHeight} - ${rightHeight}| = ${diff}`,
+          codeLine: 10,
+          sound: isBroken ? 'unbalanced' : 'balanced',
+          activeNodeId: node.id,
+          childBranch: null,
+          treeState: cloneTreeState(),
+          callStackSnapshot: cloneCallStack(),
+          travelToken: null,
+          variables: { node: node.val, l: leftHeight, r: rightHeight },
+          calcCard: {
+            nodeVal: node.val,
+            l: leftHeight,
+            r: rightHeight,
+            diffText: `|${leftHeight} - ${rightHeight}| = ${diff}`,
+            conditionText: isBroken 
+              ? (rightHeight === -1 ? 'Right subtree returned -1 ❌' : `${diff} > 1 ❌ (UNBALANCED)`)
+              : `${diff} ≤ 1 ✅ (BALANCED)`,
+            isBalanced: !isBroken,
+            returnFormula: isBroken ? 'return -1' : `1 + max(${leftHeight}, ${rightHeight})`,
+            finalReturn: isBroken ? '-1' : `${1 + Math.max(leftHeight, rightHeight)}`
+          },
+          explanation: {
+            what: `Evaluating balance condition at node [${node.val}]: |l - r| = |${leftHeight} - ${rightHeight}| = ${diff}.`,
+            why: 'A binary tree is balanced if and only if height difference between left and right subtrees is at most 1.',
+            returned: isBroken ? '-1 (subtree is broken)' : `Height will be 1 + max(${leftHeight}, ${rightHeight})`,
+            where: `Deciding whether to return -1 or subtree height.`
+          }
+        });
+
+        if (isBroken) {
+          treeState.statuses[node.id] = 'unbalanced';
+          treeState.heights[node.id] = -1;
+
+          const returnToken = parentNode ? {
+            fromNodeId: node.id,
+            toNodeId: parentNode.id,
+            branch: branchType,
+            value: -1
+          } : null;
+
+          steps.push({
+            timelineLabel: `return -1 from node ${node.val}`,
+            codeLine: 11,
+            sound: 'unbalanced',
+            activeNodeId: node.id,
+            childBranch: null,
+            treeState: cloneTreeState(),
+            callStackSnapshot: cloneCallStack(),
+            travelToken: returnToken,
+            variables: { node: node.val, l: leftHeight, r: rightHeight },
+            calcCard: {
+              nodeVal: node.val,
+              l: leftHeight,
+              r: rightHeight,
+              diffText: `|${leftHeight} - ${rightHeight}| = ${diff} > 1`,
+              conditionText: 'Unbalanced subtree! Propagating -1',
+              isBalanced: false,
+              returnFormula: 'return -1',
+              finalReturn: '-1'
+            },
+            explanation: {
+              what: `Node [${node.val}] is UNBALANCED (difference = ${diff} > 1).`,
+              why: 'We emit the emergency signal -1 upward so parent calls terminate early without extra calculations.',
+              returned: '-1',
+              where: parentNode ? `Traveling upward to parent node [${parentNode.val}].` : 'Traveling to final answer.'
+            }
+          });
+
+          callStack.pop();
+          return -1;
+        }
+
+        const nodeHeight = 1 + Math.max(leftHeight, rightHeight);
+        treeState.statuses[node.id] = 'balanced';
+        treeState.heights[node.id] = nodeHeight;
+
+        const returnToken = parentNode ? {
+          fromNodeId: node.id,
+          toNodeId: parentNode.id,
+          branch: branchType,
+          value: nodeHeight
+        } : null;
+
+        steps.push({
+          timelineLabel: `Node ${node.val} balanced: h=${nodeHeight}`,
+          codeLine: 12,
+          sound: 'pop',
+          activeNodeId: node.id,
+          childBranch: null,
+          treeState: cloneTreeState(),
+          callStackSnapshot: cloneCallStack(),
+          travelToken: returnToken,
+          variables: { node: node.val, l: leftHeight, r: rightHeight },
+          calcCard: {
+            nodeVal: node.val,
+            l: leftHeight,
+            r: rightHeight,
+            diffText: `|${leftHeight} - ${rightHeight}| = ${diff} ≤ 1`,
+            conditionText: `Balanced! Height = 1 + max(${leftHeight}, ${rightHeight}) = ${nodeHeight}`,
+            isBalanced: true,
+            returnFormula: `1 + max(${leftHeight}, ${rightHeight})`,
+            finalReturn: `${nodeHeight}`
+          },
+          explanation: {
+            what: `Node [${node.val}] is healthy and balanced! Height is ${nodeHeight}.`,
+            why: `Subtree height is 1 plus the taller child: 1 + max(${leftHeight}, ${rightHeight}) = ${nodeHeight}.`,
+            returned: `${nodeHeight}`,
+            where: parentNode ? `Returned upward to parent node [${parentNode.val}].` : 'Returned as root tree height.'
+          }
+        });
+
+        callStack.pop();
+        return nodeHeight;
+      }
+
+      const finalResultHeight = traceDfs(root, null, 'root');
+      const isOverallBalanced = (finalResultHeight !== -1);
+
+      steps.push({
+        timelineLabel: `Final Result: ${isOverallBalanced ? 'TRUE ✅' : 'FALSE ❌'}`,
+        codeLine: 13,
+        sound: isOverallBalanced ? 'balanced' : 'unbalanced',
+        activeNodeId: root ? root.id : null,
+        childBranch: null,
+        treeState: cloneTreeState(),
+        callStackSnapshot: [],
+        travelToken: null,
+        variables: { node: root ? root.val : 'None', l: 'Completed', r: 'Completed' },
+        calcCard: {
+          nodeVal: root ? root.val : 'None',
+          l: 'Final',
+          r: 'Final',
+          diffText: `dfs(root) = ${finalResultHeight}`,
+          conditionText: isOverallBalanced ? `${finalResultHeight} != -1 → TRUE ✅` : `${finalResultHeight} == -1 → FALSE ❌`,
+          isBalanced: isOverallBalanced,
+          returnFormula: 'dfs(root) != -1',
+          finalReturn: isOverallBalanced ? 'True' : 'False'
+        },
+        explanation: {
+          what: `Execution finished! Final root evaluation: dfs(root) = ${finalResultHeight}.`,
+          why: `Since dfs(root) ${isOverallBalanced ? '!= -1, all subtrees satisfied |left - right| ≤ 1' : '== -1, an imbalance was detected'}.`,
+          returned: isOverallBalanced ? 'True' : 'False',
+          where: `Final output of isBalanced(root) is ${isOverallBalanced ? 'True' : 'False'}.`
+        }
+      });
+
+      return steps;
+    }
+
+    class VisualizerApp {
+      constructor() {
+        this.currentTreeArr = [3, 9, 20, null, null, 15, 7];
+        this.root = null;
+        this.renderRoot = null;
+        this.layoutData = null;
+        this.steps = [];
+        this.currentStepIdx = 0;
+        this.isPlaying = false;
+        this.playInterval = null;
+        this.speed = 1000;
+
+        this.zoomLevel = 1;
+        this.panX = 0;
+        this.panY = 0;
+        this.isDragging = false;
+        this.startX = 0;
+        this.startY = 0;
+
+        this.canvasContainer = document.getElementById('tree-canvas-container');
+        this.svgEl = document.getElementById('tree-svg');
+        this.viewportGroup = document.getElementById('tree-viewport');
+        this.stepNumEl = document.getElementById('current-step-num');
+        this.totalStepsEl = document.getElementById('total-steps-num');
+        this.timelineTrack = document.getElementById('timeline-track');
+        this.timelineIndicator = document.getElementById('timeline-indicator');
+        this.statusPill = document.getElementById('tree-status-pill');
+        this.callStackContainer = document.getElementById('call-stack-container');
+        this.stackDepthEl = document.getElementById('stack-depth');
+        this.earlyExitBanner = document.getElementById('early-exit-banner');
+
+        this.explainWhat = document.getElementById('explain-what');
+        this.explainWhy = document.getElementById('explain-why');
+        this.explainReturn = document.getElementById('explain-return');
+        this.explainWhere = document.getElementById('explain-where');
+        this.explainStageTag = document.getElementById('explanation-stage-tag');
+
+        this.cardNodeBadge = document.getElementById('card-node-badge');
+        this.calcLVal = document.getElementById('calc-l-val');
+        this.calcRVal = document.getElementById('calc-r-val');
+        this.calcDiffFormula = document.getElementById('calc-diff-formula');
+        this.calcConditionResult = document.getElementById('calc-condition-result');
+        this.calcReturnFormula = document.getElementById('calc-return-formula');
+        this.calcFinalReturn = document.getElementById('calc-final-return');
+
+        this.varNode = document.getElementById('var-node');
+        this.varL = document.getElementById('var-l');
+        this.varR = document.getElementById('var-r');
+
+        this.init();
+      }
+
+      init() {
+        this.bindEvents();
+        this.bindCanvasInteractions();
+        this.loadTree(this.currentTreeArr);
+      }
+
+      bindCanvasInteractions() {
+        document.getElementById('btn-zoom-in').addEventListener('click', () => {
+          this.setZoom(this.zoomLevel * 1.2);
+        });
+
+        document.getElementById('btn-zoom-out').addEventListener('click', () => {
+          this.setZoom(this.zoomLevel / 1.2);
+        });
+
+        document.getElementById('btn-zoom-reset').addEventListener('click', () => {
+          this.fitView();
+        });
+
+        this.canvasContainer.addEventListener('mousedown', (e) => {
+          if (e.target.closest('button')) return;
+          this.isDragging = true;
+          this.startX = e.clientX - this.panX;
+          this.startY = e.clientY - this.panY;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!this.isDragging) return;
+          this.panX = e.clientX - this.startX;
+          this.panY = e.clientY - this.startY;
+          this.applyTransform();
+        });
+
+        window.addEventListener('mouseup', () => {
+          this.isDragging = false;
+        });
+
+        this.canvasContainer.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
+          this.setZoom(this.zoomLevel * zoomFactor);
+        }, { passive: false });
+
+        window.addEventListener('resize', () => {
+          this.fitView();
+        });
+      }
+
+      setZoom(newZoom) {
+        this.zoomLevel = Math.max(0.3, Math.min(2.5, newZoom));
+        this.applyTransform();
+      }
+
+      fitView() {
+        if (!this.layoutData || this.layoutData.width === 0) return;
+        const rect = this.canvasContainer.getBoundingClientRect();
+        const availableW = rect.width || 560;
+        const availableH = rect.height || 360;
+
+        const scaleX = (availableW - 32) / this.layoutData.width;
+        const scaleY = (availableH - 32) / this.layoutData.height;
+        this.zoomLevel = Math.max(0.4, Math.min(1.15, Math.min(scaleX, scaleY)));
+
+        this.panX = (availableW - this.layoutData.width * this.zoomLevel) / 2;
+        this.panY = Math.max(12, (availableH - this.layoutData.height * this.zoomLevel) / 2);
+        this.applyTransform();
+      }
+
+      applyTransform() {
+        this.viewportGroup.setAttribute('transform', `translate(${this.panX}, ${this.panY}) scale(${this.zoomLevel})`);
+      }
+
+      loadTree(arr) {
+        this.pause();
+        this.currentTreeArr = arr;
+        this.root = parseTreeFromArray(arr);
+        this.renderRoot = buildFullRenderTree(this.root);
+        this.layoutData = layoutTree(this.renderRoot);
+        this.steps = generateAlgorithmTrace(this.root);
+        this.currentStepIdx = 0;
+        this.totalStepsEl.textContent = Math.max(0, this.steps.length - 1);
+
+        this.svgEl.setAttribute('viewBox', `0 0 ${this.layoutData.width} ${this.layoutData.height}`);
+        this.buildTimelinePills();
+        this.fitView();
+        this.renderCurrentStep();
+      }
+
+      bindEvents() {
+        document.getElementById('btn-play').addEventListener('click', () => this.togglePlay());
+        document.getElementById('btn-next').addEventListener('click', () => this.nextStep());
+        document.getElementById('btn-prev').addEventListener('click', () => this.prevStep());
+        document.getElementById('btn-reset').addEventListener('click', () => this.reset());
+
+        window.addEventListener('keydown', (e) => {
+          if (e.target.tagName === 'INPUT') return;
+          if (e.code === 'ArrowRight') {
+            e.preventDefault();
+            this.pause();
+            this.nextStep();
+          } else if (e.code === 'ArrowLeft') {
+            e.preventDefault();
+            this.pause();
+            this.prevStep();
+          } else if (e.code === 'Space') {
+            e.preventDefault();
+            this.togglePlay();
+          }
+        });
+
+        document.querySelectorAll('.speed-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.speed-btn').forEach(b => {
+              b.classList.remove('bg-emerald-500/20', 'text-emerald-300', 'font-semibold');
+              b.classList.add('text-slate-400');
+            });
+            e.target.classList.add('bg-emerald-500/20', 'text-emerald-300', 'font-semibold');
+            e.target.classList.remove('text-slate-400');
+            this.speed = parseInt(e.target.dataset.speed, 10);
+            if (this.isPlaying) {
+              this.pause();
+              this.play();
+            }
+          });
+        });
+
+        const soundBtn = document.getElementById('btn-sound');
+        const soundIcon = document.getElementById('sound-icon');
+        soundBtn.addEventListener('click', () => {
+          sfx.enabled = !sfx.enabled;
+          soundIcon.textContent = sfx.enabled ? '🔊 Sound On' : '🔇 Muted';
+        });
+
+        document.getElementById('btn-ex1').addEventListener('click', () => {
+          this.setActivePresetBtn('btn-ex1');
+          this.loadTree([3, 9, 20, null, null, 15, 7]);
+        });
+
+        document.getElementById('btn-ex2').addEventListener('click', () => {
+          this.setActivePresetBtn('btn-ex2');
+          this.loadTree([1, 2, 2, 3, 3, null, null, 4, 4]);
+        });
+
+        document.getElementById('btn-skew').addEventListener('click', () => {
+          this.setActivePresetBtn('btn-skew');
+          this.loadTree([1, 2, null, 3, null, 4]);
+        });
+
+        const modal = document.getElementById('custom-modal');
+        const openModalBtn = document.getElementById('btn-custom');
+        const closeModalBtn = document.getElementById('modal-close-btn');
+        const cancelModalBtn = document.getElementById('modal-cancel-btn');
+        const applyModalBtn = document.getElementById('modal-apply-btn');
+        const customInput = document.getElementById('custom-tree-input');
+        const modalError = document.getElementById('modal-error-msg');
+
+        openModalBtn.addEventListener('click', () => {
+          this.pause();
+          modal.classList.remove('hidden');
+          modalError.classList.add('hidden');
+        });
+
+        const closeModal = () => modal.classList.add('hidden');
+        closeModalBtn.addEventListener('click', closeModal);
+        cancelModalBtn.addEventListener('click', closeModal);
+
+        document.querySelectorAll('.modal-preset-chip').forEach(chip => {
+          chip.addEventListener('click', (e) => {
+            customInput.value = e.target.dataset.val;
+          });
+        });
+
+        applyModalBtn.addEventListener('click', () => {
+          try {
+            const arr = parseInputString(customInput.value);
+            this.clearActivePresetBtns();
+            this.loadTree(arr);
+            closeModal();
+          } catch (err) {
+            modalError.textContent = err.message || 'Invalid array representation';
+            modalError.classList.remove('hidden');
+          }
+        });
+      }
+
+      setActivePresetBtn(id) {
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+          btn.classList.remove('bg-emerald-600/30', 'border-emerald-500/50', 'text-emerald-300');
+          btn.classList.add('bg-slate-800', 'border-slate-700', 'text-slate-300');
+        });
+        const activeBtn = document.getElementById(id);
+        if (activeBtn) {
+          activeBtn.classList.add('bg-emerald-600/30', 'border-emerald-500/50', 'text-emerald-300');
+          activeBtn.classList.remove('bg-slate-800', 'border-slate-700', 'text-slate-300');
+        }
+      }
+
+      clearActivePresetBtns() {
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+          btn.classList.remove('bg-emerald-600/30', 'border-emerald-500/50', 'text-emerald-300');
+          btn.classList.add('bg-slate-800', 'border-slate-700', 'text-slate-300');
+        });
+      }
+
+      buildTimelinePills() {
+        this.timelineTrack.innerHTML = '';
+        this.steps.forEach((step, idx) => {
+          const btn = document.createElement('button');
+          btn.className = `timeline-pill shrink-0 px-2 py-1 rounded text-[11px] font-mono border transition ${
+            idx === 0 
+              ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300 font-bold' 
+              : 'bg-slate-800/80 border-slate-700/80 text-slate-400 hover:text-slate-200 hover:bg-slate-700'
+          }`;
+          btn.textContent = `${idx}: ${step.timelineLabel}`;
+          btn.addEventListener('click', () => {
+            this.pause();
+            this.jumpToStep(idx);
+          });
+          this.timelineTrack.appendChild(btn);
+        });
+      }
+
+      updateTimelineActivePill() {
+        const pills = this.timelineTrack.querySelectorAll('.timeline-pill');
+        pills.forEach((p, idx) => {
+          if (idx === this.currentStepIdx) {
+            p.className = 'timeline-pill shrink-0 px-2 py-1 rounded text-[11px] font-mono border bg-amber-500/20 border-amber-400 text-amber-300 font-bold shadow-sm';
+            p.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } else if (idx < this.currentStepIdx) {
+            p.className = 'timeline-pill shrink-0 px-2 py-1 rounded text-[11px] font-mono border bg-slate-900 border-slate-800 text-slate-400';
+          } else {
+            p.className = 'timeline-pill shrink-0 px-2 py-1 rounded text-[11px] font-mono border bg-slate-950 border-slate-800/60 text-slate-400 hover:text-slate-300';
+          }
+        });
+        this.timelineIndicator.textContent = `${this.currentStepIdx} / ${Math.max(0, this.steps.length - 1)}`;
+      }
+
+      togglePlay() {
+        if (this.isPlaying) {
+          this.pause();
+        } else {
+          this.play();
+        }
+      }
+
+      play() {
+        if (this.currentStepIdx >= this.steps.length - 1) {
+          this.currentStepIdx = 0;
+        }
+        this.isPlaying = true;
+        document.getElementById('play-icon').textContent = '⏸️';
+        document.getElementById('play-text').textContent = 'Pause';
+
+        this.playInterval = setInterval(() => {
+          if (this.currentStepIdx < this.steps.length - 1) {
+            this.currentStepIdx++;
+            this.renderCurrentStep();
+          } else {
+            this.pause();
+          }
+        }, this.speed);
+      }
+
+      pause() {
+        this.isPlaying = false;
+        clearInterval(this.playInterval);
+        this.playInterval = null;
+        document.getElementById('play-icon').textContent = '▶️';
+        document.getElementById('play-text').textContent = 'Play';
+      }
+
+      nextStep() {
+        if (this.currentStepIdx < this.steps.length - 1) {
+          this.currentStepIdx++;
+          this.renderCurrentStep();
+        }
+      }
+
+      prevStep() {
+        if (this.currentStepIdx > 0) {
+          this.currentStepIdx--;
+          this.renderCurrentStep();
+        }
+      }
+
+      reset() {
+        this.pause();
+        this.currentStepIdx = 0;
+        this.renderCurrentStep();
+      }
+
+      jumpToStep(idx) {
+        if (idx >= 0 && idx < this.steps.length) {
+          this.currentStepIdx = idx;
+          this.renderCurrentStep();
+        }
+      }
+
+      renderCurrentStep() {
+        const step = this.steps[this.currentStepIdx];
+        if (!step) return;
+
+        this.stepNumEl.textContent = this.currentStepIdx;
+        this.updateTimelineActivePill();
+
+        if (step.sound && sfx[step.sound]) {
+          sfx[step.sound]();
+        }
+
+        renderSvgTree(this.layoutData, step.activeNodeId, step.childBranch, step.treeState);
+
+        const isEarlyExit = (step.codeLine === 8 || (step.codeLine === 11 && step.variables.l === -1));
+        if (isEarlyExit) {
+          this.earlyExitBanner.classList.remove('hidden');
+        } else {
+          this.earlyExitBanner.classList.add('hidden');
+        }
+
+        if (step.travelToken) {
+          animateSvgToken(step.travelToken, this.layoutData);
+        }
+
+        this.highlightCodeLine(step.codeLine);
+
+        this.varNode.textContent = step.variables.node !== undefined ? step.variables.node : 'None';
+        this.varL.textContent = step.variables.l !== undefined ? step.variables.l : 'None';
+        this.varR.textContent = step.variables.r !== undefined ? step.variables.r : 'None';
+
+        this.renderCallStack(step.callStackSnapshot);
+        this.renderCalculationCard(step.calcCard);
+        this.renderExplanation(step.explanation, step.codeLine);
+        this.updateStatusPill(step);
+      }
+
+      highlightCodeLine(lineNumber) {
+        document.querySelectorAll('.code-line').forEach(line => {
+          const num = parseInt(line.dataset.line, 10);
+          if (num === lineNumber) {
+            line.className = 'code-line px-2 py-0.5 rounded bg-amber-500/20 border-l-4 border-amber-400 text-amber-200 font-bold transition-all';
+          } else {
+            line.className = 'code-line px-2 py-0.5 rounded text-slate-400 hover:bg-slate-800/40 transition-all';
+          }
+        });
+      }
+
+      renderCallStack(stackSnapshot) {
+        this.stackDepthEl.textContent = stackSnapshot.length;
+
+        if (!stackSnapshot || stackSnapshot.length === 0) {
+          this.callStackContainer.innerHTML = `
+            <div class="text-center text-xs text-slate-400 py-6 italic">
+              Stack is currently empty.
+            </div>
+          `;
+          return;
+        }
+
+        let html = '';
+        stackSnapshot.forEach((frame, idx) => {
+          const isTop = (idx === stackSnapshot.length - 1);
+          const isNullCall = frame.name.includes('None');
+          
+          let frameBg = isTop ? 'bg-slate-800/95 border-amber-400/80 shadow-md' : 'bg-slate-900/80 border-slate-700/60';
+          let textColor = isTop ? 'text-amber-300 font-bold' : 'text-slate-300';
+          let badge = isTop ? '<span class="text-[9px] bg-amber-400/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-400/30">TOP (Active)</span>' : '';
+
+          html += `
+            <div class="stack-enter p-2 rounded-lg border ${frameBg} text-xs font-mono flex items-center justify-between transition-all">
+              <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-mono text-[10px]">#${idx}</span>
+                <span class="${textColor}">${frame.name}</span>
+                ${isNullCall ? '<span class="text-[9px] bg-sky-950 text-sky-400 px-1 rounded">NULL</span>' : ''}
+              </div>
+              <div class="flex items-center space-x-2 text-[10px]">
+                <span class="text-slate-400">l:<strong class="text-sky-300">${frame.l !== undefined ? frame.l : '?'}</strong></span>
+                <span class="text-slate-400">r:<strong class="text-purple-300">${frame.r !== undefined ? frame.r : '?'}</strong></span>
+                ${badge}
+              </div>
+            </div>
+          `;
+        });
+
+        this.callStackContainer.innerHTML = html;
+      }
+
+      renderCalculationCard(card) {
+        if (!card) return;
+        this.cardNodeBadge.textContent = `node: [${card.nodeVal}]`;
+        this.calcLVal.textContent = card.l !== undefined ? card.l : '?';
+        this.calcRVal.textContent = card.r !== undefined ? card.r : '?';
+        this.calcDiffFormula.textContent = card.diffText || '|? - ?| = ?';
+        this.calcConditionResult.textContent = card.conditionText || 'Evaluating...';
+
+        if (card.isBalanced === true) {
+          this.calcConditionResult.className = 'text-xs font-bold px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700/50';
+        } else if (card.isBalanced === false) {
+          this.calcConditionResult.className = 'text-xs font-bold px-2 py-0.5 rounded bg-rose-950/80 text-rose-300 border border-rose-700/50';
+        } else {
+          this.calcConditionResult.className = 'text-xs font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-400';
+        }
+
+        this.calcReturnFormula.textContent = card.returnFormula || '1 + max(l, r)';
+        this.calcFinalReturn.textContent = card.finalReturn || '?';
+
+        if (card.finalReturn === '-1' || card.finalReturn === 'False') {
+          this.calcFinalReturn.className = 'text-lg font-mono font-extrabold text-rose-400';
+        } else {
+          this.calcFinalReturn.className = 'text-lg font-mono font-extrabold text-emerald-400';
+        }
+      }
+
+      renderExplanation(exp, line) {
+        if (!exp) return;
+        this.explainWhat.textContent = exp.what;
+        this.explainWhy.textContent = exp.why;
+        this.explainReturn.textContent = exp.returned;
+        this.explainWhere.textContent = exp.where;
+
+        let tag = 'Executing DFS';
+        if (line === 4 || line === 5) tag = 'Leaf Base Case (h=0)';
+        else if (line === 6) tag = 'Exploring Left Branch';
+        else if (line === 7 || line === 8) tag = 'Left Subtree Verification';
+        else if (line === 9) tag = 'Exploring Right Branch';
+        else if (line === 10 || line === 11) tag = 'Balance Check (|l - r| ≤ 1)';
+        else if (line === 12) tag = 'Height Return (1 + max)';
+        else if (line === 13) tag = 'Final Root Evaluation';
+
+        this.explainStageTag.textContent = tag;
+      }
+
+      updateStatusPill(step) {
+        if (this.currentStepIdx === this.steps.length - 1) {
+          const isBalanced = (step.calcCard.finalReturn === 'True');
+          this.statusPill.innerHTML = `
+            <span class="w-2 h-2 rounded-full ${isBalanced ? 'bg-emerald-400' : 'bg-rose-500'}"></span>
+            <span class="${isBalanced ? 'text-emerald-300 font-bold' : 'text-rose-300 font-bold'}">
+              ${isBalanced ? 'Balanced Tree (TRUE)' : 'Unbalanced Tree (FALSE)'}
+            </span>
+          `;
+          this.statusPill.className = `px-2.5 py-1 rounded-full font-medium text-xs border ${
+            isBalanced ? 'bg-emerald-950/60 border-emerald-500/50' : 'bg-rose-950/60 border-rose-500/50'
+          } flex items-center gap-1.5`;
+        } else {
+          this.statusPill.innerHTML = `
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span class="text-amber-300">DFS In Progress (Step ${this.currentStepIdx})</span>
+          `;
+          this.statusPill.className = 'px-2.5 py-1 rounded-full font-medium text-xs bg-slate-800 border border-slate-700 text-slate-300 flex items-center gap-1.5';
+        }
+      }
+    }
+
+    window.onload = () => {
+      window.app = new VisualizerApp();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode 226: Invert Binary Tree — Interactive Recursion Tutor</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-mono-code {
+      font-family: 'Fira Code', monospace;
+    }
+    
+    .tree-node-circle {
+      transition: cx 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  cy 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  r 0.35s ease,
+                  fill 0.35s ease,
+                  stroke 0.35s ease;
+    }
+    .tree-node-text {
+      transition: x 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  y 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  opacity 0.35s ease;
+    }
+    .tree-edge {
+      transition: x1 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  y1 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  x2 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  y2 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  stroke 0.35s ease,
+                  stroke-width 0.35s ease;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.9; }
+      50% { transform: scale(1.22); opacity: 0.2; }
+      100% { transform: scale(0.95); opacity: 0.9; }
+    }
+    .active-ring {
+      animation: pulse-ring 1.6s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    @keyframes float-packet {
+      0% { transform: translateY(0px) scale(0.95); }
+      50% { transform: translateY(-6px) scale(1.03); }
+      100% { transform: translateY(0px) scale(0.95); }
+    }
+    .packet-float {
+      animation: float-packet 2.2s infinite ease-in-out;
+    }
+
+    @keyframes bounce-pointer {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    .bounce-arrow {
+      animation: bounce-pointer 1.2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- TOP APP HEADER -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-40 px-4 py-3 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="p-2.5 bg-indigo-600/20 border border-indigo-500/40 rounded-xl text-indigo-400 shadow-inner">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight">LeetCode 226: Invert Binary Tree</h1>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold font-mono">Python 3</span>
+            <span id="header-mode-badge" class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 font-medium">Beginner Mode 🎓</span>
+          </div>
+          <p class="text-xs text-slate-400 hidden sm:block">Step-by-step recursion mental model: call stack, child returns & pointer swaps</p>
+        </div>
+      </div>
+
+      <!-- Mode Toggle & Presets -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <div class="bg-slate-950/80 p-1 rounded-xl border border-slate-800 flex items-center gap-1">
+          <button id="btn-mode-beginner" onclick="setMode('beginner')" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow transition flex items-center gap-1">
+            <span>🎓</span> Beginner
+          </button>
+          <button id="btn-mode-interview" onclick="setMode('interview')" class="px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1">
+            <span>⚡</span> Interview
+          </button>
+        </div>
+
+        <div class="h-5 w-px bg-slate-800 mx-1 hidden sm:block"></div>
+
+        <span class="text-xs text-slate-400 font-medium hidden md:inline">Presets:</span>
+        <button onclick="loadPreset('standard')" class="preset-btn px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Standard [4,2,7,1,3,6,9]</button>
+        <button onclick="loadPreset('simple')" class="preset-btn px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Simple [2,1,3]</button>
+        <button onclick="loadPreset('asymmetric')" class="preset-btn px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Unbalanced</button>
+        <button onclick="openCustomModal()" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 border border-indigo-500/40 transition">Custom...</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- BEGINNER HERO GUIDANCE STRIP -->
+  <div id="beginner-callout" class="bg-gradient-to-r from-indigo-950/50 via-slate-900 to-indigo-950/40 border-b border-indigo-500/20 px-4 py-2 text-xs text-slate-300 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none">
+      <span class="font-bold text-indigo-400 shrink-0">💡 The 8-Step Recursion Cycle:</span>
+      <span class="text-slate-400">1. Down ↓</span>
+      <span class="text-slate-600">→</span>
+      <span class="text-slate-400">2. Stack Grows</span>
+      <span class="text-slate-600">→</span>
+      <span class="text-amber-400 font-semibold">3. Parent Pauses ⏸️</span>
+      <span class="text-slate-600">→</span>
+      <span class="text-rose-400 font-semibold">4. Base Case Stops 🛑</span>
+      <span class="text-slate-600">→</span>
+      <span class="text-sky-400 font-semibold">5. Returns Up ↑</span>
+      <span class="text-slate-600">→</span>
+      <span class="text-slate-400">6. Parent Receives 📦</span>
+      <span class="text-slate-600">→</span>
+      <span class="text-purple-400 font-semibold">7. Children Swap 🔄</span>
+      <span class="text-slate-600">→</span>
+      <span class="text-emerald-400 font-semibold">8. Return Current Node ↩️</span>
+    </div>
+    <button onclick="document.getElementById('beginner-callout').classList.add('hidden')" class="text-slate-500 hover:text-slate-300 text-xs px-1">&times;</button>
+  </div>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="max-w-7xl mx-auto p-4 sm:p-6 flex-1 w-full flex flex-col gap-6">
+
+    <!-- PLAYBACK & CONTROL BAR -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Transport Buttons -->
+      <div class="flex items-center gap-2 w-full md:w-auto justify-center">
+        <button id="btn-reset" onclick="resetAnimation()" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition active:scale-95 border border-slate-700/60" title="Reset (R)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+        </button>
+        <button id="btn-prev" onclick="stepBackward()" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition active:scale-95 border border-slate-700/60" title="Previous Step (Left Arrow)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button id="btn-play" onclick="togglePlay()" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold flex items-center gap-2 shadow-lg shadow-indigo-600/30 transition active:scale-95" title="Play/Pause (Space)">
+          <span id="play-icon">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+          </span>
+          <span id="play-text" class="text-sm">Play</span>
+        </button>
+        <button id="btn-next" onclick="stepForward()" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition active:scale-95 border border-slate-700/60" title="Next Step (Right Arrow)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <!-- Scrubber slider -->
+      <div class="flex-1 w-full flex items-center gap-3 px-2">
+        <span id="step-counter" class="text-xs font-mono font-medium text-slate-400 min-w-[75px]">0 / 0</span>
+        <input id="timeline-slider" type="range" min="0" max="0" value="0" oninput="seekToStep(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500">
+        <span id="step-progress-pct" class="text-xs font-mono text-indigo-400 font-bold min-w-[42px]">0%</span>
+      </div>
+
+      <!-- Speed Selector -->
+      <div class="flex items-center gap-2 text-xs w-full md:w-auto justify-end">
+        <span class="text-slate-400 font-medium">Speed:</span>
+        <div class="bg-slate-800 rounded-xl p-1 border border-slate-700 flex gap-1">
+          <button onclick="setSpeed(2200, '0.5x')" class="speed-btn px-2 py-1 rounded-lg text-slate-300 hover:text-white transition" title="Slow Motion for beginners">0.5x Slow</button>
+          <button onclick="setSpeed(1200, '1.0x')" class="speed-btn active-speed px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-medium transition">1x</button>
+          <button onclick="setSpeed(600, '2.0x')" class="speed-btn px-2 py-1 rounded-lg text-slate-300 hover:text-white transition">2x</button>
+          <button onclick="setSpeed(250, '4.0x')" class="speed-btn px-2 py-1 rounded-lg text-slate-300 hover:text-white transition">4x</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN WORKING AREA: CODE & CALL STACK (LEFT) vs TREE & TEACHING (RIGHT) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- LEFT COLUMN: CODE & CALL STACK (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+
+        <!-- PYTHON CODE EXECUTION VIEWER -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+          <div class="px-4 py-3 bg-slate-800/60 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+              <span class="text-xs font-mono text-slate-300 ml-2 font-semibold">solution.py</span>
+            </div>
+            <span id="code-exec-indicator" class="text-[11px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">Line 2: Active</span>
+          </div>
+
+          <div class="p-3 font-mono-code text-xs sm:text-[13px] leading-relaxed relative bg-slate-950/70">
+            <div id="code-line-1" class="py-1 px-2.5 rounded transition flex items-center">
+              <span class="text-slate-600 select-none w-5 inline-block text-right mr-3 text-xs">1</span>
+              <span class="text-indigo-400">class</span>&nbsp;<span class="text-yellow-300">Solution</span>:
+            </div>
+            <div id="code-line-2" class="py-1.5 px-2.5 rounded transition flex items-center">
+              <span class="text-slate-600 select-none w-5 inline-block text-right mr-3 text-xs">2</span>
+              <span class="text-slate-400">&nbsp;&nbsp;</span><span class="text-indigo-400">def</span>&nbsp;<span class="text-sky-300 font-semibold">invertTree</span>(<span class="text-slate-300">self</span>, <span id="code-token-root-param" class="text-orange-300 font-bold bg-orange-500/10 px-1 rounded">root</span>: <span class="text-emerald-400">Optional</span>[<span class="text-yellow-300">TreeNode</span>]):
+            </div>
+            <div id="code-line-3" class="py-1.5 px-2.5 rounded transition flex items-center">
+              <span class="text-slate-600 select-none w-5 inline-block text-right mr-3 text-xs">3</span>
+              <span class="text-slate-400">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="text-pink-400 font-bold">if not</span>&nbsp;<span id="code-token-if-root" class="text-orange-300 font-semibold">root</span>:&nbsp;<span class="text-pink-400 font-bold">return</span>&nbsp;<span id="code-token-ret-none" class="text-rose-400 font-bold">None</span>
+            </div>
+            <div id="code-line-4" class="py-1.5 px-2.5 rounded transition flex flex-col">
+              <div class="flex items-center">
+                <span class="text-slate-600 select-none w-5 inline-block text-right mr-3 text-xs">4</span>
+                <span class="text-slate-400">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span id="sub-assign" class="px-1.5 py-0.5 rounded transition">root.left, root.right</span>
+                <span>&nbsp;=&nbsp;</span>
+              </div>
+              <div class="pl-12 pt-1 flex flex-col sm:flex-row gap-1">
+                <span id="sub-call-right" class="px-1.5 py-0.5 rounded border border-transparent font-medium transition">self.invertTree(root.right),</span>
+                <span id="sub-call-left" class="px-1.5 py-0.5 rounded border border-transparent font-medium transition">self.invertTree(root.left)</span>
+              </div>
+            </div>
+            <div id="code-line-5" class="py-1.5 px-2.5 rounded transition flex items-center">
+              <span class="text-slate-600 select-none w-5 inline-block text-right mr-3 text-xs">5</span>
+              <span class="text-slate-400">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="text-pink-400 font-bold">return</span>&nbsp;<span id="code-token-ret-root" class="text-orange-300 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded">root</span>
+            </div>
+          </div>
+
+          <!-- Python Tuple & Temp Variable explanation card -->
+          <div class="bg-slate-900/90 border-t border-slate-800 p-3.5 text-xs text-slate-300 flex flex-col gap-2">
+            <div class="flex items-start gap-2">
+              <span class="text-amber-400 text-sm">⚠️</span>
+              <div>
+                <strong class="text-amber-300">Why no temporary variable (temp)?</strong>
+                <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">
+                  Python evaluates the entire right-hand side <code class="text-sky-300 font-mono">(invertTree(root.right), invertTree(root.left))</code> into a temporary tuple <em>first</em>. It does <strong>not</strong> overwrite <code class="text-slate-200 font-mono">root.left</code> until both recursive calls have finished and returned!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CALL STACK (RECURSION STACK) VIEWER -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+          <div class="px-4 py-3 bg-slate-800/60 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+              <h2 class="text-xs font-semibold text-slate-200 uppercase tracking-wider">Call Stack (Memory Frames)</h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] text-slate-400">Depth: <strong id="stack-depth-label" class="text-indigo-400 font-mono">0</strong></span>
+              <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full border border-indigo-500/30">Each has its own 'root'</span>
+            </div>
+          </div>
+
+          <div class="px-4 py-2 bg-slate-950/80 border-b border-slate-800/60 flex items-center justify-between text-[10px] font-mono text-slate-400 flex-wrap gap-1">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span> ACTIVE</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400 inline-block"></span> WAITING ⏸️</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-purple-400 inline-block"></span> RETURNING 📦</span>
+          </div>
+
+          <div id="call-stack-container" class="p-3 min-h-[220px] max-h-[340px] overflow-y-auto flex flex-col-reverse gap-2 bg-slate-950/50">
+          </div>
+          
+          <div class="px-3.5 py-2 bg-slate-900 border-t border-slate-800 text-[11px] text-slate-400 flex justify-between items-center">
+            <span>Stack Base (Initial Call)</span>
+            <span class="text-indigo-400 font-mono text-[10px]">LIFO (Last-In, First-Out)</span>
+          </div>
+        </div>
+
+        <!-- TEMPORARY RESULT ACCUMULATOR BOX -->
+        <div id="temp-result-panel" class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+              <span>📦</span> Active Frame Expression Staging
+            </span>
+            <span id="temp-box-state-badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">IDLE</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-1">
+            <div id="temp-right-box" class="p-2.5 rounded-xl border border-slate-800 bg-slate-950/70 flex flex-col">
+              <span class="text-[10px] font-mono text-slate-400">1️⃣ right_result:</span>
+              <span id="temp-right-val" class="text-xs font-mono font-bold text-slate-500 mt-1">None (waiting)</span>
+            </div>
+            <div id="temp-left-box" class="p-2.5 rounded-xl border border-slate-800 bg-slate-950/70 flex flex-col">
+              <span class="text-[10px] font-mono text-slate-400">2️⃣ left_result:</span>
+              <span id="temp-left-val" class="text-xs font-mono font-bold text-slate-500 mt-1">None (waiting)</span>
+            </div>
+          </div>
+          <div id="temp-tuple-preview" class="text-[11px] font-mono text-slate-400 bg-slate-950/40 p-2 rounded-lg border border-slate-800/80">
+            Tuple staging: <span id="temp-tuple-val" class="text-sky-300">( ... , ... )</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: TREE VISUALIZER & PEDAGOGICAL WALKTHROUGH (7 cols) -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+
+        <!-- INTERACTIVE SVG TREE CANVAS -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden relative flex flex-col">
+          <div class="px-4 py-3 bg-slate-800/60 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+              </svg>
+              <h2 class="text-xs font-semibold text-slate-200 uppercase tracking-wider">Live Binary Tree & Pointers</h2>
+            </div>
+            
+            <div class="flex items-center gap-3 text-[11px] flex-wrap">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-slate-600 inline-block"></span> Unvisited</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span> 'root' reference</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block"></span> Swapping</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Fully Inverted</span>
+            </div>
+          </div>
+
+          <div class="relative w-full h-[380px] sm:h-[440px] bg-slate-950 flex items-center justify-center overflow-hidden">
+            <svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+              <defs>
+                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#6366f1" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+
+            <svg id="tree-svg" class="w-full h-full select-none" viewBox="0 0 760 420" preserveAspectRatio="xMidYMid meet">
+              <g id="edges-layer"></g>
+              <g id="transit-layer"></g>
+              <g id="nodes-layer"></g>
+              <g id="pointers-layer"></g>
+              <g id="overlay-layer"></g>
+            </svg>
+
+            <div id="return-bubble" class="absolute hidden z-30 transition-all duration-700 pointer-events-none">
+              <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-mono font-bold px-3 py-1.5 rounded-full shadow-2xl border border-purple-300 flex items-center gap-1.5 packet-float">
+                <span>📦</span>
+                <span id="return-bubble-label">return Node</span>
+                <span class="text-[10px] text-purple-200">↑ traveling up</span>
+              </div>
+            </div>
+
+            <div class="absolute bottom-3 left-3 max-w-[280px] bg-slate-900/90 border border-slate-700/80 rounded-xl p-2.5 backdrop-blur text-[11px] text-slate-300 shadow-xl pointer-events-none">
+              <div class="text-indigo-400 font-bold flex items-center gap-1">
+                <span>📌</span> What is <code class="font-mono bg-slate-800 px-1 rounded text-orange-300">root</code>?
+              </div>
+              <p class="text-slate-400 mt-0.5 text-[10px] leading-tight">
+                Not the whole tree! It is just the pointer to the single node this stack frame is currently working on.
+              </p>
+            </div>
+
+            <div id="tree-phase-badge" class="absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700/80 backdrop-blur text-xs font-mono flex items-center gap-2 shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span>
+              <span id="tree-phase-text" class="text-slate-200">Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PEDAGOGICAL CARDS: "WHAT JUST HAPPENED?" & "WHY?" -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
+                  <span>💡</span> What Just Happened?
+                </span>
+                <span id="step-action-tag" class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">START</span>
+              </div>
+              <h4 id="step-title" class="text-sm font-bold text-white mb-1.5 leading-snug">Initial Tree Ready</h4>
+              <p id="what-happened-text" class="text-xs text-slate-300 leading-relaxed">
+                Click Play or Next to start inverting. We will step into each function call together.
+              </p>
+            </div>
+
+            <div id="where-result-went" class="mt-3 pt-3 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-start gap-1.5">
+              <span class="text-sky-400 font-bold shrink-0">Transit:</span>
+              <span id="where-result-text">Waiting to call root node.</span>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                  <span>❓</span> Why Did It Happen?
+                </span>
+                <span class="text-[10px] font-mono text-slate-500">Core Principle</span>
+              </div>
+              <p id="why-happened-text" class="text-xs text-slate-300 leading-relaxed">
+                Binary tree inversion requires visiting every node, inverting both children, and swapping the left and right pointers.
+              </p>
+            </div>
+
+            <div class="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px]">
+              <span class="text-slate-500">Direction:</span>
+              <span id="recursion-direction-tag" class="font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">Going Down ↓</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RECURSION JOURNEY & COMPLEXITY METRICS -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col gap-3">
+          
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1">
+                <span>🧭</span> Active Recursion Path
+              </span>
+              <span id="journey-summary" class="text-[10px] font-mono text-indigo-300">Stack Depth: 0</span>
+            </div>
+            <div id="recursion-journey-bar" class="flex items-center gap-1.5 overflow-x-auto py-1 text-xs font-mono scrollbar-none">
+              <span class="text-slate-500 italic text-[11px]">Root call not yet dispatched</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800/60">
+              <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Time Complexity</div>
+              <div class="text-xs font-mono font-bold text-emerald-400 mt-0.5">O(N)</div>
+              <div class="text-[9px] text-slate-500 mt-0.5">Every node processed once</div>
+            </div>
+            <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800/60">
+              <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Space Complexity</div>
+              <div class="text-xs font-mono font-bold text-sky-400 mt-0.5">O(H)</div>
+              <div class="text-[9px] text-slate-500 mt-0.5">H = stack height (tree depth)</div>
+            </div>
+            <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800/60">
+              <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Inverted Nodes</div>
+              <div id="stat-inverted-count" class="text-xs font-mono font-bold text-indigo-400 mt-0.5">0 / 7</div>
+              <div class="text-[9px] text-slate-500 mt-0.5">Swapped children</div>
+            </div>
+            <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800/60">
+              <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Max Stack Depth</div>
+              <div id="stat-max-depth" class="text-xs font-mono font-bold text-amber-400 mt-0.5">0</div>
+              <div class="text-[9px] text-slate-500 mt-0.5">Deepest active call</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COMPLETION CARD -->
+        <div id="completion-card" class="bg-gradient-to-br from-indigo-950/70 via-slate-900 to-purple-950/70 border-2 border-indigo-500/40 rounded-2xl p-5 shadow-2xl hidden flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="text-2xl">🎉</span>
+              <div>
+                <h3 class="text-base font-bold text-white">Tree Inversion Complete!</h3>
+                <p class="text-xs text-slate-300">Every node has swapped its left and right subtrees.</p>
+              </div>
+            </div>
+            <button onclick="resetAnimation(); playAnimation();" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white shadow-lg transition">
+              🧠 Teach Me Again
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <button onclick="jumpToConcept('none')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-left transition flex items-center justify-between group">
+              <div>
+                <strong class="text-rose-400 block font-medium">Why did 'return None' happen?</strong>
+                <span class="text-[10px] text-slate-400">Replay base case hit on empty leaf child</span>
+              </div>
+              <span class="text-slate-500 group-hover:text-white transition">→</span>
+            </button>
+            <button onclick="jumpToConcept('swap')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-left transition flex items-center justify-between group">
+              <div>
+                <strong class="text-purple-400 block font-medium">How did the swap occur?</strong>
+                <span class="text-[10px] text-slate-400">Replay tuple assignment & pointer swap</span>
+              </div>
+              <span class="text-slate-500 group-hover:text-white transition">→</span>
+            </button>
+            <button onclick="jumpToConcept('return_root')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-left transition flex items-center justify-between group">
+              <div>
+                <strong class="text-sky-400 block font-medium">What does 'return root' return?</strong>
+                <span class="text-[10px] text-slate-400">Replay returning inverted subtree upward</span>
+              </div>
+              <span class="text-slate-500 group-hover:text-white transition">→</span>
+            </button>
+            <button onclick="jumpToConcept('waiting')" class="p-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-left transition flex items-center justify-between group">
+              <div>
+                <strong class="text-amber-400 block font-medium">Why was the parent waiting?</strong>
+                <span class="text-[10px] text-slate-400">Replay stack pause while child executes</span>
+              </div>
+              <span class="text-slate-500 group-hover:text-white transition">→</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- CUSTOM TREE MODAL -->
+  <div id="custom-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+      <h3 class="text-base font-bold text-white mb-1">Custom Binary Tree</h3>
+      <p class="text-xs text-slate-400 mb-4">Input node values in level-order separated by commas (use <code class="text-amber-400 font-mono">null</code> for empty spots).</p>
+      
+      <div class="mb-4">
+        <label class="block text-xs font-mono text-slate-300 mb-1">Level-order array (max 15 nodes):</label>
+        <input id="custom-tree-input" type="text" value="4, 2, 7, 1, 3, 6, 9" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-indigo-500">
+        <p class="text-[11px] text-slate-500 mt-1">Example: <code class="text-indigo-400 font-mono">4, 2, 7, 1, 3, 6, 9</code> or <code class="text-indigo-400 font-mono">1, 2, 3, null, 4</code></p>
+      </div>
+
+      <div class="flex justify-end gap-2">
+        <button onclick="closeCustomModal()" class="px-3 py-1.5 text-xs font-medium rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Cancel</button>
+        <button onclick="applyCustomTree()" class="px-4 py-1.5 text-xs font-semibold rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 transition">Apply & Simulate</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PRESETS = {
+      standard: [4, 2, 7, 1, 3, 6, 9],
+      simple: [2, 1, 3],
+      asymmetric: [4, 2, 7, null, 3, 6, null]
+    };
+
+    let currentMode = 'beginner';
+    let currentTreeArray = [...PRESETS.standard];
+    let simulationSteps = [];
+    let currentStepIdx = 0;
+    let isPlaying = false;
+    let playTimer = null;
+    let playbackSpeed = 1200;
+
+    function buildTreeFromLevelOrder(arr) {
+      if (!arr || arr.length === 0 || arr[0] === null || arr[0] === undefined) return { rootId: null, nodes: {} };
+
+      const nodes = {};
+      let idCounter = 1;
+      
+      const rootNode = { id: idCounter++, val: arr[0], leftId: null, rightId: null };
+      nodes[rootNode.id] = rootNode;
+
+      const queue = [rootNode];
+      let i = 1;
+
+      while (queue.length > 0 && i < arr.length) {
+        const curr = queue.shift();
+
+        if (i < arr.length) {
+          if (arr[i] !== null && arr[i] !== undefined && arr[i] !== "null" && arr[i] !== "") {
+            const leftChild = { id: idCounter++, val: arr[i], leftId: null, rightId: null };
+            nodes[leftChild.id] = leftChild;
+            curr.leftId = leftChild.id;
+            queue.push(leftChild);
+          }
+          i++;
+        }
+
+        if (i < arr.length) {
+          if (arr[i] !== null && arr[i] !== undefined && arr[i] !== "null" && arr[i] !== "") {
+            const rightChild = { id: idCounter++, val: arr[i], leftId: null, rightId: null };
+            nodes[rightChild.id] = rightChild;
+            curr.rightId = rightChild.id;
+            queue.push(rightChild);
+          }
+          i++;
+        }
+      }
+
+      return { rootId: rootNode.id, nodes };
+    }
+
+    function cloneNodes(nodes) {
+      const copy = {};
+      for (const id in nodes) {
+        copy[id] = { ...nodes[id] };
+      }
+      return copy;
+    }
+
+    function generateInvertTrace(initialRootId, initialNodes) {
+      const steps = [];
+      let currentTree = cloneNodes(initialNodes);
+      let callStack = [];
+      let frameIdCounter = 1;
+      let invertedSet = new Set();
+      let maxStackDepthSeen = 0;
+
+      function snapshot(config) {
+        maxStackDepthSeen = Math.max(maxStackDepthSeen, callStack.length);
+        steps.push({
+          stepNum: steps.length,
+          codeLine: config.codeLine,
+          activeSub: config.activeSub || null,
+          stack: JSON.parse(JSON.stringify(callStack)),
+          treeState: cloneNodes(currentTree),
+          activeNodeId: config.activeNodeId !== undefined ? config.activeNodeId : null,
+          parentWaitingId: config.parentWaitingId || null,
+          waitingForText: config.waitingForText || null,
+          virtualNullNode: config.virtualNullNode || null,
+          swappingPair: config.swappingPair || null,
+          invertedNodes: Array.from(invertedSet),
+          phase: config.phase || 'TRAVERSING',
+          direction: config.direction || 'DOWN',
+          title: config.title || '',
+          whatHappened: config.whatHappened || '',
+          whyHappened: config.whyHappened || '',
+          whereWent: config.whereWent || '',
+          tempTuple: config.tempTuple || { right: 'None', left: 'None', status: 'idle' },
+          returnPacket: config.returnPacket || null,
+          conceptKey: config.conceptKey || null,
+          maxDepth: maxStackDepthSeen
+        });
+      }
+
+      steps.push({
+        stepNum: 0,
+        codeLine: 2,
+        activeSub: null,
+        stack: [],
+        treeState: cloneNodes(currentTree),
+        activeNodeId: null,
+        parentWaitingId: null,
+        waitingForText: null,
+        virtualNullNode: null,
+        swappingPair: null,
+        invertedNodes: [],
+        phase: 'READY',
+        direction: 'DOWN',
+        title: 'Tree Initialized',
+        whatHappened: `Binary tree loaded with root Node(${initialRootId ? currentTree[initialRootId].val : 'None'}). No function calls are running yet.`,
+        whyHappened: 'Before code runs, the tree is in its original un-inverted form.',
+        whereWent: 'Execution will start at line 2 with root pointing to the topmost node.',
+        tempTuple: { right: 'None', left: 'None', status: 'idle' },
+        returnPacket: null,
+        conceptKey: null,
+        maxDepth: 0
+      });
+
+      function invert(nodeId, parentId = null, childBranch = null) {
+        const frameId = frameIdCounter++;
+        const nodeVal = nodeId ? currentTree[nodeId].val : null;
+
+        if (callStack.length > 0) {
+          const parentFrame = callStack[callStack.length - 1];
+          parentFrame.status = 'WAITING ⏸️';
+          parentFrame.waitingFor = `invertTree(${nodeId ? 'Node ' + nodeVal : 'None'}) [${childBranch} child]`;
+        }
+
+        const currentFrame = {
+          frameId,
+          nodeId,
+          nodeVal,
+          parentId,
+          branch: childBranch,
+          status: 'ACTIVE 🟢',
+          waitingFor: null,
+          evaluatedRight: false,
+          evaluatedLeft: false,
+          retRightVal: null,
+          retLeftVal: null
+        };
+        callStack.push(currentFrame);
+
+        snapshot({
+          codeLine: 2,
+          activeNodeId: nodeId,
+          parentWaitingId: parentId,
+          waitingForText: parentId ? `invertTree(${nodeId ? 'Node ' + nodeVal : 'None'})` : null,
+          virtualNullNode: !nodeId ? { parentId, branch: childBranch } : null,
+          phase: 'CALL',
+          direction: 'DOWN',
+          title: `Called invertTree(root = ${nodeId ? 'Node ' + nodeVal : 'None'})`,
+          whatHappened: nodeId
+            ? `New stack frame #` + frameId + ` created for Node(${nodeVal}). The variable 'root' now points specifically to Node(${nodeVal}).`
+            : `Function called on an empty branch (${childBranch} of Node ${currentTree[parentId].val}).`,
+          whyHappened: nodeId
+            ? `Recursion travels DOWN into children. We need to process this node and its subtrees.`
+            : `A leaf node tried to access a child that doesn't exist in memory.`,
+          whereWent: parentId ? `Node(${currentTree[parentId].val}) is paused, waiting for this call to return.` : 'This is the root call.',
+          tempTuple: { right: 'waiting', left: 'waiting', status: 'evaluating' },
+          conceptKey: !nodeId ? 'none' : (parentId ? 'waiting' : null)
+        });
+
+        snapshot({
+          codeLine: 3,
+          activeNodeId: nodeId,
+          parentWaitingId: parentId,
+          virtualNullNode: !nodeId ? { parentId, branch: childBranch } : null,
+          phase: 'CHECK_NULL',
+          direction: 'DOWN',
+          title: `Line 3: if not root:`,
+          whatHappened: nodeId
+            ? `Checked condition 'not root'. Since root points to Node(${nodeVal}), it is NOT empty (False).`
+            : `Checked condition 'not root'. Since root is None, the condition is TRUE!`,
+          whyHappened: nodeId
+            ? `This node exists, so we cannot stop yet. We must invert its subtrees.`
+            : `This is the BASE CASE. It prevents infinite recursion by stopping when no nodes remain.`,
+          whereWent: nodeId ? `Proceeding to line 4.` : `Executing 'return None' to send back to parent.`,
+          tempTuple: { right: 'waiting', left: 'waiting', status: 'evaluating' },
+          conceptKey: !nodeId ? 'none' : null
+        });
+
+        if (!nodeId) {
+          snapshot({
+            codeLine: 3,
+            activeNodeId: null,
+            parentWaitingId: parentId,
+            virtualNullNode: { parentId, branch: childBranch },
+            phase: 'BASE_RETURN',
+            direction: 'UP',
+            title: `Line 3: return None`,
+            whatHappened: `Base case reached! Returning None back to parent Node(${currentTree[parentId].val}). Frame #${frameId} is finished.`,
+            whyHappened: `There is no tree here to invert. Returning None signals an empty child.`,
+            whereWent: `The value 'None' travels upward to Node(${currentTree[parentId].val})'s expression.`,
+            tempTuple: { right: 'None', left: 'None', status: 'returning' },
+            returnPacket: { fromNode: null, toNode: parentId, label: 'return None' },
+            conceptKey: 'none'
+          });
+
+          callStack.pop();
+          if (callStack.length > 0) {
+            callStack[callStack.length - 1].status = 'ACTIVE 🟢';
+          }
+          return null;
+        }
+
+        snapshot({
+          codeLine: 4,
+          activeSub: 'call-right',
+          activeNodeId: nodeId,
+          phase: 'EVAL_RIGHT',
+          direction: 'DOWN',
+          title: `Line 4: Evaluating self.invertTree(root.right)`,
+          whatHappened: `Python begins evaluating the right-hand tuple. It evaluates the 1st item: self.invertTree(root.right -> ${currentTree[nodeId].rightId ? 'Node ' + currentTree[currentTree[nodeId].rightId].val : 'None'}).`,
+          whyHappened: `Python always evaluates tuple elements from LEFT to RIGHT before making any assignments.`,
+          whereWent: `Node(${nodeVal}) will pause and wait until the entire right subtree finishes!`,
+          tempTuple: { right: 'evaluating...', left: 'waiting', status: 'evaluating_right' },
+          conceptKey: 'waiting'
+        });
+
+        const rightResult = invert(currentTree[nodeId].rightId, nodeId, 'right');
+
+        currentFrame.status = 'ACTIVE 🟢';
+        currentFrame.evaluatedRight = true;
+        currentFrame.retRightVal = rightResult ? currentTree[rightResult].val : 'None';
+
+        snapshot({
+          codeLine: 4,
+          activeSub: 'call-right',
+          activeNodeId: nodeId,
+          phase: 'RIGHT_RETURNED',
+          direction: 'UP',
+          title: `Line 4: Received result of self.invertTree(root.right)`,
+          whatHappened: `Subtree invertTree(root.right) finished and returned ${currentFrame.retRightVal}. The parent frame catches this result!`,
+          whyHappened: `The right branch is now completely inverted. We store it temporarily as the first value in the tuple.`,
+          whereWent: `Stored in temporary tuple slot 1: right_result = ${currentFrame.retRightVal}.`,
+          tempTuple: { right: currentFrame.retRightVal, left: 'waiting...', status: 'right_ready' },
+          returnPacket: { fromNode: rightResult, toNode: nodeId, label: `Result: ${currentFrame.retRightVal}` },
+          conceptKey: 'return_root'
+        });
+
+        snapshot({
+          codeLine: 4,
+          activeSub: 'call-left',
+          activeNodeId: nodeId,
+          phase: 'EVAL_LEFT',
+          direction: 'DOWN',
+          title: `Line 4: Evaluating self.invertTree(root.left)`,
+          whatHappened: `Python now evaluates the 2nd item of the tuple: self.invertTree(root.left -> ${currentTree[nodeId].leftId ? 'Node ' + currentTree[currentTree[nodeId].leftId].val : 'None'}).`,
+          whyHappened: `Notice that root.left has NOT changed yet! Python preserves old pointers while computing arguments.`,
+          whereWent: `Node(${nodeVal}) pauses again to let the left subtree complete.`,
+          tempTuple: { right: currentFrame.retRightVal, left: 'evaluating...', status: 'evaluating_left' },
+          conceptKey: 'waiting'
+        });
+
+        const leftResult = invert(currentTree[nodeId].leftId, nodeId, 'left');
+
+        currentFrame.status = 'ACTIVE 🟢';
+        currentFrame.evaluatedLeft = true;
+        currentFrame.retLeftVal = leftResult ? currentTree[leftResult].val : 'None';
+
+        snapshot({
+          codeLine: 4,
+          activeSub: 'call-left',
+          activeNodeId: nodeId,
+          phase: 'LEFT_RETURNED',
+          direction: 'UP',
+          title: `Line 4: Received result of self.invertTree(root.left)`,
+          whatHappened: `Subtree invertTree(root.left) finished and returned ${currentFrame.retLeftVal}. Both tuple values are now ready in memory!`,
+          whyHappened: `Both child branches have been recursively inverted. We now hold the tuple: (${currentFrame.retRightVal}, ${currentFrame.retLeftVal}).`,
+          whereWent: `The tuple is ready to be assigned simultaneously to root.left and root.right.`,
+          tempTuple: { right: currentFrame.retRightVal, left: currentFrame.retLeftVal, status: 'both_ready' },
+          returnPacket: { fromNode: leftResult, toNode: nodeId, label: `Result: ${currentFrame.retLeftVal}` },
+          conceptKey: 'swap'
+        });
+
+        const oldLeft = currentTree[nodeId].leftId;
+        const oldRight = currentTree[nodeId].rightId;
+
+        snapshot({
+          codeLine: 4,
+          activeSub: 'assign',
+          activeNodeId: nodeId,
+          swappingPair: [oldLeft, oldRight].filter(Boolean),
+          phase: 'SWAPPING',
+          direction: 'UP',
+          title: `Line 4: root.left, root.right = inverted_right, inverted_left`,
+          whatHappened: `Physical Pointer Swap! Node(${nodeVal})'s left pointer changes to point to ${rightResult ? 'Node ' + currentTree[rightResult].val : 'None'}, and right pointer changes to ${leftResult ? 'Node ' + currentTree[leftResult].val : 'None'}.`,
+          whyHappened: `This is the actual inversion step! Left and right swap positions at this node.`,
+          whereWent: `Tree structure is updated. Now moving to line 5 to return this node.`,
+          tempTuple: { right: currentFrame.retRightVal, left: currentFrame.retLeftVal, status: 'swapped' },
+          conceptKey: 'swap'
+        });
+
+        currentTree[nodeId].leftId = rightResult;
+        currentTree[nodeId].rightId = leftResult;
+        invertedSet.add(nodeId);
+
+        currentFrame.status = 'RETURNING 📦';
+        snapshot({
+          codeLine: 5,
+          activeNodeId: nodeId,
+          parentWaitingId: parentId,
+          phase: 'RETURN_ROOT',
+          direction: 'UP',
+          title: `Line 5: return root (Node ${nodeVal})`,
+          whatHappened: `'return root' sends the reference to Node(${nodeVal}) back to the parent function that called it.`,
+          whyHappened: `'return root' does NOT create a new node! It returns this node as the root of this newly inverted subtree.`,
+          whereWent: parentId ? `Node(${currentTree[parentId].val}) will receive Node(${nodeVal}) as its inverted child.` : `Returns to caller as the final inverted tree root!`,
+          tempTuple: { right: currentFrame.retRightVal, left: currentFrame.retLeftVal, status: 'complete' },
+          returnPacket: { fromNode: nodeId, toNode: parentId, label: `return Node(${nodeVal})` },
+          conceptKey: 'return_root'
+        });
+
+        callStack.pop();
+        if (callStack.length > 0) {
+          callStack[callStack.length - 1].status = 'ACTIVE 🟢';
+        }
+        return nodeId;
+      }
+
+      if (initialRootId) {
+        invert(initialRootId);
+      }
+
+      snapshot({
+        codeLine: 5,
+        activeNodeId: null,
+        parentWaitingId: null,
+        phase: 'COMPLETED',
+        direction: 'UP',
+        title: 'Tree Fully Inverted! 🎉',
+        whatHappened: 'All recursive calls have finished and popped off the call stack. Every single node had its children inverted!',
+        whyHappened: 'Recursion has unwound completely from leaves back up to the main root.',
+        whereWent: 'The inverted root Node(4) is returned to the user.',
+        tempTuple: { right: 'Done', left: 'Done', status: 'done' },
+        returnPacket: null,
+        conceptKey: null
+      });
+
+      return steps;
+    }
+
+    function computeTreeLayout(rootId, nodes) {
+      const coords = {};
+      if (!rootId || !nodes[rootId]) return coords;
+
+      const SVG_WIDTH = 760;
+      const START_Y = 60;
+      const LEVEL_HEIGHT = 80;
+
+      function placeSubtree(nodeId, depth, minX, maxX) {
+        if (!nodeId || !nodes[nodeId]) return;
+        const x = (minX + maxX) / 2;
+        const y = START_Y + depth * LEVEL_HEIGHT;
+
+        coords[nodeId] = { x, y, depth };
+
+        const node = nodes[nodeId];
+        if (node.leftId) {
+          placeSubtree(node.leftId, depth + 1, minX, x);
+        }
+        if (node.rightId) {
+          placeSubtree(node.rightId, depth + 1, x, maxX);
+        }
+      }
+
+      placeSubtree(rootId, 0, 35, SVG_WIDTH - 35);
+      return coords;
+    }
+
+    function renderStep(stepIndex) {
+      if (!simulationSteps || simulationSteps.length === 0) return;
+      currentStepIdx = Math.max(0, Math.min(stepIndex, simulationSteps.length - 1));
+
+      const step = simulationSteps[currentStepIdx];
+      const initialRootId = Object.keys(step.treeState).length > 0 ? 1 : null;
+      const coords = computeTreeLayout(initialRootId, step.treeState);
+
+      document.getElementById('step-counter').textContent = `${currentStepIdx + 1} / ${simulationSteps.length}`;
+      document.getElementById('timeline-slider').max = simulationSteps.length - 1;
+      document.getElementById('timeline-slider').value = currentStepIdx;
+      const pct = Math.round((currentStepIdx / (simulationSteps.length - 1 || 1)) * 100);
+      document.getElementById('step-progress-pct').textContent = `${pct}%`;
+
+      updateCodeHighlights(step.codeLine, step.activeSub);
+      renderCallStack(step.stack, step.parentWaitingId);
+      renderTempTupleBox(step.tempTuple, step.activeSub);
+      renderTreeSVG(step, coords);
+      renderPedagogicalCards(step);
+      renderRecursionJourney(step);
+
+      const totalNodes = Object.keys(step.treeState).length;
+      document.getElementById('stat-inverted-count').textContent = `${step.invertedNodes.length} / ${totalNodes}`;
+      document.getElementById('stat-max-depth').textContent = step.maxDepth || 0;
+      document.getElementById('stack-depth-label').textContent = step.stack.length;
+
+      const completionCard = document.getElementById('completion-card');
+      if (step.phase === 'COMPLETED') {
+        completionCard.classList.remove('hidden');
+      } else {
+        completionCard.classList.add('hidden');
+      }
+
+      updatePhaseBadgeColor(step.phase);
+    }
+
+    function updateCodeHighlights(lineNum, subKey) {
+      for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById(`code-line-${i}`);
+        if (el) {
+          el.classList.remove('bg-indigo-950/80', 'border-l-4', 'border-indigo-500');
+        }
+      }
+      if (lineNum) {
+        const activeLineEl = document.getElementById(`code-line-${lineNum}`);
+        if (activeLineEl) {
+          activeLineEl.classList.add('bg-indigo-950/80', 'border-l-4', 'border-indigo-500');
+        }
+        document.getElementById('code-exec-indicator').textContent = `Line ${lineNum}: Active`;
+      }
+
+      const subAssign = document.getElementById('sub-assign');
+      const subRight = document.getElementById('sub-call-right');
+      const subLeft = document.getElementById('sub-call-left');
+
+      [subAssign, subRight, subLeft].forEach(el => {
+        el.className = 'px-1.5 py-0.5 rounded border border-transparent font-medium transition';
+      });
+
+      if (subKey === 'call-right') {
+        subRight.className = 'px-1.5 py-0.5 rounded bg-sky-500/25 text-sky-300 border border-sky-500/50 font-bold shadow-sm';
+      } else if (subKey === 'call-left') {
+        subLeft.className = 'px-1.5 py-0.5 rounded bg-sky-500/25 text-sky-300 border border-sky-500/50 font-bold shadow-sm';
+      } else if (subKey === 'assign') {
+        subAssign.className = 'px-1.5 py-0.5 rounded bg-purple-500/30 text-purple-300 border border-purple-500/50 font-bold shadow-sm';
+      }
+    }
+
+    function renderCallStack(stack, parentWaitingId) {
+      const container = document.getElementById('call-stack-container');
+      container.innerHTML = '';
+
+      if (stack.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex items-center justify-center text-slate-500 text-xs italic py-12">
+            Stack is empty (No active function execution)
+          </div>
+        `;
+        return;
+      }
+
+      stack.forEach((frame, idx) => {
+        const isTop = idx === stack.length - 1;
+        const isWaiting = frame.status.includes('WAITING');
+        const isReturning = frame.status.includes('RETURNING');
+
+        const frameEl = document.createElement('div');
+        
+        let borderClass = 'border-slate-800 bg-slate-900/90 opacity-80';
+        let badgeClass = 'bg-slate-800 text-slate-400 border-slate-700';
+        let statusText = frame.status;
+
+        if (isTop && !isReturning) {
+          borderClass = 'bg-indigo-950/80 border-indigo-500/80 ring-1 ring-indigo-500/40 shadow-lg';
+          badgeClass = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
+          statusText = '🟢 ACTIVE (Executing)';
+        } else if (isWaiting) {
+          borderClass = 'bg-slate-900 border-amber-500/50 ring-1 ring-amber-500/20';
+          badgeClass = 'bg-amber-500/20 text-amber-300 border-amber-500/30';
+        } else if (isReturning) {
+          borderClass = 'bg-purple-950/80 border-purple-500/80 ring-1 ring-purple-500/30';
+          badgeClass = 'bg-purple-500/20 text-purple-300 border-purple-500/30';
+        }
+
+        frameEl.className = `p-3 rounded-xl border text-xs transition-all duration-300 flex flex-col gap-1.5 ${borderClass}`;
+
+        frameEl.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1.5 font-mono">
+              <span class="w-2 h-2 rounded-full ${isTop ? 'bg-emerald-400 animate-pulse' : (isWaiting ? 'bg-amber-400' : 'bg-slate-600')}"></span>
+              <span class="font-bold text-white">invertTree</span>(root = <span class="${frame.nodeId ? 'text-amber-400 font-bold' : 'text-rose-400 font-bold'}">${frame.nodeId ? 'Node(' + frame.nodeVal + ')' : 'None'}</span>)
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded border ${badgeClass}">
+              ${statusText}
+            </span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-1 bg-slate-950/60 p-2 rounded-lg text-[11px] font-mono text-slate-300 border border-slate-800/80">
+            <div><span class="text-orange-300 font-semibold">root:</span> ${frame.nodeId ? 'Node(' + frame.nodeVal + ')' : 'None'}</div>
+            <div><span class="text-slate-400">Frame:</span> #${frame.frameId}</div>
+            <div class="col-span-2 text-[10px] text-slate-400 truncate">
+              ${frame.waitingFor ? `<span class="text-amber-300">⏸️ Paused:</span> waiting for ${frame.waitingFor}` : (frame.nodeId ? 'Working on this subtree' : 'Returning None to parent')}
+            </div>
+          </div>
+        `;
+        container.appendChild(frameEl);
+      });
+    }
+
+    function renderTempTupleBox(tuple, activeSub) {
+      const rightValEl = document.getElementById('temp-right-val');
+      const leftValEl = document.getElementById('temp-left-val');
+      const tupleValEl = document.getElementById('temp-tuple-val');
+      const badgeEl = document.getElementById('temp-box-state-badge');
+
+      rightValEl.textContent = tuple.right;
+      leftValEl.textContent = tuple.left;
+
+      if (tuple.status === 'evaluating_right') {
+        badgeEl.textContent = '1️⃣ COMPUTING RIGHT';
+        badgeEl.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-500/40';
+        tupleValEl.innerHTML = `<span class="text-sky-300 font-bold">evaluating invertTree(root.right)...</span> , waiting`;
+      } else if (tuple.status === 'right_ready') {
+        badgeEl.textContent = 'RIGHT RETURNED';
+        badgeEl.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40';
+        tupleValEl.innerHTML = `<span class="text-emerald-300 font-bold">${tuple.right}</span> , waiting`;
+      } else if (tuple.status === 'evaluating_left') {
+        badgeEl.textContent = '2️⃣ COMPUTING LEFT';
+        badgeEl.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-500/40';
+        tupleValEl.innerHTML = `<span class="text-emerald-300">${tuple.right}</span> , <span class="text-sky-300 font-bold">evaluating invertTree(root.left)...</span>`;
+      } else if (tuple.status === 'both_ready' || tuple.status === 'swapping' || tuple.status === 'swapped') {
+        badgeEl.textContent = 'TUPLE COMPLETE 🔄';
+        badgeEl.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-500/40';
+        tupleValEl.innerHTML = `(<span class="text-emerald-300 font-bold">${tuple.right}</span>, <span class="text-emerald-300 font-bold">${tuple.left}</span>) -> ready to assign`;
+      } else {
+        badgeEl.textContent = 'IDLE';
+        badgeEl.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700';
+        tupleValEl.textContent = `( ... , ... )`;
+      }
+    }
+
+    function renderPedagogicalCards(step) {
+      document.getElementById('step-title').textContent = step.title;
+      document.getElementById('what-happened-text').textContent = step.whatHappened;
+      document.getElementById('why-happened-text').textContent = step.whyHappened;
+      document.getElementById('where-result-text').textContent = step.whereWent;
+      document.getElementById('step-action-tag').textContent = step.phase;
+      document.getElementById('tree-phase-text').textContent = step.phase;
+
+      const dirTag = document.getElementById('recursion-direction-tag');
+      if (step.direction === 'DOWN') {
+        dirTag.textContent = 'Going Down ↓ (Stack Growing)';
+        dirTag.className = 'font-mono font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20';
+      } else {
+        dirTag.textContent = 'Returning Up ↑ (Unwinding)';
+        dirTag.className = 'font-mono font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20';
+      }
+    }
+
+    function renderRecursionJourney(step) {
+      const container = document.getElementById('recursion-journey-bar');
+      const depthLabel = document.getElementById('journey-summary');
+      container.innerHTML = '';
+
+      depthLabel.textContent = `Stack Depth: ${step.stack.length}`;
+
+      if (step.stack.length === 0) {
+        container.innerHTML = `<span class="text-slate-500 italic text-[11px]">No active recursion branch</span>`;
+        return;
+      }
+
+      step.stack.forEach((frame, i) => {
+        const isLast = i === step.stack.length - 1;
+        const pill = document.createElement('div');
+        pill.className = `px-2 py-0.5 rounded-md text-[11px] font-mono flex items-center gap-1 ${
+          isLast
+            ? 'bg-indigo-600 text-white font-bold shadow'
+            : 'bg-slate-800 text-slate-300 border border-slate-700'
+        }`;
+        pill.innerHTML = `<span>${frame.nodeId ? 'Node ' + frame.nodeVal : 'None'}</span>`;
+        container.appendChild(pill);
+
+        if (!isLast) {
+          const arrow = document.createElement('span');
+          arrow.className = 'text-slate-600 text-[10px]';
+          arrow.textContent = '↓';
+          container.appendChild(arrow);
+        }
+      });
+    }
+
+    function renderTreeSVG(step, coords) {
+      const edgesLayer = document.getElementById('edges-layer');
+      const nodesLayer = document.getElementById('nodes-layer');
+      const pointersLayer = document.getElementById('pointers-layer');
+      const overlayLayer = document.getElementById('overlay-layer');
+
+      edgesLayer.innerHTML = '';
+      nodesLayer.innerHTML = '';
+      pointersLayer.innerHTML = '';
+      overlayLayer.innerHTML = '';
+
+      const nodes = step.treeState;
+      const activeId = step.activeNodeId;
+      const invertedSet = new Set(step.invertedNodes);
+      const isSwapping = step.phase === 'SWAPPING';
+
+      for (const id in nodes) {
+        const parentCoord = coords[id];
+        if (!parentCoord) continue;
+
+        const node = nodes[id];
+
+        if (node.leftId && coords[node.leftId]) {
+          const childCoord = coords[node.leftId];
+          const isSwapEdge = isSwapping && (step.swappingPair && step.swappingPair.includes(node.leftId));
+          drawEdge(edgesLayer, parentCoord, childCoord, isSwapEdge, 'L', node.leftId);
+        }
+
+        if (node.rightId && coords[node.rightId]) {
+          const childCoord = coords[node.rightId];
+          const isSwapEdge = isSwapping && (step.swappingPair && step.swappingPair.includes(node.rightId));
+          drawEdge(edgesLayer, parentCoord, childCoord, isSwapEdge, 'R', node.rightId);
+        }
+      }
+
+      for (const id in nodes) {
+        const coord = coords[id];
+        if (!coord) continue;
+
+        const node = nodes[id];
+        const isActive = activeId == id;
+        const isParentWaiting = step.parentWaitingId == id;
+        const isInverted = invertedSet.has(parseInt(id));
+        const isCurrentlySwapping = isSwapping && (activeId == id);
+
+        drawNode(nodesLayer, coord, node.val, {
+          isActive,
+          isParentWaiting,
+          isInverted,
+          isCurrentlySwapping,
+          id
+        });
+      }
+
+      if (step.virtualNullNode && step.virtualNullNode.parentId && coords[step.virtualNullNode.parentId]) {
+        const parentCoord = coords[step.virtualNullNode.parentId];
+        const isLeft = step.virtualNullNode.branch === 'left';
+        const offset = 65;
+        const nullX = parentCoord.x + (isLeft ? -offset : offset);
+        const nullY = parentCoord.y + 70;
+
+        const edge = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        edge.setAttribute('x1', parentCoord.x);
+        edge.setAttribute('y1', parentCoord.y);
+        edge.setAttribute('x2', nullX);
+        edge.setAttribute('y2', nullY);
+        edge.setAttribute('stroke', '#f43f5e');
+        edge.setAttribute('stroke-width', '2.5');
+        edge.setAttribute('stroke-dasharray', '5 4');
+        edgesLayer.appendChild(edge);
+
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.innerHTML = `
+          <circle cx="${nullX}" cy="${nullY}" r="19" fill="#881337" stroke="#f43f5e" stroke-width="2.5" stroke-dasharray="3 3"/>
+          <text x="${nullX}" y="${nullY + 4}" text-anchor="middle" fill="#fecdd3" font-size="10" font-family="Fira Code" font-weight="bold">None</text>
+          <text x="${nullX}" y="${nullY + 28}" text-anchor="middle" fill="#fb7185" font-size="9" font-family="Inter" font-weight="bold">❌ Empty child</text>
+        `;
+        nodesLayer.appendChild(g);
+
+        drawRootPointerBadge(pointersLayer, nullX, nullY - 26, 'root = None');
+      }
+
+      if (activeId && coords[activeId]) {
+        const c = coords[activeId];
+        drawRootPointerBadge(pointersLayer, c.x, c.y - 32, `root → Node(${nodes[activeId].val})`);
+      }
+
+      if (isSwapping && activeId && coords[activeId]) {
+        const node = nodes[activeId];
+        if (node.leftId && node.rightId && coords[node.leftId] && coords[node.rightId]) {
+          const lCoord = coords[node.leftId];
+          const rCoord = coords[node.rightId];
+          drawSwapArrow(overlayLayer, lCoord, rCoord);
+        }
+      }
+
+      renderReturnBubble(step, coords);
+    }
+
+    function drawRootPointerBadge(container, x, y, label) {
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('class', 'bounce-arrow');
+
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      const width = label.length * 7.5 + 24;
+      rect.setAttribute('x', x - width / 2);
+      rect.setAttribute('y', y - 18);
+      rect.setAttribute('width', width);
+      rect.setAttribute('height', 22);
+      rect.setAttribute('rx', 11);
+      rect.setAttribute('fill', '#f59e0b');
+      rect.setAttribute('stroke', '#78350f');
+      rect.setAttribute('stroke-width', '1.5');
+      rect.setAttribute('filter', 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))');
+      g.appendChild(rect);
+
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', x);
+      text.setAttribute('y', y - 3);
+      text.setAttribute('text-anchor', 'middle');
+      text.setAttribute('fill', '#0f172a');
+      text.setAttribute('font-size', '11');
+      text.setAttribute('font-family', 'Fira Code');
+      text.setAttribute('font-weight', 'bold');
+      text.textContent = `📍 ${label}`;
+      g.appendChild(text);
+
+      const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      arrow.setAttribute('points', `${x-5},${y+4} ${x+5},${y+4} ${x},${y+10}`);
+      arrow.setAttribute('fill', '#f59e0b');
+      g.appendChild(arrow);
+
+      container.appendChild(g);
+    }
+
+    function drawEdge(container, p1, p2, isSwapEdge, label, childId) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', p1.x);
+      line.setAttribute('y1', p1.y);
+      line.setAttribute('x2', p2.x);
+      line.setAttribute('y2', p2.y);
+      line.setAttribute('class', 'tree-edge');
+
+      if (isSwapEdge) {
+        line.setAttribute('stroke', '#c084fc');
+        line.setAttribute('stroke-width', '4');
+        line.setAttribute('stroke-dasharray', '4 2');
+      } else {
+        line.setAttribute('stroke', '#334155');
+        line.setAttribute('stroke-width', '2.5');
+      }
+      container.appendChild(line);
+
+      const midX = (p1.x * 0.42 + p2.x * 0.58);
+      const midY = (p1.y * 0.42 + p2.y * 0.58);
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', midX + (label === 'L' ? -12 : 12));
+      text.setAttribute('y', midY);
+      text.setAttribute('text-anchor', 'middle');
+      text.setAttribute('fill', isSwapEdge ? '#c084fc' : '#64748b');
+      text.setAttribute('font-size', '10');
+      text.setAttribute('font-family', 'Fira Code');
+      text.setAttribute('font-weight', 'bold');
+      text.textContent = label === 'L' ? '.left' : '.right';
+      container.appendChild(text);
+    }
+
+    function drawNode(container, coord, val, state) {
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      
+      let fillColor = '#1e293b';
+      let strokeColor = '#475569';
+      let textColor = '#f8fafc';
+      let strokeWidth = 2.5;
+      let radius = 22;
+
+      if (state.isActive) {
+        fillColor = '#f59e0b';
+        strokeColor = '#fbbf24';
+        textColor = '#0f172a';
+        strokeWidth = 3.5;
+        radius = 24;
+
+        const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        ring.setAttribute('cx', coord.x);
+        ring.setAttribute('cy', coord.y);
+        ring.setAttribute('r', radius + 8);
+        ring.setAttribute('fill', 'none');
+        ring.setAttribute('stroke', '#fbbf24');
+        ring.setAttribute('stroke-width', '2');
+        ring.setAttribute('class', 'active-ring');
+        container.appendChild(ring);
+
+      } else if (state.isParentWaiting) {
+        fillColor = '#3b2806';
+        strokeColor = '#f59e0b';
+        textColor = '#fef08a';
+        strokeWidth = 2.5;
+
+        const waitBadge = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        waitBadge.setAttribute('x', coord.x);
+        waitBadge.setAttribute('y', coord.y - 28);
+        waitBadge.setAttribute('text-anchor', 'middle');
+        waitBadge.setAttribute('fill', '#fde047');
+        waitBadge.setAttribute('font-size', '10');
+        waitBadge.setAttribute('font-family', 'Inter');
+        waitBadge.setAttribute('font-weight', 'bold');
+        waitBadge.textContent = '⏸️ WAITING';
+        container.appendChild(waitBadge);
+
+      } else if (state.isCurrentlySwapping) {
+        fillColor = '#9333ea';
+        strokeColor = '#c084fc';
+        textColor = '#ffffff';
+        strokeWidth = 4;
+        radius = 25;
+      } else if (state.isInverted) {
+        fillColor = '#065f46';
+        strokeColor = '#10b981';
+        textColor = '#ffffff';
+        strokeWidth = 2.5;
+      }
+
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', coord.x);
+      circle.setAttribute('cy', coord.y);
+      circle.setAttribute('r', radius);
+      circle.setAttribute('fill', fillColor);
+      circle.setAttribute('stroke', strokeColor);
+      circle.setAttribute('stroke-width', strokeWidth);
+      circle.setAttribute('class', 'tree-node-circle');
+      circle.setAttribute('filter', 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))');
+      g.appendChild(circle);
+
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', coord.x);
+      text.setAttribute('y', coord.y + 5);
+      text.setAttribute('text-anchor', 'middle');
+      text.setAttribute('fill', textColor);
+      text.setAttribute('font-size', '14');
+      text.setAttribute('font-family', 'Inter, sans-serif');
+      text.setAttribute('font-weight', '800');
+      text.setAttribute('class', 'tree-node-text select-none pointer-events-none');
+      text.textContent = val;
+      g.appendChild(text);
+
+      if (state.isInverted && !state.isActive) {
+        const badge = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        badge.setAttribute('cx', coord.x + 16);
+        badge.setAttribute('cy', coord.y - 14);
+        badge.setAttribute('r', 7.5);
+        badge.setAttribute('fill', '#10b981');
+        badge.setAttribute('stroke', '#064e3b');
+        badge.setAttribute('stroke-width', '1.5');
+        g.appendChild(badge);
+
+        const check = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        check.setAttribute('d', `M ${coord.x + 13} ${coord.y - 14} L ${coord.x + 15.5} ${coord.y - 11.5} L ${coord.x + 19.5} ${coord.y - 16.5}`);
+        check.setAttribute('fill', 'none');
+        check.setAttribute('stroke', '#ffffff');
+        check.setAttribute('stroke-width', '1.6');
+        check.setAttribute('stroke-linecap', 'round');
+        g.appendChild(check);
+      }
+
+      container.appendChild(g);
+    }
+
+    function drawSwapArrow(container, c1, c2) {
+      const midY = (c1.y + c2.y) / 2 + 40;
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      const d = `M ${c1.x} ${c1.y + 26} Q ${(c1.x + c2.x) / 2} ${midY + 25} ${c2.x} ${c2.y + 26}`;
+      path.setAttribute('d', d);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', '#c084fc');
+      path.setAttribute('stroke-width', '3');
+      path.setAttribute('stroke-dasharray', '6 3');
+      container.appendChild(path);
+
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', (c1.x + c2.x) / 2);
+      label.setAttribute('y', midY + 14);
+      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('fill', '#f3e8ff');
+      label.setAttribute('font-size', '11');
+      label.setAttribute('font-family', 'Fira Code');
+      label.setAttribute('font-weight', 'bold');
+      label.textContent = '⇄ SWAPPING SUBTREES';
+      container.appendChild(label);
+    }
+
+    function renderReturnBubble(step, coords) {
+      const bubble = document.getElementById('return-bubble');
+      const bubbleLabel = document.getElementById('return-bubble-label');
+
+      if (!step.returnPacket) {
+        bubble.classList.add('hidden');
+        return;
+      }
+
+      bubbleLabel.textContent = step.returnPacket.label;
+      bubble.classList.remove('hidden');
+
+      let targetX = 380;
+      let targetY = 200;
+
+      if (step.returnPacket.toNode && coords[step.returnPacket.toNode]) {
+        const c = coords[step.returnPacket.toNode];
+        targetX = c.x;
+        targetY = c.y + 40;
+      }
+
+      const svgW = 760;
+      const svgH = 420;
+      const leftPct = (targetX / svgW) * 100;
+      const topPct = (targetY / svgH) * 100;
+
+      bubble.style.left = `${leftPct}%`;
+      bubble.style.top = `${topPct}%`;
+      bubble.style.transform = 'translate(-50%, -50%)';
+    }
+
+    function updatePhaseBadgeColor(phase) {
+      const badge = document.getElementById('tree-phase-badge');
+
+      if (phase === 'SWAPPING') {
+        badge.className = "absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-purple-900/90 border border-purple-500 text-xs font-mono flex items-center gap-2 shadow-lg text-purple-200";
+      } else if (phase === 'COMPLETED') {
+        badge.className = "absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-emerald-900/90 border border-emerald-500 text-xs font-mono flex items-center gap-2 shadow-lg text-emerald-200";
+      } else if (phase.includes('RETURN')) {
+        badge.className = "absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-sky-900/90 border border-sky-500 text-xs font-mono flex items-center gap-2 shadow-lg text-sky-200";
+      } else {
+        badge.className = "absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700/80 backdrop-blur text-xs font-mono flex items-center gap-2 shadow-lg text-slate-200";
+      }
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      const btnBeg = document.getElementById('btn-mode-beginner');
+      const btnInt = document.getElementById('btn-mode-interview');
+      const badge = document.getElementById('header-mode-badge');
+
+      if (mode === 'beginner') {
+        btnBeg.className = 'px-2.5 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow transition flex items-center gap-1';
+        btnInt.className = 'px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1';
+        badge.textContent = 'Beginner Mode 🎓';
+        badge.className = 'text-xs px-2 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 font-medium';
+        document.getElementById('beginner-callout').classList.remove('hidden');
+      } else {
+        btnInt.className = 'px-2.5 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow transition flex items-center gap-1';
+        btnBeg.className = 'px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1';
+        badge.textContent = 'Interview Mode ⚡';
+        badge.className = 'text-xs px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-medium';
+        document.getElementById('beginner-callout').classList.add('hidden');
+      }
+      renderStep(currentStepIdx);
+    }
+
+    function jumpToConcept(conceptKey) {
+      const idx = simulationSteps.findIndex(s => s.conceptKey === conceptKey);
+      if (idx !== -1) {
+        pauseAnimation();
+        renderStep(idx);
+      }
+    }
+
+    function initializeSimulation(treeArray) {
+      pauseAnimation();
+      const parsed = buildTreeFromLevelOrder(treeArray);
+      simulationSteps = generateInvertTrace(parsed.rootId, parsed.nodes);
+      currentStepIdx = 0;
+      renderStep(0);
+    }
+
+    function stepForward() {
+      if (currentStepIdx < simulationSteps.length - 1) {
+        renderStep(currentStepIdx + 1);
+      } else {
+        pauseAnimation();
+      }
+    }
+
+    function stepBackward() {
+      if (currentStepIdx > 0) {
+        renderStep(currentStepIdx - 1);
+      }
+    }
+
+    function seekToStep(val) {
+      pauseAnimation();
+      renderStep(parseInt(val, 10));
+    }
+
+    function togglePlay() {
+      if (isPlaying) {
+        pauseAnimation();
+      } else {
+        playAnimation();
+      }
+    }
+
+    function playAnimation() {
+      if (currentStepIdx >= simulationSteps.length - 1) {
+        currentStepIdx = 0;
+      }
+      isPlaying = true;
+      document.getElementById('play-text').textContent = 'Pause';
+      document.getElementById('play-icon').innerHTML = `
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+      `;
+
+      playTimer = setInterval(() => {
+        if (currentStepIdx < simulationSteps.length - 1) {
+          stepForward();
+        } else {
+          pauseAnimation();
+        }
+      }, playbackSpeed);
+    }
+
+    function pauseAnimation() {
+      isPlaying = false;
+      if (playTimer) {
+        clearInterval(playTimer);
+        playTimer = null;
+      }
+      document.getElementById('play-text').textContent = 'Play';
+      document.getElementById('play-icon').innerHTML = `
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+      `;
+    }
+
+    function resetAnimation() {
+      pauseAnimation();
+      renderStep(0);
+    }
+
+    function setSpeed(ms, label) {
+      playbackSpeed = ms;
+      document.querySelectorAll('.speed-btn').forEach(b => {
+        b.classList.remove('active-speed', 'bg-indigo-600', 'text-white', 'font-medium');
+        b.classList.add('text-slate-300');
+      });
+      event.target.classList.add('active-speed', 'bg-indigo-600', 'text-white', 'font-medium');
+      event.target.classList.remove('text-slate-300');
+
+      if (isPlaying) {
+        pauseAnimation();
+        playAnimation();
+      }
+    }
+
+    function loadPreset(key) {
+      if (!PRESETS[key]) return;
+      currentTreeArray = [...PRESETS[key]];
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-200');
+      });
+      event.target.classList.remove('bg-slate-800', 'text-slate-200');
+      event.target.classList.add('bg-indigo-600', 'text-white');
+      initializeSimulation(currentTreeArray);
+    }
+
+    function openCustomModal() {
+      pauseAnimation();
+      document.getElementById('custom-modal').classList.remove('hidden');
+      document.getElementById('custom-tree-input').value = currentTreeArray.map(x => x === null ? 'null' : x).join(', ');
+    }
+
+    function closeCustomModal() {
+      document.getElementById('custom-modal').classList.add('hidden');
+    }
+
+    function applyCustomTree() {
+      const val = document.getElementById('custom-tree-input').value.trim();
+      if (!val) return;
+
+      const items = val.split(',').map(s => {
+        const clean = s.trim();
+        if (clean === 'null' || clean === '') return null;
+        const num = Number(clean);
+        return isNaN(num) ? clean : num;
+      }).slice(0, 15);
+
+      if (items.length > 0 && items[0] !== null) {
+        currentTreeArray = items;
+        closeCustomModal();
+        initializeSimulation(currentTreeArray);
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (document.activeElement.tagName === 'INPUT') return;
+
+      if (e.code === 'Space') {
+        e.preventDefault();
+        togglePlay();
+      } else if (e.code === 'ArrowRight') {
+        e.preventDefault();
+        pauseAnimation();
+        stepForward();
+      } else if (e.code === 'ArrowLeft') {
+        e.preventDefault();
+        pauseAnimation();
+        stepBackward();
+      } else if (e.code === 'KeyR') {
+        e.preventDefault();
+        resetAnimation();
+      }
+    });
+
+    window.addEventListener('load', () => {
+      initializeSimulation(currentTreeArray);
+    });
+  </script>
+</body>
+</html>

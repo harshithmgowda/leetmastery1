@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binary Tree Diameter Visualizer (LeetCode 543)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d'
+            },
+            accent: {
+              purple: '#8b5cf6',
+              cyan: '#06b6d4',
+              amber: '#f59e0b',
+              rose: '#f43f5e',
+              emerald: '#10b981'
+            }
+          },
+          fontFamily: {
+            mono: ['Fira Code', 'Cascadia Code', 'Courier New', 'monospace'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.85; }
+      50% { transform: scale(1.18); opacity: 0.35; }
+      100% { transform: scale(0.95); opacity: 0.85; }
+    }
+    .pulse-active {
+      animation: pulse-ring 1.6s infinite ease-in-out;
+      transform-origin: center;
+    }
+    @keyframes return-float-up {
+      0% { transform: translateY(6px); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-8px); opacity: 1; }
+    }
+    .animate-return-up {
+      animation: return-float-up 0.5s ease-out forwards;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(71, 85, 105, 0.8);
+      border-radius: 9999px;
+    }
+    .code-line-active {
+      background: linear-gradient(90deg, rgba(234, 179, 8, 0.28) 0%, rgba(234, 179, 8, 0.08) 100%);
+      border-left: 4px solid #f59e0b;
+    }
+    .edge-transition {
+      transition: stroke 0.3s ease, stroke-width 0.3s ease, stroke-dashoffset 0.4s ease;
+    }
+    .node-pop {
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-900">
+
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-500 flex items-center justify-center shadow-lg shadow-cyan-500/20 text-slate-950 font-black text-xl">
+          🌳
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            LeetCode 543: Diameter of Binary Tree
+            <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono">Zero-Knowledge Visualizer</span>
+          </h1>
+          <p class="text-xs text-slate-400">Step-by-step Python Interpreter Trace: Call Stack, Returns, nonlocal, & Height vs Diameter</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="btn-open-primer" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 flex items-center gap-1.5 transition">
+          <span>🧑‍🏫</span> Concept Primer (Diameter & Edges)
+        </button>
+
+        <div class="flex items-center bg-slate-800 rounded-lg p-1 border border-slate-700 text-xs">
+          <span class="text-slate-400 px-2 font-medium">Tree:</span>
+          <button id="tree-preset-default" class="px-2.5 py-1 rounded bg-cyan-600 text-white font-medium transition">Default [1..5]</button>
+          <button id="tree-preset-subtree" class="px-2.5 py-1 rounded text-slate-300 hover:text-white transition">Subtree Dominates [max_d]</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto p-3 md:p-5 flex flex-col gap-4">
+    
+    <!-- Top Concept Bar: Height vs Diameter Rules -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+        <div class="p-2.5 rounded-lg bg-amber-500/15 text-amber-400 text-xl font-bold border border-amber-500/30">📏</div>
+        <div>
+          <div class="text-xs uppercase tracking-wider font-semibold text-slate-400">1. Local Diameter Candidate</div>
+          <div class="text-sm font-bold text-amber-300 font-mono">l + r</div>
+          <div class="text-[11px] text-slate-400 leading-tight">Longest path turning at this node (left edges + right edges)</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+        <div class="p-2.5 rounded-lg bg-cyan-500/15 text-cyan-400 text-xl font-bold border border-cyan-500/30">🔝</div>
+        <div>
+          <div class="text-xs uppercase tracking-wider font-semibold text-slate-400">2. Subtree Height (To Parent)</div>
+          <div class="text-sm font-bold text-cyan-300 font-mono">return 1 + max(l, r)</div>
+          <div class="text-[11px] text-slate-400 leading-tight">Parent can only take ONE branch (the deeper one) + 1 connecting edge</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+        <div class="p-2.5 rounded-lg bg-emerald-500/15 text-emerald-400 text-xl font-bold border border-emerald-500/30">🏆</div>
+        <div>
+          <div class="text-xs uppercase tracking-wider font-semibold text-slate-400">3. Global Tracker (nonlocal)</div>
+          <div class="text-sm font-bold text-emerald-300 font-mono">max_d = max(max_d, l + r)</div>
+          <div class="text-[11px] text-slate-400 leading-tight">Persistent variable in outer scope holding the all-time best edge count</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+      
+      <!-- LEFT COLUMN: Exact Python Code Panel (4 Cols) -->
+      <div class="lg:col-span-4 bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl flex flex-col">
+        <div class="bg-slate-800/80 px-4 py-2.5 border-b border-slate-700/60 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-mono text-cyan-400 font-semibold">solution.py</span>
+            <span class="text-[10px] bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded font-mono">Exact Python Code</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px] font-mono text-slate-400">
+            <span id="code-status-pill" class="px-2 py-0.5 rounded-full bg-slate-800 text-cyan-300 border border-slate-700">Line: --</span>
+          </div>
+        </div>
+
+        <!-- Exact Python Code Display with line-by-line markers -->
+        <div class="p-3 font-mono text-xs md:text-[13px] leading-relaxed overflow-x-auto text-slate-300 select-none space-y-0.5 custom-scrollbar" id="code-container">
+          <div id="code-line-1" class="px-2 py-0.5 rounded transition">class Solution:</div>
+          <div id="code-line-2" class="px-2 py-0.5 rounded transition pl-4 text-cyan-300">def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:</div>
+          <div id="code-line-3" class="px-2 py-0.5 rounded transition pl-8 font-semibold text-emerald-400">max_d = 0</div>
+          <div id="code-line-4" class="px-2 py-0.5 rounded transition pl-8 text-purple-300">def dfs(node):</div>
+          <div id="code-line-5" class="px-2 py-0.5 rounded transition pl-12 text-amber-400 font-semibold">nonlocal max_d</div>
+          <div id="code-line-6" class="px-2 py-0.5 rounded transition pl-12 text-rose-300">if not node: return 0</div>
+          <div id="code-line-7" class="px-2 py-0.5 rounded transition pl-12 text-cyan-200">
+            <span>l, r = </span><span id="code-sub-l" class="transition rounded px-1">dfs(node.left)</span><span>, </span><span id="code-sub-r" class="transition rounded px-1">dfs(node.right)</span>
+          </div>
+          <div id="code-line-8" class="px-2 py-0.5 rounded transition pl-12 font-semibold text-amber-300">max_d = max(max_d, l + r)</div>
+          <div id="code-line-9" class="px-2 py-0.5 rounded transition pl-12 font-semibold text-emerald-300">return 1 + max(l, r)</div>
+          <div id="code-line-10" class="px-2 py-0.5 rounded transition pl-8 text-purple-300 font-semibold">dfs(root)</div>
+          <div id="code-line-11" class="px-2 py-0.5 rounded transition pl-8 font-bold text-emerald-400">return max_d</div>
+        </div>
+
+        <!-- Dedicated Nonlocal & Scope Bridge Visualizer -->
+        <div id="nonlocal-bridge-card" class="border-t border-slate-800 bg-slate-950/80 p-3 flex flex-col gap-2">
+          <div class="flex items-center justify-between text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+            <span>Scope Enclosure & nonlocal bridge</span>
+            <span class="text-amber-400 font-mono text-[10px]">Python Scope</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-700/80 text-xs font-mono space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Outer scope (diameterOfBinaryTree):</span>
+              <span class="text-emerald-400 font-bold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">max_d = <span id="scope-max-d-val">0</span></span>
+            </div>
+            <div class="flex items-center gap-2 text-[10px] text-slate-300 pt-1 border-t border-slate-800">
+              <span class="text-amber-400 font-bold">⚡ nonlocal max_d:</span>
+              <span id="scope-explanation-text" class="text-slate-400">Ensures dfs() mutates the outer max_d directly instead of creating an isolated local variable.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side-by-Side Math Live Comparison -->
+        <div class="border-t border-slate-800 bg-slate-950/70 p-3.5 flex flex-col gap-2">
+          <div class="text-[11px] uppercase tracking-wider font-semibold text-slate-400 flex items-center justify-between">
+            <span>Height vs. Diameter Calculation</span>
+            <span id="current-node-badge" class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 font-mono text-xs">node: 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 rounded-lg bg-amber-950/30 border border-amber-500/30 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] text-amber-400 font-bold uppercase block">1. Local Diameter (Arch)</span>
+                <span class="font-mono text-amber-200 block text-xs">l + r</span>
+                <div id="math-diam-expr" class="text-[11px] text-slate-200 mt-1 font-mono">? + ? = ?</div>
+              </div>
+              <div class="text-[9px] text-amber-300/80 mt-1 leading-tight">Checks total edges looping through this node</div>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-cyan-950/30 border border-cyan-500/30 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] text-cyan-400 font-bold uppercase block">2. Subtree Height (Pass Up)</span>
+                <span class="font-mono text-cyan-200 block text-xs">1 + max(l, r)</span>
+                <div id="math-height-expr" class="text-[11px] text-slate-200 mt-1 font-mono">1 + max(?, ?) = ?</div>
+              </div>
+              <div class="text-[9px] text-cyan-300/80 mt-1 leading-tight">Passed up to parent node to become its l or r</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENTER COLUMN: Visual Tree Canvas & Dynamic Edge Visualizer (5 Cols) -->
+      <div class="lg:col-span-5 flex flex-col gap-3">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 md:p-4 shadow-xl flex flex-col relative min-h-[460px]">
+          
+          <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Synchronized Binary Tree Canvas</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span> Active Node</span>
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Finished</span>
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block"></span> None Slot</span>
+            </div>
+          </div>
+
+          <!-- SVG Canvas for nodes, leaf None slots, and edges -->
+          <div class="relative flex-1 w-full flex items-center justify-center my-2" id="tree-container">
+            <svg id="tree-svg" class="w-full h-[370px]" viewBox="0 0 500 360">
+              <!-- Edge groups rendered dynamically -->
+              <g id="svg-edges"></g>
+              <!-- Return values bubble animation group -->
+              <g id="svg-returns"></g>
+              <!-- Null base-case leaf nodes -->
+              <g id="svg-null-nodes"></g>
+              <!-- Tree Node groups rendered dynamically -->
+              <g id="svg-nodes"></g>
+            </svg>
+
+            <!-- Floating Diameter Highlight Banner -->
+            <div id="tree-diameter-indicator" class="absolute bottom-2 left-2 right-2 bg-slate-950/90 border border-amber-500/40 rounded-lg p-2.5 flex items-center justify-between text-xs backdrop-blur">
+              <div class="flex items-center gap-2">
+                <span class="text-amber-400 font-bold">📏 Best Path (Edges):</span>
+                <span id="best-path-nodes" class="font-mono text-white font-bold">4 → 2 → 1 → 3</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-slate-400">Total Edges:</span>
+                <span id="best-path-count" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono font-bold">3 edges</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teacher's Plain-English Execution Inspector -->
+        <div class="bg-gradient-to-r from-slate-900 to-slate-900/95 border-l-4 border-cyan-500 border border-slate-800 rounded-xl p-4 shadow-lg flex flex-col gap-2.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">🧑‍🏫</span>
+              <span class="text-xs uppercase font-bold text-cyan-400 tracking-wider">Interpreter Walkthrough</span>
+            </div>
+            <span id="coach-step-phase" class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300 border border-slate-700">Exploration</span>
+          </div>
+
+          <!-- Structured Execution 5-Part Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+            <div class="p-2 rounded bg-slate-950/70 border border-slate-800">
+              <span class="text-slate-500 block text-[10px] uppercase font-bold">1. WHAT LINE:</span>
+              <span id="hud-what" class="text-amber-300 font-semibold block truncate">dfs(root)</span>
+            </div>
+            <div class="p-2 rounded bg-slate-950/70 border border-slate-800">
+              <span class="text-slate-500 block text-[10px] uppercase font-bold">2. WHERE IN TREE:</span>
+              <span id="hud-where" class="text-cyan-300 font-semibold block">Root Node 1</span>
+            </div>
+            <div class="p-2 rounded bg-slate-950/70 border border-slate-800 sm:col-span-2">
+              <span class="text-slate-500 block text-[10px] uppercase font-bold">3. WHY THIS LINE:</span>
+              <span id="hud-why" class="text-slate-300 block font-sans text-xs">Starting DFS exploration from the root node.</span>
+            </div>
+            <div class="p-2 rounded bg-slate-950/70 border border-slate-800 sm:col-span-2">
+              <span class="text-slate-500 block text-[10px] uppercase font-bold">4. RETURNED VALUE & TARGET:</span>
+              <span id="hud-return" class="text-emerald-300 block font-sans text-xs">None yet. Exploring downward.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Stack, Variables & Global State (3 Cols) -->
+      <div class="lg:col-span-3 flex flex-col gap-3">
+        
+        <!-- Live Variables Card -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5 shadow-xl">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 pb-2 border-b border-slate-800 flex items-center justify-between">
+            <span>📦 Variable Watch</span>
+            <span id="eval-stage-badge" class="text-[10px] text-cyan-400 font-mono px-1.5 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30">Init</span>
+          </h3>
+          <div class="space-y-2 mt-3 text-xs font-mono">
+            <div class="flex justify-between items-center p-2 rounded bg-slate-950/60 border border-slate-800/80">
+              <span class="text-slate-400">Current node:</span>
+              <span id="var-node" class="text-amber-300 font-bold">None</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="p-2 rounded bg-slate-950/60 border border-slate-800/80">
+                <div class="text-[10px] text-slate-400">Left Height (l):</div>
+                <div id="var-l" class="text-cyan-400 font-bold text-sm">--</div>
+              </div>
+              <div class="p-2 rounded bg-slate-950/60 border border-slate-800/80">
+                <div class="text-[10px] text-slate-400">Right Height (r):</div>
+                <div id="var-r" class="text-cyan-400 font-bold text-sm">--</div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center p-2 rounded bg-amber-950/30 border border-amber-500/30">
+              <span class="text-amber-300 font-semibold">l + r (Local Diameter):</span>
+              <span id="var-l-plus-r" class="text-amber-400 font-bold text-sm">--</span>
+            </div>
+            <div class="flex justify-between items-center p-2 rounded bg-emerald-950/40 border border-emerald-500/40">
+              <span class="text-emerald-300 font-semibold">max_d (Global max):</span>
+              <span id="var-max-d" class="text-emerald-400 font-bold text-base">0</span>
+            </div>
+            <div class="flex justify-between items-center p-2 rounded bg-cyan-950/30 border border-cyan-500/30">
+              <span class="text-cyan-300 font-semibold">Subtree Height (Return):</span>
+              <span id="var-return-val" class="text-cyan-400 font-bold text-sm">--</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recursion Call Stack -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5 shadow-xl flex-1 flex flex-col min-h-[260px]">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <span>🧠 Call Stack</span>
+            </h3>
+            <span id="stack-count-badge" class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-purple-300 font-mono">depth: 0</span>
+          </div>
+          
+          <div class="text-[10px] text-slate-500 my-1 text-center font-mono">TOP OF STACK (Active Call) ↓</div>
+
+          <!-- The Stack Container -->
+          <div id="call-stack-container" class="flex-1 flex flex-col-reverse justify-start gap-1.5 p-1 overflow-y-auto max-h-[220px] custom-scrollbar">
+            <div class="text-center py-6 text-xs text-slate-500 italic">Stack empty. Click Next Step to invoke dfs(root).</div>
+          </div>
+
+          <div class="text-[10px] text-slate-600 mt-1 text-center font-mono border-t border-slate-800 pt-1">BOTTOM OF STACK (Caller)</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Interactive Execution Controls Dock -->
+    <div class="bg-slate-900/95 border border-slate-800 rounded-xl p-3.5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Stepper Controls -->
+      <div class="flex items-center gap-2 w-full md:w-auto justify-center">
+        <button id="btn-restart" title="Restart to start" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        </button>
+        <button id="btn-prev" title="Step Back" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium text-xs flex items-center gap-1 transition">
+          ⏮️ <span>Prev</span>
+        </button>
+        <button id="btn-play" class="px-5 py-2 rounded-lg bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition">
+          <span id="play-icon">▶️</span> <span id="play-text">Play</span>
+        </button>
+        <button id="btn-next" title="Next Step" class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-cyan-500/20 transition">
+          <span>Next</span> ⏭️
+        </button>
+      </div>
+
+      <!-- Step Counter Slider & Progress -->
+      <div class="flex-1 max-w-md w-full flex flex-col gap-1">
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-slate-400">Execution Step:</span>
+          <span class="font-mono text-cyan-400 font-semibold" id="step-counter-label">Step 0 / 0</span>
+        </div>
+        <input id="step-slider" type="range" min="0" max="0" value="0" class="w-full accent-cyan-500 cursor-pointer bg-slate-800 h-2 rounded-lg" />
+      </div>
+
+      <!-- Animation Speed Selector -->
+      <div class="flex items-center gap-2 text-xs text-slate-400">
+        <span>Speed:</span>
+        <select id="speed-select" class="bg-slate-800 border border-slate-700 text-slate-200 rounded px-2.5 py-1 text-xs focus:ring-1 focus:ring-cyan-500 outline-none">
+          <option value="1800">0.5x (Slowest)</option>
+          <option value="1100" selected>1.0x (Normal)</option>
+          <option value="600">1.5x (Fast)</option>
+          <option value="250">3.0x (Ultra)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Final Recursion Summary Table & Mental Model -->
+    <section class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+      <div class="flex items-center justify-between cursor-pointer select-none" id="summary-toggle">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">📊</span>
+          <h2 class="text-sm font-bold text-white tracking-wide">Complete Traversal Summary Table & Cheat Sheet</h2>
+        </div>
+        <span class="text-xs text-cyan-400 font-mono" id="toggle-indicator">Show Summary Table ▼</span>
+      </div>
+
+      <div id="summary-content" class="mt-4 pt-4 border-t border-slate-800 space-y-4 text-xs">
+        
+        <!-- Summary Table -->
+        <div class="overflow-x-auto custom-scrollbar">
+          <table class="w-full text-left font-mono border border-slate-800 rounded-lg overflow-hidden">
+            <thead class="bg-slate-800/90 text-slate-300 text-[11px] uppercase">
+              <tr>
+                <th class="p-2.5 border-b border-slate-700">Node</th>
+                <th class="p-2.5 border-b border-slate-700">Left Height (l)</th>
+                <th class="p-2.5 border-b border-slate-700">Right Height (r)</th>
+                <th class="p-2.5 border-b border-slate-700 text-amber-300">l + r (Diameter)</th>
+                <th class="p-2.5 border-b border-slate-700 text-cyan-300">Returned Height (1 + max)</th>
+                <th class="p-2.5 border-b border-slate-700 text-emerald-400">max_d updated</th>
+              </tr>
+            </thead>
+            <tbody id="summary-table-body" class="divide-y divide-slate-800/70 text-slate-300 text-xs">
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-2.5 font-bold text-white">4</td>
+                <td class="p-2.5">0 (None)</td>
+                <td class="p-2.5">0 (None)</td>
+                <td class="p-2.5 text-amber-400">0</td>
+                <td class="p-2.5 text-cyan-300">1</td>
+                <td class="p-2.5 text-emerald-400">max(0, 0) = 0</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-2.5 font-bold text-white">5</td>
+                <td class="p-2.5">0 (None)</td>
+                <td class="p-2.5">0 (None)</td>
+                <td class="p-2.5 text-amber-400">0</td>
+                <td class="p-2.5 text-cyan-300">1</td>
+                <td class="p-2.5 text-emerald-400">max(0, 0) = 0</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-2.5 font-bold text-white">2</td>
+                <td class="p-2.5">1 (dfs(4))</td>
+                <td class="p-2.5">1 (dfs(5))</td>
+                <td class="p-2.5 text-amber-400 font-bold">2 (4→2→5)</td>
+                <td class="p-2.5 text-cyan-300">2</td>
+                <td class="p-2.5 text-emerald-400 font-bold">max(0, 2) = 2</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-2.5 font-bold text-white">3</td>
+                <td class="p-2.5">0 (None)</td>
+                <td class="p-2.5">0 (None)</td>
+                <td class="p-2.5 text-amber-400">0</td>
+                <td class="p-2.5 text-cyan-300">1</td>
+                <td class="p-2.5 text-emerald-400">max(2, 0) = 2</td>
+              </tr>
+              <tr class="hover:bg-emerald-950/20 bg-emerald-950/10">
+                <td class="p-2.5 font-black text-white">1 (root)</td>
+                <td class="p-2.5 font-bold text-cyan-300">2 (dfs(2))</td>
+                <td class="p-2.5 font-bold text-cyan-300">1 (dfs(3))</td>
+                <td class="p-2.5 text-amber-400 font-black text-sm">3 (4→2→1→3)</td>
+                <td class="p-2.5 text-cyan-300">3</td>
+                <td class="p-2.5 text-emerald-400 font-black text-sm">max(2, 3) = 3 🏆</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Takeaway Memory Trick -->
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+          <div class="text-sm font-bold text-emerald-400 flex items-center gap-2">
+            <span>📌</span> The One-Sentence Algorithm Summary:
+          </div>
+          <p class="text-slate-300 italic text-sm">
+            "At every node, calculate the height of both sides, use their sum (<code class="text-amber-300 font-mono">l + r</code>) to check the diameter, then return the taller side + 1 (<code class="text-cyan-300 font-mono">1 + max(l, r)</code>) to the parent."
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: Concept Primer & Zero-Knowledge Walkthrough -->
+  <div id="primer-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-fade-in">
+      
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-850">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🧑‍🏫</span>
+          <h2 class="text-lg font-bold text-white">Binary Tree Diameter from Absolute Zero</h2>
+        </div>
+        <button id="btn-close-primer" class="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition text-lg">✕</button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4 text-xs md:text-sm text-slate-300 leading-relaxed custom-scrollbar">
+        
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <h3 class="font-bold text-cyan-400 text-sm mb-1 flex items-center gap-1.5">
+            <span>🌳</span> 1. What is a Binary Tree?
+          </h3>
+          <p class="text-slate-300">
+            A hierarchical structure where every node has at most two children: a <strong>left child</strong> and a <strong>right child</strong>. If a node does not have a child, that child pointer is <code class="text-rose-400 font-mono">None</code>.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <h3 class="font-bold text-amber-400 text-sm mb-1 flex items-center gap-1.5">
+            <span>📏</span> 2. What is Diameter? (Counting EDGES, not nodes!)
+          </h3>
+          <p class="text-slate-300">
+            The diameter is the length of the <strong>longest path between any two nodes</strong>. Length is measured in <strong>number of edges (connections)</strong>, NOT the number of nodes:
+          </p>
+          <div class="my-2 p-3 bg-slate-900 rounded font-mono text-xs text-center border border-slate-800 space-y-1">
+            <div class="text-amber-300 font-bold">Path: 4 ── 2 ── 1 ── 3</div>
+            <div class="text-slate-400">Edges: (4→2) + (2→1) + (1→3) = <strong class="text-emerald-400">3 edges</strong> (has 4 nodes)</div>
+          </div>
+          <p class="text-slate-400 text-xs">
+            Notice that path <code class="font-mono text-slate-200">4 ── 2 ── 5</code> only has <strong>2 edges</strong>, so it is shorter and does not win.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <h3 class="font-bold text-purple-400 text-sm mb-1 flex items-center gap-1.5">
+            <span>⚖️</span> 3. Crucial Distinction: Why TWO Formulas?
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 font-mono text-xs">
+            <div class="p-2.5 rounded bg-amber-950/30 border border-amber-500/30">
+              <span class="text-amber-400 font-bold block mb-1">l + r = DIAMETER</span>
+              <span class="text-slate-300 text-[11px] block font-sans">Combines left and right branches into an arch. This is checked for the high score <code class="text-amber-300">max_d</code>.</span>
+            </div>
+            <div class="p-2.5 rounded bg-cyan-950/30 border border-cyan-500/30">
+              <span class="text-cyan-400 font-bold block mb-1">1 + max(l, r) = HEIGHT</span>
+              <span class="text-slate-300 text-[11px] block font-sans">You can only return ONE branch upward to the parent. You choose the longer branch and add 1 for your own link!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <h3 class="font-bold text-rose-400 text-sm mb-1 flex items-center gap-1.5">
+            <span>🔥</span> 4. Why do we need nonlocal max_d?
+          </h3>
+          <p class="text-slate-300">
+            Because the longest diameter does <strong>NOT always pass through the root</strong>! If a deep subtree is very wide, the diameter lives entirely inside it. We update <code class="font-mono text-emerald-400">max_d</code> at every single node visited so no subtree is overlooked!
+          </p>
+        </div>
+
+      </div>
+
+      <div class="p-3 bg-slate-850 border-t border-slate-800 flex justify-end">
+        <button id="btn-start-exploring" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition">
+          I'm Ready! Let's Step Through The Python Code 🚀
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    /**
+     * Exact Python Execution Engine for LeetCode 543
+     */
+    const TREES = {
+      default: {
+        name: "Default [1, 2, 3, 4, 5]",
+        rootId: 1,
+        nodes: {
+          1: { id: 1, val: 1, left: 2, right: 3, x: 250, y: 55 },
+          2: { id: 2, val: 2, left: 4, right: 5, x: 160, y: 145 },
+          3: { id: 3, val: 3, left: null, right: null, x: 340, y: 145 },
+          4: { id: 4, val: 4, left: null, right: null, x: 105, y: 245 },
+          5: { id: 5, val: 5, left: null, right: null, x: 215, y: 245 }
+        },
+        nullSlots: {
+          '3-left':  { parentId: 3, side: 'left',  x: 305, y: 220, label: 'None' },
+          '3-right': { parentId: 3, side: 'right', x: 375, y: 220, label: 'None' },
+          '4-left':  { parentId: 4, side: 'left',  x: 75,  y: 320, label: 'None' },
+          '4-right': { parentId: 4, side: 'right', x: 135, y: 320, label: 'None' },
+          '5-left':  { parentId: 5, side: 'left',  x: 185, y: 320, label: 'None' },
+          '5-right': { parentId: 5, side: 'right', x: 245, y: 320, label: 'None' }
+        },
+        edges: [
+          { u: 1, v: 2 },
+          { u: 1, v: 3 },
+          { u: 2, v: 4 },
+          { u: 2, v: 5 }
+        ]
+      },
+      subtree: {
+        name: "Subtree Dominates [max_d inside left]",
+        rootId: 1,
+        nodes: {
+          1: { id: 1, val: 1, left: 2, right: null, x: 250, y: 40 },
+          2: { id: 2, val: 2, left: 4, right: 5, x: 170, y: 110 },
+          4: { id: 4, val: 4, left: 6, right: null, x: 100, y: 185 },
+          5: { id: 5, val: 5, left: null, right: 7, x: 240, y: 185 },
+          6: { id: 6, val: 6, left: null, right: null, x: 60, y: 265 },
+          7: { id: 7, val: 7, left: null, right: null, x: 280, y: 265 }
+        },
+        nullSlots: {
+          '1-right': { parentId: 1, side: 'right', x: 330, y: 100, label: 'None' },
+          '4-right': { parentId: 4, side: 'right', x: 140, y: 255, label: 'None' },
+          '5-left':  { parentId: 5, side: 'left',  x: 200, y: 255, label: 'None' },
+          '6-left':  { parentId: 6, side: 'left',  x: 35,  y: 335, label: 'None' },
+          '6-right': { parentId: 6, side: 'right', x: 85,  y: 335, label: 'None' },
+          '7-left':  { parentId: 7, side: 'left',  x: 255, y: 335, label: 'None' },
+          '7-right': { parentId: 7, side: 'right', x: 305, y: 335, label: 'None' }
+        },
+        edges: [
+          { u: 1, v: 2 },
+          { u: 2, v: 4 },
+          { u: 2, v: 5 },
+          { u: 4, v: 6 },
+          { u: 5, v: 7 }
+        ]
+      }
+    };
+
+    let currentTreeKey = "default";
+    let activeTree = TREES[currentTreeKey];
+
+    function generateExecutionSteps(tree) {
+      const steps = [];
+      let max_d = 0;
+      const callStack = [];
+      const completedNodes = new Set();
+
+      function record(line, payload = {}) {
+        steps.push({
+          line,
+          max_d,
+          callStack: JSON.parse(JSON.stringify(callStack)),
+          activeNodeId: payload.nodeId !== undefined ? payload.nodeId : (callStack.length ? callStack[callStack.length - 1].nodeId : null),
+          l: payload.l !== undefined ? payload.l : (callStack.length ? callStack[callStack.length - 1].l : null),
+          r: payload.r !== undefined ? payload.r : (callStack.length ? callStack[callStack.length - 1].r : null),
+          localSum: payload.localSum !== undefined ? payload.localSum : null,
+          retVal: payload.retVal !== undefined ? payload.retVal : null,
+          hudWhat: payload.hudWhat || `Line ${line}`,
+          hudWhere: payload.hudWhere || (payload.nodeId ? `Node ${payload.nodeId}` : 'Outer Scope'),
+          hudWhy: payload.hudWhy || '',
+          hudReturn: payload.hudReturn || '--',
+          evalStage: payload.evalStage || 'running',
+          highlightEdges: payload.highlightEdges || [],
+          activeBranch: payload.activeBranch || null,
+          activeNullSlot: payload.activeNullSlot || null,
+          completedNodes: Array.from(completedNodes),
+          animatedReturn: payload.animatedReturn || null
+        });
+      }
+
+      record(2, {
+        nodeId: null,
+        hudWhat: "def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:",
+        hudWhere: "Function Entry",
+        hudWhy: `diameterOfBinaryTree() is called with root = Node ${tree.rootId}. We begin execution in the outer function scope.`,
+        hudReturn: "Pending traversal completion",
+        evalStage: "Outer Init"
+      });
+
+      record(3, {
+        nodeId: null,
+        hudWhat: "max_d = 0",
+        hudWhere: "Outer Scope",
+        hudWhy: "We initialize max_d = 0 in outer scope. This tracks the highest diameter (edge count) discovered anywhere in the tree.",
+        hudReturn: "max_d initialized to 0",
+        evalStage: "Init max_d"
+      });
+
+      record(4, {
+        nodeId: null,
+        hudWhat: "def dfs(node):",
+        hudWhere: "Outer Scope",
+        hudWhy: "Defining the recursive helper dfs(node). CRITICAL: dfs() returns the HEIGHT of the subtree, NOT the diameter! Diameter is tracked separately in max_d.",
+        hudReturn: "Function defined",
+        evalStage: "Def dfs"
+      });
+
+      record(10, {
+        nodeId: tree.rootId,
+        hudWhat: "dfs(root)",
+        hudWhere: `Starting call at Root Node ${tree.rootId}`,
+        hudWhy: `We invoke dfs(root) on Node ${tree.rootId}. This pushes the first frame onto our Call Stack.`,
+        hudReturn: "Awaiting left and right exploration",
+        evalStage: "Invoke dfs(root)"
+      });
+
+      function dfsSim(nodeId, parentId = null, sideFromParent = null) {
+        const frame = {
+          nodeId: nodeId,
+          parentId: parentId,
+          l: null,
+          r: null,
+          side: sideFromParent
+        };
+        callStack.push(frame);
+
+        record(4, {
+          nodeId,
+          hudWhat: `def dfs(node = ${nodeId !== null ? nodeId : 'None'}):`,
+          hudWhere: nodeId !== null ? `Node ${nodeId}` : `None (${sideFromParent} child of Node ${parentId})`,
+          hudWhy: nodeId !== null 
+            ? `Pushed dfs(node=${nodeId}) onto the Call Stack. Stack depth is now ${callStack.length}.`
+            : `Pushed dfs(None) onto the Call Stack to check empty child branch.`,
+          hudReturn: "Beginning frame execution",
+          evalStage: nodeId !== null ? `dfs(${nodeId})` : "dfs(None)"
+        });
+
+        record(5, {
+          nodeId,
+          hudWhat: "nonlocal max_d",
+          hudWhere: nodeId !== null ? `Node ${nodeId}` : `None (${sideFromParent} of ${parentId})`,
+          hudWhy: "tells Python: 'Do NOT create a local copy of max_d. Modify the outer max_d directly!'",
+          hudReturn: `Linked to outer max_d = ${max_d}`,
+          evalStage: "nonlocal max_d"
+        });
+
+        const isNull = (nodeId === null);
+        record(6, {
+          nodeId,
+          activeNullSlot: isNull ? `${parentId}-${sideFromParent}` : null,
+          hudWhat: "if not node: return 0",
+          hudWhere: isNull ? `Empty child slot (${sideFromParent} of Node ${parentId})` : `Node ${nodeId}`,
+          hudWhy: isNull
+            ? `node is None! Condition 'if not node' is TRUE. A non-existent child has height = 0.`
+            : `node is Node ${nodeId} (exists)! Condition 'if not node' is FALSE. We proceed to explore children.`,
+          hudReturn: isNull ? "return 0" : "Proceeding to children",
+          evalStage: isNull ? "Base Case Hit" : "Base Case Checked"
+        });
+
+        if (isNull) {
+          record(6, {
+            nodeId: null,
+            retVal: 0,
+            activeNullSlot: `${parentId}-${sideFromParent}`,
+            animatedReturn: { fromNull: `${parentId}-${sideFromParent}`, toNode: parentId, val: 0 },
+            hudWhat: "return 0",
+            hudWhere: `From None back up to parent Node ${parentId}`,
+            hudWhy: `Popping dfs(None) off the stack. Height 0 bubbles back to parent Node ${parentId}.`,
+            hudReturn: `0 returned to Node ${parentId}`,
+            evalStage: "Return 0 to parent"
+          });
+          callStack.pop();
+          return 0;
+        }
+
+        const nodeObj = tree.nodes[nodeId];
+
+        record(7, {
+          nodeId,
+          activeBranch: 'left',
+          hudWhat: "l = dfs(node.left)",
+          hudWhere: `Node ${nodeId}`,
+          hudWhy: `STAGE 1: Python evaluates left child first: calling dfs(${nodeObj.left !== null ? 'Node ' + nodeObj.left : 'None'}). Execution pauses here until left finishes!`,
+          hudReturn: "Waiting for left subtree height...",
+          evalStage: "Eval left child"
+        });
+
+        const leftHeight = dfsSim(nodeObj.left, nodeId, 'left');
+        frame.l = leftHeight;
+
+        record(7, {
+          nodeId,
+          l: leftHeight,
+          activeBranch: 'left',
+          hudWhat: `l = ${leftHeight}`,
+          hudWhere: `Node ${nodeId}`,
+          hudWhy: `Left call finished! Stored left height l = ${leftHeight} inside Node ${nodeId}'s stack frame.`,
+          hudReturn: `l set to ${leftHeight}`,
+          evalStage: "Left height stored"
+        });
+
+        record(7, {
+          nodeId,
+          l: leftHeight,
+          activeBranch: 'right',
+          hudWhat: "r = dfs(node.right)",
+          hudWhere: `Node ${nodeId}`,
+          hudWhy: `STAGE 2: Now Python calls right child: dfs(${nodeObj.right !== null ? 'Node ' + nodeObj.right : 'None'}). Execution pauses here until right finishes!`,
+          hudReturn: "Waiting for right subtree height...",
+          evalStage: "Eval right child"
+        });
+
+        const rightHeight = dfsSim(nodeObj.right, nodeId, 'right');
+        frame.r = rightHeight;
+
+        record(7, {
+          nodeId,
+          l: leftHeight,
+          r: rightHeight,
+          hudWhat: `l = ${leftHeight}, r = ${rightHeight}`,
+          hudWhere: `Node ${nodeId}`,
+          hudWhy: `Both child calls finished! We now have l = ${leftHeight} and r = ${rightHeight} ready for diameter and height calculations.`,
+          hudReturn: `l=${leftHeight}, r=${rightHeight}`,
+          evalStage: "Both branches ready"
+        });
+
+        const localDiam = leftHeight + rightHeight;
+        const prevMax = max_d;
+        max_d = Math.max(max_d, localDiam);
+
+        const currentEdges = getPathEdgesForNode(tree, nodeId);
+        record(8, {
+          nodeId,
+          l: leftHeight,
+          r: rightHeight,
+          localSum: localDiam,
+          highlightEdges: currentEdges,
+          hudWhat: `max_d = max(${prevMax}, ${leftHeight} + ${rightHeight}) = ${max_d}`,
+          hudWhere: `Node ${nodeId}`,
+          hudWhy: `DIAMETER CHECK: Longest path arching through Node ${nodeId} is l + r = ${leftHeight} + ${rightHeight} = ${localDiam} edges. max(${prevMax}, ${localDiam}) updates max_d to ${max_d}.`,
+          hudReturn: `max_d is now ${max_d}`,
+          evalStage: "Update max_d"
+        });
+
+        const myHeight = 1 + Math.max(leftHeight, rightHeight);
+        record(9, {
+          nodeId,
+          l: leftHeight,
+          r: rightHeight,
+          retVal: myHeight,
+          animatedReturn: { fromNode: nodeId, toNode: parentId, val: myHeight },
+          hudWhat: `return 1 + max(${leftHeight}, ${rightHeight}) = ${myHeight}`,
+          hudWhere: `Node ${nodeId} -> returning to ${parentId !== null ? 'Node ' + parentId : 'Caller'}`,
+          hudWhy: `CRITICAL DISTINCTION: Diameter was ${localDiam}, but SUBTREE HEIGHT returned to parent is 1 + max(l,r) = ${myHeight}. Parent can only connect to the single deeper branch!`,
+          hudReturn: `Returns height ${myHeight} upward`,
+          evalStage: "Return height upward"
+        });
+
+        completedNodes.add(nodeId);
+        callStack.pop();
+        return myHeight;
+      }
+
+      dfsSim(tree.rootId, null, null);
+
+      const finalBestEdges = getFinalBestEdges(tree);
+      record(11, {
+        nodeId: null,
+        retVal: max_d,
+        highlightEdges: finalBestEdges,
+        hudWhat: `return max_d (${max_d})`,
+        hudWhere: "diameterOfBinaryTree() Return",
+        hudWhy: `Algorithm finished! DFS explored all nodes. The maximum diameter discovered across the entire tree is exactly ${max_d} edges.`,
+        hudReturn: `FINAL ANSWER = ${max_d}`,
+        evalStage: "Execution Complete"
+      });
+
+      return steps;
+    }
+
+    function getPathEdgesForNode(tree, nodeId) {
+      const edges = [];
+      const leftChain = getDeepestChain(tree, tree.nodes[nodeId]?.left);
+      const rightChain = getDeepestChain(tree, tree.nodes[nodeId]?.right);
+      
+      if (leftChain.length) {
+        edges.push({ u: nodeId, v: leftChain[0] });
+        for (let i = 0; i < leftChain.length - 1; i++) {
+          edges.push({ u: leftChain[i], v: leftChain[i + 1] });
+        }
+      }
+      if (rightChain.length) {
+        edges.push({ u: nodeId, v: rightChain[0] });
+        for (let i = 0; i < rightChain.length - 1; i++) {
+          edges.push({ u: rightChain[i], v: rightChain[i + 1] });
+        }
+      }
+      return edges;
+    }
+
+    function getDeepestChain(tree, startId) {
+      if (startId === null || !tree.nodes[startId]) return [];
+      function getH(id) {
+        if (id === null || !tree.nodes[id]) return 0;
+        return 1 + Math.max(getH(tree.nodes[id].left), getH(tree.nodes[id].right));
+      }
+      const chain = [startId];
+      let curr = tree.nodes[startId];
+      while (curr) {
+        const lh = getH(curr.left);
+        const rh = getH(curr.right);
+        if (lh === 0 && rh === 0) break;
+        if (lh >= rh && curr.left !== null) {
+          chain.push(curr.left);
+          curr = tree.nodes[curr.left];
+        } else if (curr.right !== null) {
+          chain.push(curr.right);
+          curr = tree.nodes[curr.right];
+        } else {
+          break;
+        }
+      }
+      return chain;
+    }
+
+    function getFinalBestEdges(tree) {
+      if (currentTreeKey === "default") {
+        return [
+          { u: 4, v: 2 },
+          { u: 2, v: 1 },
+          { u: 1, v: 3 }
+        ];
+      } else {
+        return [
+          { u: 6, v: 4 },
+          { u: 4, v: 2 },
+          { u: 2, v: 5 },
+          { u: 5, v: 7 }
+        ];
+      }
+    }
+
+    let steps = [];
+    let currentStepIdx = 0;
+    let isPlaying = false;
+    let playTimer = null;
+    let animationSpeed = 1100;
+
+    const dom = {
+      codeLines: {},
+      codeSubL: document.getElementById('code-sub-l'),
+      codeSubR: document.getElementById('code-sub-r'),
+      codeStatusPill: document.getElementById('code-status-pill'),
+      treeSvgEdges: document.getElementById('svg-edges'),
+      treeSvgNodes: document.getElementById('svg-nodes'),
+      treeSvgNullNodes: document.getElementById('svg-null-nodes'),
+      treeSvgReturns: document.getElementById('svg-returns'),
+      hudWhat: document.getElementById('hud-what'),
+      hudWhere: document.getElementById('hud-where'),
+      hudWhy: document.getElementById('hud-why'),
+      hudReturn: document.getElementById('hud-return'),
+      coachPhase: document.getElementById('coach-step-phase'),
+      evalStageBadge: document.getElementById('eval-stage-badge'),
+      scopeMaxDVal: document.getElementById('scope-max-d-val'),
+      scopeExplanationText: document.getElementById('scope-explanation-text'),
+      varNode: document.getElementById('var-node'),
+      varL: document.getElementById('var-l'),
+      varR: document.getElementById('var-r'),
+      varLPlusR: document.getElementById('var-l-plus-r'),
+      varMaxD: document.getElementById('var-max-d'),
+      varReturnVal: document.getElementById('var-return-val'),
+      callStackContainer: document.getElementById('call-stack-container'),
+      stackCountBadge: document.getElementById('stack-count-badge'),
+      stepCounterLabel: document.getElementById('step-counter-label'),
+      stepSlider: document.getElementById('step-slider'),
+      btnPlay: document.getElementById('btn-play'),
+      playIcon: document.getElementById('play-icon'),
+      playText: document.getElementById('play-text'),
+      btnNext: document.getElementById('btn-next'),
+      btnPrev: document.getElementById('btn-prev'),
+      btnRestart: document.getElementById('btn-restart'),
+      speedSelect: document.getElementById('speed-select'),
+      currentNodeBadge: document.getElementById('current-node-badge'),
+      mathDiamExpr: document.getElementById('math-diam-expr'),
+      mathHeightExpr: document.getElementById('math-height-expr'),
+      bestPathNodes: document.getElementById('best-path-nodes'),
+      bestPathCount: document.getElementById('best-path-count'),
+      primerModal: document.getElementById('primer-modal'),
+      btnOpenPrimer: document.getElementById('btn-open-primer'),
+      btnClosePrimer: document.getElementById('btn-close-primer'),
+      btnStartExploring: document.getElementById('btn-start-exploring'),
+      btnPresetDefault: document.getElementById('tree-preset-default'),
+      btnPresetSubtree: document.getElementById('tree-preset-subtree'),
+      summaryToggle: document.getElementById('summary-toggle'),
+      summaryContent: document.getElementById('summary-content'),
+      toggleIndicator: document.getElementById('toggle-indicator')
+    };
+
+    for (let i = 1; i <= 11; i++) {
+      dom.codeLines[i] = document.getElementById(`code-line-${i}`);
+    }
+
+    function renderSvgTree() {
+      dom.treeSvgEdges.innerHTML = '';
+      dom.treeSvgNodes.innerHTML = '';
+      dom.treeSvgNullNodes.innerHTML = '';
+      dom.treeSvgReturns.innerHTML = '';
+
+      activeTree.edges.forEach(edge => {
+        const uNode = activeTree.nodes[edge.u];
+        const vNode = activeTree.nodes[edge.v];
+        const edgeId = `edge-${Math.min(edge.u, edge.v)}-${Math.max(edge.u, edge.v)}`;
+
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("id", edgeId);
+        line.setAttribute("x1", uNode.x);
+        line.setAttribute("y1", uNode.y);
+        line.setAttribute("x2", vNode.x);
+        line.setAttribute("y2", vNode.y);
+        line.setAttribute("stroke", "#334155");
+        line.setAttribute("stroke-width", "3");
+        line.setAttribute("stroke-linecap", "round");
+        line.classList.add("edge-transition");
+        dom.treeSvgEdges.appendChild(line);
+
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", (uNode.x + vNode.x) / 2 + 7);
+        text.setAttribute("y", (uNode.y + vNode.y) / 2 - 4);
+        text.setAttribute("fill", "#64748b");
+        text.setAttribute("font-size", "10");
+        text.setAttribute("font-family", "monospace");
+        text.textContent = "1 edge";
+        dom.treeSvgEdges.appendChild(text);
+      });
+
+      if (activeTree.nullSlots) {
+        Object.entries(activeTree.nullSlots).forEach(([key, slot]) => {
+          const parent = activeTree.nodes[slot.parentId];
+          if (!parent) return;
+
+          const link = document.createElementNS("http://www.w3.org/2000/svg", "line");
+          link.setAttribute("id", `null-edge-${key}`);
+          link.setAttribute("x1", parent.x);
+          link.setAttribute("y1", parent.y + 16);
+          link.setAttribute("x2", slot.x);
+          link.setAttribute("y2", slot.y - 10);
+          link.setAttribute("stroke", "#334155");
+          link.setAttribute("stroke-width", "1.5");
+          link.setAttribute("stroke-dasharray", "3,3");
+          dom.treeSvgNullNodes.appendChild(link);
+
+          const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+          g.setAttribute("id", `null-slot-${key}`);
+          g.classList.add("transition-all", "duration-200");
+
+          const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          rect.setAttribute("id", `null-rect-${key}`);
+          rect.setAttribute("x", slot.x - 18);
+          rect.setAttribute("y", slot.y - 10);
+          rect.setAttribute("width", "36");
+          rect.setAttribute("height", "18");
+          rect.setAttribute("rx", "6");
+          rect.setAttribute("fill", "#0f172a");
+          rect.setAttribute("stroke", "#475569");
+          rect.setAttribute("stroke-width", "1.2");
+          g.appendChild(rect);
+
+          const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          txt.setAttribute("id", `null-text-${key}`);
+          txt.setAttribute("x", slot.x);
+          txt.setAttribute("y", slot.y + 3);
+          txt.setAttribute("fill", "#94a3b8");
+          txt.setAttribute("font-size", "9");
+          txt.setAttribute("font-family", "monospace");
+          txt.setAttribute("font-weight", "bold");
+          txt.setAttribute("text-anchor", "middle");
+          txt.textContent = "None";
+          g.appendChild(txt);
+
+          dom.treeSvgNullNodes.appendChild(g);
+        });
+      }
+
+      Object.values(activeTree.nodes).forEach(node => {
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("id", `node-g-${node.id}`);
+        g.classList.add("node-pop", "cursor-pointer");
+
+        const halo = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        halo.setAttribute("id", `node-halo-${node.id}`);
+        halo.setAttribute("cx", node.x);
+        halo.setAttribute("cy", node.y);
+        halo.setAttribute("r", "26");
+        halo.setAttribute("fill", "transparent");
+        halo.setAttribute("stroke", "transparent");
+        halo.setAttribute("stroke-width", "3");
+        halo.classList.add("transition-all", "duration-300");
+        g.appendChild(halo);
+
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("id", `node-circle-${node.id}`);
+        circle.setAttribute("cx", node.x);
+        circle.setAttribute("cy", node.y);
+        circle.setAttribute("r", "20");
+        circle.setAttribute("fill", "#1e293b");
+        circle.setAttribute("stroke", "#475569");
+        circle.setAttribute("stroke-width", "2.5");
+        circle.classList.add("transition-all", "duration-300");
+        g.appendChild(circle);
+
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("id", `node-text-${node.id}`);
+        text.setAttribute("x", node.x);
+        text.setAttribute("y", node.y + 5);
+        text.setAttribute("fill", "#f8fafc");
+        text.setAttribute("font-size", "14");
+        text.setAttribute("font-weight", "bold");
+        text.setAttribute("font-family", "sans-serif");
+        text.setAttribute("text-anchor", "middle");
+        text.textContent = node.val;
+        g.appendChild(text);
+
+        const badgeG = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        badgeG.setAttribute("id", `node-badge-${node.id}`);
+        badgeG.setAttribute("opacity", "0");
+        badgeG.classList.add("transition-opacity", "duration-300");
+
+        const badgeRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        badgeRect.setAttribute("x", node.x + 12);
+        badgeRect.setAttribute("y", node.y - 24);
+        badgeRect.setAttribute("width", "38");
+        badgeRect.setAttribute("height", "18");
+        badgeRect.setAttribute("rx", "4");
+        badgeRect.setAttribute("fill", "#0284c7");
+        badgeG.appendChild(badgeRect);
+
+        const badgeText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        badgeText.setAttribute("id", `node-badge-text-${node.id}`);
+        badgeText.setAttribute("x", node.x + 31);
+        badgeText.setAttribute("y", node.y - 11);
+        badgeText.setAttribute("fill", "#ffffff");
+        badgeText.setAttribute("font-size", "10");
+        badgeText.setAttribute("font-weight", "bold");
+        badgeText.setAttribute("text-anchor", "middle");
+        badgeText.textContent = "h:0";
+        badgeG.appendChild(badgeText);
+
+        g.appendChild(badgeG);
+        dom.treeSvgNodes.appendChild(g);
+      });
+    }
+
+    function renderStep(idx) {
+      if (!steps.length) return;
+      const step = steps[idx];
+
+      dom.stepSlider.value = idx;
+      dom.stepCounterLabel.textContent = `Step ${idx + 1} / ${steps.length}`;
+      dom.codeStatusPill.textContent = `Line: ${step.line}`;
+
+      for (let i = 1; i <= 11; i++) {
+        if (dom.codeLines[i]) {
+          dom.codeLines[i].classList.remove('code-line-active');
+        }
+      }
+      if (dom.codeLines[step.line]) {
+        dom.codeLines[step.line].classList.add('code-line-active');
+        dom.codeLines[step.line].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      if (step.line === 7) {
+        if (step.activeBranch === 'left') {
+          dom.codeSubL.className = "transition rounded px-1 bg-cyan-500/30 text-cyan-200 ring-1 ring-cyan-400 font-bold";
+          dom.codeSubR.className = "transition rounded px-1 opacity-50";
+        } else if (step.activeBranch === 'right') {
+          dom.codeSubR.className = "transition rounded px-1 bg-cyan-500/30 text-cyan-200 ring-1 ring-cyan-400 font-bold";
+          dom.codeSubL.className = "transition rounded px-1 opacity-50";
+        } else {
+          dom.codeSubL.className = "transition rounded px-1 font-semibold";
+          dom.codeSubR.className = "transition rounded px-1 font-semibold";
+        }
+      } else {
+        dom.codeSubL.className = "transition rounded px-1";
+        dom.codeSubR.className = "transition rounded px-1";
+      }
+
+      dom.hudWhat.textContent = step.hudWhat;
+      dom.hudWhere.textContent = step.hudWhere;
+      dom.hudWhy.textContent = step.hudWhy;
+      dom.hudReturn.textContent = step.hudReturn;
+      dom.coachPhase.textContent = step.evalStage;
+      dom.evalStageBadge.textContent = step.evalStage;
+
+      dom.scopeMaxDVal.textContent = step.max_d;
+      if (step.line === 5) {
+        dom.scopeExplanationText.innerHTML = "<span class='text-amber-300 font-bold'>ACTIVE NOW:</span> dfs() is bound directly to the outer max_d. No separate frame copy is created!";
+      } else {
+        dom.scopeExplanationText.textContent = "Ensures dfs() mutates outer max_d directly instead of creating an isolated local variable.";
+      }
+
+      dom.varNode.textContent = step.activeNodeId !== null 
+        ? `Node ${step.activeNodeId}` 
+        : (step.line === 6 && step.activeNullSlot ? `None (${step.activeNullSlot})` : 'Outer Scope');
+      
+      dom.varL.textContent = step.l !== null ? step.l : '--';
+      dom.varR.textContent = step.r !== null ? step.r : '--';
+      dom.varLPlusR.textContent = (step.l !== null && step.r !== null) ? `${step.l + step.r} edges` : (step.localSum !== null ? `${step.localSum} edges` : '--');
+      dom.varMaxD.textContent = step.max_d;
+      dom.varReturnVal.textContent = step.retVal !== null ? `${step.retVal}` : '--';
+
+      dom.currentNodeBadge.textContent = step.activeNodeId !== null ? `node: ${step.activeNodeId}` : `node: None/Outer`;
+      const lStr = step.l !== null ? step.l : '?';
+      const rStr = step.r !== null ? step.r : '?';
+      const sumStr = (step.l !== null && step.r !== null) ? (step.l + step.r) : '?';
+      dom.mathDiamExpr.textContent = `${lStr} + ${rStr} = ${sumStr}`;
+
+      const heightStr = (step.l !== null && step.r !== null) ? (1 + Math.max(step.l, step.r)) : '?';
+      dom.mathHeightExpr.textContent = `1 + max(${lStr}, ${rStr}) = ${heightStr}`;
+
+      renderCallStack(step.callStack);
+      updateTreeVisuals(step);
+      updateDiameterBanner(step);
+    }
+
+    function renderCallStack(stack) {
+      dom.stackCountBadge.textContent = `depth: ${stack.length}`;
+      
+      if (!stack.length) {
+        dom.callStackContainer.innerHTML = `<div class="text-center py-6 text-xs text-slate-500 italic">Call stack empty. Execution outside dfs().</div>`;
+        return;
+      }
+
+      let html = '';
+      for (let i = 0; i < stack.length; i++) {
+        const frame = stack[i];
+        const isTop = (i === stack.length - 1);
+        const nodeDesc = frame.nodeId === null ? `None (${frame.side || ''})` : `node=${frame.nodeId}`;
+        const lDesc = frame.l !== null ? `l=${frame.l}` : `l=?`;
+        const rDesc = frame.r !== null ? `r=${frame.r}` : `r=?`;
+
+        html += `
+          <div class="rounded-lg p-2 transition-all duration-200 border ${
+            isTop 
+              ? 'bg-purple-950/80 border-purple-500 shadow-md shadow-purple-900/40 text-purple-100 font-bold' 
+              : 'bg-slate-950/60 border-slate-800 text-slate-300'
+          }">
+            <div class="flex items-center justify-between text-[11px] font-mono">
+              <span class="flex items-center gap-1.5">
+                <span class="${isTop ? 'text-amber-400 font-black' : 'text-slate-500'}">▶</span>
+                dfs(${nodeDesc})
+              </span>
+              <span class="text-[9px] px-1.5 py-0.2 rounded ${isTop ? 'bg-purple-800 text-white' : 'bg-slate-800 text-slate-400'}">
+                ${isTop ? 'ACTIVE' : `frame #${i + 1}`}
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-[10px] mt-1 text-slate-400 font-mono pl-4">
+              <span>${lDesc} , ${rDesc}</span>
+              <span class="text-slate-500">parent: ${frame.parentId !== null ? frame.parentId : 'root'}</span>
+            </div>
+          </div>
+        `;
+      }
+      dom.callStackContainer.innerHTML = html;
+    }
+
+    function updateTreeVisuals(step) {
+      const activeId = step.activeNodeId;
+      const completedList = step.completedNodes || [];
+
+      Object.values(activeTree.nodes).forEach(node => {
+        const halo = document.getElementById(`node-halo-${node.id}`);
+        const circle = document.getElementById(`node-circle-${node.id}`);
+        const text = document.getElementById(`node-text-${node.id}`);
+        const badge = document.getElementById(`node-badge-${node.id}`);
+
+        if (halo && circle && text) {
+          halo.setAttribute("stroke", "transparent");
+          halo.classList.remove("pulse-active");
+          circle.setAttribute("fill", "#1e293b");
+          circle.setAttribute("stroke", "#475569");
+          circle.setAttribute("stroke-width", "2.5");
+          text.setAttribute("fill", "#f8fafc");
+        }
+
+        if (completedList.includes(node.id) && badge) {
+          circle.setAttribute("fill", "#064e3b");
+          circle.setAttribute("stroke", "#10b981");
+          badge.setAttribute("opacity", "1");
+        }
+      });
+
+      if (activeTree.nullSlots) {
+        Object.keys(activeTree.nullSlots).forEach(key => {
+          const rect = document.getElementById(`null-rect-${key}`);
+          const text = document.getElementById(`null-text-${key}`);
+          if (rect && text) {
+            rect.setAttribute("fill", "#0f172a");
+            rect.setAttribute("stroke", "#475569");
+            rect.setAttribute("stroke-width", "1.2");
+            text.setAttribute("fill", "#94a3b8");
+          }
+        });
+      }
+
+      if (step.activeNullSlot) {
+        const rect = document.getElementById(`null-rect-${step.activeNullSlot}`);
+        const text = document.getElementById(`null-text-${step.activeNullSlot}`);
+        if (rect && text) {
+          rect.setAttribute("fill", "#881337");
+          rect.setAttribute("stroke", "#f43f5e");
+          rect.setAttribute("stroke-width", "2.5");
+          text.setAttribute("fill", "#ffffff");
+        }
+      }
+
+      if (activeId !== null && activeTree.nodes[activeId]) {
+        const halo = document.getElementById(`node-halo-${activeId}`);
+        const circle = document.getElementById(`node-circle-${activeId}`);
+        const text = document.getElementById(`node-text-${activeId}`);
+
+        if (halo && circle && text) {
+          halo.setAttribute("stroke", "#f59e0b");
+          halo.classList.add("pulse-active");
+          circle.setAttribute("fill", "#78350f");
+          circle.setAttribute("stroke", "#fbbf24");
+          circle.setAttribute("stroke-width", "3");
+          text.setAttribute("fill", "#ffffff");
+        }
+      }
+
+      const highlightEdges = step.highlightEdges || [];
+      activeTree.edges.forEach(edge => {
+        const edgeId = `edge-${Math.min(edge.u, edge.v)}-${Math.max(edge.u, edge.v)}`;
+        const line = document.getElementById(edgeId);
+        if (!line) return;
+
+        const isHighlighted = highlightEdges.some(e => 
+          (e.u === edge.u && e.v === edge.v) || (e.u === edge.v && e.v === edge.u)
+        );
+
+        if (isHighlighted) {
+          line.setAttribute("stroke", "#f59e0b");
+          line.setAttribute("stroke-width", "5.5");
+        } else {
+          line.setAttribute("stroke", "#334155");
+          line.setAttribute("stroke-width", "3");
+        }
+      });
+
+      dom.treeSvgReturns.innerHTML = '';
+      if (step.animatedReturn) {
+        if (step.animatedReturn.fromNode !== null && step.animatedReturn.toNode !== null) {
+          const fromNode = activeTree.nodes[step.animatedReturn.fromNode];
+          const toNode = activeTree.nodes[step.animatedReturn.toNode];
+          if (fromNode && toNode) {
+            renderReturnBubble(fromNode.x, fromNode.y, toNode.x, toNode.y, step.animatedReturn.val, '#06b6d4');
+          }
+        } else if (step.animatedReturn.fromNull && step.animatedReturn.toNode) {
+          const slot = activeTree.nullSlots[step.animatedReturn.fromNull];
+          const toNode = activeTree.nodes[step.animatedReturn.toNode];
+          if (slot && toNode) {
+            renderReturnBubble(slot.x, slot.y, toNode.x, toNode.y, step.animatedReturn.val, '#f43f5e');
+          }
+        }
+      }
+
+      if (step.retVal !== null && activeId !== null) {
+        const badgeText = document.getElementById(`node-badge-text-${activeId}`);
+        if (badgeText) badgeText.textContent = `h:${step.retVal}`;
+      }
+    }
+
+    function renderReturnBubble(x1, y1, x2, y2, val, color) {
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.classList.add("animate-return-up");
+
+      const mx = (x1 + x2) / 2;
+      const my = (y1 + y2) / 2;
+
+      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", mx);
+      circle.setAttribute("cy", my);
+      circle.setAttribute("r", "13");
+      circle.setAttribute("fill", color);
+      circle.setAttribute("stroke", "#ffffff");
+      circle.setAttribute("stroke-width", "2");
+
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", mx);
+      text.setAttribute("y", my + 4);
+      text.setAttribute("fill", "#0f172a");
+      text.setAttribute("font-size", "11");
+      text.setAttribute("font-weight", "bold");
+      text.setAttribute("text-anchor", "middle");
+      text.textContent = `↑${val}`;
+
+      g.appendChild(circle);
+      g.appendChild(text);
+      dom.treeSvgReturns.appendChild(g);
+    }
+
+    function updateDiameterBanner(step) {
+      if (currentTreeKey === "default") {
+        dom.bestPathNodes.textContent = "4 ── 2 ── 1 ── 3";
+        dom.bestPathCount.textContent = `${step.max_d} edges`;
+      } else {
+        dom.bestPathNodes.textContent = "6 ── 4 ── 2 ── 5 ── 7 (Subtree Holds Winner!)";
+        dom.bestPathCount.textContent = `${step.max_d} edges`;
+      }
+    }
+
+    function nextStep() {
+      if (currentStepIdx < steps.length - 1) {
+        currentStepIdx++;
+        renderStep(currentStepIdx);
+      } else {
+        pause();
+      }
+    }
+
+    function prevStep() {
+      if (currentStepIdx > 0) {
+        currentStepIdx--;
+        renderStep(currentStepIdx);
+      }
+    }
+
+    function goToStep(idx) {
+      currentStepIdx = Math.max(0, Math.min(idx, steps.length - 1));
+      renderStep(currentStepIdx);
+    }
+
+    function restart() {
+      pause();
+      currentStepIdx = 0;
+      renderStep(0);
+    }
+
+    function togglePlay() {
+      if (isPlaying) {
+        pause();
+      } else {
+        play();
+      }
+    }
+
+    function play() {
+      if (currentStepIdx >= steps.length - 1) {
+        currentStepIdx = 0;
+      }
+      isPlaying = true;
+      dom.playIcon.textContent = "⏸️";
+      dom.playText.textContent = "Pause";
+      dom.btnPlay.classList.add("ring-2", "ring-cyan-400");
+      
+      playTimer = setInterval(() => {
+        if (currentStepIdx < steps.length - 1) {
+          nextStep();
+        } else {
+          pause();
+        }
+      }, animationSpeed);
+    }
+
+    function pause() {
+      isPlaying = false;
+      dom.playIcon.textContent = "▶️";
+      dom.playText.textContent = "Play";
+      dom.btnPlay.classList.remove("ring-2", "ring-cyan-400");
+      if (playTimer) {
+        clearInterval(playTimer);
+        playTimer = null;
+      }
+    }
+
+    function switchTree(presetKey) {
+      pause();
+      currentTreeKey = presetKey;
+      activeTree = TREES[presetKey];
+
+      if (presetKey === "default") {
+        dom.btnPresetDefault.className = "px-2.5 py-1 rounded bg-cyan-600 text-white font-medium transition";
+        dom.btnPresetSubtree.className = "px-2.5 py-1 rounded text-slate-300 hover:text-white transition";
+      } else {
+        dom.btnPresetSubtree.className = "px-2.5 py-1 rounded bg-cyan-600 text-white font-medium transition";
+        dom.btnPresetDefault.className = "px-2.5 py-1 rounded text-slate-300 hover:text-white transition";
+      }
+
+      renderSvgTree();
+      steps = generateExecutionSteps(activeTree);
+      dom.stepSlider.max = steps.length - 1;
+      currentStepIdx = 0;
+      renderStep(0);
+    }
+
+    dom.btnNext.addEventListener('click', () => { pause(); nextStep(); });
+    dom.btnPrev.addEventListener('click', () => { pause(); prevStep(); });
+    dom.btnRestart.addEventListener('click', restart);
+    dom.btnPlay.addEventListener('click', togglePlay);
+
+    dom.stepSlider.addEventListener('input', (e) => {
+      pause();
+      goToStep(parseInt(e.target.value, 10));
+    });
+
+    dom.speedSelect.addEventListener('change', (e) => {
+      animationSpeed = parseInt(e.target.value, 10);
+      if (isPlaying) {
+        pause();
+        play();
+      }
+    });
+
+    dom.btnPresetDefault.addEventListener('click', () => switchTree("default"));
+    dom.btnPresetSubtree.addEventListener('click', () => switchTree("subtree"));
+
+    dom.btnOpenPrimer.addEventListener('click', () => {
+      pause();
+      dom.primerModal.classList.remove('hidden');
+    });
+    dom.btnClosePrimer.addEventListener('click', () => dom.primerModal.classList.add('hidden'));
+    dom.btnStartExploring.addEventListener('click', () => dom.primerModal.classList.add('hidden'));
+    dom.primerModal.addEventListener('click', (e) => {
+      if (e.target === dom.primerModal) dom.primerModal.classList.add('hidden');
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        togglePlay();
+      } else if (e.code === 'ArrowRight') {
+        e.preventDefault();
+        pause();
+        nextStep();
+      } else if (e.code === 'ArrowLeft') {
+        e.preventDefault();
+        pause();
+        prevStep();
+      } else if (e.code === 'KeyR') {
+        restart();
+      }
+    });
+
+    let summaryOpen = false;
+    dom.summaryToggle.addEventListener('click', () => {
+      summaryOpen = !summaryOpen;
+      dom.summaryContent.classList.toggle('hidden', !summaryOpen);
+      dom.toggleIndicator.textContent = summaryOpen ? "Hide Summary Table ▲" : "Show Summary Table ▼";
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderSvgTree();
+      steps = generateExecutionSteps(activeTree);
+      dom.stepSlider.max = steps.length - 1;
+      renderStep(0);
+      dom.summaryContent.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>

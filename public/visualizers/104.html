@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode 104: Maximum Depth of Binary Tree — Patient Visual Teacher</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            slate: {
+              850: '#0f172a',
+              950: '#020617',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.05); }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 1.8s infinite ease-in-out;
+    }
+    @keyframes winner-flash {
+      0%, 100% { transform: scale(1); filter: brightness(1); }
+      50% { transform: scale(1.15); filter: brightness(1.5); }
+    }
+    .animate-winner {
+      animation: winner-flash 1s ease-in-out;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+    .code-font {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .indent-guide {
+      position: relative;
+    }
+    .indent-guide::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(var(--indent-level) * 1.25rem + 0.4rem);
+      width: 2px;
+      background: rgba(99, 102, 241, 0.25);
+    }
+    .indent-guide-active::before {
+      background: rgba(99, 102, 241, 0.9);
+      box-shadow: 0 0 8px rgba(99, 102, 241, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white antialiased">
+
+  <!-- TOP BAR: NAVIGATION, GLOBAL PRESETS & MODES -->
+  <header class="border-b border-slate-800/80 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40 px-3 sm:px-4 py-2.5">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-black text-white shadow-lg shadow-indigo-500/20 text-sm">
+          104
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-1.5">
+              <span>Maximum Depth of Binary Tree</span>
+            </h1>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Ultra-Beginner Teacher</span>
+          </div>
+          <p class="text-[11px] text-slate-400 hidden md:block">
+            Step-by-step mental model: Ask children ↓ &bull; Base returns 0 &bull; Take larger &bull; Add 1 for self &bull; Pass up ↑
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center flex-wrap gap-1.5 sm:gap-2">
+        <div class="bg-slate-800/90 p-0.5 rounded-lg flex items-center border border-slate-700/60 text-xs font-medium">
+          <button id="mode-beginner" onclick="setMode('beginner')" class="px-2.5 py-1 rounded-md transition-all bg-indigo-600 text-white font-semibold shadow-sm">
+            🌱 Beginner
+          </button>
+          <button id="mode-deep" onclick="setMode('deep')" class="px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white">
+            🔬 Deep Dive
+          </button>
+          <button id="mode-interview" onclick="setMode('interview')" class="px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white">
+            💼 Interview
+          </button>
+        </div>
+
+        <button onclick="toggleTraceAnswer()" id="btn-trace" class="px-2.5 py-1.5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 text-xs font-semibold flex items-center gap-1.5 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <span id="trace-btn-label">Trace Longest Path</span>
+        </button>
+
+        <button onclick="toggleModal('modal-analogy')" class="px-2 py-1.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center gap-1">
+          <span>🏢 Floor Analogy</span>
+        </button>
+        <button onclick="toggleModal('modal-compare')" class="px-2 py-1.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center gap-1">
+          <span>🔄 226 vs 104</span>
+        </button>
+        <button onclick="toggleModal('modal-quiz')" class="px-2 py-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-xs font-semibold flex items-center gap-1">
+          <span>🎯 Quiz</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- PERMANENT EXECUTION FLOW BAR -->
+  <section class="border-b border-slate-800/60 bg-slate-900/40 px-3 sm:px-4 py-2">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 overflow-x-auto scrollbar-thin text-xs">
+      <div class="flex items-center gap-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider flex-shrink-0 mr-2">
+        <span>Lifecycle:</span>
+      </div>
+      
+      <div id="flow-bar-container" class="flex items-center gap-1 sm:gap-2 flex-nowrap min-w-max">
+        <div id="stage-CALL" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>1. CALL</span> <span class="text-slate-600">↓</span>
+        </div>
+        <div id="stage-CHECK" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>2. CHECK</span> <span class="text-slate-600">↓</span>
+        </div>
+        <div id="stage-RECURSE" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>3. RECURSE</span> <span class="text-slate-600">↓</span>
+        </div>
+        <div id="stage-WAIT" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>4. WAIT ⏸️</span> <span class="text-slate-600">↓</span>
+        </div>
+        <div id="stage-RETURN" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>5. RETURN 📦</span> <span class="text-slate-600">↑</span>
+        </div>
+        <div id="stage-CALCULATE" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>6. 1 + max(L, R)</span> <span class="text-slate-600">🧮</span>
+        </div>
+        <div id="stage-CONTINUE" class="px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all">
+          <span>7. CONTINUE ↑</span>
+        </div>
+      </div>
+
+      <div id="flow-current-label" class="text-[11px] font-mono text-indigo-300 bg-indigo-950/60 border border-indigo-500/30 px-2 py-0.5 rounded flex-shrink-0 hidden md:block">
+        Step 0: Initializing
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+    <!-- LEFT COLUMN: TREE CANVAS, RETURN WATERFALL & CONTINUOUS REASONING (7 cols) -->
+    <div class="lg:col-span-7 flex flex-col gap-3.5">
+
+      <!-- CURRENT TASK CARD & "YOU ARE HERE" ANCHOR -->
+      <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+        
+        <div class="sm:col-span-7 bg-slate-900/90 border border-indigo-500/30 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-indigo-400 mb-1">
+            <span class="flex items-center gap-1.5">
+              <span>🎯 Current Node Task</span>
+            </span>
+            <span id="task-badge-node" class="font-mono text-white bg-indigo-600/40 px-2 py-0.5 rounded border border-indigo-500/40">Node ?</span>
+          </div>
+          <p id="task-goal-text" class="text-xs text-slate-200 leading-relaxed font-medium">
+            Find the maximum depth of the binary tree starting at the root.
+          </p>
+          <div id="task-substeps" class="mt-2 text-[11px] text-slate-400 flex flex-wrap gap-2">
+            <span id="substep-1" class="px-1.5 py-0.5 rounded bg-slate-800">1. Ask Left</span>
+            <span id="substep-2" class="px-1.5 py-0.5 rounded bg-slate-800">2. Ask Right</span>
+            <span id="substep-3" class="px-1.5 py-0.5 rounded bg-slate-800">3. max(L, R)</span>
+            <span id="substep-4" class="px-1.5 py-0.5 rounded bg-slate-800">4. + 1 for self</span>
+          </div>
+        </div>
+
+        <div class="sm:col-span-5 bg-gradient-to-br from-slate-900 to-indigo-950/60 border border-slate-800 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>You Are Here</span>
+          </div>
+          <div class="my-1">
+            <div id="anchor-code-line" class="font-mono text-xs font-bold text-amber-300">Line 2: maxDepth(root)</div>
+            <div id="anchor-action" class="text-[11px] text-slate-300 truncate">Calling maxDepth(root=3)</div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-slate-400 border-t border-slate-800/80 pt-1.5">
+            <span>Recursion Depth:</span>
+            <span id="anchor-depth-tag" class="font-mono font-bold text-cyan-300">Level 0</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TREE CANVAS CARD -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 sm:p-4 relative overflow-hidden shadow-xl flex flex-col">
+        
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2 mb-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+              <span>🌳 Tree Data Structure</span>
+            </span>
+            <span class="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">Nodes = Objects</span>
+          </div>
+
+          <div class="bg-slate-800/90 border border-indigo-500/40 px-2.5 py-1 rounded-lg text-xs font-mono text-indigo-200 flex items-center gap-1.5 shadow-sm">
+            <span class="text-slate-400">Recurrence:</span>
+            <span class="font-bold text-amber-300">depth = 1 + max(left, right)</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5 text-[11px] text-slate-400 mb-2">
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-700 border border-slate-500"></span> Unvisited</div>
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-emerald-400/50"></span> Active (root)</div>
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 ring-2 ring-amber-400/50"></span> Waiting ⏸️</div>
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-purple-500 ring-2 ring-purple-400/50"></span> Calculating 🧮</div>
+          <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500 ring-2 ring-indigo-400/50"></span> Completed ✅</div>
+        </div>
+
+        <div class="relative w-full h-[340px] sm:h-[380px] bg-slate-950/70 rounded-xl border border-slate-800 overflow-hidden flex items-center justify-center">
+          
+          <svg class="absolute inset-0 w-full h-full stroke-slate-800/30" width="100%" height="100%">
+            <defs>
+              <pattern id="grid-pattern-main" width="24" height="24" patternUnits="userSpaceOnUse">
+                <path d="M.5 24V.5H24" fill="none"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#grid-pattern-main)" />
+          </svg>
+
+          <svg id="tree-svg" class="w-full h-full relative z-10" viewBox="0 0 520 370">
+            <defs>
+              <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+              <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="7" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            <!-- TREE EDGES -->
+            <line id="edge-3-9" x1="260" y1="65" x2="140" y2="155" stroke="#334155" stroke-width="3" stroke-linecap="round" class="transition-all duration-300"/>
+            <text id="edge-label-3-9" x="190" y="105" fill="#64748b" font-size="10" font-family="monospace">.left</text>
+
+            <line id="edge-3-20" x1="260" y1="65" x2="380" y2="155" stroke="#334155" stroke-width="3" stroke-linecap="round" class="transition-all duration-300"/>
+            <text id="edge-label-3-20" x="330" y="105" fill="#64748b" font-size="10" font-family="monospace">.right</text>
+
+            <line id="edge-20-15" x1="380" y1="155" x2="320" y2="255" stroke="#334155" stroke-width="3" stroke-linecap="round" class="transition-all duration-300"/>
+            <text id="edge-label-20-15" x="340" y="200" fill="#64748b" font-size="10" font-family="monospace">.left</text>
+
+            <line id="edge-20-7" x1="380" y1="155" x2="440" y2="255" stroke="#334155" stroke-width="3" stroke-linecap="round" class="transition-all duration-300"/>
+            <text id="edge-label-20-7" x="420" y="200" fill="#64748b" font-size="10" font-family="monospace">.right</text>
+
+            <!-- LEAF GHOST BRANCHES TO NONE -->
+            <line id="edge-9-L" x1="140" y1="155" x2="95" y2="240" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3" class="transition-all duration-300"/>
+            <line id="edge-9-R" x1="140" y1="155" x2="185" y2="240" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3" class="transition-all duration-300"/>
+            <line id="edge-15-L" x1="320" y1="255" x2="285" y2="330" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3" class="transition-all duration-300"/>
+            <line id="edge-15-R" x1="320" y1="255" x2="355" y2="330" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3" class="transition-all duration-300"/>
+            <line id="edge-7-L" x1="440" y1="255" x2="410" y2="330" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3" class="transition-all duration-300"/>
+            <line id="edge-7-R" x1="440" y1="255" x2="470" y2="330" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3" class="transition-all duration-300"/>
+
+            <!-- GHOST / NONE OBJECTS -->
+            <g id="ghost-9-L" class="opacity-25 transition-all duration-300" transform="translate(95, 240)">
+              <rect x="-24" y="-12" width="48" height="24" rx="12" fill="#0f172a" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text text-anchor="middle" y="4" fill="#94a3b8" font-size="10" font-family="monospace">None</text>
+            </g>
+            <g id="ghost-9-R" class="opacity-25 transition-all duration-300" transform="translate(185, 240)">
+              <rect x="-24" y="-12" width="48" height="24" rx="12" fill="#0f172a" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text text-anchor="middle" y="4" fill="#94a3b8" font-size="10" font-family="monospace">None</text>
+            </g>
+            <g id="ghost-15-L" class="opacity-25 transition-all duration-300" transform="translate(285, 330)">
+              <rect x="-22" y="-10" width="44" height="20" rx="10" fill="#0f172a" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text text-anchor="middle" y="4" fill="#94a3b8" font-size="9" font-family="monospace">None</text>
+            </g>
+            <g id="ghost-15-R" class="opacity-25 transition-all duration-300" transform="translate(355, 330)">
+              <rect x="-22" y="-10" width="44" height="20" rx="10" fill="#0f172a" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text text-anchor="middle" y="4" fill="#94a3b8" font-size="9" font-family="monospace">None</text>
+            </g>
+            <g id="ghost-7-L" class="opacity-25 transition-all duration-300" transform="translate(410, 330)">
+              <rect x="-22" y="-10" width="44" height="20" rx="10" fill="#0f172a" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text text-anchor="middle" y="4" fill="#94a3b8" font-size="9" font-family="monospace">None</text>
+            </g>
+            <g id="ghost-7-R" class="opacity-25 transition-all duration-300" transform="translate(470, 330)">
+              <rect x="-22" y="-10" width="44" height="20" rx="10" fill="#0f172a" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text text-anchor="middle" y="4" fill="#94a3b8" font-size="9" font-family="monospace">None</text>
+            </g>
+
+            <g id="descent-arrow" class="opacity-0 transition-opacity duration-300 pointer-events-none">
+              <circle id="descent-arrow-head" r="6" fill="#10b981" filter="url(#glow-gold)" />
+              <text id="descent-arrow-text" text-anchor="middle" y="-10" fill="#34d399" font-size="10" font-weight="bold">Calling ↓</text>
+            </g>
+
+            <!-- TREE NODES -->
+            <g id="node-group-3" class="cursor-pointer transition-all duration-300" transform="translate(260, 65)" onclick="inspectNode('3')">
+              <circle id="node-circle-3" r="26" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+              <text text-anchor="middle" y="6" fill="#f8fafc" font-size="16" font-weight="bold">3</text>
+              
+              <g id="tag-root-3" class="opacity-0 transition-opacity duration-300" transform="translate(0, -36)">
+                <rect x="-28" y="-9" width="56" height="18" rx="9" fill="#10b981" />
+                <text text-anchor="middle" y="3.5" fill="#ffffff" font-size="10" font-weight="bold">root → 3</text>
+              </g>
+
+              <g id="tag-waiting-3" class="opacity-0 transition-opacity duration-300" transform="translate(0, -36)">
+                <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#f59e0b" />
+                <text text-anchor="middle" y="3.5" fill="#000" font-size="9.5" font-weight="bold">⏸️ WAITING</text>
+              </g>
+
+              <g id="depth-badge-3" class="opacity-0 transition-opacity duration-300" transform="translate(34, 10)">
+                <rect x="-4" y="-10" width="70" height="20" rx="6" fill="#4f46e5" stroke="#818cf8" stroke-width="1"/>
+                <text id="depth-text-3" x="31" y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">depth: ?</text>
+              </g>
+            </g>
+
+            <g id="node-group-9" class="cursor-pointer transition-all duration-300" transform="translate(140, 155)" onclick="inspectNode('9')">
+              <circle id="node-circle-9" r="24" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+              <text text-anchor="middle" y="5" fill="#f8fafc" font-size="15" font-weight="bold">9</text>
+              
+              <g id="tag-root-9" class="opacity-0 transition-opacity duration-300" transform="translate(0, -34)">
+                <rect x="-28" y="-9" width="56" height="18" rx="9" fill="#10b981" />
+                <text text-anchor="middle" y="3.5" fill="#ffffff" font-size="10" font-weight="bold">root → 9</text>
+              </g>
+              <g id="tag-waiting-9" class="opacity-0 transition-opacity duration-300" transform="translate(0, -34)">
+                <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#f59e0b" />
+                <text text-anchor="middle" y="3.5" fill="#000" font-size="9.5" font-weight="bold">⏸️ WAITING</text>
+              </g>
+
+              <g id="depth-badge-9" class="opacity-0 transition-opacity duration-300" transform="translate(-76, 10)">
+                <rect x="-4" y="-10" width="70" height="20" rx="6" fill="#4f46e5" stroke="#818cf8" stroke-width="1"/>
+                <text id="depth-text-9" x="31" y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">depth: ?</text>
+              </g>
+            </g>
+
+            <g id="node-group-20" class="cursor-pointer transition-all duration-300" transform="translate(380, 155)" onclick="inspectNode('20')">
+              <circle id="node-circle-20" r="25" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+              <text text-anchor="middle" y="5" fill="#f8fafc" font-size="15" font-weight="bold">20</text>
+              
+              <g id="tag-root-20" class="opacity-0 transition-opacity duration-300" transform="translate(0, -34)">
+                <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#10b981" />
+                <text text-anchor="middle" y="3.5" fill="#ffffff" font-size="10" font-weight="bold">root → 20</text>
+              </g>
+              <g id="tag-waiting-20" class="opacity-0 transition-opacity duration-300" transform="translate(0, -34)">
+                <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#f59e0b" />
+                <text text-anchor="middle" y="3.5" fill="#000" font-size="9.5" font-weight="bold">⏸️ WAITING</text>
+              </g>
+
+              <g id="depth-badge-20" class="opacity-0 transition-opacity duration-300" transform="translate(34, 10)">
+                <rect x="-4" y="-10" width="70" height="20" rx="6" fill="#4f46e5" stroke="#818cf8" stroke-width="1"/>
+                <text id="depth-text-20" x="31" y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">depth: ?</text>
+              </g>
+            </g>
+
+            <g id="node-group-15" class="cursor-pointer transition-all duration-300" transform="translate(320, 255)" onclick="inspectNode('15')">
+              <circle id="node-circle-15" r="22" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+              <text text-anchor="middle" y="5" fill="#f8fafc" font-size="14" font-weight="bold">15</text>
+              
+              <g id="tag-root-15" class="opacity-0 transition-opacity duration-300" transform="translate(0, -32)">
+                <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#10b981" />
+                <text text-anchor="middle" y="3.5" fill="#ffffff" font-size="10" font-weight="bold">root → 15</text>
+              </g>
+              <g id="tag-waiting-15" class="opacity-0 transition-opacity duration-300" transform="translate(0, -32)">
+                <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#f59e0b" />
+                <text text-anchor="middle" y="3.5" fill="#000" font-size="9.5" font-weight="bold">⏸️ WAITING</text>
+              </g>
+
+              <g id="depth-badge-15" class="opacity-0 transition-opacity duration-300" transform="translate(-74, 8)">
+                <rect x="-4" y="-10" width="68" height="20" rx="6" fill="#4f46e5" stroke="#818cf8" stroke-width="1"/>
+                <text id="depth-text-15" x="30" y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">depth: ?</text>
+              </g>
+            </g>
+
+            <g id="node-group-7" class="cursor-pointer transition-all duration-300" transform="translate(440, 255)" onclick="inspectNode('7')">
+              <circle id="node-circle-7" r="22" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+              <text text-anchor="middle" y="5" fill="#f8fafc" font-size="14" font-weight="bold">7</text>
+              
+              <g id="tag-root-7" class="opacity-0 transition-opacity duration-300" transform="translate(0, -32)">
+                <rect x="-28" y="-9" width="56" height="18" rx="9" fill="#10b981" />
+                <text text-anchor="middle" y="3.5" fill="#ffffff" font-size="10" font-weight="bold">root → 7</text>
+              </g>
+              <g id="tag-waiting-7" class="opacity-0 transition-opacity duration-300" transform="translate(0, -32)">
+                <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#f59e0b" />
+                <text text-anchor="middle" y="3.5" fill="#000" font-size="9.5" font-weight="bold">⏸️ WAITING</text>
+              </g>
+
+              <g id="depth-badge-7" class="opacity-0 transition-opacity duration-300" transform="translate(30, 8)">
+                <rect x="-4" y="-10" width="68" height="20" rx="6" fill="#4f46e5" stroke="#818cf8" stroke-width="1"/>
+                <text id="depth-text-7" x="30" y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">depth: ?</text>
+              </g>
+            </g>
+
+            <g id="flying-packet-group" class="opacity-0 pointer-events-none transition-all duration-700 ease-out" transform="translate(0, 0)">
+              <rect x="-28" y="-15" width="56" height="28" rx="8" fill="#f59e0b" stroke="#fef08a" stroke-width="2" filter="url(#glow-gold)"/>
+              <text id="flying-packet-text" text-anchor="middle" y="4" fill="#000" font-size="12" font-weight="black">📦 0</text>
+            </g>
+          </svg>
+
+          <div id="tree-speech-bubble" class="absolute top-3 left-3 bg-slate-900/95 border border-indigo-500/40 text-xs px-3 py-2 rounded-xl text-slate-200 shadow-xl max-w-xs transition-all pointer-events-none opacity-0">
+            <span class="text-amber-400 font-bold">🧠 Node Question:</span>
+            <div id="tree-speech-text" class="mt-0.5 text-slate-300">"How deep is the tree below me?"</div>
+          </div>
+
+          <div id="longest-path-banner" class="absolute bottom-3 inset-x-3 bg-slate-900/95 border border-cyan-500/50 rounded-xl p-3 flex items-center justify-between text-xs backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none shadow-2xl">
+            <div class="flex items-center gap-2.5">
+              <span class="text-xl">🏆</span>
+              <div>
+                <div class="font-bold text-cyan-300 text-sm">Longest Path: 3 → 20 → 7 (or 15)</div>
+                <div class="text-[11px] text-slate-300">Path contains exactly <span class="font-bold text-white underline">3 nodes</span> &bull; Maximum Depth = 3</div>
+              </div>
+            </div>
+            <button onclick="toggleTraceAnswer()" class="pointer-events-auto text-xs px-2.5 py-1 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-200 rounded-md border border-cyan-500/40 font-semibold">Done</button>
+          </div>
+
+        </div>
+
+        <div class="mt-3.5 pt-3 border-t border-slate-800">
+          <div class="flex items-center justify-between mb-1.5">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <span>RETURN VALUES LOG</span>
+              <span class="text-indigo-400 font-normal">↑ (Leaves bubble up to root)</span>
+            </div>
+            <span class="text-[10px] text-slate-500">Live Memory History</span>
+          </div>
+
+          <div id="waterfall-container" class="flex items-center gap-2 overflow-x-auto pb-1 min-h-[38px] scrollbar-thin">
+            <div class="text-xs text-slate-600 italic py-1">Waiting for first return...</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CONTINUOUS 3-STAGE REASONING PANELS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-indigo-400 font-bold text-xs uppercase tracking-wider mb-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>1. What Happened</span>
+            </div>
+            <p id="explanation-what" class="text-xs text-slate-200 leading-relaxed">
+              Ready to start! Click Next or Play to observe each small action.
+            </p>
+          </div>
+          <div id="micro-action-tag" class="mt-2 text-[10px] font-mono text-indigo-300 bg-indigo-950/40 px-2 py-0.5 rounded border border-indigo-900/40 truncate">
+            Action: Init
+          </div>
+        </div>
+
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-amber-400 font-bold text-xs uppercase tracking-wider mb-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              <span>2. Why?</span>
+            </div>
+            <p id="explanation-why" class="text-xs text-slate-300 leading-relaxed">
+              Recursion breaks problems into smaller identical subproblems until hitting a simple base case.
+            </p>
+          </div>
+          <div class="mt-2 text-[10px] text-slate-500 italic">
+            Zero guessing required.
+          </div>
+        </div>
+
+        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-cyan-400 font-bold text-xs uppercase tracking-wider mb-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              <span>3. What Happens Next?</span>
+            </div>
+            <p id="explanation-next" class="text-xs text-slate-200 leading-relaxed">
+              We will call maxDepth(root = Node 3) to begin probing the tree.
+            </p>
+          </div>
+          <div id="preview-flow-tag" class="mt-2 text-[10px] font-mono text-cyan-300 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-900/40 truncate">
+            Next: Function Call
+          </div>
+        </div>
+      </div>
+
+      <div id="confusion-box" class="bg-slate-900/80 border border-amber-500/30 rounded-xl p-3 text-xs flex items-start gap-2.5">
+        <span class="text-lg flex-shrink-0">💡</span>
+        <div>
+          <span class="font-bold text-amber-300 uppercase tracking-wider text-[11px] block">Beginner Note:</span>
+          <p id="confusion-text" class="text-slate-300 mt-0.5 leading-relaxed">
+            `root` does not always mean the top of the tree! In recursion, every function call gets its own independent `root` pointer pointing to its current node.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: CODE PANEL, MEMORY FRAMES & LIVE VARIABLES (5 cols) -->
+    <div class="lg:col-span-5 flex flex-col gap-3.5">
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+          <div class="flex items-center gap-2">
+            <div class="flex gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="text-xs font-mono text-slate-400 ml-1">solution.py</span>
+          </div>
+          
+          <div class="flex items-center gap-1 text-[11px] font-mono bg-slate-800 px-2 py-0.5 rounded text-indigo-300 border border-slate-700">
+            <span>Indent Level:</span>
+            <span id="indent-level-badge" class="font-bold text-white">0</span>
+          </div>
+        </div>
+
+        <div class="code-font text-xs leading-5 bg-slate-950 p-3 rounded-xl border border-slate-800/90 overflow-x-auto text-slate-300 relative select-none">
+          <div id="code-line-1" class="px-2 py-0.5 rounded transition-colors text-slate-400">
+            <span class="text-purple-400">class</span> <span class="text-amber-300">Solution</span>:
+          </div>
+          
+          <div id="code-line-2" class="px-2 py-0.5 rounded transition-colors text-slate-400 pl-4 relative indent-guide" style="--indent-level: 1;">
+            <span class="text-purple-400">def</span> <span class="text-blue-400">maxDepth</span>(<span class="text-orange-300">self</span>, <span class="text-emerald-300 font-bold">root</span>: <span class="text-cyan-300">Optional[TreeNode]</span>) -&gt; <span class="text-cyan-300">int</span>:
+          </div>
+          
+          <div id="code-line-3" class="px-2 py-0.5 rounded transition-colors pl-8 relative indent-guide" style="--indent-level: 2;">
+            <span class="text-purple-400 font-bold">if not</span> <span class="text-emerald-300">root</span>:
+          </div>
+          
+          <div id="code-line-4" class="px-2 py-0.5 rounded transition-colors pl-12 relative indent-guide" style="--indent-level: 3;">
+            <span class="text-purple-400 font-bold">return</span> <span class="text-amber-400 font-bold">0</span>  <span class="text-slate-500 italic"># Base: empty subtree = 0</span>
+          </div>
+          
+          <div id="code-line-5" class="px-2 py-0.5 rounded transition-colors pl-8 relative indent-guide" style="--indent-level: 2;">
+            <span class="text-purple-400 font-bold">return</span> <span class="text-amber-400 font-bold">1</span> + <span class="text-cyan-400 font-bold">max</span>(
+          </div>
+          
+          <div id="code-line-6" class="px-2 py-0.5 rounded transition-colors pl-12 relative indent-guide" style="--indent-level: 3;">
+            <span class="text-orange-300">self</span>.<span class="text-blue-400">maxDepth</span>(<span class="text-emerald-300 font-bold">root</span>.<span class="text-slate-200">left</span>),
+          </div>
+          
+          <div id="code-line-7" class="px-2 py-0.5 rounded transition-colors pl-12 relative indent-guide" style="--indent-level: 3;">
+            <span class="text-orange-300">self</span>.<span class="text-blue-400">maxDepth</span>(<span class="text-emerald-300 font-bold">root</span>.<span class="text-slate-200">right</span>)
+          </div>
+          
+          <div id="code-line-8" class="px-2 py-0.5 rounded transition-colors pl-8 relative indent-guide" style="--indent-level: 2;">
+            )
+          </div>
+        </div>
+
+        <div class="mt-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs flex flex-col gap-1.5">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+            <span>Formula Construction</span>
+            <span id="eval-status-badge" class="text-indigo-300 font-mono">1 + max(L, R)</span>
+          </div>
+          <div id="eval-breakdown-box" class="font-mono text-xs text-indigo-200 bg-slate-900/90 p-2 rounded border border-slate-800">
+            Waiting for children...
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 shadow-xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+          <div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-300">
+            <span>🔍 Current Variables (Local Scope)</span>
+          </div>
+          <span class="text-[10px] text-slate-400 font-mono">Frame Active</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+          <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+            <span class="text-slate-500 text-[10px] block">Parameter:</span>
+            <span class="text-slate-400">root → </span><span id="var-root" class="text-emerald-300 font-bold">None</span>
+          </div>
+          <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+            <span class="text-slate-500 text-[10px] block">Left child:</span>
+            <span class="text-slate-400">root.left → </span><span id="var-left-ptr" class="text-slate-300">None</span>
+          </div>
+          <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+            <span class="text-slate-500 text-[10px] block">Returned left depth:</span>
+            <span class="text-slate-400">left_depth = </span><span id="var-left-val" class="text-indigo-300 font-bold">?</span>
+          </div>
+          <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+            <span class="text-slate-500 text-[10px] block">Returned right depth:</span>
+            <span class="text-slate-400">right_depth = </span><span id="var-right-val" class="text-cyan-300 font-bold">?</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 shadow-xl flex-1 flex flex-col">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🥞</span>
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-300">Call Stack Memory Cards</h2>
+          </div>
+          <div class="text-[11px] text-slate-400 font-mono">
+            Frames: <span id="stack-depth-count" class="font-bold text-white">0</span>
+          </div>
+        </div>
+
+        <p class="text-[11px] text-slate-400 mb-2">
+          Unfinished functions pause here. Notice how frames wait for child calls to return!
+        </p>
+
+        <div id="stack-container" class="flex flex-col-reverse gap-2 overflow-y-auto max-h-[220px] p-1 pr-1.5 scrollbar-thin">
+        </div>
+      </div>
+
+      <div id="dependency-card" class="bg-slate-900/90 border border-indigo-500/30 rounded-2xl p-3 shadow-xl">
+        <div class="flex items-center justify-between mb-1.5">
+          <div class="text-xs font-bold text-indigo-300 flex items-center gap-1.5">
+            <span>🧩 Where Did This Number Come From?</span>
+          </div>
+          <span class="text-[10px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">Trace Chain</span>
+        </div>
+        <div id="dependency-body" class="text-xs text-slate-300 leading-relaxed">
+          Click any tree node to reveal the full calculation chain that built its answer!
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="mid-step-prompt" class="fixed inset-x-4 top-20 max-w-md mx-auto bg-slate-900 border-2 border-indigo-500 rounded-2xl p-4 shadow-2xl z-50 transition-all transform scale-95 opacity-0 pointer-events-none">
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1">
+        <span>🤔 Quick Check: What happens next?</span>
+      </span>
+      <button onclick="dismissMidStepPrompt()" class="text-slate-400 hover:text-white text-xs font-bold">Skip &rarr;</button>
+    </div>
+    <div id="mid-step-question" class="text-xs text-white font-medium mb-3">
+      Question text
+    </div>
+    <div id="mid-step-choices" class="space-y-1.5 text-xs">
+    </div>
+    <div id="mid-step-feedback" class="mt-2 text-[11px] p-2 rounded hidden font-medium"></div>
+  </div>
+
+  <footer class="border-t border-slate-800 bg-slate-900/95 backdrop-blur-lg sticky bottom-0 z-40 px-3 sm:px-4 py-2.5">
+    <div class="max-w-7xl mx-auto flex flex-col gap-2">
+      
+      <div class="flex items-center justify-between gap-2 text-xs text-slate-400 font-medium">
+        <div class="flex items-center gap-2 truncate">
+          <span id="step-counter" class="text-slate-200 font-bold font-mono">Step 0 / 24</span>
+          <span class="text-slate-600">&bull;</span>
+          <span id="step-title" class="text-indigo-300 truncate">Initialization</span>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-1 text-[11px]">
+          <span class="text-slate-500">Jump:</span>
+          <button onclick="goToStep(5)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">None (0)</button>
+          <button onclick="goToStep(9)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Node 9 (1)</button>
+          <button onclick="goToStep(20)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Node 20 (2)</button>
+          <button onclick="goToStep(24)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Final (3)</button>
+        </div>
+      </div>
+
+      <div class="w-full relative flex items-center">
+        <input id="step-slider" type="range" min="0" max="24" value="0" oninput="goToStep(parseInt(this.value))"
+          class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500 focus:outline-none" />
+      </div>
+
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <button onclick="restartVisualizer()" title="Restart (R)" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </button>
+
+          <button onclick="prevStep()" id="btn-prev" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            <span>Prev</span>
+          </button>
+
+          <button onclick="togglePlay()" id="btn-play" class="px-4 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-indigo-600/30 transition">
+            <svg id="play-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span id="play-text">Play</span>
+          </button>
+
+          <button onclick="nextStep()" id="btn-next" class="px-3 py-1.5 rounded-xl bg-indigo-600/20 border border-indigo-500/40 hover:bg-indigo-600/30 text-indigo-300 text-xs font-semibold flex items-center gap-1 transition">
+            <span>Next</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+          <span>Speed:</span>
+          <div class="bg-slate-800 rounded-lg p-0.5 border border-slate-700 flex text-[11px]">
+            <button onclick="setSpeed(2000, '0.5x')" id="speed-0" class="px-2 py-0.5 rounded text-slate-300 hover:text-white">0.5x (Patient)</button>
+            <button onclick="setSpeed(1200, '1x')" id="speed-1" class="px-2 py-0.5 rounded bg-indigo-600 text-white font-bold">1x</button>
+            <button onclick="setSpeed(600, '2x')" id="speed-2" class="px-2 py-0.5 rounded text-slate-300 hover:text-white">2x</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="modal-analogy" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+      <button onclick="toggleModal('modal-analogy')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl">🏢</span>
+        <div>
+          <h3 class="text-base font-bold text-white">The Skyscraper Floor Analogy</h3>
+          <p class="text-xs text-slate-400">How recursion calculates tree height</p>
+        </div>
+      </div>
+      <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+        <p>Imagine standing in the penthouse (<strong class="text-emerald-400">Node 3</strong>). You cannot look directly to the ground through the floorboards.</p>
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-start gap-2">
+            <span class="text-amber-400 font-bold">1.</span>
+            <span>You radio the West wing manager (<strong class="text-indigo-400">Node 9</strong>): <em>"How many floors are underneath you?"</em></span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-amber-400 font-bold">2.</span>
+            <span>You radio the East tower manager (<strong class="text-indigo-400">Node 20</strong>): <em>"How many floors are underneath you?"</em></span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-amber-400 font-bold">3.</span>
+            <span>If there are no floors underneath (empty ground / <strong class="text-slate-400 font-mono">None</strong>), they report <strong class="text-amber-300 font-bold">0 floors</strong>.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-amber-400 font-bold">4.</span>
+            <span>West reports <strong class="text-white">1 floor</strong>. East reports <strong class="text-white">2 floors</strong>.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-amber-400 font-bold">5.</span>
+            <span>You pick the taller side (<strong class="text-cyan-300">max(1, 2) = 2</strong>) and add <strong class="text-emerald-400">+1 for your own penthouse floor</strong> = <strong class="text-white font-bold">3 floors tall!</strong></span>
+          </div>
+        </div>
+        <p class="italic text-indigo-300">
+          "Children tell me how deep their branch is. I add 1 because I am also a node."
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-compare" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl relative">
+      <button onclick="toggleModal('modal-compare')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl">🔄</span>
+        <div>
+          <h3 class="text-base font-bold text-white">LeetCode 226 vs LeetCode 104</h3>
+          <p class="text-xs text-slate-400">Understanding what the recursive return value actually represents</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col gap-2">
+          <div class="font-bold text-indigo-400 text-sm">LeetCode 226: Invert Tree</div>
+          <p class="text-slate-400">Returns a <span class="text-emerald-400 font-mono font-bold">TreeNode</span> pointer.</p>
+          <div class="bg-slate-900 p-2.5 rounded font-mono text-[11px] text-slate-300 border border-slate-800">
+            root.left, root.right = right, left<br/>
+            <span class="text-purple-400">return</span> <span class="text-emerald-300">root</span> 📦 (object)
+          </div>
+          <p class="text-slate-300 text-[11px]">
+            The function modifies nodes and passes back memory addresses to stitch the altered tree together.
+          </p>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-indigo-500/40 flex flex-col gap-2">
+          <div class="font-bold text-cyan-400 text-sm">LeetCode 104: Max Depth</div>
+          <p class="text-slate-400">Returns an <span class="text-amber-400 font-mono font-bold">Integer</span> number.</p>
+          <div class="bg-slate-900 p-2.5 rounded font-mono text-[11px] text-slate-300 border border-slate-800">
+            <span class="text-purple-400">return</span> 1 + max(L, R) 📦 (integer)
+          </div>
+          <p class="text-slate-300 text-[11px]">
+            The function does NOT modify tree structures! It computes and returns scalar integers representing path length.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-quiz" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="toggleModal('modal-quiz')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl">🎯</span>
+        <div>
+          <h3 class="text-base font-bold text-white">5 Core Intuition Questions</h3>
+          <p class="text-xs text-slate-400">Test what you learned from the visualizer</p>
+        </div>
+      </div>
+
+      <div class="space-y-4 text-xs" id="quiz-questions">
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">1. What does the parameter <code class="text-emerald-400 font-mono">root</code> mean in each call?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(1, 'A', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) It always refers to the very top node (Node 3).</button>
+            <button onclick="answerQuiz(1, 'B', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) It represents whichever node is currently being visited in that specific function call.</button>
+            <button onclick="answerQuiz(1, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) It is a global variable shared by all functions.</button>
+          </div>
+          <div id="quiz-feedback-1" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">2. Why does reaching <code class="text-amber-400 font-mono">None</code> return 0 instead of 1?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(2, 'A', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) 0 is simply Python's default return value.</button>
+            <button onclick="answerQuiz(2, 'B', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) An empty branch contains 0 nodes, so it contributes 0 to the depth count.</button>
+            <button onclick="answerQuiz(2, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) To prevent recursion loops.</button>
+          </div>
+          <div id="quiz-feedback-2" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">3. Why do we inspect BOTH left and right children?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(3, 'A', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) We do not know ahead of time which branch goes deeper.</button>
+            <button onclick="answerQuiz(3, 'B', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) Tree algorithms are required by law to evaluate all pointers.</button>
+            <button onclick="answerQuiz(3, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) To calculate O(1) space.</button>
+          </div>
+          <div id="quiz-feedback-3" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">4. Why do we use <code class="text-cyan-400 font-mono">max()</code> instead of adding left + right?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(4, 'A', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) Adding would sum all nodes in the tree, but depth is the LONGEST single path.</button>
+            <button onclick="answerQuiz(4, 'B', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) Depth measures the longest single root-to-leaf path, so the taller branch decides the answer.</button>
+            <button onclick="answerQuiz(4, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) max() takes less CPU power.</button>
+          </div>
+          <div id="quiz-feedback-4" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div class="font-bold text-white">5. Why do we add <code class="text-indigo-400 font-mono">1 +</code>?</div>
+          <div class="space-y-1.5">
+            <button onclick="answerQuiz(5, 'A', true)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">A) Because the current node itself is also a node on that path.</button>
+            <button onclick="answerQuiz(5, 'B', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">B) To adjust for 0-indexed Python arrays.</button>
+            <button onclick="answerQuiz(5, 'C', false)" class="w-full text-left p-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300">C) Because trees must have positive integers.</button>
+          </div>
+          <div id="quiz-feedback-5" class="hidden text-[11px] p-2 rounded font-medium"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STEPS = [
+      {
+        id: 0,
+        title: "Starting Function: maxDepth(root = 3)",
+        stage: "CALL",
+        codeLine: 2,
+        indentLevel: 1,
+        activeNode: null,
+        speech: "What is Maximum Depth? It is the number of nodes on the longest path from the root to a leaf.",
+        treeStates: { '3': 'unvisited', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: {},
+        stack: [],
+        vars: { root: "Node 3", leftPtr: "Node 9", leftVal: "?", rightVal: "?" },
+        task: { node: "Node 3", text: "Start algorithm: Find the maximum depth of the entire tree beginning at Node 3.", activeSubstep: 0 },
+        anchor: { line: "Line 2: maxDepth(root)", action: "Calling maxDepth(root = Node 3)", depth: "Level 0" },
+        expression: "Calling: maxDepth(root = Node 3)",
+        whatHappened: "We begin at the top of the tree. The initial call maxDepth(root = Node 3) is invoked.",
+        why: "To find the maximum depth of the whole tree, we start by asking the topmost root node.",
+        whatNext: "Node 3 will check if it is None (Base Case check).",
+        microAction: "System pushes frame #1",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: [],
+        quizPrompt: null
+      },
+      {
+        id: 1,
+        title: "Node 3: Check Base Case (if not root)",
+        stage: "CHECK",
+        codeLine: 3,
+        indentLevel: 2,
+        activeNode: '3',
+        speech: "Node 3 asks: Am I None? No, I exist!",
+        treeStates: { '3': 'current', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "?", right: "?", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 3", leftPtr: "Node 9", leftVal: "?", rightVal: "?" },
+        task: { node: "Node 3", text: "Verify that Node 3 exists before attempting to access child branches.", activeSubstep: 0 },
+        anchor: { line: "Line 3: if not root:", action: "Checking base case: False (Node 3 exists)", depth: "Level 1" },
+        expression: "root = Node 3 &bull; if not root -> False (Proceeds)",
+        whatHappened: "Node 3 executes `if not root:`. Since Node 3 actually exists, the condition is False.",
+        why: "We only return 0 if there is no node here. Since Node 3 is a valid node, we keep going.",
+        whatNext: "Node 3 will call maxDepth on its left child (Node 9).",
+        microAction: "Evaluated if condition",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: [],
+        quizPrompt: null
+      },
+      {
+        id: 2,
+        title: "Node 3 calls LEFT: maxDepth(root.left = 9)",
+        stage: "RECURSE",
+        codeLine: 6,
+        indentLevel: 3,
+        activeNode: '3',
+        speech: "Node 3 asks Node 9: 'How deep is your left subtree?' Node 3 pauses and waits!",
+        treeStates: { '3': 'waiting', '9': 'unvisited', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "?", right: "?", result: "?", state: "WAITING" }
+        ],
+        vars: { root: "Node 3", leftPtr: "Node 9", leftVal: "?", rightVal: "?" },
+        task: { node: "Node 3", text: "Waiting for Node 9 to report its depth. Node 3 cannot finish until it gets this answer.", activeSubstep: 1 },
+        anchor: { line: "Line 6: self.maxDepth(root.left)", action: "Calling left child: maxDepth(Node 9)", depth: "Level 1" },
+        expression: "left_depth = self.maxDepth(root.left) -> Waiting...",
+        whatHappened: "Node 3 triggers a recursive call down to its left child (Node 9). Node 3 is now WAITING ⏸️.",
+        why: "Node 3 needs to know how deep the left side is before it can pick the larger side.",
+        whatNext: "A new stack frame will be created specifically for Node 9.",
+        microAction: "Node 3 pauses; moves to left child",
+        flyingPacket: null,
+        descentArrow: { from: '3', to: '9' },
+        waterfall: [],
+        quizPrompt: null
+      },
+      {
+        id: 3,
+        title: "Node 9: New Frame Active",
+        stage: "CALL",
+        codeLine: 2,
+        indentLevel: 1,
+        activeNode: '9',
+        speech: "Node 9 is now 'root' for this call! Every call gets its own root variable.",
+        treeStates: { '3': 'waiting', '9': 'current', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '?', right: '?' }, '9': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(9)", rootVal: "Node 9", left: "?", right: "?", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 9", leftPtr: "None", leftVal: "?", rightVal: "?" },
+        task: { node: "Node 9", text: "Calculate depth of subtree rooted at Node 9.", activeSubstep: 0 },
+        anchor: { line: "Line 2: maxDepth(root)", action: "Inside maxDepth with root = Node 9", depth: "Level 2" },
+        expression: "root = Node 9 &bull; New local memory frame created",
+        whatHappened: "A fresh memory card was created for Node 9 on top of the call stack.",
+        why: "Notice that `root` now refers to Node 9! In recursion, each call has its own separate `root` pointer.",
+        whatNext: "Node 9 will check if it is None.",
+        microAction: "Pushed Frame #2 (Node 9)",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: [],
+        quizPrompt: null
+      },
+      {
+        id: 4,
+        title: "Node 9 calls LEFT: maxDepth(None)",
+        stage: "RECURSE",
+        codeLine: 6,
+        indentLevel: 3,
+        activeNode: '9',
+        speech: "Node 9 checks its left child. But there is no node there (None)!",
+        treeStates: { '3': 'waiting', '9': 'waiting', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '?', right: '?' }, '9': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(9)", rootVal: "Node 9", left: "?", right: "?", result: "?", state: "WAITING" }
+        ],
+        vars: { root: "Node 9", leftPtr: "None", leftVal: "?", rightVal: "?" },
+        task: { node: "Node 9", text: "Node 9 pauses and checks its left child (None).", activeSubstep: 1 },
+        anchor: { line: "Line 6: self.maxDepth(root.left)", action: "Calling maxDepth(None)", depth: "Level 2" },
+        expression: "self.maxDepth(root.left = None)",
+        whatHappened: "Node 9 checks its left child pointer, which points to None.",
+        why: "Leaf nodes don't know they are leaves until their child checks return 0.",
+        whatNext: "The base case will execute: `if not root: return 0`.",
+        microAction: "Call maxDepth(None)",
+        flyingPacket: null,
+        descentArrow: { from: '9', to: 'ghost-9-L' },
+        waterfall: [],
+        quizPrompt: null
+      },
+      {
+        id: 5,
+        title: "Base Case: maxDepth(None) returns 0",
+        stage: "RETURN",
+        codeLine: 4,
+        indentLevel: 3,
+        activeNode: 'ghost-9-L',
+        speech: "❌ No node exists here! An empty branch has depth 0.",
+        treeStates: { '3': 'waiting', '9': 'waiting', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '?', right: '?' }, '9': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(9)", rootVal: "Node 9", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(None)", rootVal: "None", left: "-", right: "-", result: "0", state: "ACTIVE" }
+        ],
+        vars: { root: "None", leftPtr: "None", leftVal: "0", rightVal: "0" },
+        task: { node: "None (Base)", text: "Return 0 to parent Node 9 because an empty tree contains zero nodes.", activeSubstep: 0 },
+        anchor: { line: "Line 4: return 0", action: "Base Case: return 0", depth: "Level 3" },
+        expression: "if not root: return 0  (Empty branch contributes 0)",
+        whatHappened: "Parameter `root` is None. Condition `if not root:` is True! Function returns 0.",
+        why: "How many nodes exist on a non-existent branch? Exactly zero. So it returns 0.",
+        whatNext: "Package 📦 0 will float back UP to parent Node 9.",
+        microAction: "Returning 0",
+        flyingPacket: { from: 'ghost-9-L', to: '9', val: 0 },
+        descentArrow: null,
+        waterfall: ["None → 0"],
+        quizPrompt: null
+      },
+      {
+        id: 6,
+        title: "Node 9 receives left_depth = 0",
+        stage: "WAIT",
+        codeLine: 7,
+        indentLevel: 3,
+        activeNode: '9',
+        speech: "Node 9: 'My left child gave me 0. Now checking my right child!'",
+        treeStates: { '3': 'waiting', '9': 'current', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '?', right: '?' }, '9': { left: '0', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(9)", rootVal: "Node 9", left: "0", right: "?", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 9", leftPtr: "None", leftVal: "0", rightVal: "?" },
+        task: { node: "Node 9", text: "Left is 0. Now query right child (also None).", activeSubstep: 2 },
+        anchor: { line: "Line 7: self.maxDepth(root.right)", action: "Calling right child: maxDepth(None)", depth: "Level 2" },
+        expression: "left_depth = 0 &bull; Calling self.maxDepth(root.right)",
+        whatHappened: "The `maxDepth(None)` frame popped. Node 9 stores `left_depth = 0` and calls right child.",
+        why: "Node 9 must compare BOTH children with max(left, right).",
+        whatNext: "Right child (None) will also hit the base case and return 0.",
+        microAction: "Saved left=0, calling right",
+        flyingPacket: null,
+        descentArrow: { from: '9', to: 'ghost-9-R' },
+        waterfall: ["None → 0"],
+        quizPrompt: null
+      },
+      {
+        id: 7,
+        title: "Node 9 right child: returns 0",
+        stage: "RETURN",
+        codeLine: 4,
+        indentLevel: 3,
+        activeNode: 'ghost-9-R',
+        speech: "Right child is also None! Returns 0.",
+        treeStates: { '3': 'waiting', '9': 'waiting', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '?', right: '?' }, '9': { left: '0', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(9)", rootVal: "Node 9", left: "0", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(None)", rootVal: "None", left: "-", right: "-", result: "0", state: "ACTIVE" }
+        ],
+        vars: { root: "None", leftPtr: "None", leftVal: "0", rightVal: "0" },
+        task: { node: "None (Base)", text: "Return 0 to Node 9.", activeSubstep: 0 },
+        anchor: { line: "Line 4: return 0", action: "Right child base return: 0", depth: "Level 3" },
+        expression: "if not root: return 0",
+        whatHappened: "Right child is None. Base case executes and returns 0.",
+        why: "A leaf node has neither a left nor a right child. Both yield 0.",
+        whatNext: "Node 9 will finally calculate 1 + max(0, 0).",
+        microAction: "Returning 0",
+        flyingPacket: { from: 'ghost-9-R', to: '9', val: 0 },
+        descentArrow: null,
+        waterfall: ["None → 0", "None → 0"],
+        quizPrompt: null
+      },
+      {
+        id: 8,
+        title: "Node 9 Calculates: 1 + max(0, 0) = 1",
+        stage: "CALCULATE",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '9',
+        speech: "Node 9: 'Both children returned 0. max(0,0)=0. I add 1 for myself = 1!'",
+        treeStates: { '3': 'waiting', '9': 'calculating', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '?', right: '?' }, '9': { left: '0', right: '0', val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(9)", rootVal: "Node 9", left: "0", right: "0", result: "1", state: "CALCULATING" }
+        ],
+        vars: { root: "Node 9", leftPtr: "None", leftVal: "0", rightVal: "0" },
+        task: { node: "Node 9", text: "Evaluate: 1 + max(0, 0) = 1. Node 9 counts as 1 node on the path.", activeSubstep: 3 },
+        anchor: { line: "Line 5: return 1 + max(...)", action: "Calculating: 1 + max(0, 0) = 1", depth: "Level 2" },
+        expression: "1 + max(left=0, right=0) = 1 + 0 = 1",
+        whatHappened: "Node 9 computes: `max(0, 0) = 0`, then adds 1 for itself = 1.",
+        why: "WHY ADD 1? Because Node 9 itself is a node! Subtree depth at Node 9 is 1.",
+        whatNext: "Node 9 will return 1 to parent Node 3.",
+        microAction: "Computed 1 + 0 = 1",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["None → 0", "None → 0", "Node 9: 1 + max(0,0) = 1"],
+        quizPrompt: null
+      },
+      {
+        id: 9,
+        title: "Node 9 RETURNS 1 to Node 3",
+        stage: "RETURN",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '9',
+        speech: "Node 9 returns 1 to Node 3. Node 9's job is complete!",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 3", leftPtr: "Node 9", leftVal: "1", rightVal: "?" },
+        task: { node: "Node 3", text: "Store left_depth = 1 from Node 9. Now begin probing right child (Node 20).", activeSubstep: 1 },
+        anchor: { line: "Line 6: left_depth received", action: "Node 3 receives left_depth = 1", depth: "Level 1" },
+        expression: "Node 9 returns 1 📦 -> Node 3 receives left_depth = 1",
+        whatHappened: "Package 📦 1 floats up from Node 9 to Node 3. Node 9's frame is popped from the stack.",
+        why: "Parent Node 3 can now fill in its first puzzle piece: `left_depth = 1`.",
+        whatNext: "Node 3 will call maxDepth on its right child (Node 20).",
+        microAction: "Popped Frame #2, return 1 to Frame #1",
+        flyingPacket: { from: '9', to: '3', val: 1 },
+        descentArrow: null,
+        waterfall: ["None → 0", "None → 0", "Node 9 → 1", "Node 3 gets left=1"],
+        quizPrompt: null
+      },
+      {
+        id: 10,
+        title: "Node 3 calls RIGHT: maxDepth(20)",
+        stage: "RECURSE",
+        codeLine: 7,
+        indentLevel: 3,
+        activeNode: '3',
+        speech: "Node 3: 'Left was 1. Now I must ask Node 20 how deep its side is!'",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'unvisited', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" }
+        ],
+        vars: { root: "Node 3", leftPtr: "Node 20", leftVal: "1", rightVal: "?" },
+        task: { node: "Node 3", text: "Waiting for Node 20. Node 3 pauses again.", activeSubstep: 2 },
+        anchor: { line: "Line 7: self.maxDepth(root.right)", action: "Calling right child: maxDepth(Node 20)", depth: "Level 1" },
+        expression: "right_depth = self.maxDepth(root.right = Node 20)",
+        whatHappened: "Node 3 pauses execution again and calls `self.maxDepth(root.right)` (Node 20).",
+        why: "We cannot calculate max(1, ?) until we know the depth of the right subtree.",
+        whatNext: "A new frame will be created for Node 20.",
+        microAction: "Node 3 pauses; moves to right child",
+        flyingPacket: null,
+        descentArrow: { from: '3', to: '20' },
+        waterfall: ["Node 9 → 1", "Node 3 gets left=1"],
+        quizPrompt: null
+      },
+      {
+        id: 11,
+        title: "Node 20: New Frame Active",
+        stage: "CALL",
+        codeLine: 2,
+        indentLevel: 1,
+        activeNode: '20',
+        speech: "Node 20 is now 'root'. Checks if not root -> False.",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'current', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "?", right: "?", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 20", leftPtr: "Node 15", leftVal: "?", rightVal: "?" },
+        task: { node: "Node 20", text: "Find maximum depth of subtree rooted at Node 20.", activeSubstep: 0 },
+        anchor: { line: "Line 2: maxDepth(root = 20)", action: "Inside maxDepth with root = Node 20", depth: "Level 2" },
+        expression: "root = Node 20 &bull; if not root -> False",
+        whatHappened: "Node 20 becomes the active `root`. It checks `if not root:`, which is False.",
+        why: "Every recursive call gets its own independent `root` argument.",
+        whatNext: "Node 20 will call its left child (Node 15).",
+        microAction: "Pushed Frame #2 (Node 20)",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["Node 9 → 1", "Node 3 gets left=1"],
+        quizPrompt: null
+      },
+      {
+        id: 12,
+        title: "Node 20 calls LEFT: maxDepth(15)",
+        stage: "RECURSE",
+        codeLine: 6,
+        indentLevel: 3,
+        activeNode: '20',
+        speech: "Node 20 asks Node 15: 'How deep are you?' Node 20 pauses!",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'waiting', '15': 'unvisited', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "?", right: "?", result: "?", state: "WAITING" }
+        ],
+        vars: { root: "Node 20", leftPtr: "Node 15", leftVal: "?", rightVal: "?" },
+        task: { node: "Node 20", text: "Waiting for Node 15. Stack has 2 waiting nodes now!", activeSubstep: 1 },
+        anchor: { line: "Line 6: self.maxDepth(root.left)", action: "Calling left child: maxDepth(Node 15)", depth: "Level 2" },
+        expression: "self.maxDepth(root.left = Node 15)",
+        whatHappened: "Node 20 calls Node 15. Now BOTH Node 3 and Node 20 are WAITING on the stack.",
+        why: "This is how recursion builds depth: each parent waits for its descendants.",
+        whatNext: "Node 15 will become active.",
+        microAction: "Node 20 pauses; moves to Node 15",
+        flyingPacket: null,
+        descentArrow: { from: '20', to: '15' },
+        waterfall: ["Node 9 → 1", "Node 3 gets left=1"],
+        quizPrompt: null
+      },
+      {
+        id: 13,
+        title: "Visit Node 15 (Leaf): Checks None",
+        stage: "CHECK",
+        codeLine: 3,
+        indentLevel: 2,
+        activeNode: '15',
+        speech: "Node 15 is active. Both its children point to None.",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'waiting', '15': 'current', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '?', right: '?' }, '15': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(15)", rootVal: "Node 15", left: "?", right: "?", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 15", leftPtr: "None", leftVal: "0", rightVal: "0" },
+        task: { node: "Node 15", text: "Evaluate leaf node 15. Both child calls to None return 0.", activeSubstep: 0 },
+        anchor: { line: "Line 3: root = Node 15", action: "Active leaf: Node 15", depth: "Level 3" },
+        expression: "root = Node 15 &bull; Checking left None and right None",
+        whatHappened: "Node 15 checks both its empty children. Both return 0.",
+        why: "Because Node 15 is a leaf, both child calls immediately return 0.",
+        whatNext: "Node 15 calculates its depth: 1 + max(0, 0) = 1.",
+        microAction: "Checked children: both 0",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["Node 9 → 1", "Node 3 gets left=1", "None → 0", "None → 0"],
+        quizPrompt: null
+      },
+      {
+        id: 14,
+        title: "Node 15 Calculates: 1 + max(0, 0) = 1",
+        stage: "CALCULATE",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '15',
+        speech: "Node 15 calculates: 1 + max(0, 0) = 1. It is 1 node deep!",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'waiting', '15': 'calculating', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '?', right: '?' }, '15': { left: '0', right: '0', val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "?", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(15)", rootVal: "Node 15", left: "0", right: "0", result: "1", state: "CALCULATING" }
+        ],
+        vars: { root: "Node 15", leftPtr: "None", leftVal: "0", rightVal: "0" },
+        task: { node: "Node 15", text: "Evaluate formula: 1 + max(0, 0) = 1.", activeSubstep: 3 },
+        anchor: { line: "Line 5: 1 + max(0, 0)", action: "Calculating: 1 + max(0, 0) = 1", depth: "Level 3" },
+        expression: "1 + max(0, 0) = 1",
+        whatHappened: "Node 15 evaluates its depth: 1 + max(0, 0) = 1.",
+        why: "Node 15 itself counts as 1 node on the path.",
+        whatNext: "Node 15 returns 1 to Node 20.",
+        microAction: "Computed 1 + 0 = 1",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["Node 15: 1 + max(0,0) = 1"],
+        quizPrompt: null
+      },
+      {
+        id: 15,
+        title: "Node 15 RETURNS 1 to Node 20",
+        stage: "RETURN",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '15',
+        speech: "Package 📦 1 travels up to Node 20!",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'waiting', '15': 'completed', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '1', right: '?' }, '15': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "1", right: "?", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 20", leftPtr: "Node 15", leftVal: "1", rightVal: "?" },
+        task: { node: "Node 20", text: "Left is 1. Now ask right child (Node 7).", activeSubstep: 2 },
+        anchor: { line: "Line 6: left_depth received", action: "Node 20 receives left_depth = 1", depth: "Level 2" },
+        expression: "Node 20 receives left_depth = 1 📦",
+        whatHappened: "Node 15's frame pops. Node 20 receives `left_depth = 1`.",
+        why: "One half of Node 20's question has been answered.",
+        whatNext: "Node 20 will call its right child (Node 7).",
+        microAction: "Popped Frame #3, return 1 to Frame #2",
+        flyingPacket: { from: '15', to: '20', val: 1 },
+        descentArrow: null,
+        waterfall: ["Node 9 → 1", "Node 15 → 1", "Node 20 gets left=1"],
+        quizPrompt: null
+      },
+      {
+        id: 16,
+        title: "Node 20 calls RIGHT: maxDepth(7)",
+        stage: "RECURSE",
+        codeLine: 7,
+        indentLevel: 3,
+        activeNode: '20',
+        speech: "Node 20: 'Left was 1. Now asking Node 7 for its depth!'",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'waiting', '15': 'completed', '7': 'unvisited' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '1', right: '?' }, '15': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "1", right: "?", result: "?", state: "WAITING" }
+        ],
+        vars: { root: "Node 20", leftPtr: "Node 7", leftVal: "1", rightVal: "?" },
+        task: { node: "Node 20", text: "Waiting for Node 7 to report its depth.", activeSubstep: 2 },
+        anchor: { line: "Line 7: self.maxDepth(root.right)", action: "Calling right child: maxDepth(Node 7)", depth: "Level 2" },
+        expression: "self.maxDepth(root.right = Node 7)",
+        whatHappened: "Node 20 pauses and calls Node 7. Node 20 is waiting again.",
+        why: "Node 20 cannot calculate `max()` without both children.",
+        whatNext: "Node 7 will become active.",
+        microAction: "Node 20 pauses; moves to Node 7",
+        flyingPacket: null,
+        descentArrow: { from: '20', to: '7' },
+        waterfall: ["Node 15 → 1", "Node 20 gets left=1"],
+        quizPrompt: null
+      },
+      {
+        id: 17,
+        title: "Visit Node 7 (Leaf): Checks None",
+        stage: "CHECK",
+        codeLine: 3,
+        indentLevel: 2,
+        activeNode: '7',
+        speech: "Node 7 is active. Left is None, right is None.",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'waiting', '15': 'completed', '7': 'current' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '1', right: '?' }, '15': { val: '1' }, '7': { left: '?', right: '?' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(7)", rootVal: "Node 7", left: "?", right: "?", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 7", leftPtr: "None", leftVal: "0", rightVal: "0" },
+        task: { node: "Node 7", text: "Evaluate leaf node 7. Both child calls return 0.", activeSubstep: 0 },
+        anchor: { line: "Line 3: root = Node 7", action: "Active leaf: Node 7", depth: "Level 3" },
+        expression: "root = Node 7 &bull; if not root -> False",
+        whatHappened: "Node 7 checks its children. Both return 0.",
+        why: "Node 7 is the final leaf in this tree.",
+        whatNext: "Node 7 will compute 1 + max(0, 0) = 1.",
+        microAction: "Checked children: both 0",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["Node 15 → 1", "Node 20 gets left=1"],
+        quizPrompt: null
+      },
+      {
+        id: 18,
+        title: "Node 7 Calculates: 1 + max(0, 0) = 1",
+        stage: "CALCULATE",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '7',
+        speech: "Node 7 calculates: 1 + max(0, 0) = 1!",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'waiting', '15': 'completed', '7': 'calculating' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '1', right: '?' }, '15': { val: '1' }, '7': { left: '0', right: '0', val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(7)", rootVal: "Node 7", left: "0", right: "0", result: "1", state: "CALCULATING" }
+        ],
+        vars: { root: "Node 7", leftPtr: "None", leftVal: "0", rightVal: "0" },
+        task: { node: "Node 7", text: "Evaluate formula: 1 + max(0, 0) = 1.", activeSubstep: 3 },
+        anchor: { line: "Line 5: 1 + max(0, 0)", action: "Calculating: 1 + max(0, 0) = 1", depth: "Level 3" },
+        expression: "1 + max(0, 0) = 1",
+        whatHappened: "Node 7 adds 1 for itself = 1.",
+        why: "Subtree depth at Node 7 is 1.",
+        whatNext: "Node 7 returns 1 to Node 20.",
+        microAction: "Computed 1 + 0 = 1",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["Node 7: 1 + max(0,0) = 1"],
+        quizPrompt: null
+      },
+      {
+        id: 19,
+        title: "Node 7 RETURNS 1 to Node 20",
+        stage: "RETURN",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '7',
+        speech: "Package 📦 1 floats up from Node 7 to Node 20!",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'waiting', '15': 'completed', '7': 'completed' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '1', right: '1' }, '15': { val: '1' }, '7': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "1", right: "1", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 20", leftPtr: "Node 7", leftVal: "1", rightVal: "1" },
+        task: { node: "Node 20", text: "Node 20 now has BOTH answers (left=1, right=1). Ready to calculate!", activeSubstep: 2 },
+        anchor: { line: "Line 7: right_depth received", action: "Node 20 receives right_depth = 1", depth: "Level 2" },
+        expression: "Node 20 receives right_depth = 1",
+        whatHappened: "Node 7's frame pops. Node 20 now has both answers: `left=1` and `right=1`.",
+        why: "Node 20 can finally evaluate its formula!",
+        whatNext: "Node 20 will execute 1 + max(1, 1).",
+        microAction: "Popped Frame #3, return 1 to Frame #2",
+        flyingPacket: { from: '7', to: '20', val: 1 },
+        descentArrow: null,
+        waterfall: ["Node 7 → 1", "Node 20 gets right=1"],
+        quizPrompt: null
+      },
+      {
+        id: 20,
+        title: "Node 20 Calculates: 1 + max(1, 1) = 2",
+        stage: "CALCULATE",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '20',
+        speech: "Node 20: 1 + max(1, 1) = 1 + 1 = 2! Its subtree depth is 2.",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'calculating', '15': 'completed', '7': 'completed' },
+        nodeDepths: { '3': { left: '1', right: '?' }, '9': { val: '1' }, '20': { left: '1', right: '1', val: '2' }, '15': { val: '1' }, '7': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "?", result: "?", state: "WAITING" },
+          { name: "maxDepth(20)", rootVal: "Node 20", left: "1", right: "1", result: "2", state: "CALCULATING" }
+        ],
+        vars: { root: "Node 20", leftPtr: "None", leftVal: "1", rightVal: "1" },
+        task: { node: "Node 20", text: "Both children are 1 deep. Add 1 for Node 20 itself = 2.", activeSubstep: 3 },
+        anchor: { line: "Line 5: 1 + max(1, 1)", action: "Calculating: 1 + max(1, 1) = 2", depth: "Level 2" },
+        expression: "1 + max(1, 1) = 1 + 1 = 2",
+        whatHappened: "Node 20 executes `1 + max(1, 1)`. The deeper child is 1. Adding 1 for itself gives 2.",
+        why: "Subtree rooted at Node 20 has maximum depth 2.",
+        whatNext: "Node 20 will return 2 up to root Node 3.",
+        microAction: "Computed 1 + 1 = 2",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["Node 20: 1 + max(1,1) = 2"],
+        quizPrompt: {
+          q: "Node 20 calculated depth = 2. Where does this number go next?",
+          options: [
+            { text: "It goes back up to parent Node 3 as right_depth.", correct: true },
+            { text: "It is stored into Node 15.", correct: false },
+            { text: "It returns directly to the console.", correct: false }
+          ],
+          feedback: "Exactly! When maxDepth(20) returns 2, it travels up to Node 3 where it is saved as right_depth."
+        }
+      },
+      {
+        id: 21,
+        title: "Node 20 RETURNS 2 to Node 3",
+        stage: "RETURN",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '20',
+        speech: "Package 📦 2 floats up to Node 3! Node 20 is complete.",
+        treeStates: { '3': 'waiting', '9': 'completed', '20': 'completed', '15': 'completed', '7': 'completed' },
+        nodeDepths: { '3': { left: '1', right: '2' }, '9': { val: '1' }, '20': { val: '2' }, '15': { val: '1' }, '7': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "2", result: "?", state: "ACTIVE" }
+        ],
+        vars: { root: "Node 3", leftPtr: "Node 20", leftVal: "1", rightVal: "2" },
+        task: { node: "Node 3", text: "Node 3 now has BOTH subtree answers (left=1, right=2).", activeSubstep: 2 },
+        anchor: { line: "Line 7: right_depth received", action: "Node 3 receives right_depth = 2", depth: "Level 1" },
+        expression: "Node 3 receives right_depth = 2 📦",
+        whatHappened: "Node 20 returns 2 to parent Node 3. Node 20's stack frame pops.",
+        why: "Node 3 has been waiting since Step 2! Now it finally has both child depths.",
+        whatNext: "Node 3 will compare subtrees: max(1, 2).",
+        microAction: "Popped Frame #2, return 2 to Frame #1",
+        flyingPacket: { from: '20', to: '3', val: 2 },
+        descentArrow: null,
+        waterfall: ["Node 20 → 2", "Node 3 gets right=2"],
+        quizPrompt: null
+      },
+      {
+        id: 22,
+        title: "Node 3 Compares: max(1, 2) = 2",
+        stage: "CALCULATE",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '3',
+        speech: "Node 3: 'Left is 1, Right is 2. The right side is deeper! max(1, 2) = 2.'",
+        treeStates: { '3': 'calculating', '9': 'completed', '20': 'completed', '15': 'completed', '7': 'completed' },
+        nodeDepths: { '3': { left: '1', right: '2' }, '9': { val: '1' }, '20': { val: '2' }, '15': { val: '1' }, '7': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "2", result: "1 + 2", state: "CALCULATING" }
+        ],
+        vars: { root: "Node 3", leftPtr: "Node 20", leftVal: "1", rightVal: "2" },
+        task: { node: "Node 3", text: "Pick the deeper branch: 2 is bigger than 1.", activeSubstep: 3 },
+        anchor: { line: "Line 5: max(1, 2)", action: "Comparing: max(1, 2) = 2 wins", depth: "Level 1" },
+        expression: "Comparing subtrees: max(1, 2) = 2 (Right subtree wins 🏆)",
+        whatHappened: "Node 3 executes `max(left_depth=1, right_depth=2)`. It selects 2.",
+        why: "WHY MAX? Maximum depth means the LONGEST path. The right branch goes deeper than the left!",
+        whatNext: "Node 3 will add 1 for itself: 1 + 2 = 3.",
+        microAction: "max(1, 2) evaluated to 2",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["Node 3: max(1, 2) = 2"],
+        quizPrompt: null
+      },
+      {
+        id: 23,
+        title: "Node 3 Adds 1: 1 + 2 = 3",
+        stage: "CALCULATE",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '3',
+        speech: "Node 3 adds 1 for itself: 1 + 2 = 3! Final maximum depth is 3.",
+        treeStates: { '3': 'calculating', '9': 'completed', '20': 'completed', '15': 'completed', '7': 'completed' },
+        nodeDepths: { '3': { left: '1', right: '2', val: '3' }, '9': { val: '1' }, '20': { val: '2' }, '15': { val: '1' }, '7': { val: '1' } },
+        stack: [
+          { name: "maxDepth(3)", rootVal: "Node 3", left: "1", right: "2", result: "3", state: "CALCULATING" }
+        ],
+        vars: { root: "Node 3", leftPtr: "None", leftVal: "1", rightVal: "2" },
+        task: { node: "Node 3", text: "Add 1 for Node 3 itself: 1 + 2 = 3.", activeSubstep: 4 },
+        anchor: { line: "Line 5: return 1 + 2", action: "Evaluating: 1 + 2 = 3", depth: "Level 1" },
+        expression: "1 + max(1, 2) = 1 + 2 = 3",
+        whatHappened: "Node 3 adds 1 to 2, yielding 3.",
+        why: "Node 3 itself is the 1st node on the path. Combined with the 2 nodes below on the right = 3 nodes total.",
+        whatNext: "Final return to the caller.",
+        microAction: "Computed 1 + 2 = 3",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["Node 3: 1 + 2 = 3"],
+        quizPrompt: null
+      },
+      {
+        id: 24,
+        title: "🎉 Final Return: Maximum Depth = 3",
+        stage: "CONTINUE",
+        codeLine: 5,
+        indentLevel: 2,
+        activeNode: '3',
+        speech: "🎉 Complete! The maximum depth of this binary tree is 3.",
+        treeStates: { '3': 'completed', '9': 'completed', '20': 'completed', '15': 'completed', '7': 'completed' },
+        nodeDepths: { '3': { val: '3' }, '9': { val: '1' }, '20': { val: '2' }, '15': { val: '1' }, '7': { val: '1' } },
+        stack: [],
+        vars: { root: "Node 3", leftPtr: "Finished", leftVal: "1", rightVal: "2" },
+        task: { node: "Completed", text: "Maximum Depth = 3! All 5 nodes visited.", activeSubstep: 4 },
+        anchor: { line: "Execution Finished", action: "Final Return: 3", depth: "Level 0" },
+        expression: "FINAL ANSWER = 3 &bull; Longest Path: 3 -> 20 -> 15 (or 7)",
+        whatHappened: "The top-level function returns integer 3 to the caller. Call stack is now completely empty.",
+        why: "Every node asked its children 'How deep are you?', took the max, added 1, and passed it back up.",
+        whatNext: "Click 'Trace Longest Path' or take the 5-question Quiz to lock in your intuition!",
+        microAction: "Algorithm completed",
+        flyingPacket: null,
+        descentArrow: null,
+        waterfall: ["🎉 FINAL ANSWER = 3"],
+        quizPrompt: null
+      }
+    ];
+
+    let currentStepIndex = 0;
+    let isPlaying = false;
+    let playInterval = null;
+    let currentSpeed = 1200;
+    let currentMode = 'beginner';
+    let isTraceActive = false;
+    let promptAnswered = {};
+
+    const nodeCoords = {
+      '3': { x: 260, y: 65 },
+      '9': { x: 140, y: 155 },
+      '20': { x: 380, y: 155 },
+      '15': { x: 320, y: 255 },
+      '7': { x: 440, y: 255 },
+      'ghost-9-L': { x: 95, y: 240 },
+      'ghost-9-R': { x: 185, y: 240 },
+      'ghost-15-L': { x: 285, y: 330 },
+      'ghost-15-R': { x: 355, y: 330 },
+      'ghost-7-L': { x: 410, y: 330 },
+      'ghost-7-R': { x: 470, y: 330 }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderStep(0);
+      setupKeyboard();
+    });
+
+    function setupKeyboard() {
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+          e.preventDefault();
+          nextStep();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevStep();
+        } else if (e.key.toLowerCase() === 'r') {
+          restartVisualizer();
+        } else if (e.key.toLowerCase() === 'p') {
+          togglePlay();
+        }
+      });
+    }
+
+    function renderStep(index) {
+      currentStepIndex = Math.max(0, Math.min(index, STEPS.length - 1));
+      const step = STEPS[currentStepIndex];
+
+      document.getElementById('step-slider').value = currentStepIndex;
+      document.getElementById('step-counter').textContent = `Step ${currentStepIndex} / ${STEPS.length - 1}`;
+      document.getElementById('step-title').textContent = step.title;
+
+      updateFlowBar(step.stage, currentStepIndex);
+      updateAnchorAndTask(step);
+      updateCodeAndIndent(step.codeLine, step.indentLevel, step.expression);
+      updateVariables(step.vars);
+      updateExplanations(step);
+      updateTreeVisuals(step);
+      updateCallStack(step.stack);
+      handleFlyingPacket(step.flyingPacket);
+      handleDescentArrow(step.descentArrow);
+      updateWaterfall(step.waterfall);
+      handleMidStepPrompt(step);
+
+      document.getElementById('btn-prev').disabled = currentStepIndex === 0;
+      document.getElementById('btn-next').disabled = currentStepIndex === STEPS.length - 1;
+
+      if (currentStepIndex === STEPS.length - 1 && isPlaying) {
+        togglePlay();
+      }
+    }
+
+    function updateFlowBar(activeStage, stepNum) {
+      const stages = ['CALL', 'CHECK', 'RECURSE', 'WAIT', 'RETURN', 'CALCULATE', 'CONTINUE'];
+      stages.forEach(st => {
+        const el = document.getElementById(`stage-${st}`);
+        if (!el) return;
+        if (st === activeStage) {
+          el.className = "px-2.5 py-1 rounded-md border border-indigo-400 bg-indigo-600 text-white font-bold flex items-center gap-1 shadow-md shadow-indigo-600/30 scale-105 transition-all";
+        } else {
+          el.className = "px-2.5 py-1 rounded-md border border-slate-800 bg-slate-800/60 text-slate-400 flex items-center gap-1 transition-all";
+        }
+      });
+      const lbl = document.getElementById('flow-current-label');
+      if (lbl) {
+        lbl.textContent = `Stage: ${activeStage} (Step ${stepNum})`;
+      }
+    }
+
+    function updateAnchorAndTask(step) {
+      document.getElementById('task-badge-node').textContent = step.task.node;
+      document.getElementById('task-goal-text').textContent = step.task.text;
+
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`substep-${i}`);
+        if (!el) continue;
+        if (i === step.task.activeSubstep) {
+          el.className = "px-1.5 py-0.5 rounded bg-indigo-600 text-white font-bold shadow-sm";
+        } else {
+          el.className = "px-1.5 py-0.5 rounded bg-slate-800 text-slate-400";
+        }
+      }
+
+      document.getElementById('anchor-code-line').textContent = step.anchor.line;
+      document.getElementById('anchor-action').textContent = step.anchor.action;
+      document.getElementById('anchor-depth-tag').textContent = step.anchor.depth;
+    }
+
+    function updateCodeAndIndent(lineNum, indentLevel, expr) {
+      document.getElementById('indent-level-badge').textContent = indentLevel;
+
+      for (let i = 1; i <= 8; i++) {
+        const el = document.getElementById(`code-line-${i}`);
+        if (!el) continue;
+        el.classList.remove('bg-indigo-600/35', 'border-l-4', 'border-indigo-400', 'text-white', 'font-bold', 'indent-guide-active');
+      }
+
+      const activeEl = document.getElementById(`code-line-${lineNum}`);
+      if (activeEl) {
+        activeEl.classList.add('bg-indigo-600/35', 'border-l-4', 'border-indigo-400', 'text-white', 'font-bold', 'indent-guide-active');
+      }
+
+      document.getElementById('eval-breakdown-box').innerHTML = expr;
+    }
+
+    function updateVariables(vars) {
+      document.getElementById('var-root').textContent = vars.root;
+      document.getElementById('var-left-ptr').textContent = vars.leftPtr;
+      document.getElementById('var-left-val').textContent = vars.leftVal;
+      document.getElementById('var-right-val').textContent = vars.rightVal;
+    }
+
+    function updateExplanations(step) {
+      const whatEl = document.getElementById('explanation-what');
+      const whyEl = document.getElementById('explanation-why');
+      const nextEl = document.getElementById('explanation-next');
+      const microTag = document.getElementById('micro-action-tag');
+
+      whatEl.textContent = step.whatHappened;
+      whyEl.textContent = step.why;
+      nextEl.textContent = step.whatNext;
+      microTag.textContent = `Event: ${step.microAction}`;
+
+      const confText = document.getElementById('confusion-text');
+      if (step.id === 5 || step.id === 7) {
+        confText.textContent = "None returns 0 because an empty branch contains 0 nodes. If it returned 1, every leaf would falsely calculate depth = 2!";
+      } else if (step.id === 8 || step.id === 14 || step.id === 18) {
+        confText.textContent = "Leaf node formula: 1 + max(0, 0) = 1. A single leaf node by itself is 1 node deep.";
+      } else if (step.id === 20 || step.id === 22) {
+        confText.textContent = "Why max()? Because depth is the LONGEST single path from root to leaf. We don't add branches together—we take the taller branch.";
+      } else {
+        confText.textContent = "`root` does not always mean Node 3! In recursion, every function call gets its own independent `root` pointer pointing to its current node.";
+      }
+    }
+
+    function updateTreeVisuals(step) {
+      const nodes = ['3', '9', '20', '15', '7'];
+
+      const bubble = document.getElementById('tree-speech-bubble');
+      const bubbleText = document.getElementById('tree-speech-text');
+      if (step.speech && step.activeNode) {
+        bubbleText.textContent = step.speech;
+        bubble.classList.remove('opacity-0');
+      } else {
+        bubble.classList.add('opacity-0');
+      }
+
+      nodes.forEach(id => {
+        const circle = document.getElementById(`node-circle-${id}`);
+        const tagRoot = document.getElementById(`tag-root-${id}`);
+        const tagWaiting = document.getElementById(`tag-waiting-${id}`);
+        const depthBadge = document.getElementById(`depth-badge-${id}`);
+        const depthText = document.getElementById(`depth-text-${id}`);
+        const state = step.treeStates[id] || 'unvisited';
+
+        circle.setAttribute('stroke-width', '3');
+        circle.classList.remove('animate-pulse-subtle', 'animate-winner');
+
+        if (state === 'unvisited') {
+          circle.setAttribute('fill', '#1e293b');
+          circle.setAttribute('stroke', '#475569');
+          tagRoot.classList.add('opacity-0');
+          tagWaiting.classList.add('opacity-0');
+        } else if (state === 'current') {
+          circle.setAttribute('fill', '#065f46');
+          circle.setAttribute('stroke', '#34d399');
+          circle.setAttribute('stroke-width', '4');
+          circle.classList.add('animate-pulse-subtle');
+          tagRoot.classList.remove('opacity-0');
+          tagWaiting.classList.add('opacity-0');
+        } else if (state === 'waiting') {
+          circle.setAttribute('fill', '#78350f');
+          circle.setAttribute('stroke', '#fbbf24');
+          tagRoot.classList.add('opacity-0');
+          tagWaiting.classList.remove('opacity-0');
+        } else if (state === 'calculating') {
+          circle.setAttribute('fill', '#581c87');
+          circle.setAttribute('stroke', '#c084fc');
+          circle.setAttribute('stroke-width', '4');
+          circle.classList.add('animate-pulse-subtle');
+          tagRoot.classList.add('opacity-0');
+          tagWaiting.classList.add('opacity-0');
+        } else if (state === 'completed') {
+          circle.setAttribute('fill', '#312e81');
+          circle.setAttribute('stroke', '#818cf8');
+          tagRoot.classList.add('opacity-0');
+          tagWaiting.classList.add('opacity-0');
+        }
+
+        if (step.nodeDepths[id] && step.nodeDepths[id].val) {
+          depthBadge.classList.remove('opacity-0');
+          depthText.textContent = `depth: ${step.nodeDepths[id].val}`;
+        } else if (step.nodeDepths[id] && (step.nodeDepths[id].left !== '?' || step.nodeDepths[id].right !== '?')) {
+          depthBadge.classList.remove('opacity-0');
+          depthText.textContent = `L:${step.nodeDepths[id].left} R:${step.nodeDepths[id].right}`;
+        } else {
+          depthBadge.classList.add('opacity-0');
+        }
+      });
+
+      const ghosts = ['ghost-9-L', 'ghost-9-R', 'ghost-15-L', 'ghost-15-R', 'ghost-7-L', 'ghost-7-R'];
+      ghosts.forEach(gId => {
+        const gEl = document.getElementById(gId);
+        if (step.activeNode === gId) {
+          gEl.classList.remove('opacity-25');
+          gEl.classList.add('opacity-100');
+          gEl.querySelector('rect').setAttribute('stroke', '#f59e0b');
+          gEl.querySelector('rect').setAttribute('stroke-width', '2');
+        } else {
+          gEl.classList.remove('opacity-100');
+          gEl.classList.add('opacity-25');
+          gEl.querySelector('rect').setAttribute('stroke', '#475569');
+          gEl.querySelector('rect').setAttribute('stroke-width', '1.5');
+        }
+      });
+
+      updateEdgeHighlights();
+    }
+
+    function updateEdgeHighlights() {
+      const e3_9 = document.getElementById('edge-3-9');
+      const e3_20 = document.getElementById('edge-3-20');
+      const e20_15 = document.getElementById('edge-20-15');
+      const e20_7 = document.getElementById('edge-20-7');
+
+      if (isTraceActive) {
+        e3_20.setAttribute('stroke', '#22d3ee');
+        e3_20.setAttribute('stroke-width', '6');
+        e20_7.setAttribute('stroke', '#22d3ee');
+        e20_7.setAttribute('stroke-width', '6');
+        e20_15.setAttribute('stroke', '#06b6d4');
+        e20_15.setAttribute('stroke-width', '4');
+        e3_9.setAttribute('stroke', '#334155');
+        e3_9.setAttribute('stroke-width', '2');
+      } else {
+        e3_9.setAttribute('stroke', '#334155');
+        e3_9.setAttribute('stroke-width', '3');
+        e3_20.setAttribute('stroke', '#334155');
+        e3_20.setAttribute('stroke-width', '3');
+        e20_15.setAttribute('stroke', '#334155');
+        e20_15.setAttribute('stroke-width', '3');
+        e20_7.setAttribute('stroke', '#334155');
+        e20_7.setAttribute('stroke-width', '3');
+      }
+    }
+
+    function updateCallStack(stack) {
+      const container = document.getElementById('stack-container');
+      document.getElementById('stack-depth-count').textContent = stack.length;
+
+      if (stack.length === 0) {
+        container.innerHTML = `
+          <div class="text-xs text-slate-500 italic p-3 text-center border border-dashed border-slate-800 rounded-xl">
+            Call stack is empty. Unfinished function frames will appear here.
+          </div>
+        `;
+        return;
+      }
+
+      let html = '';
+      stack.forEach((frame, idx) => {
+        let badgeColor = 'bg-slate-700 text-slate-300';
+        let borderColor = 'border-slate-800';
+
+        if (frame.state === 'ACTIVE') {
+          badgeColor = 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+          borderColor = 'border-emerald-500/50 shadow-lg shadow-emerald-950/40';
+        } else if (frame.state === 'WAITING') {
+          badgeColor = 'bg-amber-500/20 text-amber-300 border border-amber-500/40';
+          borderColor = 'border-amber-500/40';
+        } else if (frame.state === 'CALCULATING') {
+          badgeColor = 'bg-purple-500/20 text-purple-300 border border-purple-500/40';
+          borderColor = 'border-purple-500/50';
+        }
+
+        html += `
+          <div class="bg-slate-950 p-2.5 rounded-xl border ${borderColor} flex flex-col gap-1 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-mono font-bold text-white flex items-center gap-1.5">
+                <span class="text-slate-500 text-[10px]">Frame #${idx + 1}</span>
+                ${frame.name}
+              </span>
+              <span class="text-[10px] px-2 py-0.5 rounded font-bold uppercase ${badgeColor}">
+                ${frame.state}
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-1.5 text-[11px] font-mono mt-1 text-slate-300 bg-slate-900/90 p-1.5 rounded border border-slate-800">
+              <div>root: <span class="text-emerald-300 font-semibold">${frame.rootVal}</span></div>
+              <div>result: <span class="text-amber-300 font-bold">${frame.result}</span></div>
+              <div>left: <span class="text-indigo-300">${frame.left}</span></div>
+              <div>right: <span class="text-cyan-300">${frame.right}</span></div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function handleFlyingPacket(packet) {
+      const packetGroup = document.getElementById('flying-packet-group');
+      const packetText = document.getElementById('flying-packet-text');
+
+      if (!packet) {
+        packetGroup.classList.add('opacity-0');
+        return;
+      }
+
+      const fromPt = nodeCoords[packet.from];
+      const toPt = nodeCoords[packet.to];
+      if (!fromPt || !toPt) return;
+
+      packetText.textContent = `📦 ${packet.val}`;
+
+      packetGroup.style.transition = 'none';
+      packetGroup.setAttribute('transform', `translate(${fromPt.x}, ${fromPt.y})`);
+      packetGroup.classList.remove('opacity-0');
+
+      setTimeout(() => {
+        packetGroup.style.transition = 'transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s';
+        packetGroup.setAttribute('transform', `translate(${toPt.x}, ${toPt.y})`);
+      }, 50);
+
+      setTimeout(() => {
+        packetGroup.classList.add('opacity-0');
+      }, 950);
+    }
+
+    function handleDescentArrow(arrow) {
+      const g = document.getElementById('descent-arrow');
+      if (!arrow) {
+        g.classList.add('opacity-0');
+        return;
+      }
+
+      const fromPt = nodeCoords[arrow.from];
+      const toPt = nodeCoords[arrow.to];
+      if (!fromPt || !toPt) return;
+
+      const midX = (fromPt.x + toPt.x) / 2;
+      const midY = (fromPt.y + toPt.y) / 2;
+
+      g.setAttribute('transform', `translate(${midX}, ${midY})`);
+      g.classList.remove('opacity-0');
+    }
+
+    function updateWaterfall(items) {
+      const container = document.getElementById('waterfall-container');
+      if (!items || items.length === 0) {
+        container.innerHTML = `<div class="text-xs text-slate-600 italic py-1">Waiting for first return...</div>`;
+        return;
+      }
+
+      let html = '';
+      items.forEach((item, index) => {
+        const isLatest = index === items.length - 1;
+        const style = isLatest 
+          ? 'bg-indigo-600 text-white font-bold border-indigo-400 shadow-sm' 
+          : 'bg-slate-800 text-slate-300 border-slate-700';
+
+        html += `
+          <div class="flex-shrink-0 px-2.5 py-1 rounded-lg border text-xs flex items-center gap-1.5 ${style}">
+            <span>${item}</span>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      container.scrollLeft = container.scrollWidth;
+    }
+
+    function handleMidStepPrompt(step) {
+      const promptEl = document.getElementById('mid-step-prompt');
+      if (!step.quizPrompt || promptAnswered[step.id]) {
+        promptEl.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+        return;
+      }
+
+      if (isPlaying) togglePlay();
+
+      document.getElementById('mid-step-question').textContent = step.quizPrompt.q;
+      const choicesEl = document.getElementById('mid-step-choices');
+      const feedbackEl = document.getElementById('mid-step-feedback');
+      feedbackEl.classList.add('hidden');
+
+      let html = '';
+      step.quizPrompt.options.forEach((opt) => {
+        html += `
+          <button onclick="handlePromptAnswer(${step.id}, ${opt.correct}, '${step.quizPrompt.feedback}')" 
+            class="w-full text-left p-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200">
+            ${opt.text}
+          </button>
+        `;
+      });
+      choicesEl.innerHTML = html;
+
+      promptEl.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+    }
+
+    function handlePromptAnswer(stepId, isCorrect, feedback) {
+      const fb = document.getElementById('mid-step-feedback');
+      fb.classList.remove('hidden');
+
+      if (isCorrect) {
+        fb.className = "mt-2 text-[11px] p-2 rounded font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        fb.textContent = `✅ Correct! ${feedback}`;
+        promptAnswered[stepId] = true;
+        setTimeout(dismissMidStepPrompt, 2400);
+      } else {
+        fb.className = "mt-2 text-[11px] p-2 rounded font-medium bg-rose-500/20 text-rose-300 border border-rose-500/30";
+        fb.textContent = "❌ Try again! Follow where the return statement sends the number.";
+      }
+    }
+
+    function dismissMidStepPrompt() {
+      const promptEl = document.getElementById('mid-step-prompt');
+      promptEl.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+    }
+
+    function inspectNode(nodeId) {
+      const body = document.getElementById('dependency-body');
+
+      const explanations = {
+        '3': `
+          <div class="space-y-1">
+            <div class="font-bold text-white flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              Node 3 Answer Construction:
+            </div>
+            <div class="font-mono text-xs bg-slate-950 p-2 rounded border border-slate-800 text-slate-200">
+              left_depth = 1 (from Node 9)<br/>
+              right_depth = 2 (from Node 20)<br/>
+              1 + max(1, 2) = 1 + 2 = <strong class="text-indigo-400">3</strong>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Right subtree (depth 2) is deeper than left (depth 1). Node 3 adds 1 for itself to reach total depth 3.
+            </p>
+          </div>
+        `,
+        '20': `
+          <div class="space-y-1">
+            <div class="font-bold text-white flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+              Node 20 Answer Construction:
+            </div>
+            <div class="font-mono text-xs bg-slate-950 p-2 rounded border border-slate-800 text-slate-200">
+              left_depth = 1 (from Node 15)<br/>
+              right_depth = 1 (from Node 7)<br/>
+              1 + max(1, 1) = 1 + 1 = <strong class="text-indigo-400">2</strong>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Both child subtrees are 1 node deep. Adding 1 for Node 20 itself gives 2.
+            </p>
+          </div>
+        `,
+        '9': `
+          <div class="space-y-1">
+            <div class="font-bold text-white flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              Node 9 Answer Construction:
+            </div>
+            <div class="font-mono text-xs bg-slate-950 p-2 rounded border border-slate-800 text-slate-200">
+              left = 0 (None) &bull; right = 0 (None)<br/>
+              1 + max(0, 0) = <strong class="text-indigo-400">1</strong>
+            </div>
+            <p class="text-[11px] text-slate-400">Leaf nodes return 1.</p>
+          </div>
+        `,
+        '15': `
+          <div class="space-y-1">
+            <div class="font-bold text-white">Node 15 (Leaf):</div>
+            <div class="font-mono text-xs bg-slate-950 p-2 rounded border border-slate-800">
+              1 + max(0, 0) = <strong class="text-indigo-400">1</strong>
+            </div>
+          </div>
+        `,
+        '7': `
+          <div class="space-y-1">
+            <div class="font-bold text-white">Node 7 (Leaf):</div>
+            <div class="font-mono text-xs bg-slate-950 p-2 rounded border border-slate-800">
+              1 + max(0, 0) = <strong class="text-indigo-400">1</strong>
+            </div>
+          </div>
+        `
+      };
+
+      if (explanations[nodeId]) {
+        body.innerHTML = explanations[nodeId];
+      }
+    }
+
+    function toggleTraceAnswer() {
+      isTraceActive = !isTraceActive;
+      const banner = document.getElementById('longest-path-banner');
+      const label = document.getElementById('trace-btn-label');
+      const btn = document.getElementById('btn-trace');
+
+      if (isTraceActive) {
+        banner.classList.remove('opacity-0', 'pointer-events-none');
+        label.textContent = "Exit Trace";
+        btn.classList.add('bg-cyan-500', 'text-black');
+      } else {
+        banner.classList.add('opacity-0', 'pointer-events-none');
+        label.textContent = "Trace Longest Path";
+        btn.classList.remove('bg-cyan-500', 'text-black');
+      }
+      updateEdgeHighlights();
+    }
+
+    function nextStep() {
+      if (currentStepIndex < STEPS.length - 1) {
+        goToStep(currentStepIndex + 1);
+      }
+    }
+
+    function prevStep() {
+      if (currentStepIndex > 0) {
+        goToStep(currentStepIndex - 1);
+      }
+    }
+
+    function goToStep(idx) {
+      renderStep(idx);
+    }
+
+    function restartVisualizer() {
+      if (isPlaying) togglePlay();
+      isTraceActive = false;
+      document.getElementById('longest-path-banner').classList.add('opacity-0', 'pointer-events-none');
+      document.getElementById('trace-btn-label').textContent = "Trace Longest Path";
+      promptAnswered = {};
+      goToStep(0);
+    }
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      const playText = document.getElementById('play-text');
+      const playBtn = document.getElementById('btn-play');
+
+      if (isPlaying) {
+        playText.textContent = "Pause";
+        playBtn.classList.replace('bg-indigo-600', 'bg-amber-600');
+        playInterval = setInterval(() => {
+          if (currentStepIndex < STEPS.length - 1) {
+            nextStep();
+          } else {
+            togglePlay();
+          }
+        }, currentSpeed);
+      } else {
+        playText.textContent = "Play";
+        playBtn.classList.replace('bg-amber-600', 'bg-indigo-600');
+        clearInterval(playInterval);
+      }
+    }
+
+    function setSpeed(ms, label) {
+      currentSpeed = ms;
+      ['speed-0', 'speed-1', 'speed-2'].forEach(id => {
+        document.getElementById(id).classList.remove('bg-indigo-600', 'text-white', 'font-bold');
+        document.getElementById(id).classList.add('text-slate-300');
+      });
+
+      if (label.includes('0.5x')) document.getElementById('speed-0').classList.add('bg-indigo-600', 'text-white', 'font-bold');
+      if (label.includes('1x')) document.getElementById('speed-1').classList.add('bg-indigo-600', 'text-white', 'font-bold');
+      if (label.includes('2x')) document.getElementById('speed-2').classList.add('bg-indigo-600', 'text-white', 'font-bold');
+
+      if (isPlaying) {
+        clearInterval(playInterval);
+        playInterval = setInterval(nextStep, currentSpeed);
+      }
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      ['mode-beginner', 'mode-deep', 'mode-interview'].forEach(id => {
+        document.getElementById(id).className = "px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white";
+      });
+      document.getElementById(`mode-${mode}`).className = "px-2.5 py-1 rounded-md transition-all bg-indigo-600 text-white font-semibold shadow-sm";
+      renderStep(currentStepIndex);
+    }
+
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.toggle('hidden');
+    }
+
+    function answerQuiz(qNum, choice, isCorrect) {
+      const fb = document.getElementById(`quiz-feedback-${qNum}`);
+      fb.classList.remove('hidden');
+
+      if (isCorrect) {
+        fb.className = "text-[11px] p-2 rounded font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        fb.textContent = "✅ Correct! That captures the exact recursive mental model.";
+      } else {
+        fb.className = "text-[11px] p-2 rounded font-medium bg-rose-500/20 text-rose-300 border border-rose-500/30";
+        fb.textContent = "❌ Not quite. Review the explanation in Beginner Mode!";
+      }
+    }
+  </script>
+</body>
+</html>

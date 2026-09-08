@@ -54,6 +54,15 @@ export const PROBLEM_VISUALIZERS: Record<number, ProblemVisualizerInfo> = {
     description: 'Bottom-up postorder DFS checking |left - right| ≤ 1 at every node with emergency -1 signal propagation and mathematically collision-free tree layout.',
     highlights: ['Live Balance Calculation Card', 'Emergency -1 Early Exit Banner', 'Zoom/Pan Tree Canvas', 'Audio Synthesizer Effects'],
   },
+  100: {
+    problemNumber: 100,
+    title: 'Same Tree',
+    subtitle: 'Simultaneous Pairwise DFS & Short-Circuiting Visualizer',
+    path: '/visualizers/100.html',
+    badge: 'Simultaneous DFS',
+    description: 'Line-by-line simultaneous recursion trace: base case null comparisons, short-circuit evaluation, active laser bridge, and visual call stack unwinding.',
+    highlights: ['Dual Tree Laser Comparison Bridge', 'Exact Python Code Line Highlighter', 'Call Stack & Stack Frame Inspector', 'Short-Circuit "AND" Condition Engine', 'Tactile Sound Synthesizer & Roadmap'],
+  },
 }
 
 export function hasVisualizer(problemNumber: number): boolean {

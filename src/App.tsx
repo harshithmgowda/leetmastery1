@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BookOpen,
   Bot,
+  Brain,
   Check,
   CheckCircle2,
   ChevronDown,
@@ -49,13 +50,18 @@ import {
   getImpDetailedProblemData,
 } from './impQuestionsData'
 import {
+  blind75ProblemsSeed,
+  BLIND75_TOPICS_LIST,
+  getBlind75DetailedProblemData,
+} from './blind75Data'
+import {
   hasVisualizer,
   getVisualizer,
 } from './visualizerConfig'
 
 type Language = 'python' | 'cpp'
 type TabMode = 'overview' | 'comparison' | 'walkthrough' | 'edgecases' | 'visualizer'
-type SectionMode = 'core' | 'imp'
+type SectionMode = 'core' | 'imp' | 'blind75'
 
 const allProblemsSeed: Problem[] = [
   // Arrays & Hashing
@@ -327,6 +333,7 @@ function App() {
   const [isTopicDropdownOpen, setIsTopicDropdownOpen] = useState(false)
   const [selectedCoreProblemNumber, setSelectedCoreProblemNumber] = useState(509)
   const [selectedImpProblemNumber, setSelectedImpProblemNumber] = useState(1001)
+  const [selectedBlind75ProblemNumber, setSelectedBlind75ProblemNumber] = useState(217)
   const [approachMode, setApproachMode] = useState<'optimal' | 'brute' | 'alternative'>('optimal')
   const [language, setLanguage] = useState<Language>('python')
   const [activeTab, setActiveTab] = useState<TabMode>('overview')
@@ -340,9 +347,14 @@ function App() {
     'Recursion': true,
     'Arrays & Hashing': true,
     'Two Pointers': true,
+    'Sliding Window': true,
     'Array': true,
     'Binary Search': true,
     'Strings': true,
+    'Trees': true,
+    'Graphs': true,
+    '1-D Dynamic Programming': true,
+    'Intervals': true,
   })
 
   // Track solved problems in localStorage independently
@@ -364,6 +376,15 @@ function App() {
     }
   })
 
+  const [blind75SolvedMap, setBlind75SolvedMap] = useState<Record<number, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem('leetmastery_blind75_solved')
+      return saved ? JSON.parse(saved) : { 1: true, 217: true }
+    } catch {
+      return { 1: true, 217: true }
+    }
+  })
+
   // Test simulation state
   const [testStatus, setTestStatus] = useState<{
     isRunning: boolean
@@ -378,15 +399,30 @@ function App() {
   })
 
   const activeProblemList = useMemo(() => {
-    return activeSection === 'core' ? allProblemsSeed : impProblemsSeed
+    if (activeSection === 'core') return allProblemsSeed
+    if (activeSection === 'imp') return impProblemsSeed
+    return blind75ProblemsSeed
   }, [activeSection])
 
   const activeTopicsList = useMemo(() => {
-    return activeSection === 'core' ? TOPICS_LIST : IMP_TOPICS_LIST
+    if (activeSection === 'core') return TOPICS_LIST
+    if (activeSection === 'imp') return IMP_TOPICS_LIST
+    return BLIND75_TOPICS_LIST
   }, [activeSection])
 
-  const currentSolvedMap = activeSection === 'core' ? coreSolvedMap : impSolvedMap
-  const selectedProblemNumber = activeSection === 'core' ? selectedCoreProblemNumber : selectedImpProblemNumber
+  const currentSolvedMap =
+    activeSection === 'core'
+      ? coreSolvedMap
+      : activeSection === 'imp'
+      ? impSolvedMap
+      : blind75SolvedMap
+
+  const selectedProblemNumber =
+    activeSection === 'core'
+      ? selectedCoreProblemNumber
+      : activeSection === 'imp'
+      ? selectedImpProblemNumber
+      : selectedBlind75ProblemNumber
 
   const currentProblem = useMemo(() => {
     return activeProblemList.find((p) => p.number === selectedProblemNumber) ?? activeProblemList[0]
@@ -395,6 +431,14 @@ function App() {
   const problemData = useMemo(() => {
     if (activeSection === 'imp') {
       return getImpDetailedProblemData(currentProblem.number)
+    }
+    if (activeSection === 'blind75') {
+      return getBlind75DetailedProblemData(
+        currentProblem.number,
+        currentProblem.title,
+        currentProblem.category,
+        currentProblem.pattern
+      )
     }
     return getDetailedProblemData(currentProblem.title, currentProblem.category, currentProblem.pattern)
   }, [activeSection, currentProblem])
@@ -435,7 +479,7 @@ function App() {
         return updated
       })
       setToast(coreSolvedMap[num] ? `Marked #${num} as Unsolved` : `Problem #${num} Solved! 🚀`)
-    } else {
+    } else if (activeSection === 'imp') {
       setImpSolvedMap((prev) => {
         const updated = { ...prev, [num]: !prev[num] }
         try {
@@ -444,6 +488,15 @@ function App() {
         return updated
       })
       setToast(impSolvedMap[num] ? `Marked #${num} as Unsolved` : `DSA Problem #${num} Solved! ⭐`)
+    } else {
+      setBlind75SolvedMap((prev) => {
+        const updated = { ...prev, [num]: !prev[num] }
+        try {
+          localStorage.setItem('leetmastery_blind75_solved', JSON.stringify(updated))
+        } catch {}
+        return updated
+      })
+      setToast(blind75SolvedMap[num] ? `Marked #${num} as Unsolved` : `Blind 75 #${num} Solved! 🧠`)
     }
   }
 
@@ -459,7 +512,13 @@ function App() {
     setDifficulty('All')
     setApproachMode('optimal')
     setTestStatus({ isRunning: false, hasRun: false, outputLog: [], percentile: '98.4%' })
-    setToast(section === 'imp' ? '⭐ Switched to Imp Questions (78 DSA in Python)!' : '⚡ Switched to Core Patterns (100+ LeetCode)!')
+    setToast(
+      section === 'imp'
+        ? '⭐ Switched to Imp Questions (78 DSA in Python)!'
+        : section === 'blind75'
+        ? '🧠 Switched to NeetCode Blind 75 (75 Essential Problems)!'
+        : '⚡ Switched to Core Patterns (100+ LeetCode)!'
+    )
   }
 
   const currentApproach = useMemo(() => {
@@ -577,8 +636,10 @@ ${code}`
   const selectProblem = (num: number) => {
     if (activeSection === 'core') {
       setSelectedCoreProblemNumber(num)
-    } else {
+    } else if (activeSection === 'imp') {
       setSelectedImpProblemNumber(num)
+    } else {
+      setSelectedBlind75ProblemNumber(num)
     }
     setApproachMode('optimal')
     setTestStatus({ isRunning: false, hasRun: false, outputLog: [], percentile: '98.4%' })
@@ -601,8 +662,8 @@ ${code}`
           <span className="brand-title">
             leet<span className="brand-accent">mastery</span>
           </span>
-          <span className={`brand-version-badge ${activeSection === 'imp' ? 'imp-badge-brand' : ''}`}>
-            {activeSection === 'core' ? '100+ PATTERNS' : '78 DSA PYTHON'}
+          <span className={`brand-version-badge ${activeSection === 'imp' ? 'imp-badge-brand' : activeSection === 'blind75' ? 'blind75-badge-brand' : ''}`}>
+            {activeSection === 'core' ? '100+ PATTERNS' : activeSection === 'imp' ? '78 DSA PYTHON' : 'BLIND 75 NEETCODE'}
           </span>
         </div>
 
@@ -628,6 +689,16 @@ ${code}`
             <span>Imp Questions</span>
             <span className="section-tab-badge imp-badge">78 DSA</span>
           </button>
+          <button
+            type="button"
+            className={`section-tab-btn blind75-tab ${activeSection === 'blind75' ? 'active' : ''}`}
+            onClick={() => switchSection('blind75')}
+            title="Switch to NeetCode Blind 75 practice problems"
+          >
+            <Brain size={13} className="blind75-icon" />
+            <span>Blind 75</span>
+            <span className="section-tab-badge blind75-badge">75 BLIND</span>
+          </button>
         </div>
 
         <div className="topbar-center">
@@ -638,7 +709,9 @@ ${code}`
               placeholder={
                 activeSection === 'core'
                   ? 'Search 100+ problems, patterns, tags...'
-                  : 'Search 78 DSA in Python questions, topics...'
+                  : activeSection === 'imp'
+                  ? 'Search 78 DSA in Python questions, topics...'
+                  : 'Search 75 Blind problems, patterns, tags...'
               }
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -683,8 +756,20 @@ ${code}`
         <aside className="sidebar">
           <div className="sidebar-heading">
             <div className="heading-title">
-              {activeSection === 'core' ? <Layers size={13} /> : <Star size={13} className="star-icon" />}
-              <span>{activeSection === 'core' ? 'Core Patterns' : 'DSA in Python'} ({activeProblemList.length})</span>
+              {activeSection === 'core' ? (
+                <Layers size={13} />
+              ) : activeSection === 'imp' ? (
+                <Star size={13} className="star-icon" />
+              ) : (
+                <Brain size={13} className="blind75-icon" />
+              )}
+              <span>
+                {activeSection === 'core'
+                  ? 'Core Patterns'
+                  : activeSection === 'imp'
+                  ? 'DSA in Python'
+                  : 'Blind 75'} ({activeProblemList.length})
+              </span>
             </div>
             <span className="count-badge">{filteredProblems.length}</span>
           </div>
@@ -807,7 +892,13 @@ ${code}`
           {/* Sidebar Progress Footer */}
           <div className="sidebar-footer">
             <div className="progress-line">
-              <span>{activeSection === 'core' ? 'Mastery Progress' : 'Imp Questions Progress'}</span>
+              <span>
+                {activeSection === 'core'
+                  ? 'Mastery Progress'
+                  : activeSection === 'imp'
+                  ? 'Imp Questions Progress'
+                  : 'Blind 75 Progress'}
+              </span>
               <strong>
                 {solvedCount} / {activeProblemList.length} ({Math.round((solvedCount / activeProblemList.length) * 100)}%)
               </strong>
@@ -817,11 +908,29 @@ ${code}`
             </div>
             <div className="streak-banner">
               <div className="streak-icon">
-                {activeSection === 'core' ? <Flame size={14} /> : <Star size={14} />}
+                {activeSection === 'core' ? (
+                  <Flame size={14} />
+                ) : activeSection === 'imp' ? (
+                  <Star size={14} />
+                ) : (
+                  <Brain size={14} className="blind75-icon" />
+                )}
               </div>
               <div className="streak-info">
-                <strong>{activeSection === 'core' ? 'LeetCode Ready' : 'GitHub DSA in Python'}</strong>
-                <small>{activeSection === 'core' ? 'Best & Worst algorithmic patterns' : '78 Curated Striver & FAANG questions'}</small>
+                <strong>
+                  {activeSection === 'core'
+                    ? 'LeetCode Ready'
+                    : activeSection === 'imp'
+                    ? 'GitHub DSA in Python'
+                    : 'NeetCode Blind 75'}
+                </strong>
+                <small>
+                  {activeSection === 'core'
+                    ? 'Best & Worst algorithmic patterns'
+                    : activeSection === 'imp'
+                    ? '78 Curated Striver & FAANG questions'
+                    : '75 Essential algorithmic interview problems'}
+                </small>
               </div>
             </div>
 
@@ -849,7 +958,7 @@ ${code}`
           <section className="problem-top-banner">
             <div className="problem-header-left">
               <div className="breadcrumb-nav">
-                <span>{activeSection === 'core' ? 'LeetCode' : 'DSA in Python (GitHub)'}</span>
+                <span>{activeSection === 'core' ? 'LeetCode' : activeSection === 'imp' ? 'DSA in Python (GitHub)' : 'NeetCode Blind 75'}</span>
                 <ArrowRight size={12} />
                 <span>{currentProblem.category || currentProblem.topics[0]}</span>
                 <ArrowRight size={12} />
@@ -890,16 +999,31 @@ ${code}`
                   ))}
                 </div>
 
-                <a
-                  className="leetcode-direct-link"
-                  href={currentProblem.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Open Problem Reference"
-                >
-                  <span>{currentProblem.url.includes('leetcode.com') ? 'LeetCode' : (currentProblem.url.includes('takeuforward.org') ? 'Striver DSA' : 'Reference')}</span>
-                  <ExternalLink size={12} />
-                </a>
+                <div className="problem-external-links-wrap">
+                  <a
+                    className="leetcode-direct-link"
+                    href={currentProblem.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={`Open #${currentProblem.number} on LeetCode`}
+                  >
+                    <span>{currentProblem.url.includes('leetcode.com') ? 'LeetCode' : (currentProblem.url.includes('takeuforward.org') ? 'Striver DSA' : 'Reference')}</span>
+                    <ExternalLink size={12} />
+                  </a>
+
+                  {currentProblem.neetcodeUrl && (
+                    <a
+                      className="neetcode-direct-link"
+                      href={currentProblem.neetcodeUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      title={`Open ${currentProblem.title} on NeetCode.io`}
+                    >
+                      <span>NeetCode</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </section>
@@ -1330,7 +1454,7 @@ ${code}`
                   {/* Xcode Breadcrumbs */}
                   <div className="xcode-breadcrumbs">
                     <TerminalSquare size={12} className="xcode-icon" />
-                    <span className="crumb">{activeSection === 'core' ? 'LeetMastery' : 'DSA_in_Python'}</span>
+                    <span className="crumb">{activeSection === 'core' ? 'LeetMastery' : activeSection === 'imp' ? 'DSA_in_Python' : 'NeetCode_Blind75'}</span>
                     <span className="sep">›</span>
                     <span className="crumb">{currentProblem.category || 'Solutions'}</span>
                     <span className="sep">›</span>

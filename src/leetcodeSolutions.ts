@@ -11,7 +11,8 @@ export type Problem = {
   url: string
   category?: string
   solved?: boolean
-  source?: 'core' | 'imp'
+  source?: 'core' | 'imp' | 'blind75'
+  neetcodeUrl?: string
 }
 
 export type CodeByLanguage = {

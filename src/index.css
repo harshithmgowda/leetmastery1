@@ -2595,3 +2595,314 @@ kbd {
   }
 }
 
+/* ==========================================================================
+   Learn with Pattern (Python Masterclass) Styles
+   ========================================================================== */
+
+.section-tab-btn.pattern-tab.active {
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.22) 0%, rgba(56, 189, 248, 0.08) 100%);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 1px 6px rgba(56, 189, 248, 0.2);
+}
+
+.section-tab-btn.pattern-tab.active .section-tab-badge.pattern-badge {
+  background: rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+}
+
+.pattern-badge-brand {
+  background: rgba(56, 189, 248, 0.15) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
+
+.pattern-sparkle-icon {
+  color: #38bdf8;
+}
+
+/* Pattern Mode Selector (Important vs All Questions) in Sidebar */
+.pattern-mode-selector-wrap {
+  display: flex;
+  gap: 6px;
+  background: var(--lc-bg-card);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--lc-border);
+  margin-bottom: 10px;
+}
+
+.pattern-mode-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--lc-text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pattern-mode-pill:hover {
+  color: var(--lc-text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pattern-mode-pill.active {
+  background: rgba(56, 189, 248, 0.14);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 1px 4px rgba(56, 189, 248, 0.15);
+}
+
+.pattern-mode-pill.active.important-mode {
+  background: rgba(234, 179, 8, 0.14);
+  color: #facc15;
+  border-color: rgba(234, 179, 8, 0.35);
+}
+
+.mode-count {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.pattern-mode-pill.active .mode-count {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.important-star-pill {
+  font-size: 11px;
+  color: #facc15;
+  margin-left: 2px;
+}
+
+/* Python Exclusive Pill in Studio Toolbar */
+.python-only-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.02em;
+}
+
+.python-only-pill .python-emoji {
+  font-size: 13px;
+}
+
+/* Pattern Blueprint Tab and Content */
+.study-tab.pattern-blueprint-tab {
+  color: #38bdf8;
+}
+
+.study-tab.pattern-blueprint-tab.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+}
+
+.pattern-blueprint-pill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+
+.pattern-blueprint-card {
+  background: var(--lc-bg-card);
+  border: 1px solid var(--lc-border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pattern-hero-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--lc-border);
+}
+
+.pattern-hero-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--lc-text-primary);
+}
+
+.pattern-hero-tagline {
+  color: var(--lc-text-secondary);
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.pattern-heuristic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.blueprint-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lc-text-primary);
+  margin: 16px 0 8px 0;
+}
+
+.triggers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.trigger-item-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--lc-bg-elevated);
+  border: 1px solid var(--lc-border);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--lc-text-secondary);
+  line-height: 1.4;
+}
+
+.trigger-check-icon {
+  color: #38bdf8;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mental-model-box {
+  background: rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--lc-text-primary);
+  margin-bottom: 16px;
+}
+
+.template-code-box {
+  position: relative;
+  background: #141820;
+  border: 1px solid var(--lc-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.template-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #0f1218;
+  border-bottom: 1px solid #1f2937;
+}
+
+.template-code-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.template-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--lc-text-secondary);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.template-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--lc-text-primary);
+}
+
+.template-pre {
+  margin: 0;
+  padding: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: #e2e8f0;
+  overflow-x: auto;
+}
+
+.template-points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.template-points-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--lc-text-secondary);
+  line-height: 1.4;
+}
+
+.blueprint-mapping-card {
+  background: rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--lc-text-primary);
+  margin-top: 14px;
+}
+
+

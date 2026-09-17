@@ -58,10 +58,19 @@ import {
   hasVisualizer,
   getVisualizer,
 } from './visualizerConfig'
+import {
+  PATTERNS_LIST,
+  PATTERN_TOPICS_LIST,
+  patternProblemsSeed,
+  getPatternMeta,
+  getPatternDetailedProblemData,
+  PatternProblem,
+} from './learnPatternData'
 
 type Language = 'python' | 'cpp'
-type TabMode = 'overview' | 'comparison' | 'walkthrough' | 'edgecases' | 'visualizer'
-type SectionMode = 'core' | 'imp' | 'blind75'
+type TabMode = 'overview' | 'patternBlueprint' | 'comparison' | 'walkthrough' | 'edgecases' | 'visualizer'
+type SectionMode = 'core' | 'imp' | 'blind75' | 'patterns'
+type PatternFilterMode = 'important' | 'all'
 
 const allProblemsSeed: Problem[] = [
   // Arrays & Hashing
@@ -334,6 +343,8 @@ function App() {
   const [selectedCoreProblemNumber, setSelectedCoreProblemNumber] = useState(509)
   const [selectedImpProblemNumber, setSelectedImpProblemNumber] = useState(1001)
   const [selectedBlind75ProblemNumber, setSelectedBlind75ProblemNumber] = useState(217)
+  const [selectedPatternProblemNumber, setSelectedPatternProblemNumber] = useState(167)
+  const [patternFilterMode, setPatternFilterMode] = useState<PatternFilterMode>('important')
   const [approachMode, setApproachMode] = useState<'optimal' | 'brute' | 'alternative'>('optimal')
   const [language, setLanguage] = useState<Language>('python')
   const [activeTab, setActiveTab] = useState<TabMode>('overview')
@@ -355,6 +366,20 @@ function App() {
     'Graphs': true,
     '1-D Dynamic Programming': true,
     'Intervals': true,
+    'Two Pointers (Opposite & Inward)': true,
+    'Sliding Window (Variable & Fixed)': true,
+    'Fast & Slow Pointers (Floyd’s Cycle)': true,
+    'Monotonic Stack & Queue': true,
+    'Modified Binary Search & Search on Answer': true,
+    'Prefix Sum & Hash Map': true,
+    'Linked List In-Place Reversal': true,
+    'Tree & Graph BFS (Level-Order Traversal)': true,
+    'Tree DFS (Divide & Conquer / Subtree Properties)': true,
+    'Top "K" Elements (Heaps & Priority Queues)': true,
+    'Backtracking (Subsets, Permutations & Grid)': true,
+    'Graph Traversal (BFS, DFS & Topological Sort)': true,
+    '2-D Dynamic Programming & Knapsack': true,
+    'Greedy & Bit Manipulation': true,
   })
 
   // Track solved problems in localStorage independently
@@ -385,6 +410,15 @@ function App() {
     }
   })
 
+  const [patternSolvedMap, setPatternSolvedMap] = useState<Record<number, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem('leetmastery_pattern_solved')
+      return saved ? JSON.parse(saved) : { 125: true, 167: true }
+    } catch {
+      return { 125: true, 167: true }
+    }
+  })
+
   // Test simulation state
   const [testStatus, setTestStatus] = useState<{
     isRunning: boolean
@@ -401,13 +435,17 @@ function App() {
   const activeProblemList = useMemo(() => {
     if (activeSection === 'core') return allProblemsSeed
     if (activeSection === 'imp') return impProblemsSeed
-    return blind75ProblemsSeed
-  }, [activeSection])
+    if (activeSection === 'blind75') return blind75ProblemsSeed
+    return patternFilterMode === 'important'
+      ? patternProblemsSeed.filter((p) => p.isImportant)
+      : patternProblemsSeed
+  }, [activeSection, patternFilterMode])
 
   const activeTopicsList = useMemo(() => {
     if (activeSection === 'core') return TOPICS_LIST
     if (activeSection === 'imp') return IMP_TOPICS_LIST
-    return BLIND75_TOPICS_LIST
+    if (activeSection === 'blind75') return BLIND75_TOPICS_LIST
+    return PATTERN_TOPICS_LIST
   }, [activeSection])
 
   const currentSolvedMap =
@@ -415,14 +453,18 @@ function App() {
       ? coreSolvedMap
       : activeSection === 'imp'
       ? impSolvedMap
-      : blind75SolvedMap
+      : activeSection === 'blind75'
+      ? blind75SolvedMap
+      : patternSolvedMap
 
   const selectedProblemNumber =
     activeSection === 'core'
       ? selectedCoreProblemNumber
       : activeSection === 'imp'
       ? selectedImpProblemNumber
-      : selectedBlind75ProblemNumber
+      : activeSection === 'blind75'
+      ? selectedBlind75ProblemNumber
+      : selectedPatternProblemNumber
 
   const currentProblem = useMemo(() => {
     return activeProblemList.find((p) => p.number === selectedProblemNumber) ?? activeProblemList[0]
@@ -440,8 +482,21 @@ function App() {
         currentProblem.pattern
       )
     }
+    if (activeSection === 'patterns') {
+      return getPatternDetailedProblemData(
+        currentProblem.number,
+        currentProblem.title,
+        currentProblem.category,
+        currentProblem.pattern
+      )
+    }
     return getDetailedProblemData(currentProblem.title, currentProblem.category, currentProblem.pattern)
   }, [activeSection, currentProblem])
+
+  const currentPatternMeta = useMemo(() => {
+    const cat = (currentProblem as any).patternCategory || currentProblem.category || ''
+    return getPatternMeta(cat) || getPatternMeta(currentProblem.pattern) || PATTERNS_LIST[0]
+  }, [currentProblem])
 
   // Category auto-expand
   useEffect(() => {
@@ -488,6 +543,15 @@ function App() {
         return updated
       })
       setToast(impSolvedMap[num] ? `Marked #${num} as Unsolved` : `DSA Problem #${num} Solved! ⭐`)
+    } else if (activeSection === 'patterns') {
+      setPatternSolvedMap((prev) => {
+        const updated = { ...prev, [num]: !prev[num] }
+        try {
+          localStorage.setItem('leetmastery_pattern_solved', JSON.stringify(updated))
+        } catch {}
+        return updated
+      })
+      setToast(patternSolvedMap[num] ? `Marked #${num} as Unsolved` : `Pattern Problem #${num} Solved! 🎯`)
     } else {
       setBlind75SolvedMap((prev) => {
         const updated = { ...prev, [num]: !prev[num] }
@@ -517,6 +581,8 @@ function App() {
         ? '⭐ Switched to Imp Questions (78 DSA in Python)!'
         : section === 'blind75'
         ? '🧠 Switched to NeetCode Blind 75 (75 Essential Problems)!'
+        : section === 'patterns'
+        ? '🎯 Switched to Learn with Pattern (Python Masterclass)!'
         : '⚡ Switched to Core Patterns (100+ LeetCode)!'
     )
   }
@@ -528,13 +594,16 @@ function App() {
   }, [approachMode, problemData])
 
   const currentCodeLines = useMemo(() => {
+    if (activeSection === 'patterns') {
+      return currentApproach.code.python || []
+    }
     return currentApproach.code[language] || currentApproach.code.python || []
-  }, [currentApproach, language])
+  }, [currentApproach, language, activeSection])
 
   const copySolution = () => {
     navigator.clipboard.writeText(currentCodeLines.join('\n'))
     setCopied(true)
-    setToast(`Copied ${language.toUpperCase()} code! ✨`)
+    setToast(activeSection === 'patterns' ? 'Copied Python 3 Pattern Code! 🐍' : `Copied ${language.toUpperCase()} code! ✨`)
     setTimeout(() => setCopied(false), 2200)
   }
 
@@ -542,7 +611,7 @@ function App() {
   const openChatGPT = () => {
     const code = currentCodeLines.join('\n')
     const approachLabel = approachMode === 'optimal' ? 'Best (Optimal)' : (approachMode === 'brute' ? 'Worst (Brute Force)' : 'Alternative')
-    const prompt = `Explain Problem #${currentProblem.number}: ${currentProblem.title} (${currentProblem.pattern} pattern) step-by-step from absolute scratch.
+    const prompt = `Explain Problem #${currentProblem.number}: ${currentProblem.title} (${currentProblem.pattern} pattern) step-by-step from absolute scratch in Python.
 
 Current Active Approach: ${approachLabel} - ${currentApproach.title}
 Time Complexity: ${currentApproach.timeComplexity} (${currentApproach.timeComplexityDetail})
@@ -555,7 +624,7 @@ Assume I am a beginner with zero algorithmic experience:
 4. Walk through a detailed step-by-step dry run on example: "${problemData.examples[0]?.input || 'standard example'}" tracking variable and pointer states in memory.
 5. Explain the Time Complexity ${currentApproach.timeComplexity} and Space Complexity ${currentApproach.spaceComplexity} with clear derivations.
 
-Here is the solution code (${language.toUpperCase()}):
+Here is the solution code (Python 3):
 ${code}`
 
     const url = `https://chatgpt.com/?q=${encodeURIComponent(prompt)}`
@@ -617,11 +686,14 @@ ${code}`
   const groupedProblems = useMemo(() => {
     const groups = new Map<string, Problem[]>()
     filteredProblems.forEach((p) => {
-      const category = p.category ?? (p.topics.includes('Arrays') && p.topics.includes('Hashing') ? 'Arrays & Hashing' : 'Other')
+      const category =
+        activeSection === 'patterns'
+          ? (p as PatternProblem).patternCategory || p.category || 'Other'
+          : p.category ?? (p.topics.includes('Arrays') && p.topics.includes('Hashing') ? 'Arrays & Hashing' : 'Other')
       groups.set(category, [...(groups.get(category) ?? []), p])
     })
     return Array.from(groups.entries())
-  }, [filteredProblems])
+  }, [filteredProblems, activeSection])
 
   const solvedCount = useMemo(() => {
     return activeProblemList.filter((p) => currentSolvedMap[p.number]).length
@@ -638,8 +710,10 @@ ${code}`
       setSelectedCoreProblemNumber(num)
     } else if (activeSection === 'imp') {
       setSelectedImpProblemNumber(num)
-    } else {
+    } else if (activeSection === 'blind75') {
       setSelectedBlind75ProblemNumber(num)
+    } else {
+      setSelectedPatternProblemNumber(num)
     }
     setApproachMode('optimal')
     setTestStatus({ isRunning: false, hasRun: false, outputLog: [], percentile: '98.4%' })
@@ -662,8 +736,14 @@ ${code}`
           <span className="brand-title">
             leet<span className="brand-accent">mastery</span>
           </span>
-          <span className={`brand-version-badge ${activeSection === 'imp' ? 'imp-badge-brand' : activeSection === 'blind75' ? 'blind75-badge-brand' : ''}`}>
-            {activeSection === 'core' ? '100+ PATTERNS' : activeSection === 'imp' ? '78 DSA PYTHON' : 'BLIND 75 NEETCODE'}
+          <span className={`brand-version-badge ${activeSection === 'imp' ? 'imp-badge-brand' : activeSection === 'blind75' ? 'blind75-badge-brand' : activeSection === 'patterns' ? 'pattern-badge-brand' : ''}`}>
+            {activeSection === 'core'
+              ? '100+ PATTERNS'
+              : activeSection === 'imp'
+              ? '78 DSA PYTHON'
+              : activeSection === 'blind75'
+              ? 'BLIND 75 NEETCODE'
+              : '16 PATTERNS • PYTHON'}
           </span>
         </div>
 
@@ -678,6 +758,16 @@ ${code}`
             <Zap size={13} />
             <span>Core Patterns</span>
             <span className="section-tab-badge">100+</span>
+          </button>
+          <button
+            type="button"
+            className={`section-tab-btn pattern-tab ${activeSection === 'patterns' ? 'active' : ''}`}
+            onClick={() => switchSection('patterns')}
+            title="Switch to Learn with Pattern (Python Masterclass with Important & All Questions)"
+          >
+            <Sparkles size={13} className="pattern-sparkle-icon" />
+            <span>Learn with Pattern</span>
+            <span className="section-tab-badge pattern-badge">16 PATTERNS</span>
           </button>
           <button
             type="button"
@@ -711,7 +801,9 @@ ${code}`
                   ? 'Search 100+ problems, patterns, tags...'
                   : activeSection === 'imp'
                   ? 'Search 78 DSA in Python questions, topics...'
-                  : 'Search 75 Blind problems, patterns, tags...'
+                  : activeSection === 'blind75'
+                  ? 'Search 75 Blind problems, patterns, tags...'
+                  : 'Search 16 patterns, important questions, topics...'
               }
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -760,19 +852,51 @@ ${code}`
                 <Layers size={13} />
               ) : activeSection === 'imp' ? (
                 <Star size={13} className="star-icon" />
-              ) : (
+              ) : activeSection === 'blind75' ? (
                 <Brain size={13} className="blind75-icon" />
+              ) : (
+                <Sparkles size={13} className="pattern-sparkle-icon" />
               )}
               <span>
                 {activeSection === 'core'
                   ? 'Core Patterns'
                   : activeSection === 'imp'
                   ? 'DSA in Python'
-                  : 'Blind 75'} ({activeProblemList.length})
+                  : activeSection === 'blind75'
+                  ? 'Blind 75'
+                  : 'Pattern Masterclass'} ({activeProblemList.length})
               </span>
             </div>
             <span className="count-badge">{filteredProblems.length}</span>
           </div>
+
+          {/* If in Learn with Pattern mode: Important Questions vs All Questions Toggle */}
+          {activeSection === 'patterns' && (
+            <div className="pattern-mode-selector-wrap">
+              <button
+                type="button"
+                className={`pattern-mode-pill ${patternFilterMode === 'important' ? 'active important-mode' : ''}`}
+                onClick={() => setPatternFilterMode('important')}
+                title="Show Essential High-Frequency Important Questions for each pattern"
+              >
+                <Star size={12} className="star-icon" />
+                <span>⭐ Important</span>
+                <span className="mode-count">
+                  {patternProblemsSeed.filter((p) => p.isImportant).length}
+                </span>
+              </button>
+              <button
+                type="button"
+                className={`pattern-mode-pill ${patternFilterMode === 'all' ? 'active' : ''}`}
+                onClick={() => setPatternFilterMode('all')}
+                title="Show All practice questions under each pattern"
+              >
+                <Layers size={12} />
+                <span>📚 All Questions</span>
+                <span className="mode-count">{patternProblemsSeed.length}</span>
+              </button>
+            </div>
+          )}
 
           {/* Difficulty Filter Pills */}
           <div className="filter-row">
@@ -875,6 +999,9 @@ ${code}`
                               <span className="problem-title-text">{problem.title}</span>
                               <span className="problem-pattern-text">{problem.pattern}</span>
                             </div>
+                            {activeSection === 'patterns' && (problem as PatternProblem).isImportant && (
+                              <span className="important-star-pill" title="Core High-Frequency Important Question">⭐</span>
+                            )}
                             <span className={`mini-diff-badge ${problem.difficulty.toLowerCase()}`}>
                               {problem.difficulty[0]}
                             </span>
@@ -897,7 +1024,9 @@ ${code}`
                   ? 'Mastery Progress'
                   : activeSection === 'imp'
                   ? 'Imp Questions Progress'
-                  : 'Blind 75 Progress'}
+                  : activeSection === 'blind75'
+                  ? 'Blind 75 Progress'
+                  : 'Pattern Progress'}
               </span>
               <strong>
                 {solvedCount} / {activeProblemList.length} ({Math.round((solvedCount / activeProblemList.length) * 100)}%)
@@ -912,8 +1041,10 @@ ${code}`
                   <Flame size={14} />
                 ) : activeSection === 'imp' ? (
                   <Star size={14} />
-                ) : (
+                ) : activeSection === 'blind75' ? (
                   <Brain size={14} className="blind75-icon" />
+                ) : (
+                  <Sparkles size={14} className="pattern-sparkle-icon" />
                 )}
               </div>
               <div className="streak-info">
@@ -922,14 +1053,18 @@ ${code}`
                     ? 'LeetCode Ready'
                     : activeSection === 'imp'
                     ? 'GitHub DSA in Python'
-                    : 'NeetCode Blind 75'}
+                    : activeSection === 'blind75'
+                    ? 'NeetCode Blind 75'
+                    : 'Python Pattern Ready'}
                 </strong>
                 <small>
                   {activeSection === 'core'
                     ? 'Best & Worst algorithmic patterns'
                     : activeSection === 'imp'
                     ? '78 Curated Striver & FAANG questions'
-                    : '75 Essential algorithmic interview problems'}
+                    : activeSection === 'blind75'
+                    ? '75 Essential algorithmic interview problems'
+                    : '16 Universal Python pattern blueprints'}
                 </small>
               </div>
             </div>
@@ -958,7 +1093,15 @@ ${code}`
           <section className="problem-top-banner">
             <div className="problem-header-left">
               <div className="breadcrumb-nav">
-                <span>{activeSection === 'core' ? 'LeetCode' : activeSection === 'imp' ? 'DSA in Python (GitHub)' : 'NeetCode Blind 75'}</span>
+                <span>
+                  {activeSection === 'core'
+                    ? 'LeetCode'
+                    : activeSection === 'imp'
+                    ? 'DSA in Python (GitHub)'
+                    : activeSection === 'blind75'
+                    ? 'NeetCode Blind 75'
+                    : 'Learn with Pattern (Python)'}
+                </span>
                 <ArrowRight size={12} />
                 <span>{currentProblem.category || currentProblem.topics[0]}</span>
                 <ArrowRight size={12} />
@@ -1081,6 +1224,16 @@ ${code}`
                     <span className="visualizer-tab-pill">Live</span>
                   </button>
                 )}
+                {activeSection === 'patterns' && (
+                  <button
+                    className={`study-tab pattern-blueprint-tab ${activeTab === 'patternBlueprint' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('patternBlueprint')}
+                  >
+                    <Brain size={14} className="pattern-blueprint-icon" />
+                    <span>Pattern Blueprint & Python Template</span>
+                    <span className="pattern-blueprint-pill">Python</span>
+                  </button>
+                )}
                 <button
                   className={`study-tab ${activeTab === 'overview' ? 'active' : ''}`}
                   onClick={() => setActiveTab('overview')}
@@ -1113,6 +1266,94 @@ ${code}`
 
               {/* Tab Content Panels */}
               <div className="study-tab-content">
+                {/* TAB: Pattern Blueprint & Python Template */}
+                {activeTab === 'patternBlueprint' && (
+                  <div className="tab-pane pattern-blueprint-pane">
+                    <div className="pattern-blueprint-card">
+                      <div className="pattern-hero-header">
+                        <div>
+                          <div className="pattern-hero-title">
+                            <Sparkles size={16} className="pattern-sparkle-icon" />
+                            <span>{currentPatternMeta.name}</span>
+                          </div>
+                          <p className="pattern-hero-tagline">{currentPatternMeta.tagline}</p>
+                        </div>
+                        <span className="pattern-heuristic-pill">
+                          ⚡ {currentPatternMeta.timeSpaceHeuristic}
+                        </span>
+                      </div>
+
+                      {/* When to recognize in interviews */}
+                      <div className="blueprint-section-heading">
+                        <ShieldAlert size={14} className="pattern-sparkle-icon" />
+                        <span>Interview Recognition Triggers (When to Use)</span>
+                      </div>
+                      <div className="triggers-grid">
+                        {currentPatternMeta.triggers.map((trig, idx) => (
+                          <div key={idx} className="trigger-item-card">
+                            <Check size={13} className="trigger-check-icon" />
+                            <span>{trig}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Mental Model */}
+                      <div className="blueprint-section-heading">
+                        <Lightbulb size={14} className="pattern-sparkle-icon" />
+                        <span>Mental Model & Algorithmic Mechanics</span>
+                      </div>
+                      <div className="mental-model-box">
+                        <p>{currentPatternMeta.mentalModel}</p>
+                      </div>
+
+                      {/* Universal Python Template */}
+                      <div className="blueprint-section-heading">
+                        <Code2 size={14} className="pattern-sparkle-icon" />
+                        <span>Universal Python 3 Blueprint Template</span>
+                      </div>
+                      <div className="template-code-box">
+                        <div className="template-code-header">
+                          <div className="template-code-title">
+                            <span>🐍 {currentPatternMeta.name} Blueprint</span>
+                          </div>
+                          <button
+                            className="template-copy-btn"
+                            onClick={() => {
+                              navigator.clipboard.writeText(currentPatternMeta.pythonTemplate.join('\n'))
+                              setToast('Copied Pattern Template! 📋')
+                            }}
+                          >
+                            <Copy size={11} />
+                            <span>Copy Template</span>
+                          </button>
+                        </div>
+                        <pre className="template-pre">
+                          <code>{currentPatternMeta.pythonTemplate.join('\n')}</code>
+                        </pre>
+                      </div>
+
+                      {/* Template Points */}
+                      <ul className="template-points-list">
+                        {currentPatternMeta.templateExplanation.map((point, idx) => (
+                          <li key={idx}>
+                            <Zap size={12} className="tip-bullet-icon" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* How this question connects to the pattern */}
+                      <div className="blueprint-mapping-card">
+                        <strong>📌 How #{currentProblem.number} ({currentProblem.title}) fits this pattern:</strong>
+                        <p style={{ marginTop: '6px', color: 'var(--lc-text-secondary)' }}>
+                          This problem is a direct realization of the <code>{currentProblem.pattern}</code> strategy. 
+                          By adhering to the invariant (<code>{problemData.keyInvariant}</code>), you adapt the blueprint above without changing the core pointer/window mechanics.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* TAB 1: Problem Overview & Intuition */}
                 {activeTab === 'overview' && (
                   <div className="tab-pane">
@@ -1454,13 +1695,21 @@ ${code}`
                   {/* Xcode Breadcrumbs */}
                   <div className="xcode-breadcrumbs">
                     <TerminalSquare size={12} className="xcode-icon" />
-                    <span className="crumb">{activeSection === 'core' ? 'LeetMastery' : activeSection === 'imp' ? 'DSA_in_Python' : 'NeetCode_Blind75'}</span>
+                    <span className="crumb">
+                      {activeSection === 'core'
+                        ? 'LeetMastery'
+                        : activeSection === 'imp'
+                        ? 'DSA_in_Python'
+                        : activeSection === 'blind75'
+                        ? 'NeetCode_Blind75'
+                        : 'Pattern_Masterclass'}
+                    </span>
                     <span className="sep">›</span>
                     <span className="crumb">{currentProblem.category || 'Solutions'}</span>
                     <span className="sep">›</span>
                     <span className="crumb file-name">
                       {currentProblem.title.toLowerCase().replace(/[^a-z0-9]/g, '_')}
-                      {language === 'python' ? '.py' : '.cpp'}
+                      {activeSection === 'patterns' || language === 'python' ? '.py' : '.cpp'}
                     </span>
                     <span className="sep">›</span>
                     <span className="crumb scope">{approachMode === 'optimal' ? '⚡ Optimal' : '🐢 BruteForce'}</span>
@@ -1526,17 +1775,24 @@ ${code}`
                     )}
                   </div>
 
-                  {/* Language Selector (Python 3 & C++) */}
+                  {/* Language Selector (Python 3 Exclusive in Pattern mode) */}
                   <div className="language-selector">
-                    {(['python', 'cpp'] as const).map((lang) => (
-                      <button
-                        key={lang}
-                        className={`lang-btn ${language === lang ? 'active' : ''}`}
-                        onClick={() => setLanguage(lang)}
-                      >
-                        {lang === 'python' ? 'Python 3' : 'C++'}
-                      </button>
-                    ))}
+                    {activeSection === 'patterns' ? (
+                      <div className="python-only-pill" title="Learn with Pattern is exclusively implemented in Python 3">
+                        <span className="python-emoji">🐍</span>
+                        <span>Python 3 Exclusive</span>
+                      </div>
+                    ) : (
+                      (['python', 'cpp'] as const).map((lang) => (
+                        <button
+                          key={lang}
+                          className={`lang-btn ${language === lang ? 'active' : ''}`}
+                          onClick={() => setLanguage(lang)}
+                        >
+                          {lang === 'python' ? 'Python 3' : 'C++'}
+                        </button>
+                      ))
+                    )}
                   </div>
                 </div>
 

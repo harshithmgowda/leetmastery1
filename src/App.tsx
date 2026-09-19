@@ -730,23 +730,20 @@ ${code}`
       {/* Top Navigation Bar - LeetCode Inspired */}
       <header className="topbar">
         <div className="brand-lockup">
-          <div className="apple-menu-btn" title="About LeetMastery (Apple System 7)">
-            <span className="apple-glyph"></span>
-          </div>
-          <div className="brand-mark">
-            <Zap size={14} strokeWidth={2.8} />
+          <div className="brand-mark sticker-badge" title="LeetMastery — High-Energy Neobrutalism">
+            <Zap size={16} strokeWidth={3} />
           </div>
           <span className="brand-title">
-            leet<span className="brand-accent">mastery</span>
+            LEET<span className="brand-accent">MASTERY</span>
           </span>
-          <span className={`brand-version-badge ${activeSection === 'imp' ? 'imp-badge-brand' : activeSection === 'blind75' ? 'blind75-badge-brand' : activeSection === 'patterns' ? 'pattern-badge-brand' : ''}`}>
+          <span className={`brand-version-badge sticker-pill ${activeSection === 'imp' ? 'imp-badge-brand' : activeSection === 'blind75' ? 'blind75-badge-brand' : activeSection === 'patterns' ? 'pattern-badge-brand' : ''}`}>
             {activeSection === 'core'
-              ? '100+ PATTERNS'
+              ? '⚡ 100+ PATTERNS'
               : activeSection === 'imp'
-              ? '78 DSA PYTHON'
+              ? '⭐ 78 DSA PYTHON'
               : activeSection === 'blind75'
-              ? 'BLIND 75 NEETCODE'
-              : '16 PATTERNS • PYTHON'}
+              ? '🧠 BLIND 75'
+              : '🎯 16 PATTERNS'}
           </span>
         </div>
 
@@ -1689,14 +1686,10 @@ ${code}`
               <div className="xcode-window-studio">
                 {/* Xcode Window Header */}
                 <div className="xcode-titlebar">
-                  <div className="mac-traffic-lights" title="System 7 Close Box">
-                    <button
-                      type="button"
-                      className="system7-close-box"
-                      onClick={() => setIsExpanded(false)}
-                      title="Close"
-                      aria-label="Close"
-                    />
+                  <div className="mac-traffic-lights" title="Neobrutalist Window Controls">
+                    <span className="nb-window-dot red" />
+                    <span className="nb-window-dot amber" />
+                    <span className="nb-window-dot green" />
                   </div>
 
                   {/* Xcode Breadcrumbs */}
@@ -1739,12 +1732,12 @@ ${code}`
                       A+
                     </button>
                     <button
-                      className="xcode-tool-btn system7-zoom-btn"
+                      className="xcode-tool-btn nb-zoom-btn"
                       onClick={() => setIsExpanded((e) => !e)}
                       title={isExpanded ? 'Restore View' : 'Zoom Window'}
                       aria-label="Zoom Window"
                     >
-                      <span className="system7-zoom-icon" />
+                      {isExpanded ? <Minimize2 size={13} strokeWidth={2.8} /> : <Maximize2 size={13} strokeWidth={2.8} />}
                     </button>
                   </div>
                 </div>

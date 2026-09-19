@@ -775,7 +775,7 @@ ${code}`
             <Github size={18} />
           </div>
           <div className="brand-repo-path">
-            <span className="repo-owner">harshithmgowda</span>
+            <span className="repo-owner">developer</span>
             <span className="repo-slash">/</span>
             <span className="repo-name">leetmastery</span>
             <span className="repo-badge">Public</span>
@@ -812,15 +812,12 @@ ${code}`
             </div>
           </div>
 
-          <a
+          <div
             className="topbar-profile-link"
-            href="https://github.com/harshithmgowda?tab=repositories"
-            target="_blank"
-            rel="noreferrer"
-            title="Developed by Harshith Gowda M on GitHub"
+            title="Developer Profile"
           >
-            <span className="user-avatar-circle">HG</span>
-          </a>
+            <span className="user-avatar-circle">DEV</span>
+          </div>
         </div>
       </header>
 
@@ -1234,15 +1231,15 @@ ${code}`
             {/* Author Attribution Card */}
             <a
               className="author-footer-card"
-              href="https://github.com/harshithmgowda?tab=repositories"
+              href="https://github.com/harshithmgowda"
               target="_blank"
               rel="noreferrer"
-              title="Developed by Harshith Gowda M on GitHub"
+              title="Made by harshithgowdam"
             >
               <div className="author-avatar">⚡</div>
               <div className="author-meta">
-                <span className="author-label">Developed by</span>
-                <strong className="author-name">Harshith Gowda M</strong>
+                <span className="author-label">Made by</span>
+                <strong className="author-name">harshithgowdam</strong>
               </div>
               <ExternalLink size={12} className="author-ext-icon" />
             </a>
@@ -1334,10 +1331,10 @@ ${code}`
               {/* GitHub Latest Commit Card */}
               <div className="git-commit-card">
                 <div className="commit-card-left">
-                  <span className="commit-avatar">HG</span>
+                  <span className="commit-avatar">DEV</span>
                   <div className="commit-info">
                     <div className="commit-line-top">
-                      <span className="commit-author">harshithmgowda</span>
+                      <span className="commit-author">developer</span>
                       <span className="commit-msg">
                         feat(solution): implement optimal {currentApproach.title.toLowerCase()} for #{currentProblem.number}
                       </span>

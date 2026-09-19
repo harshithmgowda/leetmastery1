@@ -1557,106 +1557,53 @@ ${code}`
                       )}
                     </div>
 
-                    {/* Git Diff Visualization: Brute Force Deletions (-) vs Optimal Additions (+) */}
-                    <div className="git-diff-viewer">
-                      <div className="diff-file-header">
-                        <div className="diff-header-left">
-                          <FileCode size={14} className="diff-icon" />
-                          <span className="diff-tag-label">Brute Force vs Optimal</span>
-                        </div>
-                        <div className="diff-stats-pill">
-                          <span className="diff-add-count">+{currentApproach.keySteps.length * 2 + 8}</span>
-                          <span className="diff-del-count">-{problemData.bruteForce.keySteps.length * 3 + 14}</span>
-                          <div className="diff-bar-squares">
-                            <span className="diff-sq del" />
-                            <span className="diff-sq del" />
-                            <span className="diff-sq add" />
-                            <span className="diff-sq add" />
-                            <span className="diff-sq add" />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="diff-code-body">
-                        <div className="diff-hunk-header">
-                          <code>@@ -1,6 +1,8 @@ class Solution: algorithmic_breakthrough</code>
-                        </div>
-                        {/* Red Deletions - Brute Force Bottleneck */}
-                        <div className="diff-line deletion">
-                          <span className="diff-marker">−</span>
-                          <span className="diff-num">1</span>
-                          <span className="diff-text"># DEPRECATED: {problemData.bruteForce.title} ({problemData.bruteForce.timeComplexity})</span>
-                        </div>
-                        <div className="diff-line deletion">
-                          <span className="diff-marker">−</span>
-                          <span className="diff-num">2</span>
-                          <span className="diff-text"># Bottleneck: {problemData.bottleneck}</span>
-                        </div>
-                        <div className="diff-line deletion">
-                          <span className="diff-marker">−</span>
-                          <span className="diff-num">3</span>
-                          <span className="diff-text"># Result: Time Limit Exceeded (TLE) on large inputs</span>
-                        </div>
-                        
-                        {/* Green Additions - Optimal Breakthrough */}
-                        <div className="diff-line addition">
-                          <span className="diff-marker">+</span>
-                          <span className="diff-num">1</span>
-                          <span className="diff-text"># OPTIMAL: {problemData.optimal.title} ({problemData.optimal.timeComplexity})</span>
-                        </div>
-                        <div className="diff-line addition">
-                          <span className="diff-marker">+</span>
-                          <span className="diff-num">2</span>
-                          <span className="diff-text"># Invariant: {problemData.keyInvariant}</span>
-                        </div>
-                        <div className="diff-line addition">
-                          <span className="diff-marker">+</span>
-                          <span className="diff-num">3</span>
-                          <span className="diff-text"># Result: Accepted (Beats 98%+ Runtime)</span>
-                        </div>
-                        {currentApproach.keySteps.slice(0, 3).map((step, sIdx) => (
-                          <div key={sIdx} className="diff-line addition">
-                            <span className="diff-marker">+</span>
-                            <span className="diff-num">{sIdx + 4}</span>
-                            <span className="diff-text">    # Step {sIdx + 1}: {step}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Inline Code-Review Comment Capsule */}
-                    <div className="inline-review-capsule">
-                      <div className="review-capsule-header">
-                        <div className="reviewer-info">
-                          <span className="reviewer-avatar">TL</span>
-                          <span className="reviewer-name">@tech-lead</span>
-                          <span className="review-status-badge approved">Approved</span>
-                        </div>
-                        <span className="review-timestamp">reviewed 15m ago</span>
-                      </div>
-                      <div className="review-capsule-body">
-                        <p>
-                          Time complexity reduced from <code>{problemData.bruteForce.timeComplexity}</code> to{' '}
-                          <code>{problemData.optimal.timeComplexity}</code>. The algorithmic invariant{' '}
-                          <code>{problemData.keyInvariant}</code> holds across all edge cases. Solution is clean, efficient, and ready to merge.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="bottleneck-card">
-                      <div className="bottleneck-title">
-                        <ShieldAlert size={15} />
-                        <span>Why Brute Force Fails (The Bottleneck)</span>
-                      </div>
-                      <p>{problemData.bottleneck}</p>
-                    </div>
-
-                    {/* Breakthrough Explanation */}
+                    {/* Breakthrough Deep Dive Box */}
                     <div className="breakthrough-card">
-                      <div className="breakthrough-title">
-                        <Zap size={15} />
-                        <span>The Optimal Breakthrough</span>
+                      <div className="breakthrough-header">
+                        <div className="breakthrough-title">
+                          <Zap size={15} className="breakthrough-icon" />
+                          <span>The Optimal Breakthrough</span>
+                        </div>
+                        <span className="breakthrough-badge">⚡ Optimal Strategy</span>
                       </div>
-                      <p>{problemData.optimal.explanation}</p>
+                      <p className="breakthrough-desc">{problemData.optimal.explanation}</p>
+                      
+                      <div className="breakthrough-invariant-box">
+                        <span className="breakthrough-invariant-label">Guiding Invariant:</span>
+                        <code>{problemData.keyInvariant}</code>
+                      </div>
+
+                      <div className="breakthrough-steps-wrap">
+                        <span className="breakthrough-steps-title">Core Algorithmic Steps:</span>
+                        <div className="breakthrough-steps-grid">
+                          {problemData.optimal.keySteps.map((step, sIdx) => (
+                            <div key={sIdx} className="breakthrough-step-item">
+                              <span className="breakthrough-step-pill">{sIdx + 1}</span>
+                              <span className="breakthrough-step-desc">{step}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottleneck Analysis Box */}
+                    <div className="bottleneck-card">
+                      <div className="bottleneck-header">
+                        <div className="bottleneck-title">
+                          <ShieldAlert size={15} className="bottleneck-icon" />
+                          <span>Why Brute Force Fails (The Bottleneck)</span>
+                        </div>
+                        <span className="bottleneck-badge">🐢 Critical Bottleneck</span>
+                      </div>
+                      <p className="bottleneck-desc">{problemData.bottleneck}</p>
+                      <div className="bottleneck-stat-row">
+                        <span className="bottleneck-stat-pill">
+                          Time Complexity: <strong>{problemData.bruteForce.timeComplexity}</strong> ({problemData.bruteForce.timeComplexityDetail})
+                        </span>
+                        <span className="bottleneck-stat-pill red">
+                          ❌ TLE / Suboptimal on Large Inputs
+                        </span>
+                      </div>
                     </div>
                   </div>
                 )}

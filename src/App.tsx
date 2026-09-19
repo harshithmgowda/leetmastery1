@@ -5,6 +5,7 @@ import {
   Bot,
   Brain,
   Check,
+  CheckCircle,
   CheckCircle2,
   ChevronDown,
   Clock3,
@@ -14,10 +15,17 @@ import {
   Cpu,
   ExternalLink,
   Eye,
+  FileCode,
   Filter,
   Flame,
+  GitBranch,
+  GitCommit,
+  GitFork,
+  GitMerge,
+  GitPullRequest,
   Github,
   Hash,
+  History,
   Layers,
   Lightbulb,
   ListChecks,
@@ -32,6 +40,7 @@ import {
   Sparkles,
   Star,
   Sun,
+  Tag,
   TerminalSquare,
   TrendingUp,
   X,
@@ -340,6 +349,15 @@ function App() {
   const [difficulty, setDifficulty] = useState<Difficulty | 'All'>('All')
   const [topic, setTopic] = useState('All topics')
   const [isTopicDropdownOpen, setIsTopicDropdownOpen] = useState(false)
+  const [isBranchDropdownOpen, setIsBranchDropdownOpen] = useState(false)
+
+  const BRANCHES = [
+    { id: 'core' as const, name: 'main', badge: '100+ patterns', desc: 'Core 100+ LeetCode algorithmic patterns', default: true },
+    { id: 'patterns' as const, name: 'feature/learn-with-patterns', badge: '16 patterns', desc: '16 Universal Python pattern masterclass blueprints' },
+    { id: 'imp' as const, name: 'feature/dsa-python-78', badge: '78 questions', desc: '78 Curated high-yield FAANG interview questions' },
+    { id: 'blind75' as const, name: 'feature/neetcode-blind-75', badge: '75 blind', desc: '75 Essential NeetCode interview roadmap' },
+  ]
+  const currentBranch = BRANCHES.find((b) => b.id === activeSection) || BRANCHES[0]
   const [selectedCoreProblemNumber, setSelectedCoreProblemNumber] = useState(509)
   const [selectedImpProblemNumber, setSelectedImpProblemNumber] = useState(1001)
   const [selectedBlind75ProblemNumber, setSelectedBlind75ProblemNumber] = useState(217)
@@ -492,6 +510,14 @@ function App() {
     }
     return getDetailedProblemData(currentProblem.title, currentProblem.category, currentProblem.pattern)
   }, [activeSection, currentProblem])
+
+  const shortSha = useMemo(() => {
+    return ((currentProblem.number * 2654435761) >>> 0).toString(16).slice(0, 7).padStart(7, '0')
+  }, [currentProblem.number])
+
+  const parentSha = useMemo(() => {
+    return (((currentProblem.number + 13) * 2246822519) >>> 0).toString(16).slice(0, 7).padStart(7, '0')
+  }, [currentProblem.number])
 
   const currentPatternMeta = useMemo(() => {
     const cat = (currentProblem as any).patternCategory || currentProblem.category || ''
@@ -727,94 +753,62 @@ ${code}`
 
   return (
     <div className={`app leetcode-dark ${theme === 'light' ? 'light-mode' : ''}`} data-theme={theme}>
-      {/* Top Navigation Bar - LeetCode Inspired */}
+      {/* GitHub Repository Top Navigation Header */}
       <header className="topbar">
-        <div className="brand-lockup">
-          <div className="brand-mark sticker-badge" title="LeetMastery — High-Energy Neobrutalism">
-            <Zap size={16} strokeWidth={3} />
+        <div className="topbar-left">
+          <a
+            className="github-logo-btn"
+            href="https://github.com/harshithmgowda/leetmastery1"
+            target="_blank"
+            rel="noreferrer"
+            title="View on GitHub"
+          >
+            <Github size={22} />
+          </a>
+
+          <div className="repo-breadcrumb-group">
+            <a className="repo-owner-link" href="https://github.com/harshithmgowda" target="_blank" rel="noreferrer">
+              harshithmgowda
+            </a>
+            <span className="repo-slash">/</span>
+            <span className="repo-title-link">leetmastery</span>
+            <span className="repo-visibility-pill">Public</span>
           </div>
-          <span className="brand-title">
-            LEET<span className="brand-accent">MASTERY</span>
-          </span>
-          <span className={`brand-version-badge sticker-pill ${activeSection === 'imp' ? 'imp-badge-brand' : activeSection === 'blind75' ? 'blind75-badge-brand' : activeSection === 'patterns' ? 'pattern-badge-brand' : ''}`}>
-            {activeSection === 'core'
-              ? '⚡ 100+ PATTERNS'
-              : activeSection === 'imp'
-              ? '⭐ 78 DSA PYTHON'
-              : activeSection === 'blind75'
-              ? '🧠 BLIND 75'
-              : '🎯 16 PATTERNS'}
-          </span>
         </div>
 
-        {/* Section Switcher Nav Buttons */}
-        <div className="section-switch-pill-group">
-          <button
-            type="button"
-            className={`section-tab-btn ${activeSection === 'core' ? 'active' : ''}`}
-            onClick={() => switchSection('core')}
-            title="Switch to Core 100+ LeetCode Patterns"
-          >
-            <Zap size={13} />
-            <span>Core Patterns</span>
-            <span className="section-tab-badge">100+</span>
-          </button>
-          <button
-            type="button"
-            className={`section-tab-btn pattern-tab ${activeSection === 'patterns' ? 'active' : ''}`}
-            onClick={() => switchSection('patterns')}
-            title="Switch to Learn with Pattern (Python Masterclass with Important & All Questions)"
-          >
-            <Sparkles size={13} className="pattern-sparkle-icon" />
-            <span>Learn with Pattern</span>
-            <span className="section-tab-badge pattern-badge">16 PATTERNS</span>
-          </button>
-          <button
-            type="button"
-            className={`section-tab-btn imp-tab ${activeSection === 'imp' ? 'active' : ''}`}
-            onClick={() => switchSection('imp')}
-            title="Switch to 78 Important DSA in Python Questions (GitHub)"
-          >
-            <Star size={13} className="star-icon" />
-            <span>Imp Questions</span>
-            <span className="section-tab-badge imp-badge">78 DSA</span>
-          </button>
-          <button
-            type="button"
-            className={`section-tab-btn blind75-tab ${activeSection === 'blind75' ? 'active' : ''}`}
-            onClick={() => switchSection('blind75')}
-            title="Switch to NeetCode Blind 75 practice problems"
-          >
-            <Brain size={13} className="blind75-icon" />
-            <span>Blind 75</span>
-            <span className="section-tab-badge blind75-badge">75 BLIND</span>
-          </button>
-        </div>
-
+        {/* Global Repository Search */}
         <div className="topbar-center">
           <div className="global-search">
             <Search size={14} className="search-icon" />
             <input
-              aria-label="Search problems"
+              aria-label="Search repository"
               placeholder={
                 activeSection === 'core'
-                  ? 'Search 100+ problems, patterns, tags...'
+                  ? 'Type / or ⌘K to search 100+ patterns...'
                   : activeSection === 'imp'
-                  ? 'Search 78 DSA in Python questions, topics...'
+                  ? 'Type / or ⌘K to search 78 DSA in Python...'
                   : activeSection === 'blind75'
-                  ? 'Search 75 Blind problems, patterns, tags...'
-                  : 'Search 16 patterns, important questions, topics...'
+                  ? 'Type / or ⌘K to search 75 Blind problems...'
+                  : 'Type / or ⌘K to search 16 pattern blueprints...'
               }
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <kbd>
-              <Command size={11} /> K
+            <kbd className="search-kbd">
+              <Command size={10} /> K
             </kbd>
           </div>
         </div>
 
+        {/* Topbar Right Actions */}
         <div className="topbar-actions">
+          <div className="repo-badge-pr" title="Tracked completed problems (Merged Pull Requests)">
+            <GitPullRequest size={13} className="pr-icon" />
+            <span>
+              <strong>{solvedCount}</strong> / {activeProblemList.length} Merged
+            </span>
+          </div>
+
           <a
             className="github-profile-pill"
             href="https://github.com/harshithmgowda?tab=repositories"
@@ -822,26 +816,94 @@ ${code}`
             rel="noreferrer"
             title="Developed by Harshith Gowda M on GitHub"
           >
-            <Github size={14} />
-            <span className="github-name">Harshith Gowda M</span>
+            <span className="user-avatar-initials">HG</span>
+            <span className="github-name">harshithmgowda</span>
           </a>
-
-          <div className="solved-counter-pill" title="Tracked completed problems in this section">
-            <CheckCircle2 size={14} className="solved-icon" />
-            <span>
-              <strong>{solvedCount}</strong> / {activeProblemList.length} Solved
-            </span>
-          </div>
 
           <button
             className="icon-button"
             title="Toggle Dark / Light Theme"
             onClick={() => setTheme((c) => (c === 'dark' ? 'light' : 'dark'))}
           >
-            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+            {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
           </button>
         </div>
       </header>
+
+      {/* GitHub Repository Subheader: Prominent Branch Switcher & Tabs */}
+      <div className="repo-subheader">
+        <div className="branch-switcher-wrapper">
+          <button
+            type="button"
+            className={`branch-select-btn ${isBranchDropdownOpen ? 'open' : ''}`}
+            onClick={() => setIsBranchDropdownOpen((prev) => !prev)}
+            aria-expanded={isBranchDropdownOpen}
+            aria-label="Switch branches or workflows"
+          >
+            <GitBranch size={13} className="branch-icon" />
+            <span className="branch-dim">branch:</span>
+            <strong className="branch-current-name">{currentBranch.name}</strong>
+            <ChevronDown size={12} className="branch-chevron" />
+          </button>
+
+          {isBranchDropdownOpen && (
+            <>
+              <div className="dropdown-backdrop" onClick={() => setIsBranchDropdownOpen(false)} />
+              <div className="branch-dropdown-popover">
+                <div className="branch-popover-header">
+                  <span>Switch branches / workflows</span>
+                  <button className="branch-close-x" onClick={() => setIsBranchDropdownOpen(false)}>
+                    <X size={12} />
+                  </button>
+                </div>
+                <div className="branch-popover-list">
+                  {BRANCHES.map((b) => (
+                    <button
+                      key={b.id}
+                      type="button"
+                      className={`branch-popover-row ${activeSection === b.id ? 'active' : ''}`}
+                      onClick={() => {
+                        switchSection(b.id)
+                        setIsBranchDropdownOpen(false)
+                      }}
+                    >
+                      <div className="branch-row-left">
+                        {activeSection === b.id ? (
+                          <Check size={13} className="branch-check" />
+                        ) : (
+                          <span className="branch-check-spacer" />
+                        )}
+                        <GitBranch size={13} className="branch-row-icon" />
+                        <div className="branch-name-wrap">
+                          <span className="branch-name-text">{b.name}</span>
+                          <span className="branch-desc-text">{b.desc}</span>
+                        </div>
+                      </div>
+                      <span className="branch-tag-pill">{b.badge}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Section Workflow Navigation Tabs */}
+        <div className="section-switch-pill-group">
+          {BRANCHES.map((b) => (
+            <button
+              key={b.id}
+              type="button"
+              className={`section-tab-btn ${activeSection === b.id ? 'active' : ''}`}
+              onClick={() => switchSection(b.id)}
+            >
+              <GitBranch size={12} />
+              <span>{b.name}</span>
+              <span className="section-tab-badge">{b.badge}</span>
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="app-body">
         {/* Left Sidebar - Problem Explorer */}
@@ -1109,16 +1171,79 @@ ${code}`
               </div>
 
               <div className="title-row">
-                <h1 className="problem-main-title">
-                  {currentProblem.number}. {currentProblem.title}
-                </h1>
+                <div className="title-left-group">
+                  <h1 className="problem-main-title">
+                    {currentProblem.number}. {currentProblem.title}
+                  </h1>
+                  <div className="pr-status-badge">
+                    {currentSolvedMap[currentProblem.number] ? (
+                      <span className="pr-status-chip merged" title="Pull Request Merged">
+                        <GitMerge size={12} />
+                        <span>Merged</span>
+                      </span>
+                    ) : (
+                      <span className="pr-status-chip open" title="Pull Request Open">
+                        <GitPullRequest size={12} />
+                        <span>Open</span>
+                      </span>
+                    )}
+                    <span className="pr-number">#{currentProblem.number}</span>
+                  </div>
+                </div>
+
                 <button
-                  className={`mark-solved-btn ${currentSolvedMap[currentProblem.number] ? 'solved' : ''}`}
+                  className={`mark-solved-btn github-merge-btn ${currentSolvedMap[currentProblem.number] ? 'merged' : ''}`}
                   onClick={() => toggleSolved(currentProblem.number)}
+                  title={currentSolvedMap[currentProblem.number] ? 'Reopen Pull Request' : 'Merge pull request (Mark Solved)'}
                 >
-                  <Check size={14} />
-                  <span>{currentSolvedMap[currentProblem.number] ? 'Solved' : 'Mark Solved'}</span>
+                  <GitMerge size={14} />
+                  <span>{currentSolvedMap[currentProblem.number] ? 'Merged' : 'Merge pull request'}</span>
                 </button>
+              </div>
+
+              {/* GitHub Latest Commit Card */}
+              <div className="git-commit-card">
+                <div className="commit-card-left">
+                  <span className="commit-avatar">HG</span>
+                  <div className="commit-info">
+                    <div className="commit-line-top">
+                      <span className="commit-author">harshithmgowda</span>
+                      <span className="commit-msg">
+                        feat(solution): implement optimal {currentApproach.title.toLowerCase()} for #{currentProblem.number}
+                      </span>
+                      <span className="verified-badge" title="GPG key ID: 4A7F92B3 verified">Verified</span>
+                    </div>
+                    <div className="commit-line-sub">
+                      <span className="commit-branch-tag">
+                        <GitBranch size={11} />
+                        <code>{currentBranch.name}</code>
+                      </span>
+                      <span className="commit-time">Latest commit 2 hours ago</span>
+                      <span className="commit-checks-pass" title="All CI test workflows succeeded">
+                        <CheckCircle size={12} className="check-pass-icon" />
+                        <span>3/3 checks passed</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="commit-card-right">
+                  <div className="commit-sha-pill" title="Click to copy short SHA">
+                    <GitCommit size={12} />
+                    <code>commit {shortSha}</code>
+                    <button
+                      className="copy-sha-btn"
+                      onClick={() => {
+                        navigator.clipboard.writeText(`commit ${shortSha}`)
+                        setToast(`Copied commit ${shortSha}! 📋`)
+                      }}
+                      title="Copy short SHA"
+                    >
+                      <Copy size={11} />
+                    </button>
+                  </div>
+                  <span className="parent-sha-badge">parent <code>{parentSha}</code></span>
+                </div>
               </div>
 
               {/* Meta Tags Row */}
@@ -1493,6 +1618,74 @@ ${code}`
                       )}
                     </div>
 
+                    {/* Git Diff Visualization: Brute Force Deletions (-) vs Optimal Additions (+) */}
+                    <div className="git-diff-viewer">
+                      <div className="diff-file-header">
+                        <div className="diff-header-left">
+                          <FileCode size={14} className="diff-icon" />
+                          <span className="diff-filename">solutions/{currentProblem.title.toLowerCase().replace(/[^a-z0-9]/g, '_')}.py</span>
+                          <span className="diff-commit-range"><code>{parentSha}</code>..<code>{shortSha}</code></span>
+                        </div>
+                        <div className="diff-stats-pill">
+                          <span className="diff-add-count">+{currentApproach.keySteps.length * 2 + 8}</span>
+                          <span className="diff-del-count">-{problemData.bruteForce.keySteps.length * 3 + 14}</span>
+                          <div className="diff-bar-squares">
+                            <span className="diff-sq del" />
+                            <span className="diff-sq del" />
+                            <span className="diff-sq add" />
+                            <span className="diff-sq add" />
+                            <span className="diff-sq add" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="diff-code-body">
+                        <div className="diff-hunk-header">
+                          <code>@@ -1,6 +1,8 @@ class Solution: algorithmic_breakthrough</code>
+                        </div>
+                        {/* Red Deletions - Brute Force Bottleneck */}
+                        <div className="diff-line deletion">
+                          <span className="diff-marker">-</span>
+                          <span className="diff-num">1</span>
+                          <span className="diff-text"># DEPRECATED: {problemData.bruteForce.title} ({problemData.bruteForce.timeComplexity})</span>
+                        </div>
+                        <div className="diff-line deletion">
+                          <span className="diff-marker">-</span>
+                          <span className="diff-num">2</span>
+                          <span className="diff-text"># Bottleneck: {problemData.bottleneck}</span>
+                        </div>
+                        <div className="diff-line deletion">
+                          <span className="diff-marker">-</span>
+                          <span className="diff-num">3</span>
+                          <span className="diff-text"># Result: Time Limit Exceeded (TLE) on large inputs</span>
+                        </div>
+                        
+                        {/* Green Additions - Optimal Breakthrough */}
+                        <div className="diff-line addition">
+                          <span className="diff-marker">+</span>
+                          <span className="diff-num">1</span>
+                          <span className="diff-text"># OPTIMAL: {problemData.optimal.title} ({problemData.optimal.timeComplexity})</span>
+                        </div>
+                        <div className="diff-line addition">
+                          <span className="diff-marker">+</span>
+                          <span className="diff-num">2</span>
+                          <span className="diff-text"># Invariant: {problemData.keyInvariant}</span>
+                        </div>
+                        <div className="diff-line addition">
+                          <span className="diff-marker">+</span>
+                          <span className="diff-num">3</span>
+                          <span className="diff-text"># Result: Accepted (Beats 98%+ Runtime)</span>
+                        </div>
+                        {currentApproach.keySteps.slice(0, 3).map((step, sIdx) => (
+                          <div key={sIdx} className="diff-line addition">
+                            <span className="diff-marker">+</span>
+                            <span className="diff-num">{sIdx + 4}</span>
+                            <span className="diff-text">    # Step {sIdx + 1}: {step}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
                     {/* Bottleneck Analysis */}
                     <div className="bottleneck-card">
                       <div className="bottleneck-title">
@@ -1820,13 +2013,13 @@ ${code}`
                 <div className="xcode-action-bar">
                   <div className="action-left">
                     <button
-                      className={`xcode-run-btn ${testStatus.isRunning ? 'running' : ''}`}
+                      className={`xcode-run-btn github-ci-run-btn ${testStatus.isRunning ? 'running' : ''}`}
                       onClick={runTestSimulation}
                       disabled={testStatus.isRunning}
-                      title="Run against LeetCode test suite"
+                      title="Trigger CI Test Suite & Workflow Checks"
                     >
-                      <Play size={13} fill="currentColor" />
-                      <span>{testStatus.isRunning ? 'Running...' : 'Run Tests'}</span>
+                      <GitMerge size={13} />
+                      <span>{testStatus.isRunning ? 'Running CI Tests...' : 'Merge & Run Tests'}</span>
                     </button>
 
                     {/* Ask ChatGPT Button */}

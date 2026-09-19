@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
   ArrowRight,
+  BadgeCheck,
   BookOpen,
+  Bookmark,
   Bot,
   Brain,
   Check,
@@ -25,17 +27,21 @@ import {
   GitMerge,
   GitPullRequest,
   Hash,
+  Heart,
   History,
   Layers,
   Lightbulb,
   ListChecks,
   Maximize2,
+  MessageCircle,
   MessageSquare,
   Minimize2,
   Moon,
+  MoreHorizontal,
   Play,
   RotateCcw,
   Search,
+  Send,
   Share2,
   ShieldAlert,
   Sparkles,
@@ -513,6 +519,142 @@ function App() {
   const [branchSearchQuery, setBranchSearchQuery] = useState('')
   const [reviewStatus, setReviewStatus] = useState<'approved' | 'changes_requested' | 'idle'>('approved')
 
+  // Mobile Social UI State
+  const [likedProblems, setLikedProblems] = useState<Record<number, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem('leetmastery_social_likes')
+      return saved ? JSON.parse(saved) : { 1: true, 217: true, 238: true }
+    } catch {
+      return { 1: true, 217: true, 238: true }
+    }
+  })
+  const [isCommentDrawerOpen, setIsCommentDrawerOpen] = useState(false)
+  const [commentInput, setCommentInput] = useState('')
+  const [commentsList, setCommentsList] = useState<Array<{
+    id: string
+    user: string
+    avatar: string
+    isVerified?: boolean
+    text: string
+    time: string
+    likes: number
+    isLiked?: boolean
+  }>>([
+    {
+      id: 'c1',
+      user: 'harshithgowdam',
+      avatar: '👨‍💻',
+      isVerified: true,
+      text: 'Optimal two-pointer approach eliminates duplicate states in O(n) time and O(1) auxiliary space! Clean pattern execution.',
+      time: '2h',
+      likes: 42,
+      isLiked: true,
+    },
+    {
+      id: 'c2',
+      user: 'alex_code',
+      avatar: '🚀',
+      isVerified: true,
+      text: 'Tried brute force O(n²) first and hit TLE on test case 48. This pattern is essential for FAANG interviews.',
+      time: '1h',
+      likes: 19,
+    },
+    {
+      id: 'c3',
+      user: 'sarah_dev',
+      avatar: '✨',
+      isVerified: false,
+      text: 'The step-by-step visualizer makes the pointer movement and boundary checks so intuitive to follow! 🔥',
+      time: '35m',
+      likes: 11,
+    },
+    {
+      id: 'c4',
+      user: 'faang_prep',
+      avatar: '🎯',
+      isVerified: false,
+      text: 'Saved and bookmarked this to my revision deck. Key invariant explanation is spot on.',
+      time: '12m',
+      likes: 7,
+    },
+  ])
+
+  const handleAddComment = (e?: React.FormEvent) => {
+    if (e) e.preventDefault()
+    if (!commentInput.trim()) return
+    setCommentsList((prev) => [
+      ...prev,
+      {
+        id: `c_${Date.now()}`,
+        user: 'you',
+        avatar: '💫',
+        isVerified: false,
+        text: commentInput.trim(),
+        time: 'Just now',
+        likes: 1,
+        isLiked: true,
+      },
+    ])
+    setCommentInput('')
+    setToast('Comment posted! 💬')
+  }
+
+  const toggleCommentLike = (id: string) => {
+    setCommentsList((prev) =>
+      prev.map((c) =>
+        c.id === id
+          ? {
+              ...c,
+              likes: c.isLiked ? c.likes - 1 : c.likes + 1,
+              isLiked: !c.isLiked,
+            }
+          : c
+      )
+    )
+  }
+
+  const [showHeartPop, setShowHeartPop] = useState(false)
+  const [lastTapTime, setLastTapTime] = useState(0)
+
+  const isCurrentLiked = !!likedProblems[currentProblem.number]
+  const toggleLike = (num: number) => {
+    setLikedProblems((prev) => {
+      const next = { ...prev, [num]: !prev[num] }
+      try {
+        localStorage.setItem('leetmastery_social_likes', JSON.stringify(next))
+      } catch {}
+      return next
+    })
+    setToast(likedProblems[num] ? 'Removed like' : '❤️ Liked problem!')
+  }
+
+  const handleMediaDoubleTap = () => {
+    const now = Date.now()
+    if (now - lastTapTime < 350) {
+      if (!isCurrentLiked) {
+        toggleLike(currentProblem.number)
+      }
+      setShowHeartPop(true)
+      setTimeout(() => setShowHeartPop(false), 900)
+    }
+    setLastTapTime(now)
+  }
+
+  const STORIES = [
+    { id: 'core', label: 'Core 100+', emoji: '🔥', section: 'core' as const },
+    { id: 'patterns', label: '16 Patterns', emoji: '🐍', section: 'patterns' as const },
+    { id: 'imp', label: '78 DSA', emoji: '⭐', section: 'imp' as const },
+    { id: 'blind75', label: 'Blind 75', emoji: '🧠', section: 'blind75' as const },
+    { id: 'arrays', label: 'Arrays', emoji: '📊', topic: 'Arrays' },
+    { id: 'twopointers', label: 'Two Pointers', emoji: '👉', topic: 'Two Pointers' },
+    { id: 'slidingwindow', label: 'Window', emoji: '🪟', topic: 'Sliding Window' },
+    { id: 'trees', label: 'Trees', emoji: '🌳', topic: 'Trees' },
+    { id: 'dp', label: 'Dynamic Prog', emoji: '⚡', topic: 'Dynamic Programming' },
+    { id: 'graphs', label: 'Graphs', emoji: '📈', topic: 'Graphs' },
+    { id: 'binarysearch', label: 'Binary Search', emoji: '🎯', topic: 'Binary Search' },
+    { id: 'backtracking', label: 'Backtrack', emoji: '🔄', topic: 'Backtracking' },
+  ]
+
   interface BranchItem {
     id: 'core' | 'patterns' | 'imp' | 'blind75'
     name: string
@@ -768,58 +910,87 @@ ${code}`
 
   return (
     <div className={`app leetcode-dark ${theme === 'light' ? 'light-mode' : ''}`} data-theme={theme}>
-      {/* Git Developer Interface Navigation Bar */}
-      <header className="topbar">
+      {/* Mobile Social Header Navigation Bar */}
+      <header className="topbar social-topbar">
         <div className="brand-lockup">
-          <div className="brand-mark" title="LeetMastery — Git Developer Interface">
-            <Github size={18} />
+          <div className="social-brand-logo" title="LeetMastery">
+            <Sparkles size={18} className="social-brand-sparkle" />
           </div>
           <div className="brand-repo-path">
-            <span className="repo-owner">developer</span>
-            <span className="repo-slash">/</span>
-            <span className="repo-name">leetmastery</span>
-            <span className="repo-badge">Public</span>
+            <span className="repo-name social-brand-title">LeetMastery</span>
+            <BadgeCheck size={16} className="verified-blue-badge" />
           </div>
         </div>
 
         <div className="topbar-center">
-          <div className="gh-search-input-wrap">
-            <Search size={13} className="search-icon" />
+          <div className="gh-search-input-wrap social-search-wrap">
+            <Search size={14} className="search-icon" />
             <input
-              className="gh-search-input"
-              aria-label="Search problems"
-              placeholder="Type / to search repository solutions, patterns, SHAs..."
+              className="gh-search-input social-search-input"
+              aria-label="Search problems and topics"
+              placeholder="Search problems, patterns, #topics..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <kbd className="search-shortcut-kbd">
-              <Command size={10} /> K
-            </kbd>
+            {query && (
+              <button className="clear-search-btn" onClick={() => setQuery('')}>
+                <X size={12} />
+              </button>
+            )}
           </div>
         </div>
 
-        <div className="topbar-right">
-          <div className="repo-stats-header">
-            <span className="pr-counter-pill" title="Open Pull Requests">
-              <GitPullRequest size={13} />
-              <span>{activeProblemList.length - solvedCount} Open PRs</span>
-            </span>
-            <div className="solved-counter-pill" title="Merged Pull Requests (Solved Problems)">
-              <GitMerge size={13} />
-              <span>
-                <strong>{solvedCount}</strong> / {activeProblemList.length} Merged
-              </span>
-            </div>
+        <div className="topbar-right social-topbar-right">
+          <div className="social-likes-header-pill" title="Total Liked Problems">
+            <Heart size={14} fill="#ff3040" color="#ff3040" />
+            <span>{Object.values(likedProblems).filter(Boolean).length}</span>
           </div>
 
-          <div
-            className="topbar-profile-link"
-            title="Developer Profile"
-          >
-            <span className="user-avatar-circle">DEV</span>
+          <div className="social-saved-header-pill" title="Solved & Saved to Collection">
+            <Bookmark size={14} fill="#ffffff" color="#ffffff" />
+            <span>{solvedCount}/{activeProblemList.length}</span>
+          </div>
+
+          <div className="social-user-avatar-wrap" title="User Profile">
+            <div className="social-user-avatar">
+              <span>DEV</span>
+            </div>
           </div>
         </div>
       </header>
+
+      {/* Horizontal Circular Story Avatars Carousel with Colorful Gradient Rings */}
+      <div className="stories-carousel-container">
+        <div className="stories-track">
+          {STORIES.map((story) => {
+            const isStoryActive =
+              (story.section && activeSection === story.section) ||
+              (story.topic && topic === story.topic)
+            return (
+              <button
+                key={story.id}
+                type="button"
+                className={`story-item-btn ${isStoryActive ? 'active' : ''}`}
+                onClick={() => {
+                  if (story.section) {
+                    switchSection(story.section)
+                  } else if (story.topic) {
+                    setTopic(story.topic)
+                  }
+                }}
+                title={`Explore ${story.label}`}
+              >
+                <div className={`story-avatar-ring ${isStoryActive ? 'ring-active' : ''}`}>
+                  <div className="story-avatar-inner">
+                    <span className="story-emoji">{story.emoji}</span>
+                  </div>
+                </div>
+                <span className="story-label">{story.label}</span>
+              </button>
+            )
+          })}
+        </div>
+      </div>
 
       {/* Git Repository Subheader with Branch Dropdown Switcher */}
       <div className="repo-subheader">
@@ -1248,18 +1419,64 @@ ${code}`
 
         {/* Main Content Area */}
         <main className={`main-content ${isExpanded ? 'fullscreen-mode' : ''}`}>
-          {/* Problem Header Banner */}
-          <section className="problem-top-banner">
-            <div className="problem-header-left">
-              <div className="breadcrumb-nav">
+          {/* Mobile Social Feed Post Card */}
+          <section
+            className="problem-top-banner social-post-card"
+            onDoubleClick={handleMediaDoubleTap}
+          >
+            {/* Floating Heart Pop Animation on Double Tap */}
+            {showHeartPop && (
+              <div className="floating-heart-pop" aria-hidden="true">
+                <Heart size={96} fill="#ff3040" color="#ff3040" />
+              </div>
+            )}
+
+            {/* Social Post Author Header */}
+            <div className="social-post-header">
+              <div className="post-header-author-info">
+                <div className="post-author-avatar-ring">
+                  <div className="post-author-avatar">⚡</div>
+                </div>
+                <div className="post-author-meta">
+                  <div className="post-author-title-row">
+                    <strong className="post-username">leetmastery.official</strong>
+                    <BadgeCheck size={15} className="verified-blue-badge" />
+                    <span className="post-dot-sep">•</span>
+                    <span className="post-timestamp">2h</span>
+                  </div>
+                  <span className="post-location-tag">
+                    {currentProblem.category || currentProblem.topics[0]} • Problem #{currentProblem.number}
+                  </span>
+                </div>
+              </div>
+
+              <div className="post-header-actions">
+                <span className={`difficulty-badge ${diffClass}`}>{currentProblem.difficulty}</span>
+                <button
+                  type="button"
+                  className="post-options-btn"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    copySolution()
+                  }}
+                  title="More Options / Copy Code"
+                >
+                  <MoreHorizontal size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Problem Title & Category Headline */}
+            <div className="social-problem-headline">
+              <div className="breadcrumb-nav social-breadcrumb">
                 <span>
                   {activeSection === 'core'
                     ? 'LeetCode'
                     : activeSection === 'imp'
-                    ? 'DSA in Python (GitHub)'
+                    ? 'DSA in Python'
                     : activeSection === 'blind75'
                     ? 'NeetCode Blind 75'
-                    : 'Learn with Pattern (Python)'}
+                    : 'Learn with Pattern'}
                 </span>
                 <ArrowRight size={12} />
                 <span>{currentProblem.category || currentProblem.topics[0]}</span>
@@ -1267,184 +1484,180 @@ ${code}`
                 <strong>#{currentProblem.number}</strong>
               </div>
 
-              <div className="title-row">
-                <div className="title-left-group">
-                  <h1 className="problem-main-title">
-                    {currentProblem.number}. {currentProblem.title}
-                  </h1>
-                  <div className="pr-status-badge">
-                    {currentSolvedMap[currentProblem.number] ? (
-                      <span className="pr-status-chip merged" title="Pull Request Merged">
-                        <GitMerge size={12} />
-                        <span>Merged</span>
-                      </span>
-                    ) : (
-                      <span className="pr-status-chip open" title="Pull Request Open">
-                        <GitPullRequest size={12} />
-                        <span>Open</span>
-                      </span>
-                    )}
-                    <span className="pr-number">#{currentProblem.number}</span>
-                  </div>
-                </div>
+              <h1 className="problem-main-title social-post-title">
+                {currentProblem.number}. {currentProblem.title}
+              </h1>
+            </div>
 
-                {/* Pull Request Action Bar with Approve, Request Changes, and Merge */}
-                <div className="pr-action-bar">
-                  <button
-                    type="button"
-                    className={`pr-action-btn approve-btn ${reviewStatus === 'approved' ? 'active' : ''}`}
-                    onClick={() => {
-                      setReviewStatus('approved')
-                      setToast('Review Approved: Solution meets time & space invariants! ✅')
-                    }}
-                    title="Approve pull request review"
-                  >
-                    <Check size={13} />
-                    <span>Approve</span>
-                  </button>
+            {/* Social Action Bar: Like, Comment, Share, Bookmark */}
+            <div className="social-action-bar">
+              <div className="social-action-left">
+                <button
+                  type="button"
+                  className={`social-icon-action-btn like-action-btn ${isCurrentLiked ? 'liked' : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleLike(currentProblem.number)
+                  }}
+                  title={isCurrentLiked ? 'Unlike' : 'Like'}
+                >
+                  <Heart
+                    size={22}
+                    fill={isCurrentLiked ? '#ff3040' : 'none'}
+                    color={isCurrentLiked ? '#ff3040' : '#ffffff'}
+                  />
+                  <span className="action-counter">{1420 + (isCurrentLiked ? 1 : 0)}</span>
+                </button>
 
-                  <button
-                    type="button"
-                    className={`pr-action-btn changes-btn ${reviewStatus === 'changes_requested' ? 'active' : ''}`}
-                    onClick={() => {
-                      setReviewStatus('changes_requested')
-                      setToast('Changes Requested: Needs algorithmic optimization! 📝')
-                    }}
-                    title="Request changes on solution"
-                  >
-                    <MessageSquare size={13} />
-                    <span>Request Changes</span>
-                  </button>
+                <button
+                  type="button"
+                  className="social-icon-action-btn comment-action-btn"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setIsCommentDrawerOpen(true)
+                  }}
+                  title="View comments & code review"
+                >
+                  <MessageCircle size={22} color="#ffffff" />
+                  <span className="action-counter">4</span>
+                </button>
 
-                  <button
-                    type="button"
-                    className={`mark-solved-btn github-merge-btn ${currentSolvedMap[currentProblem.number] ? 'merged' : ''}`}
-                    onClick={() => toggleSolved(currentProblem.number)}
-                    title={currentSolvedMap[currentProblem.number] ? 'Reopen Pull Request' : 'Merge pull request (Mark Solved)'}
-                  >
-                    <GitMerge size={14} />
-                    <span>{currentSolvedMap[currentProblem.number] ? 'Merged' : 'Merge pull request'}</span>
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  className="social-icon-action-btn share-action-btn"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    navigator.clipboard.writeText(window.location.href)
+                    setToast('Link copied to share! 🚀')
+                  }}
+                  title="Share problem"
+                >
+                  <Send size={21} color="#ffffff" />
+                </button>
               </div>
 
-              {/* GitHub Latest Commit Card */}
-              <div className="git-commit-card">
-                <div className="commit-card-left">
-                  <span className="commit-avatar">DEV</span>
-                  <div className="commit-info">
-                    <div className="commit-line-top">
-                      <span className="commit-author">developer</span>
-                      <span className="commit-msg">
-                        feat(solution): implement optimal {currentApproach.title.toLowerCase()} for #{currentProblem.number}
-                      </span>
-                      <span className="verified-badge" title="GPG key ID: 4A7F92B3 verified">Verified</span>
-                    </div>
-                    <div className="commit-line-sub">
-                      <span className="commit-branch-tag">
-                        <GitBranch size={11} />
-                        <code>{currentBranch.name}</code>
-                      </span>
-                      <span className="commit-time">Latest commit 2 hours ago</span>
-                      <span className="commit-checks-pass" title="All CI test workflows succeeded">
-                        <CheckCircle size={12} className="check-pass-icon" />
-                        <span>3/3 checks passed</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="commit-card-right">
-                  <div className="commit-sha-pill" title="Click to copy 7-char short SHA">
-                    <GitCommit size={12} />
-                    <code>commit {shortSha}</code>
-                    <button
-                      type="button"
-                      className="copy-sha-btn"
-                      onClick={() => {
-                        navigator.clipboard.writeText(`commit ${shortSha}`)
-                        setToast(`Copied commit ${shortSha}! 📋`)
-                      }}
-                      title="Copy 7-character short SHA"
-                    >
-                      <Copy size={11} />
-                    </button>
-                  </div>
-                  <span className="parent-sha-badge">parent <code>{parentSha}</code></span>
-                </div>
+              <div className="social-action-right">
+                <button
+                  type="button"
+                  className={`social-icon-action-btn bookmark-action-btn ${currentSolvedMap[currentProblem.number] ? 'saved' : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleSolved(currentProblem.number)
+                  }}
+                  title={currentSolvedMap[currentProblem.number] ? 'Remove from Saved' : 'Save & Mark Solved'}
+                >
+                  <Bookmark
+                    size={22}
+                    fill={currentSolvedMap[currentProblem.number] ? '#ffffff' : 'none'}
+                    color="#ffffff"
+                  />
+                  <span className="action-label">{currentSolvedMap[currentProblem.number] ? 'Saved' : 'Save'}</span>
+                </button>
               </div>
+            </div>
 
-              {/* Git Commit & Branch Lineage Graph Strip */}
-              <div className="git-lineage-graph-strip">
-                <div className="lineage-left">
-                  <span className="lineage-node-origin" title="origin/main">●</span>
-                  <span className="lineage-path-line" />
-                  <span className="lineage-branch-badge">
-                    <GitBranch size={11} />
-                    <span>{currentBranch.name}</span>
+            {/* Social Likes Count & Caption */}
+            <div className="social-caption-block">
+              <div className="social-likes-count">
+                Liked by <strong>harshithgowdam</strong> and <strong>14,290 others</strong>
+              </div>
+              <div className="social-caption-text">
+                <strong>leetmastery.official</strong>{' '}
+                <span>
+                  Optimal solution for <strong>{currentProblem.title}</strong> using the <code>{currentProblem.pattern}</code> algorithmic pattern. Invariant: <code>{problemData.keyInvariant}</code>.
+                </span>{' '}
+                <span className="social-hashtags">
+                  #{currentProblem.pattern.replace(/[^a-zA-Z0-9]/g, '')} #LeetCode #{currentProblem.difficulty} #DSA
+                </span>
+              </div>
+              <button
+                type="button"
+                className="view-comments-trigger-btn"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setIsCommentDrawerOpen(true)
+                }}
+              >
+                View all 4 comments & code reviews...
+              </button>
+            </div>
+
+            {/* GitHub Verified Release Capsule */}
+            <div className="social-release-capsule">
+              <div className="release-capsule-left">
+                <span className="release-chip">
+                  <GitBranch size={11} />
+                  <span>{currentBranch.name}</span>
+                </span>
+                <span className="release-commit-text">
+                  feat(solution): {currentApproach.title.toLowerCase()}
+                </span>
+              </div>
+              <div className="release-capsule-right">
+                <span className="release-sha" title="Short SHA">
+                  <GitCommit size={11} />
+                  <code>{shortSha}</code>
+                </span>
+                <button
+                  type="button"
+                  className={`release-merge-btn ${currentSolvedMap[currentProblem.number] ? 'merged' : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleSolved(currentProblem.number)
+                  }}
+                >
+                  <GitMerge size={12} />
+                  <span>{currentSolvedMap[currentProblem.number] ? 'Merged' : 'Merge PR'}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Meta Tags Row: Frequency, Acceptance, Companies & External Links */}
+            <div className="problem-meta-row social-meta-row">
+              <span className="pattern-pill social-pattern-pill">
+                <Hash size={11} /> {currentProblem.pattern}
+              </span>
+              <span className="stat-pill">
+                <TrendingUp size={11} /> {problemData.acceptanceRate}
+              </span>
+              <span className="stat-pill">
+                <Flame size={11} /> {problemData.frequency}
+              </span>
+
+              <div className="companies-pills">
+                {problemData.companies.slice(0, 3).map((c) => (
+                  <span key={c} className="company-tag">
+                    {c}
                   </span>
-                  <span className="lineage-path-line" />
-                  <span className="lineage-node-merge" title="Merge commit">◉</span>
-                  <span className="lineage-tag-badge">
-                    <Tag size={10} />
-                    <span>v1.4.2</span>
-                  </span>
-                </div>
-                <div className="lineage-stats">
-                  <span className="lineage-stat-item"><strong>12</strong> commits ahead</span>
-                  <span className="lineage-stat-divider">•</span>
-                  <span className="lineage-stat-item"><strong>0</strong> behind</span>
-                  <span className="lineage-stat-divider">•</span>
-                  <span className="lineage-stat-item"><History size={11} /> Linear history</span>
-                </div>
+                ))}
               </div>
 
-              {/* Meta Tags Row */}
-              <div className="problem-meta-row">
-                <span className={`difficulty-badge ${diffClass}`}>{currentProblem.difficulty}</span>
-                <span className="pattern-pill">
-                  <Hash size={11} /> {currentProblem.pattern}
-                </span>
-                <span className="stat-pill">
-                  <TrendingUp size={11} /> {problemData.acceptanceRate} Acceptance
-                </span>
-                <span className="stat-pill">
-                  <Flame size={11} /> {problemData.frequency} Freq
-                </span>
+              <div className="problem-external-links-wrap">
+                <a
+                  className="leetcode-direct-link social-link"
+                  href={currentProblem.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={`Open #${currentProblem.number} on LeetCode`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span>{currentProblem.url.includes('leetcode.com') ? 'LeetCode' : 'Reference'}</span>
+                  <ExternalLink size={12} />
+                </a>
 
-                <div className="companies-pills">
-                  {problemData.companies.slice(0, 4).map((c) => (
-                    <span key={c} className="company-tag">
-                      {c}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="problem-external-links-wrap">
+                {currentProblem.neetcodeUrl && (
                   <a
-                    className="leetcode-direct-link"
-                    href={currentProblem.url}
+                    className="neetcode-direct-link social-link"
+                    href={currentProblem.neetcodeUrl}
                     target="_blank"
                     rel="noreferrer"
-                    title={`Open #${currentProblem.number} on LeetCode`}
+                    title={`Open ${currentProblem.title} on NeetCode.io`}
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    <span>{currentProblem.url.includes('leetcode.com') ? 'LeetCode' : (currentProblem.url.includes('takeuforward.org') ? 'Striver DSA' : 'Reference')}</span>
+                    <span>NeetCode</span>
                     <ExternalLink size={12} />
                   </a>
-
-                  {currentProblem.neetcodeUrl && (
-                    <a
-                      className="neetcode-direct-link"
-                      href={currentProblem.neetcodeUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      title={`Open ${currentProblem.title} on NeetCode.io`}
-                    >
-                      <span>NeetCode</span>
-                      <ExternalLink size={12} />
-                    </a>
-                  )}
-                </div>
+                )}
               </div>
             </div>
           </section>
@@ -2350,6 +2563,121 @@ ${code}`
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
               />
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Expandable Bottom Comment Drawer */}
+      {isCommentDrawerOpen && (
+        <div
+          className="social-comment-drawer-backdrop"
+          onClick={() => setIsCommentDrawerOpen(false)}
+        >
+          <div
+            className="social-comment-drawer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Drawer Pull Handle */}
+            <div className="drawer-handle-bar">
+              <div className="drawer-pill-handle" />
+            </div>
+
+            {/* Drawer Header */}
+            <div className="drawer-header">
+              <div className="drawer-title-wrap">
+                <h3 className="drawer-title">Comments & Discussions</h3>
+                <span className="drawer-badge">{commentsList.length}</span>
+              </div>
+              <button
+                type="button"
+                className="drawer-close-btn"
+                onClick={() => setIsCommentDrawerOpen(false)}
+                title="Close drawer"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Drawer Comments List */}
+            <div className="drawer-comments-body">
+              {commentsList.map((c) => (
+                <div key={c.id} className="drawer-comment-item">
+                  <div className="comment-avatar-ring">
+                    <span className="comment-avatar-emoji">{c.avatar}</span>
+                  </div>
+                  <div className="comment-content">
+                    <div className="comment-meta-row">
+                      <span className="comment-user">{c.user}</span>
+                      {c.isVerified && (
+                        <BadgeCheck size={13} className="social-verified-badge" />
+                      )}
+                      <span className="comment-time">{c.time}</span>
+                    </div>
+                    <p className="comment-text">{c.text}</p>
+                    <div className="comment-reply-row">
+                      <button
+                        type="button"
+                        className="comment-reply-btn"
+                        onClick={() => {
+                          setCommentInput(`@${c.user} `)
+                        }}
+                      >
+                        Reply
+                      </button>
+                      <span className="comment-likes-label">
+                        {c.likes > 0 && `${c.likes} ${c.likes === 1 ? 'like' : 'likes'}`}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className={`comment-heart-btn ${c.isLiked ? 'liked' : ''}`}
+                    onClick={() => toggleCommentLike(c.id)}
+                    title={c.isLiked ? 'Unlike' : 'Like'}
+                  >
+                    <Heart
+                      size={14}
+                      fill={c.isLiked ? '#ff3040' : 'none'}
+                      color={c.isLiked ? '#ff3040' : '#8e8e8e'}
+                    />
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Emoji Reactions */}
+            <div className="drawer-quick-emojis">
+              {['❤️', '🔥', '👏', '💡', '🚀', '🧠', '💯'].map((emoji) => (
+                <button
+                  key={emoji}
+                  type="button"
+                  className="quick-emoji-chip"
+                  onClick={() => setCommentInput((prev) => prev + emoji)}
+                >
+                  {emoji}
+                </button>
+              ))}
+            </div>
+
+            {/* Bottom Input Field */}
+            <form className="drawer-input-footer" onSubmit={handleAddComment}>
+              <div className="drawer-input-avatar">👨‍💻</div>
+              <input
+                type="text"
+                className="drawer-text-input"
+                placeholder="Add a comment for @leetmastery..."
+                value={commentInput}
+                onChange={(e) => setCommentInput(e.target.value)}
+                autoFocus
+              />
+              <button
+                type="submit"
+                disabled={!commentInput.trim()}
+                className="drawer-post-btn"
+              >
+                Post
+              </button>
+            </form>
           </div>
         </div>
       )}

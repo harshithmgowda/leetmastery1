@@ -730,8 +730,11 @@ ${code}`
       {/* Top Navigation Bar - LeetCode Inspired */}
       <header className="topbar">
         <div className="brand-lockup">
+          <div className="apple-menu-btn" title="About LeetMastery (Apple System 7)">
+            <span className="apple-glyph"></span>
+          </div>
           <div className="brand-mark">
-            <Zap size={15} strokeWidth={2.8} />
+            <Zap size={14} strokeWidth={2.8} />
           </div>
           <span className="brand-title">
             leet<span className="brand-accent">mastery</span>
@@ -1686,10 +1689,14 @@ ${code}`
               <div className="xcode-window-studio">
                 {/* Xcode Window Header */}
                 <div className="xcode-titlebar">
-                  <div className="mac-traffic-lights">
-                    <span className="traffic-dot close" title="Close" />
-                    <span className="traffic-dot minimize" title="Minimize" />
-                    <span className="traffic-dot maximize" title="Zoom / Expand" />
+                  <div className="mac-traffic-lights" title="System 7 Close Box">
+                    <button
+                      type="button"
+                      className="system7-close-box"
+                      onClick={() => setIsExpanded(false)}
+                      title="Close"
+                      aria-label="Close"
+                    />
                   </div>
 
                   {/* Xcode Breadcrumbs */}
@@ -1732,11 +1739,12 @@ ${code}`
                       A+
                     </button>
                     <button
-                      className="xcode-tool-btn"
+                      className="xcode-tool-btn system7-zoom-btn"
                       onClick={() => setIsExpanded((e) => !e)}
-                      title={isExpanded ? 'Restore View' : 'Expand Fullscreen'}
+                      title={isExpanded ? 'Restore View' : 'Zoom Window'}
+                      aria-label="Zoom Window"
                     >
-                      {isExpanded ? <Minimize2 size={13} /> : <Maximize2 size={13} />}
+                      <span className="system7-zoom-icon" />
                     </button>
                   </div>
                 </div>

@@ -947,27 +947,52 @@ ${code}`
 
         {/* Repository Tabs Nav */}
         <nav className="repo-tabs-nav">
-          <button type="button" className="repo-tab active">
-            <Code2 size={14} />
-            <span>Code</span>
-            <span className="tab-counter">{activeProblemList.length}</span>
-          </button>
-          <button type="button" className="repo-tab" onClick={() => setActiveTab('overview')}>
+          <button
+            type="button"
+            className={`repo-tab ${activeTab === 'overview' ? 'active' : ''}`}
+            onClick={() => setActiveTab('overview')}
+          >
             <BookOpen size={14} />
-            <span>Specification</span>
+            <span>Problem & Intuition</span>
           </button>
-          <button type="button" className="repo-tab" onClick={() => setActiveTab('comparison')}>
+          <button
+            type="button"
+            className={`repo-tab ${activeTab === 'comparison' ? 'active' : ''}`}
+            onClick={() => setActiveTab('comparison')}
+          >
             <GitPullRequest size={14} />
             <span>Diff & Code Review</span>
           </button>
-          <button type="button" className="repo-tab" onClick={() => setActiveTab('walkthrough')}>
+          <button
+            type="button"
+            className={`repo-tab ${activeTab === 'walkthrough' ? 'active' : ''}`}
+            onClick={() => setActiveTab('walkthrough')}
+          >
             <ListChecks size={14} />
-            <span>Invariants</span>
+            <span>Invariants & Trace</span>
           </button>
+          <button
+            type="button"
+            className={`repo-tab ${activeTab === 'edgecases' ? 'active' : ''}`}
+            onClick={() => setActiveTab('edgecases')}
+          >
+            <ShieldAlert size={14} />
+            <span>Edge Cases & Tips</span>
+          </button>
+          {activeSection === 'patterns' && (
+            <button
+              type="button"
+              className={`repo-tab ${activeTab === 'patternBlueprint' ? 'active' : ''}`}
+              onClick={() => setActiveTab('patternBlueprint')}
+            >
+              <Brain size={14} />
+              <span>Pattern Blueprint</span>
+            </button>
+          )}
           {hasVisualizer(currentProblem.number) && (
             <button
               type="button"
-              className="repo-tab visualizer-tab"
+              className={`repo-tab visualizer-tab ${activeTab === 'visualizer' ? 'active' : ''}`}
               onClick={() => setActiveTab('visualizer')}
             >
               <Sparkles size={14} />
@@ -982,27 +1007,29 @@ ${code}`
         {/* Left Sidebar - Problem Explorer */}
         <aside className="sidebar">
           <div className="sidebar-heading">
-            <div className="heading-title">
-              {activeSection === 'core' ? (
-                <Layers size={13} />
-              ) : activeSection === 'imp' ? (
-                <Star size={13} className="star-icon" />
-              ) : activeSection === 'blind75' ? (
-                <Brain size={13} className="blind75-icon" />
-              ) : (
-                <Sparkles size={13} className="pattern-sparkle-icon" />
-              )}
-              <span>
-                {activeSection === 'core'
-                  ? 'Core Patterns'
-                  : activeSection === 'imp'
-                  ? 'DSA in Python'
-                  : activeSection === 'blind75'
-                  ? 'Blind 75'
-                  : 'Pattern Masterclass'} ({activeProblemList.length})
-              </span>
+            <div className="heading-title-row">
+              <div className="heading-title">
+                {activeSection === 'core' ? (
+                  <Layers size={13} />
+                ) : activeSection === 'imp' ? (
+                  <Star size={13} className="star-icon" />
+                ) : activeSection === 'blind75' ? (
+                  <Brain size={13} className="blind75-icon" />
+                ) : (
+                  <Sparkles size={13} className="pattern-sparkle-icon" />
+                )}
+                <span>
+                  {activeSection === 'core'
+                    ? 'Core Patterns'
+                    : activeSection === 'imp'
+                    ? 'DSA in Python'
+                    : activeSection === 'blind75'
+                    ? 'Blind 75'
+                    : 'Pattern Masterclass'}
+                </span>
+              </div>
+              <span className="count-badge">{filteredProblems.length}</span>
             </div>
-            <span className="count-badge">{filteredProblems.length}</span>
           </div>
 
           {/* If in Learn with Pattern mode: Important Questions vs All Questions Toggle */}

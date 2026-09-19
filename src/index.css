@@ -657,27 +657,36 @@ a:hover {
   flex: 1;
   overflow: hidden;
   height: calc(100vh - 108px);
+  width: 100%;
 }
 
 .sidebar {
   width: 320px;
-  min-width: 280px;
-  max-width: 360px;
+  min-width: 320px;
+  max-width: 320px;
   background: var(--git-surface);
   border-right: 1px solid var(--git-border);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   flex-shrink: 0;
+  user-select: none;
 }
 
 .sidebar-heading {
-  padding: 12px;
+  padding: 10px 14px;
   border-bottom: 1px solid var(--git-border);
   background: var(--git-surface);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+}
+
+.heading-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .heading-title {
@@ -686,150 +695,417 @@ a:hover {
   color: var(--git-text);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
-.sidebar-search-box {
-  width: 100%;
+.count-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--git-surface-subtle);
+  border: 1px solid var(--git-border);
+  color: var(--git-text-secondary);
+  padding: 1px 7px;
+  border-radius: 10px;
 }
 
-.sidebar-filter-row {
+/* Pattern Mode Switcher (Important vs All) */
+.pattern-mode-selector-wrap {
   display: flex;
   gap: 6px;
+  padding: 8px 12px 0 12px;
 }
 
-.filter-select-group {
-  display: flex;
-  gap: 6px;
-  width: 100%;
-}
-
-.filter-select {
+.pattern-mode-pill {
   flex: 1;
-  font-size: 12px;
+  font-size: 11px;
   padding: 4px 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--git-border);
+  background: var(--git-canvas);
+  color: var(--git-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pattern-mode-pill:hover {
+  background: var(--git-surface-subtle);
+  color: var(--git-text);
+}
+
+.pattern-mode-pill.active {
+  background: var(--git-surface-subtle);
+  border-color: var(--git-blue);
+  color: var(--git-text);
+  font-weight: 600;
+}
+
+.pattern-mode-pill.important-mode.active {
+  border-color: #d29922;
+  color: var(--git-yellow-text);
+  background: rgba(210, 153, 34, 0.12);
+}
+
+.mode-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 0 5px;
+  border-radius: 8px;
+  background: rgba(110, 118, 129, 0.2);
+  color: var(--git-text-muted);
+}
+
+/* Difficulty Filter Pills */
+.filter-row {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--git-border-subtle);
+}
+
+.filter-pill {
+  flex: 1;
+  padding: 3px 6px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--git-border);
+  background: var(--git-canvas);
+  color: var(--git-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all 0.1s ease;
+}
+
+.filter-pill:hover {
+  background: var(--git-surface-subtle);
+  color: var(--git-text);
+}
+
+.filter-pill.selected {
+  background: var(--git-surface-subtle);
+  color: var(--git-text);
+  font-weight: 600;
+  border-color: #8b949e;
+}
+
+.filter-pill.selected.easy {
+  border-color: var(--git-green);
+  color: var(--git-green-text);
+  background: var(--git-green-subtle);
+}
+
+.filter-pill.selected.medium {
+  border-color: var(--git-yellow);
+  color: var(--git-yellow-text);
+  background: var(--git-yellow-subtle);
+}
+
+.filter-pill.selected.hard {
+  border-color: var(--git-red);
+  color: var(--git-red-text);
+  background: var(--git-red-subtle);
+}
+
+.difficulty-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.filter-pill.easy .difficulty-dot { background: var(--git-green-text); }
+.filter-pill.medium .difficulty-dot { background: var(--git-yellow-text); }
+.filter-pill.hard .difficulty-dot { background: var(--git-red-text); }
+
+/* Custom Topic Selector Dropdown */
+.custom-topic-dropdown-container {
+  position: relative;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--git-border);
+}
+
+.topic-dropdown-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
   background: var(--git-canvas);
   border: 1px solid var(--git-border);
-  color: var(--git-text);
   border-radius: var(--radius-md);
+  color: var(--git-text);
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.1s ease;
 }
 
-/* Category & Problem List */
-.sidebar-list {
-  flex: 1;
+.topic-dropdown-trigger:hover, .topic-dropdown-trigger.open {
+  border-color: #8b949e;
+}
+
+.trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.filter-icon {
+  color: var(--git-text-secondary);
+  flex-shrink: 0;
+}
+
+.selected-topic-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.trigger-chevron {
+  color: var(--git-text-secondary);
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.trigger-chevron.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+}
+
+.topic-dropdown-menu {
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 12px;
+  right: 12px;
+  max-height: 260px;
   overflow-y: auto;
-  padding: 6px 0;
+  background: var(--git-surface);
+  border: 1px solid var(--git-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(1, 4, 9, 0.7);
+  z-index: 999;
+  padding: 4px 0;
 }
 
-.category-group {
-  margin-bottom: 2px;
-}
-
-.category-title {
+.topic-option {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 6px 12px;
+  font-size: 12px;
+  color: var(--git-text);
   background: transparent;
   border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.topic-option:hover {
+  background: var(--git-surface-subtle);
+}
+
+.topic-option.selected {
+  font-weight: 600;
+  color: var(--git-link);
+  background: var(--git-surface-subtle);
+}
+
+.option-check {
+  color: var(--git-green-text);
+}
+
+/* Problem List by Category (Tree View) */
+.library-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.library-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+}
+
+.list-label-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
   color: var(--git-text-secondary);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   text-align: left;
-  border-radius: 0;
+  transition: all 0.1s ease;
 }
 
-.category-title:hover {
+.list-label-button:hover {
   background: var(--git-surface-subtle);
   color: var(--git-text);
 }
 
-.category-problems-list {
-  padding-left: 6px;
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
 }
 
-.problem-item-row {
+.chevron-icon {
+  color: var(--git-text-muted);
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.chevron-icon.open {
+  transform: rotate(0deg);
+}
+
+.chevron-icon:not(.open) {
+  transform: rotate(-90deg);
+}
+
+.category-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--git-text-muted);
+  background: var(--git-surface-subtle);
+  padding: 1px 6px;
+  border-radius: 10px;
+  border: 1px solid var(--git-border-subtle);
+}
+
+.section-problems {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 6px;
+  margin-top: 2px;
+}
+
+.problem-item {
   width: 100%;
-  padding: 6px 10px;
   display: flex;
   align-items: center;
   gap: 8px;
-  background: transparent;
-  border: none;
+  padding: 5px 8px;
   border-radius: var(--radius-md);
   cursor: pointer;
   font-size: 12px;
   color: var(--git-text);
-  text-align: left;
-  margin: 1px 0;
-  transition: background 0.1s ease;
+  border: 1px solid transparent;
+  transition: background 0.1s ease, border-color 0.1s ease;
+  user-select: none;
 }
 
-.problem-item-row:hover {
+.problem-item:hover {
   background: var(--git-surface-subtle);
+  border-color: var(--git-border-subtle);
 }
 
-.problem-item-row.active {
-  background: rgba(56, 139, 253, 0.15);
+.problem-item.active {
+  background: rgba(56, 139, 253, 0.12);
+  border-color: rgba(56, 139, 253, 0.4);
   color: var(--git-blue);
-  font-weight: 600;
+  font-weight: 500;
 }
 
-.problem-check-box {
+.check-box-btn {
   width: 16px;
   height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-width: 16px;
   border: 1px solid var(--git-border);
   border-radius: 3px;
   background: var(--git-canvas);
-  color: var(--git-green-text);
-  flex-shrink: 0;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.1s ease;
 }
 
-.problem-check-box.checked {
-  background: var(--git-green-subtle);
-  border-color: rgba(35, 134, 54, 0.4);
+.check-box-btn:hover {
+  border-color: #8b949e;
+}
+
+.check-box-btn.checked {
+  background: var(--git-green);
+  border-color: var(--git-green);
+  color: #ffffff;
 }
 
 .problem-number {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--git-text-secondary);
+  min-width: 26px;
   flex-shrink: 0;
 }
 
 .problem-item-copy {
   flex: 1;
+  min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   display: flex;
   flex-direction: column;
+  gap: 1px;
 }
 
 .problem-title-text {
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .problem-pattern-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 10px;
+  line-height: 14px;
   color: var(--git-text-muted);
+}
+
+.important-star-pill {
+  font-size: 11px;
+  flex-shrink: 0;
 }
 
 .mini-diff-badge {
   font-size: 10px;
-  font-weight: 600;
-  padding: 1px 5px;
-  border-radius: 10px;
-  flex-shrink: 0;
+  font-weight: 700;
   font-family: var(--font-mono);
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .mini-diff-badge.easy {
@@ -848,6 +1124,13 @@ a:hover {
   color: var(--git-red-text);
   background: var(--git-red-subtle);
   border: 1px solid rgba(218, 54, 51, 0.3);
+}
+
+.empty-list {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--git-text-muted);
+  font-size: 12px;
 }
 
 /* Sidebar Footer & Progress */
@@ -2060,74 +2343,121 @@ a:hover {
 }
 
 /* ============================================================
-   CODE STUDIO (GITHUB FILE BLOB VIEWER)
+   CODE STUDIO (XCODE DARK IDE / DEVELOPER VIEW)
+   Authentic Xcode Dark Theme: #1F2024 canvas, #18191D gutter,
+   Pink #FC5FA3 Keywords, Blue #41A7FC Functions, Cyan #5DD8FF Types,
+   Coral #FC6A5D Strings, Amber #D0BF69 Numbers, Gray #6C7986 Comments
    ============================================================ */
-.code-studio-container {
-  background: var(--git-surface);
+.code-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.xcode-window-studio {
+  background: #1F2024;
   border: 1px solid var(--git-border);
   border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.xcode-window {
-  display: flex;
-  flex-direction: column;
-}
-
-.xcode-window-header {
-  background: var(--git-surface);
-  border-bottom: 1px solid var(--git-border);
+/* Xcode Window Titlebar */
+.xcode-titlebar {
+  background: #25262B;
+  border-bottom: 1px solid #30363d;
   padding: 8px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 8px;
+  min-height: 38px;
+  user-select: none;
 }
 
-.xcode-controls {
+.mac-traffic-lights {
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
 }
 
-.ctrl-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: var(--radius-full);
+.nb-window-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
-.ctrl-dot.red { background: #f85149; }
-.ctrl-dot.yellow { background: #d29922; }
-.ctrl-dot.green { background: #2ea043; }
+.nb-window-dot.red { background: #FF5F56; }
+.nb-window-dot.amber { background: #FFBD2E; }
+.nb-window-dot.green { background: #27C93F; }
 
-.xcode-titlebar-title {
+.xcode-breadcrumbs {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11.5px;
+  color: #8b949e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  padding: 0 8px;
+}
+
+.xcode-breadcrumbs .xcode-icon {
+  color: var(--git-link);
+  flex-shrink: 0;
+}
+
+.xcode-breadcrumbs .crumb {
+  color: #c9d1d9;
+}
+
+.xcode-breadcrumbs .crumb.file-name {
+  color: #58a6ff;
   font-weight: 600;
-  color: var(--git-text);
+}
+
+.xcode-breadcrumbs .crumb.scope {
+  color: #3fb950;
+  font-weight: 600;
+}
+
+.xcode-breadcrumbs .sep {
+  color: #6e7681;
 }
 
 .xcode-quick-actions {
   display: flex;
   align-items: center;
   gap: 4px;
+  flex-shrink: 0;
 }
 
 .xcode-tool-btn {
   font-size: 11px;
-  padding: 2px 6px;
-  background: var(--git-canvas);
+  padding: 2px 7px;
+  background: #1F2024;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-radius: var(--radius-sm);
+  line-height: 18px;
 }
 
+.xcode-tool-btn:hover {
+  background: #2C2D32;
+  color: #ffffff;
+}
+
+/* Xcode Studio Toolbar & Approach Tabs */
 .xcode-toolbar {
-  background: var(--git-canvas);
-  border-bottom: 1px solid var(--git-border);
+  background: #1B1C20;
+  border-bottom: 1px solid #2C2D32;
   padding: 6px 12px;
   display: flex;
   align-items: center;
@@ -2139,8 +2469,8 @@ a:hover {
 .approach-selector {
   display: flex;
   align-items: center;
-  background: var(--git-surface);
-  border: 1px solid var(--git-border);
+  background: #25262B;
+  border: 1px solid #30363d;
   border-radius: var(--radius-md);
   padding: 2px;
   gap: 2px;
@@ -2149,19 +2479,36 @@ a:hover {
 .approach-tab {
   background: transparent;
   border: none;
-  padding: 3px 8px;
-  font-size: 11px;
+  padding: 4px 9px;
+  font-size: 11.5px;
   font-weight: 500;
-  color: var(--git-text-secondary);
+  color: #8b949e;
   border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.1s ease;
 }
 
 .approach-tab:hover {
-  color: var(--git-text);
+  color: #f0f6fc;
 }
 
-.approach-tab.active {
-  background: var(--git-blue);
+.approach-tab.active.optimal {
+  background: var(--git-green);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.approach-tab.active.brute {
+  background: var(--git-red);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.approach-tab.active.better {
+  background: #1f6feb;
   color: #ffffff;
   font-weight: 600;
 }
@@ -2169,10 +2516,9 @@ a:hover {
 .approach-time-pill {
   font-family: var(--font-mono);
   font-size: 10px;
-  padding: 0 4px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.3);
-  margin-left: 4px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .language-selector {
@@ -2182,17 +2528,22 @@ a:hover {
 }
 
 .lang-btn {
-  background: var(--git-surface);
-  border: 1px solid var(--git-border);
+  background: #25262B;
+  border: 1px solid #30363d;
   border-radius: var(--radius-md);
-  padding: 3px 8px;
+  padding: 3px 9px;
   font-size: 11px;
   font-weight: 500;
-  color: var(--git-text-secondary);
+  color: #8b949e;
+}
+
+.lang-btn:hover {
+  color: #f0f6fc;
+  background: #30363d;
 }
 
 .lang-btn.active {
-  background: rgba(56, 139, 253, 0.15);
+  background: rgba(56, 139, 253, 0.2);
   border-color: var(--git-blue);
   color: var(--git-blue);
   font-weight: 600;
@@ -2205,62 +2556,103 @@ a:hover {
   font-size: 11px;
   font-weight: 600;
   padding: 2px 8px;
-  background: var(--git-surface);
-  border: 1px solid var(--git-border);
+  background: #25262B;
+  border: 1px solid #30363d;
   border-radius: 12px;
   color: var(--git-text-secondary);
 }
 
-/* Editor Body */
+/* Xcode Code Editor Body */
 .xcode-editor-body {
   display: flex;
-  min-height: 400px;
-  max-height: 600px;
+  min-height: 440px;
+  max-height: 650px;
   overflow: auto;
-  background: var(--git-canvas);
+  background: #1F2024;
   font-family: var(--font-mono);
-  line-height: 20px;
+  line-height: 22px;
+  border-bottom: 1px solid #2C2D32;
 }
 
 .xcode-gutter {
-  width: 44px;
-  padding: 10px 0;
-  background: var(--git-surface);
-  border-right: 1px solid var(--git-border);
-  color: var(--git-text-muted);
+  width: 46px;
+  min-width: 46px;
+  padding: 12px 0;
+  background: #18191D;
+  border-right: 1px solid #2C2D32;
+  color: #63676D;
   text-align: right;
   user-select: none;
   flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
 }
 
 .gutter-line-number {
   padding-right: 10px;
   font-size: 11.5px;
+  line-height: 22px;
 }
 
 .xcode-code-pane {
   flex: 1;
-  padding: 10px 14px;
+  padding: 12px 16px;
   overflow-x: auto;
+  color: #DFDFE0;
 }
 
 .xcode-code-line {
   white-space: pre;
   font-size: 12.5px;
+  line-height: 22px;
+  font-family: var(--font-mono);
 }
 
-/* Dark Git Syntax Highlighting */
-.hl-kw { color: #ff7b72; font-weight: 600; }
-.hl-fn { color: #d2a8ff; font-weight: 600; }
-.hl-str { color: #a5d6ff; }
-.hl-num { color: #79c0ff; }
-.hl-comment { color: #8b949e; font-style: italic; }
-.hl-type { color: #ffa657; }
+/* ============================================================
+   AUTHENTIC XCODE DARK IDE SYNTAX HIGHLIGHTING COLORS
+   Xcode Dark Theme: Pink/Magenta Keywords, Blue Functions,
+   Cyan Types, Coral Strings, Amber Numbers, Slate Comments
+   ============================================================ */
+.xcode-keyword {
+  color: #FC5FA3 !important;
+  font-weight: 600;
+}
 
-/* Action Bar */
+.xcode-function {
+  color: #41A7FC !important;
+  font-weight: 500;
+}
+
+.xcode-type {
+  color: #5DD8FF !important;
+  font-weight: 600;
+}
+
+.xcode-string {
+  color: #FC6A5D !important;
+}
+
+.xcode-number {
+  color: #D0BF69 !important;
+}
+
+.xcode-comment {
+  color: #6C7986 !important;
+  font-style: italic;
+}
+
+/* Backward compatibility fallbacks */
+.hl-kw { color: #FC5FA3 !important; font-weight: 600; }
+.hl-fn { color: #41A7FC !important; font-weight: 500; }
+.hl-str { color: #FC6A5D !important; }
+.hl-num { color: #D0BF69 !important; }
+.hl-comment { color: #6C7986 !important; font-style: italic; }
+.hl-type { color: #5DD8FF !important; font-weight: 600; }
+
+/* Xcode Action Bar */
 .xcode-action-bar {
-  background: var(--git-surface);
-  border-top: 1px solid var(--git-border);
+  background: #25262B;
+  border-top: 1px solid #30363d;
   padding: 8px 12px;
   display: flex;
   align-items: center;
@@ -2293,9 +2685,21 @@ a:hover {
 }
 
 .xcode-ai-btn, .xcode-tutor-btn, .xcode-visualizer-btn, .xcode-copy-btn {
-  background: var(--git-surface-subtle);
-  border: 1px solid var(--git-border);
-  font-size: 11px;
+  background: #1F2024;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  font-size: 11.5px;
+  padding: 4px 10px;
+}
+
+.xcode-ai-btn:hover, .xcode-tutor-btn:hover, .xcode-visualizer-btn:hover, .xcode-copy-btn:hover {
+  background: #2C2D32;
+  color: #ffffff;
+  border-color: #8b949e;
+}
+
+.sparkle-gold {
+  color: #d29922;
 }
 
 .xcode-btn-badge {
@@ -2305,67 +2709,96 @@ a:hover {
   padding: 0 4px;
   border-radius: 6px;
   margin-left: 4px;
+  font-weight: 600;
 }
 
 .approach-complexity-summary {
   font-size: 11px;
   font-family: var(--font-mono);
   color: var(--git-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .approach-complexity-summary strong {
   color: var(--git-text);
 }
 
-/* Console Logs */
-.xcode-console {
-  background: var(--git-canvas);
-  border-top: 1px solid var(--git-border);
-  display: flex;
-  flex-direction: column;
+.summary-dot {
+  color: var(--git-text-muted);
 }
 
-.console-header {
-  background: var(--git-surface);
-  border-bottom: 1px solid var(--git-border);
-  padding: 4px 12px;
+/* Test Simulation Results Drawer */
+.test-results-drawer {
+  background: #161b22;
+  border-top: 1px solid #30363d;
+  padding: 10px 14px;
+}
+
+.results-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 6px;
 }
 
-.console-tab {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--git-text-secondary);
+.results-title {
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.console-body {
-  padding: 10px 14px;
-  background: #010409;
-  color: #c9d1d9;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  max-height: 160px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.console-log-line {
-  line-height: 1.5;
-}
-
-.console-log-line.pass {
+  font-size: 12px;
+  font-weight: 600;
   color: #3fb950;
 }
 
-.console-log-line.info {
-  color: #58a6ff;
+.accepted-badge {
+  background: rgba(35, 134, 54, 0.2);
+  border: 1px solid rgba(35, 134, 54, 0.4);
+  color: #3fb950;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.results-body {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: #8b949e;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.test-log-line {
+  line-height: 1.5;
+}
+
+/* Xcode Status Bar */
+.xcode-statusbar {
+  background: #18191D;
+  border-top: 1px solid #2C2D32;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #8b949e;
+  user-select: none;
+}
+
+.status-segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-segment.right {
+  margin-left: auto;
+  color: #3fb950;
+  font-weight: 600;
 }
 
 /* ============================================================

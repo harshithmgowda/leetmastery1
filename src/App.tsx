@@ -513,12 +513,19 @@ function App() {
   const [branchSearchQuery, setBranchSearchQuery] = useState('')
   const [reviewStatus, setReviewStatus] = useState<'approved' | 'changes_requested' | 'idle'>('approved')
 
-  const BRANCHES = [
+  interface BranchItem {
+    id: 'core' | 'patterns' | 'imp' | 'blind75'
+    name: string
+    desc: string
+    default?: boolean
+  }
+
+  const BRANCHES: BranchItem[] = [
     { id: 'core', name: 'main', desc: 'Core 100+ LeetCode Patterns & Classic Problems', default: true },
     { id: 'patterns', name: 'feature/learn-with-patterns', desc: 'Pattern-by-pattern progression with Python blueprints' },
     { id: 'imp', name: 'feature/dsa-python-78', desc: 'Striver & Top 78 DSA interview questions' },
     { id: 'blind75', name: 'feature/neetcode-blind-75', desc: 'NeetCode / Blind 75 Curated interview track' },
-  ] as const
+  ]
 
   const currentBranch = useMemo(() => {
     return BRANCHES.find((b) => b.id === activeSection) ?? BRANCHES[0]
